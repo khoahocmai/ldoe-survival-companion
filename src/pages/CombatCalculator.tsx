@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Calculator, RotateCcw, Target } from 'lucide-react';
+import { Calculator, RotateCcw, Target, Wrench } from 'lucide-react';
 import { useGameData } from '../context/DataContext';
 import { calculateCombat, compareWeapons } from '../lib/calculators/combatCalculator';
 import { Badge } from '../components/common/Badge';
@@ -29,6 +29,7 @@ export const CombatCalculator: React.FC = () => {
     const enemyParam = searchParams.get('enemy');
     const weaponParam = searchParams.get('weapon');
     const countParam = Number(searchParams.get('count'));
+    const customDamageParam = Number(searchParams.get('customDamage'));
 
     setEnemyId((current) =>
       enemyParam && db.enemiesMap.has(enemyParam) ? enemyParam : db.enemiesMap.has(current) ? current : enemies[0]?.id ?? ''
@@ -41,6 +42,7 @@ export const CombatCalculator: React.FC = () => {
           : weaponsList[0]?.id ?? ''
     );
     if (Number.isFinite(countParam) && countParam >= 1) setTargetKillCount(Math.floor(countParam));
+    if (Number.isFinite(customDamageParam) && customDamageParam > 0) setCustomDamage(customDamageParam);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, db]);
 
@@ -130,6 +132,17 @@ export const CombatCalculator: React.FC = () => {
 
           <Card className="space-y-4">
             <Section title="Vũ khí">
+              {(db?.weaponModsByWeaponIdMap.get(weaponId)?.length ?? 0) > 0 && (
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-xs text-muted">Có sẵn bản độ</span>
+                  <Link
+                    to={`/wiki/weapon-mods?weapon=${weaponId}`}
+                    className="flex items-center gap-1 text-xs text-accent hover:underline font-medium"
+                  >
+                    <Wrench className="h-3 w-3" /> Bàn độ vũ khí ({db?.weaponModsByWeaponIdMap.get(weaponId)?.length} mod)
+                  </Link>
+                </div>
+              )}
               <Field label="Vũ khí sử dụng">
                 <Select value={weaponId} onChange={(e) => (setWeaponId(e.target.value), remember('weapon', e.target.value))}>
                   {weaponsList.map((w) => (

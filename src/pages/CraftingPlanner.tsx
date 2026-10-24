@@ -49,6 +49,28 @@ export const CraftingPlanner: React.FC = () => {
   const [tab, setTab] = useState<PlannerTab>('materials');
   const [checked, setChecked] = useState<Record<string, boolean>>({});
 
+  const materialsParam = searchParams.get('materials');
+  const planTitleParam = searchParams.get('title') || 'Danh sách nguyên liệu gom đồ';
+
+  const customMaterialsList = useMemo(() => {
+    if (!materialsParam || !db) return null;
+    try {
+      return materialsParam.split(',').map((part) => {
+        const [itemId, qtyStr] = part.split(':');
+        const qty = Math.max(1, parseInt(qtyStr, 10) || 1);
+        const item = db.itemsMap.get(itemId);
+        return {
+          itemId,
+          itemName: item?.name || itemId,
+          vietnameseName: item?.vietnameseName,
+          required: qty,
+        };
+      });
+    } catch {
+      return null;
+    }
+  }, [materialsParam, db]);
+
   useEffect(() => {
     if (!db) return;
     const itemParam = searchParams.get('item');
@@ -91,18 +113,40 @@ export const CraftingPlanner: React.FC = () => {
     });
   }, [db, targetItemId, quantity, inventory]);
 
-  const buff = db?.recipesByOutputMap.get(targetItemId)?.[0]?.buffStats;
-  const missingCount = plan?.totalRawMaterials.filter((m) => !m.isSatisfied).length ?? 0;
-  const hasInventory = Object.values(inventory).some((v) => v > 0);
+  const customRawMaterials = useMemo(() => {
+    if (!customMaterialsList) return null;
+    return customMaterialsList.map((m) => {
+      const current = inventory[m.itemId] || 0;
+      const missing = Math.max(0, m.required - current);
+      return {
+        itemId: m.itemId,
+        itemName: m.vietnameseName ? `${m.itemName} (${m.vietnameseName})` : m.itemName,
+        required: m.required,
+        usedFromInventory: Math.min(current, m.required),
+        missing,
+        isSatisfied: current >= m.required,
+      };
+    });
+  }, [customMaterialsList, inventory]);
 
-  const tabs = plan
+  const activeRawMaterials = customRawMaterials ?? plan?.totalRawMaterials ?? [];
+  const missingCount = activeRawMaterials.filter((m) => !m.isSatisfied).length;
+  const hasInventory = Object.values(inventory).some((v) => v > 0);
+  const buff = db?.recipesByOutputMap.get(targetItemId)?.[0]?.buffStats;
+
+  const tabs = customMaterialsList
     ? [
-        { id: 'materials', label: 'Nguyên liệu', count: plan.totalRawMaterials.length },
-        { id: 'steps', label: 'Các bước chế', count: plan.intermediateSteps.length },
+        { id: 'materials', label: 'Nguyên liệu', count: activeRawMaterials.length },
         { id: 'checklist', label: 'Checklist' },
-        { id: 'tree', label: 'Cây công thức' },
       ]
-    : [];
+    : plan
+      ? [
+          { id: 'materials', label: 'Nguyên liệu', count: plan.totalRawMaterials.length },
+          { id: 'steps', label: 'Các bước chế', count: plan.intermediateSteps.length },
+          { id: 'checklist', label: 'Checklist' },
+          { id: 'tree', label: 'Cây công thức' },
+        ]
+      : [];
 
   return (
     <div>
@@ -112,73 +156,97 @@ export const CraftingPlanner: React.FC = () => {
         icon={<Layers />}
       />
 
-      <Card className="mb-6 space-y-4">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-          <Field label="Cần chế tạo" className="md:col-span-8">
-            <Select value={targetItemId} onChange={(e) => changeItem(e.target.value)}>
-              {craftableItems.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                  {item.vietnameseName ? ` — ${item.vietnameseName}` : ''}
-                </option>
-              ))}
-            </Select>
-          </Field>
-          <div className="md:col-span-4">
-            <span className="mb-1.5 block text-xs font-medium text-muted">Số lượng</span>
-            <div className="flex items-center gap-1.5">
-              <IconButton label="Giảm" className="border border-line" onClick={() => changeQuantity(quantity - 1)}>
-                <Minus />
-              </IconButton>
-              <NumberInput
-                aria-label="Số lượng"
-                min={1}
-                max={999}
-                value={quantity}
-                onValueChange={changeQuantity}
-                className="w-20 text-center font-semibold"
-              />
-              <IconButton label="Tăng" className="border border-line" onClick={() => changeQuantity(quantity + 1)}>
-                <Plus />
-              </IconButton>
-              <div className="ml-auto flex gap-1">
-                {[5, 10, 20].map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    onClick={() => changeQuantity(n)}
-                    className="num h-9 rounded-lg bg-subtle px-2.5 text-xs text-muted hover:text-fg"
-                  >
-                    {n}
-                  </button>
+      {customMaterialsList && (
+        <Card className="mb-6 space-y-3 border-accent bg-accent-soft/30">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-accent">Gom đồ bản độ vũ khí</span>
+              <h2 className="text-base font-bold text-fg">{planTitleParam}</h2>
+              <p className="text-xs text-muted">Danh sách {customMaterialsList.length} loại nguyên liệu đã gom từ Gunsmith Bench.</p>
+            </div>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => setSearchParams({ item: targetItemId || craftableItems[0]?.id || '' }, { replace: true })}
+            >
+              Chế tạo theo cây công thức
+            </Button>
+          </div>
+        </Card>
+      )}
+
+      {!customMaterialsList && (
+        <Card className="mb-6 space-y-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+            <Field label="Cần chế tạo" className="md:col-span-8">
+              <Select value={targetItemId} onChange={(e) => changeItem(e.target.value)}>
+                {craftableItems.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.name}
+                    {item.vietnameseName ? ` — ${item.vietnameseName}` : ''}
+                  </option>
                 ))}
+              </Select>
+            </Field>
+            <div className="md:col-span-4">
+              <span className="mb-1.5 block text-xs font-medium text-muted">Số lượng</span>
+              <div className="flex items-center gap-1.5">
+                <IconButton label="Giảm" className="border border-line" onClick={() => changeQuantity(quantity - 1)}>
+                  <Minus />
+                </IconButton>
+                <NumberInput
+                  aria-label="Số lượng"
+                  min={1}
+                  max={999}
+                  value={quantity}
+                  onValueChange={changeQuantity}
+                  className="w-20 text-center font-semibold"
+                />
+                <IconButton label="Tăng" className="border border-line" onClick={() => changeQuantity(quantity + 1)}>
+                  <Plus />
+                </IconButton>
+                <div className="ml-auto flex gap-1">
+                  {[5, 10, 20].map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      onClick={() => changeQuantity(n)}
+                      className="num h-9 rounded-lg bg-subtle px-2.5 text-xs text-muted hover:text-fg"
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {buff && (
-          <Callout tone="accent" icon={<Sparkles />}>
-            <strong>{buff.buffEffect || 'Tăng chỉ số'}</strong>
-            {buff.durationSeconds ? ` · ${Math.round(buff.durationSeconds / 60)} phút` : ''}
-            {buff.hunger ? ` · No +${buff.hunger}` : ''}
-            {buff.thirst ? ` · Khát +${buff.thirst}` : ''}
-            {buff.healHp ? ` · Hồi ${buff.healHp} HP` : ''}
-          </Callout>
-        )}
-      </Card>
+          {buff && (
+            <Callout tone="accent" icon={<Sparkles />}>
+              <strong>{buff.buffEffect || 'Tăng chỉ số'}</strong>
+              {buff.durationSeconds ? ` · ${Math.round(buff.durationSeconds / 60)} phút` : ''}
+              {buff.hunger ? ` · No +${buff.hunger}` : ''}
+              {buff.thirst ? ` · Khát +${buff.thirst}` : ''}
+              {buff.healHp ? ` · Hồi ${buff.healHp} HP` : ''}
+            </Callout>
+          )}
+        </Card>
+      )}
 
-      {!plan || !plan.tree ? (
+      {!customMaterialsList && (!plan || !plan.tree) ? (
         <EmptyState icon={<Layers />} title="Chọn vật phẩm để bắt đầu" />
       ) : (
         <div className="space-y-4">
           <StatGrid cols={3}>
-            <Stat label="Nguyên liệu thô" value={plan.totalRawMaterials.length} unit="loại" />
+            <Stat label="Nguyên liệu thô" value={activeRawMaterials.length} unit="loại" />
             <Stat label="Còn thiếu" value={missingCount} unit="loại" tone={missingCount ? 'danger' : 'ok'} />
-            <Stat label="Lượt chế" value={plan.intermediateSteps.reduce((sum, s) => sum + s.craftCount, 0)} />
+            <Stat
+              label="Lượt chế"
+              value={customMaterialsList ? 0 : plan?.intermediateSteps.reduce((sum, s) => sum + s.craftCount, 0) ?? 0}
+            />
           </StatGrid>
 
-          {plan.hasCircularDependency && (
+          {!customMaterialsList && plan?.hasCircularDependency && (
             <Callout tone="warn">Công thức có vòng lặp: một số nguyên liệu được tính như nguyên liệu thô.</Callout>
           )}
 
@@ -205,7 +273,7 @@ export const CraftingPlanner: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-line">
-                    {plan.totalRawMaterials.map((mat) => (
+                    {activeRawMaterials.map((mat) => (
                       <tr key={mat.itemId}>
                         <td className="px-4 py-2.5 font-medium">{mat.itemName}</td>
                         <td className="num px-2 py-2.5 text-right font-semibold">{mat.required}</td>
@@ -273,7 +341,7 @@ export const CraftingPlanner: React.FC = () => {
             <Card padded={false}>
               <p className="px-4 pt-4 text-xs text-muted">Đánh dấu nguyên liệu bạn đã gom đủ khi đi farm.</p>
               <ul className="mt-3 divide-y divide-line border-t border-line">
-                {plan.totalRawMaterials.map((mat) => {
+                {activeRawMaterials.map((mat) => {
                   const done = checked[mat.itemId] || mat.isSatisfied;
                   return (
                     <li key={mat.itemId}>

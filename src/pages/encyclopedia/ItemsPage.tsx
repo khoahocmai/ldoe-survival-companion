@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calculator, Layers, Sword } from 'lucide-react';
+import { Calculator, Layers, Sword, Wrench } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
 import { Item, ItemCategory } from '../../types';
 import { Badge } from '../../components/common/Badge';
@@ -157,15 +157,26 @@ export const ItemsPage: React.FC = () => {
                       <Stat label="Độ bền" value={item.weaponStats.durability} unit="đòn" />
                       <Stat label="Đánh lén" value={`×${item.weaponStats.sneakMultiplier ?? (item.weaponStats.isFirearm ? 1 : 3)}`} />
                     </StatGrid>
-                    <Button
-                      variant="soft"
-                      block
-                      className="mt-3"
-                      icon={<Calculator />}
-                      onClick={() => navigate(`/combat?weapon=${item.id}`)}
-                    >
-                      Tính hạ quái bằng vũ khí này
-                    </Button>
+                    <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                      <Button
+                        variant="soft"
+                        className="flex-1"
+                        icon={<Calculator />}
+                        onClick={() => navigate(`/combat?weapon=${item.id}`)}
+                      >
+                        Tính hạ quái bằng vũ khí này
+                      </Button>
+                      {(db.weaponModsByWeaponIdMap?.get(item.id)?.length ?? 0) > 0 && (
+                        <Button
+                          variant="secondary"
+                          className="flex-1"
+                          icon={<Wrench />}
+                          onClick={() => navigate(`/wiki/weapon-mods?weapon=${item.id}`)}
+                        >
+                          Độ vũ khí này ({db.weaponModsByWeaponIdMap.get(item.id)?.length} bản mod)
+                        </Button>
+                      )}
+                    </div>
                   </Section>
                 )}
 
