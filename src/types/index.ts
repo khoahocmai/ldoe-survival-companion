@@ -218,6 +218,33 @@ export interface ReferenceSource {
   description?: string;
 }
 
+export type WeaponModSlot = 'blade' | 'handle' | 'muzzle' | 'magazine' | 'sight' | 'grip' | 'stock';
+
+export interface WeaponModStatBonus {
+  damage?: number; // Sát thương cộng thêm (vd: +4)
+  attackSpeed?: number; // Tốc đánh thay đổi (vd: +0.08 hoặc -0.05)
+  critChance?: number; // Tỉ lệ chí mạng (vd: +10%)
+  critDamage?: number; // Sát thương chí mạng (vd: +15%)
+  durability?: number; // Độ bền cộng thêm (vd: +20 đòn)
+  stability?: number; // Độ ổn định/giảm giật (cho súng)
+  noise?: number; // Tăng/giảm độ ồn (cho súng/raiding)
+  range?: number; // Tầm bắn
+}
+
+export interface WeaponMod extends EntityMetadata {
+  id: string;
+  weaponId: string;
+  slot: WeaponModSlot;
+  name: string;
+  vietnameseName: string;
+  rarity: 'common' | 'rare' | 'extremely_rare';
+  stats: WeaponModStatBonus;
+  activeSkill?: string;
+  materials: { itemId: string; quantity: number }[];
+  obtainDescription?: string;
+  description?: string;
+}
+
 export interface WikiOverrides {
   customItems: Item[];
   customEnemies: Enemy[];
@@ -227,6 +254,7 @@ export interface WikiOverrides {
   customLocationStructures: LocationStructure[];
   customPointSystems: PointSystem[];
   customEnemyPointRules: EnemyPointRule[];
+  customWeaponMods: WeaponMod[];
   hiddenEntityIds: string[];
 }
 
@@ -253,6 +281,7 @@ export interface GameDatabase {
   locationStructures: LocationStructure[];
   pointSystems: PointSystem[];
   enemyPointRules: EnemyPointRule[];
+  weaponMods: WeaponMod[];
 
   itemsMap: Map<string, Item>;
   enemiesMap: Map<string, Enemy>;
@@ -263,6 +292,8 @@ export interface GameDatabase {
   locationStructuresMap: Map<string, LocationStructure>;
   pointSystemsMap: Map<string, PointSystem>;
   enemyPointRulesMap: Map<string, EnemyPointRule>;
+  weaponModsMap: Map<string, WeaponMod>;
+  weaponModsByWeaponIdMap: Map<string, WeaponMod[]>;
 
   isLoading: boolean;
   error: string | null;

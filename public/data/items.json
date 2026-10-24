@@ -114,9 +114,9 @@
     }
   },
   {
-    "id": "pipe",
-    "name": "Pipe",
-    "vietnameseName": "Ống sắt",
+    "id": "metal_pipe",
+    "name": "Metal Pipe",
+    "vietnameseName": "Ống kim loại",
     "description": "Ống kim loại chắc chắn với sát thương ổn định, thường tìm thấy trong hòm hoặc sự kiện.",
     "category": "weapon_melee",
     "rarity": "rare",
@@ -724,6 +724,60 @@
     "description": "20 vé xanh đổi được Rương tiếp tế chứa tài nguyên và vũ khí nhẹ.",
     "category": "special",
     "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "factory_parts",
+    "name": "Factory Parts",
+    "vietnameseName": "Bộ phận cơ khí vũ khí",
+    "description": "Linh kiện quan trọng chế tạo và độ súng ở Gunsmith Bench. Thu thập bằng cách rã súng ở Recycler hoặc rương PD/Bunker.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20
+  },
+  {
+    "id": "carbon_composite",
+    "name": "Carbon Composite",
+    "vietnameseName": "Sợi carbon tổng hợp",
+    "description": "Vật liệu siêu bền dùng cho các bản độ súng cao cấp tím. Thu thập tại Blackport PD hoặc rã vũ khí công nghệ cao.",
+    "category": "component",
+    "rarity": "epic",
+    "stackSize": 20
+  },
+  {
+    "id": "spring",
+    "name": "Spring",
+    "vietnameseName": "Lò xo vũ khí",
+    "description": "Lò xo đàn hồi dùng trong cơ chế nạp đạn và giảm giật của súng. Kiếm được khi rã súng hoặc rương đồ quân sự.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "hi_tech_component",
+    "name": "Hi-Tech Component",
+    "vietnameseName": "Linh kiện công nghệ cao",
+    "description": "Mạch vi xử lý hiện đại cần cho các ống ngắm điện tử và mod súng tiên tiến.",
+    "category": "component",
+    "rarity": "epic",
+    "stackSize": 20
+  },
+  {
+    "id": "oil",
+    "name": "Gun Oil",
+    "vietnameseName": "Dầu bảo dưỡng súng",
+    "description": "Dầu bôi trơn chuyên dụng chống kẹt đạn và nâng cao độ bền các chi tiết súng.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20
+  },
+  {
+    "id": "lens",
+    "name": "Lens",
+    "vietnameseName": "Thấu kính quang học",
+    "description": "Thấu kính chuẩn xác cao dùng để chế tạo kính ngắm Red Dot và ống ngắm bắn tỉa.",
+    "category": "component",
+    "rarity": "rare",
     "stackSize": 20
   }
 ]
