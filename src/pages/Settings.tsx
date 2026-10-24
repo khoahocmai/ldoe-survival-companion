@@ -3,7 +3,6 @@ import {
   Archive,
   Download,
   ExternalLink,
-  Laptop,
   Moon,
   Pencil,
   Plus,
@@ -26,7 +25,6 @@ import { Callout, PageHeader, Section, Stat, StatGrid } from '../components/comm
 const THEMES: Array<{ id: ThemeMode; label: string; icon: React.ReactNode }> = [
   { id: 'dark', label: 'Tối', icon: <Moon /> },
   { id: 'light', label: 'Sáng', icon: <Sun /> },
-  { id: 'system', label: 'Theo hệ thống', icon: <Laptop /> },
 ];
 
 const download = (content: string, filename: string) => {
@@ -146,7 +144,7 @@ export const Settings: React.FC = () => {
       <div className="space-y-6">
         <Card>
           <Section title="Giao diện">
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {THEMES.map((t) => (
                 <button
                   key={t.id}

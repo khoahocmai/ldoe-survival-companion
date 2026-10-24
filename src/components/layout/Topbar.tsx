@@ -1,5 +1,5 @@
 import React from 'react';
-import { Laptop, Menu, Moon, PanelLeftClose, PanelLeftOpen, Search, Sun } from 'lucide-react';
+import { Menu, Moon, PanelLeftClose, PanelLeftOpen, Search, Sun } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { IconButton } from '../common/Button';
 
@@ -10,12 +10,9 @@ interface TopbarProps {
   onToggleSidebar: () => void;
 }
 
-const NEXT_THEME = { dark: 'light', light: 'system', system: 'dark' } as const;
-const THEME_LABEL = { dark: 'Tối', light: 'Sáng', system: 'Theo hệ thống' } as const;
-
 export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch, isSidebarCollapsed, onToggleSidebar }) => {
-  const { theme, setTheme } = useTheme();
-  const ThemeIcon = theme === 'system' ? Laptop : theme === 'dark' ? Moon : Sun;
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
     <header className="flex h-12 shrink-0 items-center gap-2 border-b border-line bg-surface px-3">
@@ -44,11 +41,8 @@ export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch, 
       </button>
 
       <div className="ml-auto">
-        <IconButton
-          label={`Giao diện: ${THEME_LABEL[theme]} (bấm để đổi)`}
-          onClick={() => setTheme(NEXT_THEME[theme])}
-        >
-          <ThemeIcon />
+        <IconButton label={isDark ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối'} onClick={toggleTheme}>
+          {isDark ? <Sun /> : <Moon />}
         </IconButton>
       </div>
     </header>

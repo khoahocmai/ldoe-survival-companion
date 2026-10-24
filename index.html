@@ -13,6 +13,7 @@
           if (stored === 'light') {
             isDark = false;
           } else if (stored === 'system') {
+            // Older versions offered 'system'; it is now resolved once to the OS preference.
             isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           }
           if (isDark) {

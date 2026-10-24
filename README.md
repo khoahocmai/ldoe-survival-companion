@@ -9,7 +9,7 @@ Bách khoa toàn thư tra cứu dữ liệu và bộ máy tính tác chiến th�
 ## 1. Công nghệ sử dụng (Tech Stack)
 
 - **Framework**: React 18 + TypeScript + Vite 6
-- **Giao diện & Theme**: Tailwind CSS với design token ngữ nghĩa (`bg-surface`, `text-muted`, `border-line`, `accent`...) định nghĩa một lần bằng CSS variables trong `src/index.css`, nên Light / Dark / System dùng chung một bộ class, không lặp `dark:` ở từng component. Có script chống chớp nháy (no flash) trong `<head>`.
+- **Giao diện & Theme**: Tailwind CSS với design token ngữ nghĩa (`bg-surface`, `text-muted`, `border-line`, `accent`...) định nghĩa một lần bằng CSS variables trong `src/index.css`, nên Light / Dark dùng chung một bộ class, không lặp `dark:` ở từng component. Có script chống chớp nháy (no flash) trong `<head>`.
 - **Định tuyến (Routing)**: React Router v6 (`HashRouter` an toàn cho hosting tĩnh, root route tự động điều hướng vào `/wiki/items`).
 - **Icons**: Lucide React
 - **Bộ máy tính & Kiểm thử**: 4 Calculation Engines độc lập (TDD) được kiểm thử tự động bằng **Vitest 2** (41 test, chạy bằng `npm run test`).
@@ -52,7 +52,7 @@ Mọi danh mục dữ liệu đều hỗ trợ tra cứu, tìm kiếm nhanh (Ctr
    - Tạo danh sách checklist gom đồ tiện lợi khi đi farm.
 
 ### C. Cài đặt & Danh bạ Nguồn tham khảo (`/settings`)
-- **Theme Switcher**: Chọn chế độ Sáng (Light), Tối (Dark) hoặc Theo hệ thống (System).
+- **Theme Switcher**: Chọn chế độ Sáng (Light) hoặc Tối (Dark); nút đổi nhanh nằm ở thanh trên cùng.
 - **Danh bạ Nguồn tham khảo**: Danh mục các liên kết website chính thống được kiểm duyệt (Kefir Devblog, Kefir Helpshift, Fandom Wiki), cho phép thêm/sửa/xóa liên kết.
 - **Quản lý dữ liệu**: Xuất tệp JSON cơ sở dữ liệu đã hợp nhất, Nhập tệp JSON với cơ chế kiểm tra schema & xem trước số lượng thực thể, hoặc Đặt lại về mặc định.
 - **Bảo toàn dữ liệu cũ**: Tự động phát hiện và cung cấp nút xuất bản sao lưu dữ liệu cá nhân cũ (kho đồ, mục tiêu) nếu phát hiện trong trình duyệt.
@@ -93,7 +93,7 @@ src/
 │   ├── layout/              # AppLayout, Topbar, Sidebar, MobileNav, GlobalSearchModal, navigation.ts (menu dùng chung)
 │   └── wiki/                # WikiPage (khung chung của 5 trang bách khoa), CompactWikiCard, panel chi tiết
 ├── context/
-│   ├── ThemeContext.tsx     # Quản lý theme 'light' | 'dark' | 'system'
+│   ├── ThemeContext.tsx     # Quản lý theme 'light' | 'dark'
 │   └── DataContext.tsx      # Quản lý nạp và hợp nhất cơ sở dữ liệu game
 ├── lib/
 │   └── calculators/         # Bộ máy tính độc lập kèm test suites Vitest

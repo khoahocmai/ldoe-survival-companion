@@ -259,13 +259,13 @@ export interface WikiOverrides {
 }
 
 export interface AppSettings {
-  theme: 'light' | 'dark' | 'system';
+  theme: 'light' | 'dark';
   language: 'vi';
 }
 
 export interface AppStorageSchema {
   version: number;
-  theme: 'light' | 'dark' | 'system';
+  theme: 'light' | 'dark';
   settings: AppSettings;
   overrides: WikiOverrides;
   referenceSources: ReferenceSource[];
