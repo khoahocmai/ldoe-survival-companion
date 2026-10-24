@@ -1,0 +1,192 @@
+[
+  {
+    "id": "quest_act1_ch1",
+    "title": "Act 1: First Shelter",
+    "vietnameseTitle": "Hồi 1: Nơi trú ẩn đầu tiên",
+    "category": "survivors_path",
+    "chapter": "Chương 1",
+    "description": "Thức tỉnh trong thế giới tận thế đổ nát. Hãy nhanh chóng dựng căn nhà 3x3 và trang bị vũ khí đầu tiên để bảo vệ bản thân.",
+    "steps": [
+      {
+        "id": "step_1_gather_wood",
+        "text": "Thu thập 15 Khúc gỗ thông (Pine Log)",
+        "requiredItemId": "pine_log",
+        "requiredQuantity": 15
+      },
+      {
+        "id": "step_2_craft_spear",
+        "text": "Chế tạo 1 Ngọn giáo (Spear) để tự vệ",
+        "requiredItemId": "spear",
+        "requiredQuantity": 1
+      },
+      {
+        "id": "step_3_build_floor",
+        "text": "Xây dựng 4 ô nền sàn gỗ cơ bản tại căn cứ"
+      },
+      {
+        "id": "step_4_craft_box",
+        "text": "Chế tạo 1 Hòm nhỏ (Small Box) để cất giữ đồ đạc"
+      }
+    ],
+    "rewards": [
+      { "itemId": "pine_log", "quantity": 20 },
+      { "itemId": "bandage", "quantity": 5 }
+    ],
+    "verificationStatus": "verified",
+    "source": "In-game Survivor's Path Questline",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "quest_act1_ch2",
+    "title": "Act 1: Gathering Resources",
+    "vietnameseTitle": "Hồi 1: Khai thác tài nguyên",
+    "category": "survivors_path",
+    "chapter": "Chương 2",
+    "description": "Rời khỏi căn cứ đến Bụi thông xanh để thu thập thêm tài nguyên, sợi dệt và thức ăn.",
+    "prerequisites": ["quest_act1_ch1"],
+    "steps": [
+      {
+        "id": "step_2_visit_pine_bushes",
+        "text": "Di chuyển đến khu vực Pine Bushes (Bụi thông xanh)"
+      },
+      {
+        "id": "step_2_kill_roamers",
+        "text": "Tiêu diệt 5 Zombie lang thang (Roamer)"
+      },
+      {
+        "id": "step_2_gather_fiber",
+        "text": "Thu thập 20 Sợi thực vật (Plant Fiber)",
+        "requiredItemId": "plant_fiber",
+        "requiredQuantity": 20
+      },
+      {
+        "id": "step_2_craft_bandage",
+        "text": "Chế tạo 3 Băng gạc (Bandage) để dự phòng thương tích",
+        "requiredItemId": "bandage",
+        "requiredQuantity": 3
+      }
+    ],
+    "rewards": [
+      { "itemId": "cloth", "quantity": 10 },
+      { "itemId": "duct_tape", "quantity": 5 }
+    ],
+    "verificationStatus": "verified",
+    "source": "In-game Survivor's Path Questline",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "quest_act1_ch3",
+    "title": "Act 1: Industrial Foundation",
+    "vietnameseTitle": "Hồi 1: Nền tảng chế tạo công nghiệp",
+    "category": "survivors_path",
+    "chapter": "Chương 3",
+    "description": "Nâng cấp căn cứ bằng việc đặt các bàn chế biến: Bàn xẻ gỗ và Lò nung sắt.",
+    "prerequisites": ["quest_act1_ch2"],
+    "steps": [
+      {
+        "id": "step_3_build_woodworking",
+        "text": "Chế tạo và đặt Bàn xẻ gỗ (Woodworking Bench)"
+      },
+      {
+        "id": "step_3_craft_planks",
+        "text": "Sản xuất 10 Ván gỗ thông (Pine Plank)",
+        "requiredItemId": "pine_plank",
+        "requiredQuantity": 10
+      },
+      {
+        "id": "step_3_build_furnace",
+        "text": "Chế tạo và đặt Lò nung (Furnace)"
+      },
+      {
+        "id": "step_3_smelt_iron",
+        "text": "Nung chảy 10 Thỏi sắt (Iron Bar) từ quặng",
+        "requiredItemId": "iron_bar",
+        "requiredQuantity": 10
+      },
+      {
+        "id": "step_3_craft_cleaver",
+        "text": "Chế tạo 1 Dao chặt thịt (Cleaver)",
+        "requiredItemId": "cleaver",
+        "requiredQuantity": 1
+      }
+    ],
+    "rewards": [
+      { "itemId": "iron_bar", "quantity": 10 },
+      { "itemId": "leather", "quantity": 5 },
+      { "itemId": "crowbar", "quantity": 1 }
+    ],
+    "verificationStatus": "verified",
+    "source": "In-game Survivor's Path Questline",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "quest_act1_ch4",
+    "title": "Act 1: Bunker Alfa Recon",
+    "vietnameseTitle": "Hồi 1: Thám hiểm Bunker Alfa",
+    "category": "survivors_path",
+    "chapter": "Chương 4",
+    "description": "Lắng nghe Radio để lấy mật mã cửa thang máy, mang theo súng đạn và mở khóa kho quân sự Alfa.",
+    "prerequisites": ["quest_act1_ch3"],
+    "steps": [
+      {
+        "id": "step_4_radio_code",
+        "text": "Thu nhận mật mã Bunker Alfa qua Đài vô tuyến (CB Radio)"
+      },
+      {
+        "id": "step_4_reach_lobby",
+        "text": "Tiến vào sảnh chính Bunker Alfa và nhập mật khẩu mở thang máy"
+      },
+      {
+        "id": "step_4_kill_fg",
+        "text": "Tiêu diệt 1 Khổng lồ điên cuồng (Frenzied Giant) bằng súng hoặc Wall-trick"
+      },
+      {
+        "id": "step_4_open_green_crate",
+        "text": "Thu thập đủ 20 Vé xanh (Green Coupon) và mở Thùng hàng tiếp tế tại sảnh"
+      }
+    ],
+    "rewards": [
+      { "itemId": "glock_17", "quantity": 1 },
+      { "itemId": "tactical_body_armor", "quantity": 1 },
+      { "itemId": "red_coupon", "quantity": 5 }
+    ],
+    "verificationStatus": "verified",
+    "source": "In-game Survivor's Path Questline",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "quest_raider_assault",
+    "title": "Raiders Task: Heavy Assault",
+    "vietnameseTitle": "Nhiệm vụ Raider: Đột kích hạng nặng",
+    "category": "raiders",
+    "description": "Các Raider yêu cầu bạn chứng minh bản lĩnh trước khi cung cấp tọa độ căn cứ người chơi khác để cướp bóc.",
+    "steps": [
+      {
+        "id": "step_r_clear_floor_2",
+        "text": "Quét sạch toàn bộ kẻ địch tại Tầng 2 Bunker Alfa"
+      },
+      {
+        "id": "step_r_kill_5_fg",
+        "text": "Tiêu diệt 5 Frenzied Giant tại các tầng hầm"
+      },
+      {
+        "id": "step_r_craft_machete",
+        "text": "Chế tạo 2 Rựa dã chiến (Machete)",
+        "requiredItemId": "machete",
+        "requiredQuantity": 2
+      }
+    ],
+    "rewards": [
+      { "itemId": "shotgun", "quantity": 1 },
+      { "itemId": "engine_part", "quantity": 2 }
+    ],
+    "verificationStatus": "verified",
+    "source": "Raider In-Game System",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "roamer",
+    "name": "Roamer",
+    "vietnameseName": "Zombie lang thang",
+    "category": "zombie",
+    "hp": 40,
+    "damage": 6,
+    "armor": 0,
+    "attackSpeed": 1.0,
+    "movementSpeed": "normal",
+    "dangerRating": 1,
+    "description": "Loại zombie chậm chạp phổ biến nhất tại các vùng rừng và núi đá cơ bản.",
+    "abilities": [],
+    "drops": [
+      { "itemId": "cloth", "chance": "50%", "quantity": "1-2" },
+      { "itemId": "rope", "chance": "30%", "quantity": "1" }
+    ],
+    "locations": ["pine_bushes", "limestone_ridge", "pine_grove", "motel"],
+    "combatTips": [
+      "Có thể tiêu diệt bằng 4 phát chém giáo hoặc 1 đòn sneak bằng Machete/Saw Blade Mace.",
+      "Dễ dàng kite hoặc né tránh mà không tốn giáp."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "fast_biter",
+    "name": "Fast Biter",
+    "vietnameseName": "Kẻ cắn xé nhanh nhẹn",
+    "category": "zombie",
+    "hp": 80,
+    "damage": 15,
+    "armor": 0,
+    "attackSpeed": 1.2,
+    "movementSpeed": "fast",
+    "dangerRating": 2,
+    "description": "Zombie lao tới tấn công với tốc độ nhanh, có thể gây bất ngờ khi bạn đang chặt cây đào đá.",
+    "abilities": ["Sprint attack"],
+    "drops": [
+      { "itemId": "cloth", "chance": "60%", "quantity": "1-3" },
+      { "itemId": "rope", "chance": "40%", "quantity": "1" }
+    ],
+    "locations": ["pine_bushes", "pine_grove", "pine_wood", "limestone_ridge", "bunker_alfa"],
+    "combatTips": [
+      "Đòn sneak attack bằng Cleaver (51 dmg) hoặc Crowbar (51 dmg) sẽ rút phần lớn máu trước khi cận chiến.",
+      "Sneak bằng Saw Blade Mace (165 dmg) sẽ hạ gục ngay lập tức."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "toxic_spitter",
+    "name": "Toxic Spitter",
+    "vietnameseName": "Zombie phun độc",
+    "category": "zombie",
+    "hp": 80,
+    "damage": 15,
+    "armor": 0,
+    "attackSpeed": 1.1,
+    "movementSpeed": "fast",
+    "dangerRating": 2,
+    "description": "Khạc chất độc dạng axit tầm xa. Nếu bị trúng độc 3 lần, người chơi sẽ phát ra mùi hôi thối và thu hút toàn bộ quái trong bản đồ.",
+    "abilities": ["Acid Spit (khoảng cách 15m, gây hôi thối)"],
+    "drops": [
+      { "itemId": "cloth", "chance": "50%", "quantity": "1-2" }
+    ],
+    "locations": ["pine_grove", "pine_wood", "limestone_cliffs", "bunker_alfa"],
+    "combatTips": [
+      "Di chuyển theo đường zig-zag để né luồng phun axit màu xanh lá.",
+      "Ưu tiên tiêu diệt trước các Bloater để tránh bị 'bốc mùi'."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "floater_bloater",
+    "name": "Floater Bloater",
+    "vietnameseName": "Xác sống béo phì",
+    "category": "zombie",
+    "hp": 240,
+    "damage": 20,
+    "armor": 0,
+    "attackSpeed": 0.8,
+    "movementSpeed": "slow",
+    "dangerRating": 3,
+    "description": "Cơ thể to lớn phình trướng. Khi tiếp cận, hắn nhảy lên cao rồi đập mạnh xuống đất gây sát thương diện rộng hình tròn đỏ.",
+    "abilities": ["Body Slam AOE (60 sát thương nếu đứng trong vòng đỏ)"],
+    "drops": [
+      { "itemId": "cloth", "chance": "70%", "quantity": "2-4" },
+      { "itemId": "green_coupon", "chance": "40%", "quantity": "1" },
+      { "itemId": "yellow_coupon", "chance": "20%", "quantity": "1" }
+    ],
+    "locations": ["pine_grove", "pine_wood", "limestone_grove", "bunker_alfa"],
+    "combatTips": [
+      "Khi thấy hắn dậm chân chuẩn bị nhảy, chạy ngay ra khỏi vòng cảnh báo màu đỏ.",
+      "Sau cú nhảy hụt, hắn bị đơ khoảng 1.5 giây, đây là thời điểm tuyệt vời để phản công dồn dập."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "toxic_abomination",
+    "name": "Toxic Abomination",
+    "vietnameseName": "Quái vật đột biến độc hại",
+    "category": "zombie",
+    "hp": 300,
+    "damage": 30,
+    "armor": 0,
+    "attackSpeed": 0.8,
+    "movementSpeed": "slow",
+    "dangerRating": 3,
+    "description": "Phiên bản tiến hóa nguy hiểm hơn của Floater Bloater với 300 HP và đòn nhảy đè lên tới 75 sát thương.",
+    "abilities": ["Toxic Slam AOE (75 damage AOE)"],
+    "drops": [
+      { "itemId": "cloth", "chance": "80%", "quantity": "3-5" },
+      { "itemId": "yellow_coupon", "chance": "50%", "quantity": "1" },
+      { "itemId": "red_coupon", "chance": "15%", "quantity": "1" }
+    ],
+    "locations": ["pine_wood", "limestone_cliffs", "bunker_alfa"],
+    "combatTips": [
+      "Dùng phương pháp Wall-trick trong Bunker Alfa để tiêu diệt bằng Crowbar hoặc Cleaver không tốn giáp.",
+      "Có thể mở đầu bằng 1 đòn sneak Saw Blade Mace (165 dmg) rút hơn nửa bình máu."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "frenzied_giant",
+    "name": "Frenzied Giant",
+    "vietnameseName": "Khổng lồ điên cuồng (FG)",
+    "category": "zombie",
+    "hp": 500,
+    "damage": 80,
+    "armor": 0,
+    "attackSpeed": 0.6,
+    "movementSpeed": "slow",
+    "dangerRating": 4,
+    "description": "Quái vật khét tiếng trong Bunker Alfa. Đòn vung tay gây tới 80-100 sát thương một phát, có thể 'one-shot' tức thì nếu không mặc giáp bảo hộ đầy đủ.",
+    "abilities": ["Crushing Blow (One-shot nếu thiếu giáp)"],
+    "drops": [
+      { "itemId": "red_coupon", "chance": "60%", "quantity": "1" },
+      { "itemId": "yellow_coupon", "chance": "40%", "quantity": "1" }
+    ],
+    "locations": ["bunker_alfa", "crooked_creek_farm"],
+    "combatTips": [
+      "TUYỆT ĐỐI không đổi đòn cận chiến trực diện ở khoảng trống.",
+      "Thực hiện Wall-trick sau cửa ra vào: đợi FG vung tay đập vào tường xong bước ra đập 1 nhịp rồi thụt lại.",
+      "Nếu chưa thuần thục wall-trick, hãy dùng Glock 17 (25 viên là xong) hoặc Shotgun."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "the_blind_one",
+    "name": "The Blind One",
+    "vietnameseName": "Kẻ mù lòa (Boss Bunker Alfa)",
+    "category": "boss",
+    "hp": 1000,
+    "damage": 100,
+    "armor": 30,
+    "attackSpeed": 0.8,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Boss tầng 3 Bunker Alfa (Chế độ khó). Tuy mù nhưng rất thính, mỗi 5 đòn đánh thường sẽ chuẩn bị húc lao thẳng theo đường màu đỏ vào tường.",
+    "abilities": [
+      "Charge Crash (húc cực mạnh vào tường, bị choáng 5s và mất lớp giáp phòng thủ)",
+      "Carcass Feast (hồi máu khi chạm mốc 700 HP và 400 HP)"
+    ],
+    "drops": [
+      { "itemId": "red_coupon", "chance": "100%", "quantity": "10" }
+    ],
+    "locations": ["bunker_alfa"],
+    "combatTips": [
+      "Đếm đúng 5 đòn đánh thường của boss, sau đó bước sang bên né đường húc đỏ.",
+      "Khi boss húc vào tường bị choáng, xả súng ngắn/shotgun dồn sát thương.",
+      "Khi boss chạy tới ăn xác (700 HP và 400 HP), lập tức bấm công tắc còi báo động để ngăn hắn hồi máu."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  },
+  {
+    "id": "the_ravager",
+    "name": "The Ravager",
+    "vietnameseName": "Quái thú tàn phá (Farm Boss)",
+    "category": "boss",
+    "hp": 2000,
+    "damage": 20,
+    "armor": 0,
+    "attackSpeed": 0.9,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Boss tại Nông trại Crooked Creek Farm. Khi bị tấn công, hắn phun dịch bọc nhớt làm bào mòn và phá hủy giáp của người chơi cực nhanh.",
+    "abilities": ["Corrosive Bile Spit (phá tan độ bền của giáp trang bị)"],
+    "drops": [
+      { "itemId": "bone", "chance": "100%", "quantity": "3" }
+    ],
+    "locations": ["crooked_creek_farm"],
+    "combatTips": [
+      "Kite boss chạy vòng quanh cọc rơm hoặc xe tải mà không cần mặc giáp đắt tiền.",
+      "Né sang một bên mỗi khi hắn gầm lên chuẩn bị phun dịch, rồi vung 2-3 nhát dao rựa Machete."
+    ],
+    "verificationStatus": "verified",
+    "source": "LDoE Fandom Wiki / In-game Verified",
+    "verifiedAt": "2024-03-01",
+    "gameVersion": "1.20+"
+  }
+]
