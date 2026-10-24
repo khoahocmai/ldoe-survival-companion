@@ -1,0 +1,862 @@
+[
+  {
+    "id": "mod_cleaver_tactical_blade",
+    "weaponId": "cleaver",
+    "slot": "blade",
+    "name": "Tactical Butcher Blade",
+    "vietnameseName": "Lưỡi dao mổ chiến thuật",
+    "rarity": "rare",
+    "stats": {
+      "damage": 4,
+      "attackSpeed": 0.08,
+      "critChance": 10,
+      "critDamage": 15,
+      "durability": 15
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 5 },
+      { "itemId": "duct_tape", "quantity": 8 },
+      { "itemId": "factory_parts", "quantity": 4 },
+      { "itemId": "oil", "quantity": 2 }
+    ],
+    "obtainDescription": "Rương xanh Farm / Blackport PD",
+    "description": "Bản mod lưỡi dao meta hàng đầu cho Cleaver, tăng mạnh sát thương và tốc độ vung dao."
+  },
+  {
+    "id": "mod_cleaver_heavy_blade",
+    "weaponId": "cleaver",
+    "slot": "blade",
+    "name": "Heavy Blade",
+    "vietnameseName": "Lưỡi dao chặt nặng",
+    "rarity": "common",
+    "stats": {
+      "damage": 5,
+      "attackSpeed": -0.05,
+      "durability": 20
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 8 },
+      { "itemId": "nails", "quantity": 12 },
+      { "itemId": "duct_tape", "quantity": 5 }
+    ],
+    "obtainDescription": "Rương nhà gỗ vùng vàng/đỏ",
+    "description": "Gia tăng trọng lượng lưỡi dao tăng sát thương thuần nhưng làm chậm tốc độ chém một chút."
+  },
+  {
+    "id": "mod_cleaver_hunter_blade",
+    "weaponId": "cleaver",
+    "slot": "blade",
+    "name": "Hunter's Blade",
+    "vietnameseName": "Lưỡi dao thợ săn",
+    "rarity": "extremely_rare",
+    "stats": {
+      "damage": 6,
+      "critChance": 15,
+      "critDamage": 25,
+      "durability": 25
+    },
+    "activeSkill": "Chém xoáy (Whirlwind Slash)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "carbon_composite", "quantity": 2 },
+      { "itemId": "factory_parts", "quantity": 6 },
+      { "itemId": "hi_tech_component", "quantity": 1 }
+    ],
+    "obtainDescription": "Đổi thẻ tím PD / Sự kiện đặc biệt",
+    "description": "Lưỡi thép cao cấp với kỹ năng chém xoáy gây sát thương diện rộng."
+  },
+  {
+    "id": "mod_cleaver_hunter_handle",
+    "weaponId": "cleaver",
+    "slot": "handle",
+    "name": "Hunter Handle",
+    "vietnameseName": "Tay cầm thợ săn",
+    "rarity": "rare",
+    "stats": {
+      "damage": 2,
+      "attackSpeed": 0.06,
+      "critChance": 8,
+      "durability": 10
+    },
+    "materials": [
+      { "itemId": "leather", "quantity": 10 },
+      { "itemId": "rope", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 6 },
+      { "itemId": "bolt", "quantity": 10 }
+    ],
+    "obtainDescription": "Farm rương xanh / Alfa Hard Mode",
+    "description": "Cặp đôi hoàn hảo cùng Tactical Blade để tạo nên Cleaver Meta tốc đánh cực cao."
+  },
+  {
+    "id": "mod_cleaver_reinforced_handle",
+    "weaponId": "cleaver",
+    "slot": "handle",
+    "name": "Reinforced Handle",
+    "vietnameseName": "Tay cầm gia cố",
+    "rarity": "common",
+    "stats": {
+      "damage": 1,
+      "durability": 25
+    },
+    "materials": [
+      { "itemId": "pine_plank", "quantity": 10 },
+      { "itemId": "rope", "quantity": 6 },
+      { "itemId": "nails", "quantity": 8 }
+    ],
+    "obtainDescription": "Bunker Alfa rương vàng",
+    "description": "Gia cố độ bền giúp dao chặt thịt dùng được lâu hơn khi wall-trick."
+  },
+  {
+    "id": "mod_cleaver_bone_handle",
+    "weaponId": "cleaver",
+    "slot": "handle",
+    "name": "Bone Handle",
+    "vietnameseName": "Tay cầm bọc xương",
+    "rarity": "common",
+    "stats": {
+      "damage": 2,
+      "attackSpeed": -0.02,
+      "critChance": 5,
+      "durability": 15
+    },
+    "materials": [
+      { "itemId": "bone", "quantity": 12 },
+      { "itemId": "leather", "quantity": 6 },
+      { "itemId": "duct_tape", "quantity": 4 }
+    ],
+    "obtainDescription": "Rương Farm / Bãi rác",
+    "description": "Tay cầm bọc xương động vật tạo cảm giác đầm tay."
+  },
+  {
+    "id": "mod_machete_gut_hook",
+    "weaponId": "machete",
+    "slot": "blade",
+    "name": "Gut Hook",
+    "vietnameseName": "Lưỡi móc bụng",
+    "rarity": "rare",
+    "stats": {
+      "damage": 5,
+      "attackSpeed": 0.07,
+      "critChance": 10,
+      "durability": 15
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 10 },
+      { "itemId": "factory_parts", "quantity": 5 },
+      { "itemId": "oil", "quantity": 3 }
+    ],
+    "obtainDescription": "Rương xanh Farm / Alfa Hard Mode",
+    "description": "Lưỡi rựa có móc cắt kim loại giúp chém rách thịt mục tiêu."
+  },
+  {
+    "id": "mod_machete_ripper_blade",
+    "weaponId": "machete",
+    "slot": "blade",
+    "name": "Ripper Blade",
+    "vietnameseName": "Lưỡi cưa xé thịt",
+    "rarity": "extremely_rare",
+    "stats": {
+      "damage": 7,
+      "critChance": 12,
+      "critDamage": 30,
+      "durability": 20
+    },
+    "activeSkill": "Đâm thấu giáp (Deep Gouge)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 12 },
+      { "itemId": "carbon_composite", "quantity": 3 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "hi_tech_component", "quantity": 1 }
+    ],
+    "obtainDescription": "Thẻ tím PD / Rương Alfa 3 Floppy",
+    "description": "Lưỡi thép răng cưa sắc bén với kỹ năng đâm xuyên giáp Frenzied Giant."
+  },
+  {
+    "id": "mod_machete_bone_blade",
+    "weaponId": "machete",
+    "slot": "blade",
+    "name": "Bone Blade",
+    "vietnameseName": "Lưỡi gai xương",
+    "rarity": "common",
+    "stats": {
+      "damage": 3,
+      "attackSpeed": -0.04,
+      "critDamage": 15,
+      "durability": 10
+    },
+    "materials": [
+      { "itemId": "bone", "quantity": 15 },
+      { "itemId": "rope", "quantity": 8 },
+      { "itemId": "iron_bar", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương vùng rừng đỏ",
+    "description": "Gắn các mảnh xương sắc nhọn dọc sống dao."
+  },
+  {
+    "id": "mod_machete_bone_handle",
+    "weaponId": "machete",
+    "slot": "handle",
+    "name": "Bone Handle",
+    "vietnameseName": "Tay cầm xương",
+    "rarity": "rare",
+    "stats": {
+      "damage": 2,
+      "attackSpeed": 0.05,
+      "critChance": 7,
+      "durability": 12
+    },
+    "materials": [
+      { "itemId": "bone", "quantity": 10 },
+      { "itemId": "leather", "quantity": 12 },
+      { "itemId": "duct_tape", "quantity": 8 }
+    ],
+    "obtainDescription": "Rương xanh Farm",
+    "description": "Bản mod tay cầm meta cho rựa, cân bằng tối ưu giữa sát thương và tốc độ."
+  },
+  {
+    "id": "mod_machete_light_handle",
+    "weaponId": "machete",
+    "slot": "handle",
+    "name": "Light Handle",
+    "vietnameseName": "Tay cầm siêu nhẹ",
+    "rarity": "common",
+    "stats": {
+      "attackSpeed": 0.1,
+      "durability": -5
+    },
+    "materials": [
+      { "itemId": "pine_plank", "quantity": 10 },
+      { "itemId": "rope", "quantity": 8 },
+      { "itemId": "nails", "quantity": 10 }
+    ],
+    "obtainDescription": "Rương gỗ vùng sồi",
+    "description": "Giảm trọng lượng tay cầm giúp vung rựa cực nhanh."
+  },
+  {
+    "id": "mod_glock_silencer",
+    "weaponId": "glock_17",
+    "slot": "muzzle",
+    "name": "Silencer",
+    "vietnameseName": "Ống giảm thanh Glock",
+    "rarity": "rare",
+    "stats": {
+      "noise": -80,
+      "stability": 10,
+      "durability": 10
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "oil", "quantity": 4 },
+      { "itemId": "duct_tape", "quantity": 10 }
+    ],
+    "obtainDescription": "Blackport PD / Bunker Alfa Floppy",
+    "description": "Giảm đến 80% độ ồn phát ra, bản mod bắt buộc khi đi Raid căn cứ người chơi."
+  },
+  {
+    "id": "mod_glock_muzzle_brake",
+    "weaponId": "glock_17",
+    "slot": "muzzle",
+    "name": "Muzzle Brake",
+    "vietnameseName": "Bộ bù giật nòng Glock",
+    "rarity": "common",
+    "stats": {
+      "stability": 20,
+      "critChance": 8
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 10 },
+      { "itemId": "bolt", "quantity": 12 },
+      { "itemId": "spring", "quantity": 4 }
+    ],
+    "obtainDescription": "Bunker Alfa rương vàng",
+    "description": "Điều hướng luồng khí thuốc súng giúp giảm giật đáng kể."
+  },
+  {
+    "id": "mod_glock_extended_magazine",
+    "weaponId": "glock_17",
+    "slot": "magazine",
+    "name": "Extended Magazine",
+    "vietnameseName": "Băng đạn mở rộng Glock",
+    "rarity": "common",
+    "stats": {
+      "durability": 30,
+      "stability": -5
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 8 },
+      { "itemId": "spring", "quantity": 6 },
+      { "itemId": "bolt", "quantity": 10 }
+    ],
+    "obtainDescription": "Rương tuần tra vùng đỏ",
+    "description": "Tăng thêm độ bền cho súng thêm 30 lượt bắn."
+  },
+  {
+    "id": "mod_glock_large_magazine",
+    "weaponId": "glock_17",
+    "slot": "magazine",
+    "name": "Large Magazine",
+    "vietnameseName": "Hộp tiếp đạn cỡ lớn Glock",
+    "rarity": "rare",
+    "stats": {
+      "durability": 60,
+      "critChance": 5
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 5 },
+      { "itemId": "factory_parts", "quantity": 6 },
+      { "itemId": "spring", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 8 }
+    ],
+    "obtainDescription": "Rương xanh PD / Floppy Alfa",
+    "description": "Nâng dung lượng băng đạn và độ bền thêm 60 viên bắn liên tục."
+  },
+  {
+    "id": "mod_glock_red_dot",
+    "weaponId": "glock_17",
+    "slot": "sight",
+    "name": "Red Dot Sight",
+    "vietnameseName": "Kính ngắm Red Dot Glock",
+    "rarity": "rare",
+    "stats": {
+      "damage": 1,
+      "critChance": 12,
+      "range": 4
+    },
+    "materials": [
+      { "itemId": "lens", "quantity": 2 },
+      { "itemId": "hi_tech_component", "quantity": 1 },
+      { "itemId": "steel_bar", "quantity": 4 },
+      { "itemId": "factory_parts", "quantity": 5 }
+    ],
+    "obtainDescription": "Blackport PD đổi thẻ xanh",
+    "description": "Kính ngắm chấm đỏ giúp tăng tỉ lệ chí mạng và cự ly bắn."
+  },
+  {
+    "id": "mod_glock_laser_sight",
+    "weaponId": "glock_17",
+    "slot": "sight",
+    "name": "Laser Sight",
+    "vietnameseName": "Đèn ngắm Laser Glock",
+    "rarity": "extremely_rare",
+    "stats": {
+      "critChance": 20,
+      "critDamage": 25
+    },
+    "activeSkill": "Ngắm bắn chuẩn xác (Precision Shot)",
+    "materials": [
+      { "itemId": "lens", "quantity": 3 },
+      { "itemId": "carbon_composite", "quantity": 2 },
+      { "itemId": "hi_tech_component", "quantity": 3 },
+      { "itemId": "factory_parts", "quantity": 8 }
+    ],
+    "obtainDescription": "Thẻ tím PD",
+    "description": "Tia laser chỉ thị mục tiêu mang lại tỉ lệ bạo kích cực cao."
+  },
+  {
+    "id": "mod_glock_tactical_grip",
+    "weaponId": "glock_17",
+    "slot": "grip",
+    "name": "Tactical Grip",
+    "vietnameseName": "Ốp tay cầm chiến thuật Glock",
+    "rarity": "common",
+    "stats": {
+      "stability": 15,
+      "attackSpeed": 0.2
+    },
+    "materials": [
+      { "itemId": "rubber_parts", "quantity": 10 },
+      { "itemId": "duct_tape", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương vùng đá đỏ",
+    "description": "Ốp cao su chống trượt giúp cầm chắc tay và phản xạ bắn nhanh hơn."
+  },
+  {
+    "id": "mod_m16_silencer",
+    "weaponId": "m16",
+    "slot": "muzzle",
+    "name": "Silencer",
+    "vietnameseName": "Ống giảm thanh M16",
+    "rarity": "rare",
+    "stats": {
+      "noise": -75,
+      "stability": 10
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "factory_parts", "quantity": 10 },
+      { "itemId": "oil", "quantity": 5 },
+      { "itemId": "duct_tape", "quantity": 12 }
+    ],
+    "obtainDescription": "Floppy Bunker Alfa / Thẻ xanh PD",
+    "description": "Triệt tiêu tiếng nổ của súng M16 khi đi Raid hoặc farm đêm."
+  },
+  {
+    "id": "mod_m16_muzzle_brake",
+    "weaponId": "m16",
+    "slot": "muzzle",
+    "name": "Muzzle Brake",
+    "vietnameseName": "Bộ triệt giật nòng M16",
+    "rarity": "common",
+    "stats": {
+      "stability": 25,
+      "critChance": 6
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 12 },
+      { "itemId": "bolt", "quantity": 14 },
+      { "itemId": "spring", "quantity": 5 }
+    ],
+    "obtainDescription": "Rương đỏ Bunker Alfa",
+    "description": "Giảm đáng kể độ giật liên thanh của súng M16."
+  },
+  {
+    "id": "mod_m16_drum_magazine",
+    "weaponId": "m16",
+    "slot": "magazine",
+    "name": "Drum Magazine",
+    "vietnameseName": "Hộp tiếp đạn trống tròn M16",
+    "rarity": "extremely_rare",
+    "stats": {
+      "durability": 80,
+      "stability": -10,
+      "attackSpeed": 0.5
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 10 },
+      { "itemId": "carbon_composite", "quantity": 3 },
+      { "itemId": "spring", "quantity": 10 },
+      { "itemId": "factory_parts", "quantity": 10 }
+    ],
+    "obtainDescription": "Thẻ tím PD",
+    "description": "Hộp đạn trống cỡ đại tăng mạnh độ bền và xả đạn như bão."
+  },
+  {
+    "id": "mod_m16_double_magazine",
+    "weaponId": "m16",
+    "slot": "magazine",
+    "name": "Double Magazine",
+    "vietnameseName": "Băng đạn đôi M16",
+    "rarity": "rare",
+    "stats": {
+      "durability": 40,
+      "attackSpeed": 0.3
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "duct_tape", "quantity": 10 },
+      { "itemId": "spring", "quantity": 6 },
+      { "itemId": "bolt", "quantity": 8 }
+    ],
+    "obtainDescription": "Thẻ xanh PD",
+    "description": "Ghép đôi 2 băng đạn giúp thay đạn và tiếp tục nhả đạn nhanh hơn."
+  },
+  {
+    "id": "mod_m16_red_dot",
+    "weaponId": "m16",
+    "slot": "sight",
+    "name": "Red Dot Sight",
+    "vietnameseName": "Kính ngắm Red Dot M16",
+    "rarity": "rare",
+    "stats": {
+      "damage": 1,
+      "critChance": 14,
+      "stability": 10
+    },
+    "materials": [
+      { "itemId": "lens", "quantity": 2 },
+      { "itemId": "hi_tech_component", "quantity": 1 },
+      { "itemId": "steel_bar", "quantity": 5 },
+      { "itemId": "factory_parts", "quantity": 6 }
+    ],
+    "obtainDescription": "Thẻ xanh PD",
+    "description": "Kính ngắm chấm phản xạ quang học tăng sát thương và chí mạng."
+  },
+  {
+    "id": "mod_m16_4x_scope",
+    "weaponId": "m16",
+    "slot": "sight",
+    "name": "4x Scope",
+    "vietnameseName": "Kính ngắm 4x M16",
+    "rarity": "rare",
+    "stats": {
+      "damage": 2,
+      "range": 6,
+      "stability": 15,
+      "attackSpeed": -0.3
+    },
+    "materials": [
+      { "itemId": "lens", "quantity": 4 },
+      { "itemId": "hi_tech_component", "quantity": 2 },
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "factory_parts", "quantity": 6 }
+    ],
+    "obtainDescription": "Floppy Disk Alfa",
+    "description": "Ống phóng đại 4 lần hỗ trợ tiêu diệt mục tiêu ở khoảng cách an toàn."
+  },
+  {
+    "id": "mod_m16_tactical_stock",
+    "weaponId": "m16",
+    "slot": "stock",
+    "name": "Tactical Stock",
+    "vietnameseName": "Báng súng chiến thuật M16",
+    "rarity": "rare",
+    "stats": {
+      "stability": 30,
+      "attackSpeed": 0.2
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "rubber_parts", "quantity": 12 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 10 }
+    ],
+    "obtainDescription": "Bunker Alfa tầng 3",
+    "description": "Báng sợi tổng hợp giảm giật vượt trội khi xả nguyên băng."
+  },
+  {
+    "id": "mod_m16_heavy_stock",
+    "weaponId": "m16",
+    "slot": "stock",
+    "name": "Heavy Stock",
+    "vietnameseName": "Báng súng nặng M16",
+    "rarity": "common",
+    "stats": {
+      "stability": 20,
+      "attackSpeed": -0.2,
+      "durability": 20
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 10 },
+      { "itemId": "nails", "quantity": 12 },
+      { "itemId": "pine_plank", "quantity": 8 }
+    ],
+    "obtainDescription": "Rương vùng đỏ",
+    "description": "Báng gỗ đầm tăng độ chắc chắn."
+  },
+  {
+    "id": "mod_m16_grip",
+    "weaponId": "m16",
+    "slot": "grip",
+    "name": "Grip",
+    "vietnameseName": "Tay cầm thẳng M16",
+    "rarity": "common",
+    "stats": {
+      "stability": 20,
+      "critChance": 5
+    },
+    "materials": [
+      { "itemId": "rubber_parts", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương Bunker Alfa",
+    "description": "Tay nắm dọc dưới ốp lót tay giúp giữ vững tâm ngắm."
+  },
+  {
+    "id": "mod_ak47_tactical_silencer",
+    "weaponId": "ak47",
+    "slot": "muzzle",
+    "name": "Tactical Silencer",
+    "vietnameseName": "Ống giảm thanh chiến thuật AK",
+    "rarity": "extremely_rare",
+    "stats": {
+      "noise": -80,
+      "damage": 1,
+      "stability": 15
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 10 },
+      { "itemId": "carbon_composite", "quantity": 2 },
+      { "itemId": "factory_parts", "quantity": 12 },
+      { "itemId": "oil", "quantity": 6 }
+    ],
+    "obtainDescription": "Thẻ tím PD / Sự kiện Season",
+    "description": "Bản mod huyền thoại biến AK-47 thành vũ khí âm thầm mà uy lực tối thượng."
+  },
+  {
+    "id": "mod_ak47_muzzle_brake",
+    "weaponId": "ak47",
+    "slot": "muzzle",
+    "name": "Muzzle Brake",
+    "vietnameseName": "Bộ bù giật nòng AK",
+    "rarity": "common",
+    "stats": {
+      "stability": 30
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 12 },
+      { "itemId": "bolt", "quantity": 12 },
+      { "itemId": "spring", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương vàng Alfa",
+    "description": "Khắc phục nhược điểm giật nảy đặc trưng của AK-47."
+  },
+  {
+    "id": "mod_ak47_drum_magazine",
+    "weaponId": "ak47",
+    "slot": "magazine",
+    "name": "Drum Magazine",
+    "vietnameseName": "Hộp tiếp đạn tròn AK",
+    "rarity": "extremely_rare",
+    "stats": {
+      "durability": 90,
+      "damage": 1,
+      "stability": -15
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 12 },
+      { "itemId": "carbon_composite", "quantity": 4 },
+      { "itemId": "spring", "quantity": 12 },
+      { "itemId": "factory_parts", "quantity": 14 }
+    ],
+    "obtainDescription": "Thẻ tím PD",
+    "description": "Gia tăng độ bền khủng khiếp, một khẩu AK mod đủ sức càn quét cả tầng Bunker."
+  },
+  {
+    "id": "mod_ak47_large_magazine",
+    "weaponId": "ak47",
+    "slot": "magazine",
+    "name": "Large Magazine",
+    "vietnameseName": "Băng đạn cỡ lớn AK",
+    "rarity": "rare",
+    "stats": {
+      "durability": 50,
+      "attackSpeed": 0.2
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "spring", "quantity": 8 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 10 }
+    ],
+    "obtainDescription": "Thẻ xanh PD",
+    "description": "Băng đạn tăng dung lượng giúp bắn được nhiều hơn."
+  },
+  {
+    "id": "mod_ak47_4x_scope",
+    "weaponId": "ak47",
+    "slot": "sight",
+    "name": "4x Scope",
+    "vietnameseName": "Kính ngắm 4x AK",
+    "rarity": "rare",
+    "stats": {
+      "damage": 2,
+      "critChance": 15,
+      "range": 6,
+      "stability": 15
+    },
+    "materials": [
+      { "itemId": "lens", "quantity": 3 },
+      { "itemId": "hi_tech_component", "quantity": 2 },
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "factory_parts", "quantity": 8 }
+    ],
+    "obtainDescription": "Floppy Disk Alfa",
+    "description": "Ống ngắm tăng tầm bắn vượt trội."
+  },
+  {
+    "id": "mod_ak47_red_dot",
+    "weaponId": "ak47",
+    "slot": "sight",
+    "name": "Red Dot Sight",
+    "vietnameseName": "Kính ngắm Red Dot AK",
+    "rarity": "rare",
+    "stats": {
+      "damage": 1,
+      "critChance": 12,
+      "stability": 10
+    },
+    "materials": [
+      { "itemId": "lens", "quantity": 2 },
+      { "itemId": "hi_tech_component", "quantity": 1 },
+      { "itemId": "steel_bar", "quantity": 5 },
+      { "itemId": "factory_parts", "quantity": 6 }
+    ],
+    "obtainDescription": "Thẻ xanh PD",
+    "description": "Ngắm nhanh phản xạ tăng sát thương."
+  },
+  {
+    "id": "mod_ak47_tactical_stock",
+    "weaponId": "ak47",
+    "slot": "stock",
+    "name": "Tactical Stock",
+    "vietnameseName": "Báng súng chiến thuật AK",
+    "rarity": "rare",
+    "stats": {
+      "stability": 35,
+      "attackSpeed": 0.2
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "rubber_parts", "quantity": 10 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 8 }
+    ],
+    "obtainDescription": "Bunker Alfa rương đỏ",
+    "description": "Giữ tâm AK ổn định hơn khi bắn sấy."
+  },
+  {
+    "id": "mod_ak47_grenade_launcher",
+    "weaponId": "ak47",
+    "slot": "grip",
+    "name": "Grenade Launcher",
+    "vietnameseName": "Ống phóng lựu AK",
+    "rarity": "extremely_rare",
+    "stats": {
+      "damage": 2,
+      "stability": 10
+    },
+    "activeSkill": "Bắn lựu đạn (Launch Grenade)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 15 },
+      { "itemId": "carbon_composite", "quantity": 5 },
+      { "itemId": "hi_tech_component", "quantity": 4 },
+      { "itemId": "factory_parts", "quantity": 15 }
+    ],
+    "obtainDescription": "Đổi thẻ tím PD",
+    "description": "Bản mod active skill đắt đỏ nhất: bắn ra quả lựu đạn nổ gây sát thương diện rộng uy lực."
+  },
+  {
+    "id": "mod_ak47_tactical_knife",
+    "weaponId": "ak47",
+    "slot": "grip",
+    "name": "Tactical Knife",
+    "vietnameseName": "Lưỡi lê chiến thuật AK",
+    "rarity": "rare",
+    "stats": {
+      "damage": 1,
+      "attackSpeed": 0.1
+    },
+    "activeSkill": "Đâm lưỡi lê (Bayonet Thrust)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "factory_parts", "quantity": 6 },
+      { "itemId": "duct_tape", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 6 }
+    ],
+    "obtainDescription": "Thẻ xanh PD",
+    "description": "Gắn lưỡi lê cận chiến cho phép đâm xuyên mục tiêu áp sát gần."
+  },
+  {
+    "id": "mod_ak47_ergonomic_grip",
+    "weaponId": "ak47",
+    "slot": "grip",
+    "name": "Ergonomic Grip",
+    "vietnameseName": "Tay nắm công thái học AK",
+    "rarity": "common",
+    "stats": {
+      "stability": 20
+    },
+    "materials": [
+      { "itemId": "rubber_parts", "quantity": 10 },
+      { "itemId": "duct_tape", "quantity": 6 },
+      { "itemId": "bolt", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương vùng đỏ",
+    "description": "Tay nắm êm ái tăng độ ổn định."
+  },
+  {
+    "id": "mod_shotgun_choke",
+    "weaponId": "shotgun",
+    "slot": "muzzle",
+    "name": "Choke",
+    "vietnameseName": "Bộ thu hẹp chùm đạn",
+    "rarity": "rare",
+    "stats": {
+      "damage": 5,
+      "critChance": 12,
+      "range": 4,
+      "stability": 15
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 8 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "oil", "quantity": 4 },
+      { "itemId": "bolt", "quantity": 10 }
+    ],
+    "obtainDescription": "Bunker Alfa Hard Mode",
+    "description": "Gom chùm đạn ghém tập trung hơn, tăng sát thương mạnh mẽ ở tầm bắn xa hơn."
+  },
+  {
+    "id": "mod_shotgun_heavy_muzzle",
+    "weaponId": "shotgun",
+    "slot": "muzzle",
+    "name": "Heavy Muzzle",
+    "vietnameseName": "Đầu nòng hạng nặng Shotgun",
+    "rarity": "common",
+    "stats": {
+      "damage": 3,
+      "stability": 20
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 10 },
+      { "itemId": "bolt", "quantity": 8 },
+      { "itemId": "nails", "quantity": 12 }
+    ],
+    "obtainDescription": "Rương vàng Alfa",
+    "description": "Tăng trọng lượng đầu nòng giúp đầm súng."
+  },
+  {
+    "id": "mod_shotgun_heavy_grip",
+    "weaponId": "shotgun",
+    "slot": "grip",
+    "name": "Heavy Grip",
+    "vietnameseName": "Tay cầm trợ lực nặng Shotgun",
+    "rarity": "common",
+    "stats": {
+      "damage": 2,
+      "stability": 15
+    },
+    "materials": [
+      { "itemId": "rubber_parts", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 8 },
+      { "itemId": "bolt", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương vùng đá đỏ",
+    "description": "Cầm nắm chắc chắn hạn chế giật."
+  },
+  {
+    "id": "mod_shotgun_spread_shot",
+    "weaponId": "shotgun",
+    "slot": "grip",
+    "name": "Big Ammo Spread",
+    "vietnameseName": "Cơ cấu bắn tỏa Shotgun",
+    "rarity": "extremely_rare",
+    "stats": {
+      "damage": 6
+    },
+    "activeSkill": "Bắn tỏa diện rộng (Spread Shot)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 12 },
+      { "itemId": "carbon_composite", "quantity": 4 },
+      { "itemId": "hi_tech_component", "quantity": 3 },
+      { "itemId": "factory_parts", "quantity": 12 }
+    ],
+    "obtainDescription": "Thẻ tím PD",
+    "description": "Bản mod shotgun meta bá đạo nhất: kích hoạt bắn tỏa sát thương khổng lồ tiêu diệt toàn bộ zombie xung quanh."
+  },
+  {
+    "id": "mod_shotgun_tactical_stock",
+    "weaponId": "shotgun",
+    "slot": "stock",
+    "name": "Tactical Stock",
+    "vietnameseName": "Báng súng chiến thuật Shotgun",
+    "rarity": "rare",
+    "stats": {
+      "stability": 30,
+      "attackSpeed": 0.15,
+      "durability": 20
+    },
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 6 },
+      { "itemId": "rubber_parts", "quantity": 10 },
+      { "itemId": "factory_parts", "quantity": 8 },
+      { "itemId": "spring", "quantity": 6 }
+    ],
+    "obtainDescription": "Bunker Alfa tầng 3",
+    "description": "Tăng tốc độ lên đạn và độ bền bắn của súng săn."
+  }
+]
