@@ -6,6 +6,7 @@ import { DataProvider, useGameData } from './context/DataContext';
 import { AppLayout } from './components/layout/AppLayout';
 import { Button } from './components/common/Button';
 import { ItemsPage } from './pages/encyclopedia/ItemsPage';
+import { WeaponModsPage } from './pages/encyclopedia/WeaponModsPage';
 import { EnemiesPage } from './pages/encyclopedia/EnemiesPage';
 import { RecipesPage } from './pages/encyclopedia/RecipesPage';
 import { LocationsPage } from './pages/encyclopedia/LocationsPage';
@@ -54,6 +55,8 @@ const AppContent: React.FC = () => {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Navigate to="/wiki/items" replace />} />
           <Route path="wiki/items" element={<ItemsPage />} />
+          <Route path="wiki/weapon-mods" element={<WeaponModsPage />} />
+          <Route path="mods" element={<Navigate to="/wiki/weapon-mods" replace />} />
           <Route path="wiki/enemies" element={<EnemiesPage />} />
           <Route path="wiki/recipes" element={<RecipesPage />} />
           <Route path="wiki/locations" element={<LocationsPage />} />

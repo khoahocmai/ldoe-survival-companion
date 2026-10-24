@@ -349,6 +349,7 @@ class StorageService {
       customLocationStructures: mergeList(base.customLocationStructures, Array.isArray(importedData.locationStructures) ? importedData.locationStructures : []),
       customPointSystems: mergeList(base.customPointSystems, Array.isArray(importedData.pointSystems) ? importedData.pointSystems : []),
       customEnemyPointRules: mergeList(base.customEnemyPointRules, Array.isArray(importedData.enemyPointRules) ? importedData.enemyPointRules : []),
+      customWeaponMods: mergeList(base.customWeaponMods, Array.isArray(importedData.weaponMods) ? importedData.weaponMods : []),
       hiddenEntityIds: mode === 'replace' ? [] : base.hiddenEntityIds,
     };
 

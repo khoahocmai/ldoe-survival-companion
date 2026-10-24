@@ -1,5 +1,27 @@
-import { Enemy, Item, ItemCategory, Location, Quest, QuestObjectiveType } from '../types';
+import { Enemy, Item, ItemCategory, Location, Quest, QuestObjectiveType, WeaponModSlot, WeaponMod } from '../types';
 import type { Tone } from '../components/common/Badge';
+
+export const WEAPON_MOD_SLOT_LABEL: Record<WeaponModSlot, string> = {
+  blade: 'Lưỡi dao',
+  handle: 'Tay cầm',
+  muzzle: 'Đầu nòng',
+  magazine: 'Băng đạn',
+  sight: 'Kính ngắm',
+  grip: 'Tay nắm',
+  stock: 'Báng súng',
+};
+
+export const WEAPON_MOD_RARITY_LABEL: Record<WeaponMod['rarity'], string> = {
+  common: 'Thường (Trắng)',
+  rare: 'Hiếm (Xanh)',
+  extremely_rare: 'Cực hiếm (Tím)',
+};
+
+export const WEAPON_MOD_RARITY_TONE: Record<WeaponMod['rarity'], Tone> = {
+  common: 'neutral',
+  rare: 'info',
+  extremely_rare: 'accent',
+};
 
 export const ITEM_CATEGORY_LABEL: Record<ItemCategory, string> = {
   weapon_melee: 'Cận chiến',

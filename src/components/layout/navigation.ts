@@ -1,4 +1,4 @@
-import { LucideIcon, Sword, Skull, Hammer, MapPin, Scroll, Calculator, Target, Building2, Layers, Settings } from 'lucide-react';
+import { LucideIcon, Sword, Skull, Hammer, MapPin, Scroll, Calculator, Target, Building2, Layers, Settings, Wrench } from 'lucide-react';
 
 export interface NavItem {
   path: string;
@@ -18,6 +18,7 @@ export const NAV_SECTIONS: NavSection[] = [
     title: 'Bách khoa',
     items: [
       { path: '/wiki/items', label: 'Vật phẩm', shortLabel: 'Vật phẩm', icon: Sword },
+      { path: '/wiki/weapon-mods', label: 'Bản độ vũ khí', shortLabel: 'Độ súng', icon: Wrench },
       { path: '/wiki/enemies', label: 'Xác sống & Boss', shortLabel: 'Quái vật', icon: Skull },
       { path: '/wiki/recipes', label: 'Công thức', shortLabel: 'Công thức', icon: Hammer },
       { path: '/wiki/locations', label: 'Địa điểm', shortLabel: 'Địa điểm', icon: MapPin },
