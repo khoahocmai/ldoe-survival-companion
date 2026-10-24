@@ -1,0 +1,26 @@
+[
+  {
+    "id": "supply_event",
+    "name": "Supply Event (Tiếp tế hàng)",
+    "description": "Sự kiện định kỳ tích lũy Điểm kiểm soát (Control Points) khi tiêu diệt zombie và thú săn trên bản đồ để nâng cấp hòm tiếp tế hàng không thả dù.",
+    "unit": "Điểm kiểm soát (Control Points)",
+    "milestones": [
+      { "id": "ms_common", "name": "Hòm hàng phổ thông (Common Cargo)", "points": 250 },
+      { "id": "ms_worthwhile", "name": "Hòm hàng giá trị (Worthwhile Cargo)", "points": 750 },
+      { "id": "ms_high_value", "name": "Hòm hàng cao cấp (High-Value Cargo)", "points": 1200 },
+      { "id": "ms_extremely_valuable", "name": "Hòm hàng cực phẩm (Extremely Valuable Cargo)", "points": 1500 }
+    ]
+  },
+  {
+    "id": "blackport_pd_waves",
+    "name": "Blackport PD Waves (Đấu trường cảnh sát)",
+    "description": "Đấu trường phòng thủ 99 đợt sóng zombie tại sân Sở cảnh sát Blackport để thu thập Thẻ cảnh sát (Badges) đổi vũ khí và bản thiết kế súng hiếm.",
+    "unit": "Đợt sóng (Waves Cleared)",
+    "milestones": [
+      { "id": "ms_wave_10", "name": "Cột mốc Đợt 10 (Thẻ nâu/xanh)", "points": 10 },
+      { "id": "ms_wave_20", "name": "Cột mốc Đợt 20 (Nhiệm vụ Raider / Thẻ xanh)", "points": 20 },
+      { "id": "ms_wave_50", "name": "Cột mốc Đợt 50 (Thẻ lam/tím)", "points": 50 },
+      { "id": "ms_wave_99", "name": "Đỉnh cao Đợt 99 (Full Blue & Purple Badges)", "points": 99 }
+    ]
+  }
+]

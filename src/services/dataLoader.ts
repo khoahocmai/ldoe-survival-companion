@@ -1,85 +1,117 @@
-import { Item, Enemy, Recipe, Location, Quest } from '../types';
+import {
+  Item,
+  Enemy,
+  Recipe,
+  Location,
+  Quest,
+  LocationStructure,
+  PointSystem,
+  EnemyPointRule,
+  GameDatabase,
+} from '../types';
+import { storageService } from './storageService';
 
-export interface DatabaseState {
-  items: Item[];
-  enemies: Enemy[];
-  recipes: Recipe[];
-  locations: Location[];
-  quests: Quest[];
-  itemsMap: Map<string, Item>;
-  enemiesMap: Map<string, Enemy>;
-  recipesMap: Map<string, Recipe>;
-  recipesByOutputMap: Map<string, Recipe[]>;
-  locationsMap: Map<string, Location>;
-  questsMap: Map<string, Quest>;
-  isLoading: boolean;
-  error: string | null;
+export type DatabaseState = GameDatabase;
+
+let cachedDb: GameDatabase | null = null;
+let loadPromise: Promise<GameDatabase> | null = null;
+
+// Validation helpers
+function isValidEntity(e: any): boolean {
+  return typeof e === 'object' && e !== null && typeof e.id === 'string' && e.id.trim() !== '';
 }
 
-let cachedDb: DatabaseState | null = null;
-let loadPromise: Promise<DatabaseState> | null = null;
-
-// Safe parser to ensure entities conform to minimum requirements without crashing
-function validateItem(item: any): item is Item {
-  return typeof item === 'object' && item !== null && typeof item.id === 'string' && typeof item.name === 'string';
+export function clearDataCache() {
+  cachedDb = null;
+  loadPromise = null;
 }
 
-function validateEnemy(enemy: any): enemy is Enemy {
-  return typeof enemy === 'object' && enemy !== null && typeof enemy.id === 'string' && typeof enemy.name === 'string';
-}
-
-function validateRecipe(recipe: any): recipe is Recipe {
-  return typeof recipe === 'object' && recipe !== null && typeof recipe.id === 'string' && typeof recipe.outputItemId === 'string' && Array.isArray(recipe.ingredients);
-}
-
-function validateLocation(loc: any): loc is Location {
-  return typeof loc === 'object' && loc !== null && typeof loc.id === 'string' && typeof loc.name === 'string';
-}
-
-function validateQuest(quest: any): quest is Quest {
-  return typeof quest === 'object' && quest !== null && typeof quest.id === 'string' && typeof quest.title === 'string' && Array.isArray(quest.steps);
-}
-
-export async function loadGameData(): Promise<DatabaseState> {
-  if (cachedDb) return cachedDb;
-  if (loadPromise) return loadPromise;
+export async function loadGameData(forceRefresh = false): Promise<GameDatabase> {
+  if (cachedDb && !forceRefresh) return cachedDb;
+  if (loadPromise && !forceRefresh) return loadPromise;
 
   loadPromise = (async () => {
     try {
       const baseUrl = import.meta.env.BASE_URL || '/';
       const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 
-      const [itemsRes, enemiesRes, recipesRes, locationsRes, questsRes] = await Promise.all([
+      const [
+        itemsRes,
+        enemiesRes,
+        recipesRes,
+        locationsRes,
+        questsRes,
+        structuresRes,
+        pointSystemsRes,
+        enemyPointRulesRes,
+      ] = await Promise.all([
         fetch(`${cleanBase}data/items.json`),
         fetch(`${cleanBase}data/enemies.json`),
         fetch(`${cleanBase}data/recipes.json`),
         fetch(`${cleanBase}data/locations.json`),
         fetch(`${cleanBase}data/quests.json`),
+        fetch(`${cleanBase}data/locationStructures.json`),
+        fetch(`${cleanBase}data/pointSystems.json`),
+        fetch(`${cleanBase}data/enemyPointRules.json`),
       ]);
 
-      if (!itemsRes.ok) throw new Error(`Không thể tải items.json: ${itemsRes.status}`);
-      if (!enemiesRes.ok) throw new Error(`Không thể tải enemies.json: ${enemiesRes.status}`);
-      if (!recipesRes.ok) throw new Error(`Không thể tải recipes.json: ${recipesRes.status}`);
-      if (!locationsRes.ok) throw new Error(`Không thể tải locations.json: ${locationsRes.status}`);
-      if (!questsRes.ok) throw new Error(`Không thể tải quests.json: ${questsRes.status}`);
+      // A missing data file is a real failure: surface it instead of silently showing an empty wiki.
+      const readJson = async <T,>(res: Response, file: string): Promise<T[]> => {
+        if (!res.ok) throw new Error(`Không tải được data/${file} (HTTP ${res.status})`);
+        const data = await res.json();
+        return Array.isArray(data) ? (data as T[]) : [];
+      };
 
-      const rawItems = await itemsRes.json();
-      const rawEnemies = await enemiesRes.json();
-      const rawRecipes = await recipesRes.json();
-      const rawLocations = await locationsRes.json();
-      const rawQuests = await questsRes.json();
+      const baseItems = await readJson<Item>(itemsRes, 'items.json');
+      const baseEnemies = await readJson<Enemy>(enemiesRes, 'enemies.json');
+      const baseRecipes = await readJson<Recipe>(recipesRes, 'recipes.json');
+      const baseLocations = await readJson<Location>(locationsRes, 'locations.json');
+      const baseQuests = await readJson<Quest>(questsRes, 'quests.json');
+      const baseStructures = await readJson<LocationStructure>(structuresRes, 'locationStructures.json');
+      const basePointSystems = await readJson<PointSystem>(pointSystemsRes, 'pointSystems.json');
+      const baseEnemyPointRules = await readJson<EnemyPointRule>(enemyPointRulesRes, 'enemyPointRules.json');
 
-      const items: Item[] = Array.isArray(rawItems) ? rawItems.filter(validateItem) : [];
-      const enemies: Enemy[] = Array.isArray(rawEnemies) ? rawEnemies.filter(validateEnemy) : [];
-      const recipes: Recipe[] = Array.isArray(rawRecipes) ? rawRecipes.filter(validateRecipe) : [];
-      const locations: Location[] = Array.isArray(rawLocations) ? rawLocations.filter(validateLocation) : [];
-      const quests: Quest[] = Array.isArray(rawQuests) ? rawQuests.filter(validateQuest) : [];
+      // Load overrides from storage
+      const overrides = storageService.getOverrides();
+      const hiddenSet = new Set<string>(overrides.hiddenEntityIds || []);
 
+      // Merge helper: Base + Custom/Edited, minus Hidden
+      const mergeEntities = <T extends { id: string; isCustom?: boolean }>(
+        baseList: T[],
+        customList: T[]
+      ): T[] => {
+        const map = new Map<string, T>();
+        for (const item of baseList) {
+          if (isValidEntity(item) && !hiddenSet.has(item.id)) {
+            map.set(item.id, item);
+          }
+        }
+        for (const item of customList) {
+          if (isValidEntity(item) && !hiddenSet.has(item.id)) {
+            map.set(item.id, { ...item, isCustom: true });
+          }
+        }
+        return Array.from(map.values());
+      };
+
+      const items = mergeEntities(baseItems, overrides.customItems);
+      const enemies = mergeEntities(baseEnemies, overrides.customEnemies);
+      const recipes = mergeEntities(baseRecipes, overrides.customRecipes);
+      const locations = mergeEntities(baseLocations, overrides.customLocations);
+      const quests = mergeEntities(baseQuests, overrides.customQuests);
+      const locationStructures = mergeEntities(baseStructures, overrides.customLocationStructures);
+      const pointSystems = mergeEntities(basePointSystems, overrides.customPointSystems);
+      const enemyPointRules = mergeEntities(baseEnemyPointRules, overrides.customEnemyPointRules);
+
+      // Maps for O(1) lookups
       const itemsMap = new Map<string, Item>(items.map((i) => [i.id, i]));
       const enemiesMap = new Map<string, Enemy>(enemies.map((e) => [e.id, e]));
       const recipesMap = new Map<string, Recipe>(recipes.map((r) => [r.id, r]));
       const locationsMap = new Map<string, Location>(locations.map((l) => [l.id, l]));
       const questsMap = new Map<string, Quest>(quests.map((q) => [q.id, q]));
+      const locationStructuresMap = new Map<string, LocationStructure>(locationStructures.map((s) => [s.id, s]));
+      const pointSystemsMap = new Map<string, PointSystem>(pointSystems.map((p) => [p.id, p]));
+      const enemyPointRulesMap = new Map<string, EnemyPointRule>(enemyPointRules.map((r) => [r.id, r]));
 
       const recipesByOutputMap = new Map<string, Recipe[]>();
       for (const recipe of recipes) {
@@ -94,12 +126,18 @@ export async function loadGameData(): Promise<DatabaseState> {
         recipes,
         locations,
         quests,
+        locationStructures,
+        pointSystems,
+        enemyPointRules,
         itemsMap,
         enemiesMap,
         recipesMap,
         recipesByOutputMap,
         locationsMap,
         questsMap,
+        locationStructuresMap,
+        pointSystemsMap,
+        enemyPointRulesMap,
         isLoading: false,
         error: null,
       };
@@ -107,20 +145,26 @@ export async function loadGameData(): Promise<DatabaseState> {
       return cachedDb;
     } catch (err: any) {
       console.error('Error loading game database:', err);
-      const fallbackState: DatabaseState = {
+      const fallbackState: GameDatabase = {
         items: [],
         enemies: [],
         recipes: [],
         locations: [],
         quests: [],
+        locationStructures: [],
+        pointSystems: [],
+        enemyPointRules: [],
         itemsMap: new Map(),
         enemiesMap: new Map(),
         recipesMap: new Map(),
         recipesByOutputMap: new Map(),
         locationsMap: new Map(),
         questsMap: new Map(),
+        locationStructuresMap: new Map(),
+        pointSystemsMap: new Map(),
+        enemyPointRulesMap: new Map(),
         isLoading: false,
-        error: err?.message || 'Lỗi không xác định khi tải dữ liệu game',
+        error: err?.message || 'Lỗi khi tải dữ liệu game',
       };
       return fallbackState;
     } finally {
@@ -131,6 +175,71 @@ export async function loadGameData(): Promise<DatabaseState> {
   return loadPromise;
 }
 
-export function getCachedGameData(): DatabaseState | null {
+export function getCachedGameData(): GameDatabase | null {
   return cachedDb;
+}
+
+// Check dependencies when an entity is requested to be deleted
+export function checkEntityDependencies(
+  type: 'item' | 'enemy' | 'recipe' | 'location' | 'quest' | 'structure' | 'pointSystem',
+  id: string,
+  db: GameDatabase
+): { hasDependencies: boolean; dependents: string[] } {
+  const dependents: string[] = [];
+
+  if (type === 'item') {
+    // Check recipes producing or requiring this item
+    for (const r of db.recipes) {
+      if (r.outputItemId === id) dependents.push(`Công thức tạo ra: ${r.id}`);
+      if (r.ingredients.some((ing) => ing.itemId === id)) dependents.push(`Nguyên liệu trong công thức: ${r.id}`);
+    }
+    // Check location structures
+    for (const s of db.locationStructures) {
+      for (const stg of s.stages) {
+        if (stg.requirements.some((req) => req.itemId === id)) {
+          dependents.push(`Vật liệu công trình: ${s.name} (${stg.name})`);
+        }
+      }
+    }
+    // Check quests
+    for (const q of db.quests) {
+      if (q.objectives.some((obj) => obj.targetId === id)) {
+        dependents.push(`Mục tiêu nhiệm vụ: ${q.title}`);
+      }
+      if (q.rewards.some((rew) => rew.itemId === id)) {
+        dependents.push(`Phần thưởng nhiệm vụ: ${q.title}`);
+      }
+    }
+  } else if (type === 'enemy') {
+    // Check point rules
+    for (const rule of db.enemyPointRules) {
+      if (rule.enemyId === id) dependents.push(`Quy tắc điểm: ${rule.id}`);
+    }
+    // Check locations
+    for (const loc of db.locations) {
+      if (loc.enemies.includes(id)) dependents.push(`Xuất hiện tại địa điểm: ${loc.name}`);
+    }
+    // Check quests
+    for (const q of db.quests) {
+      if (q.objectives.some((obj) => obj.type === 'kill_enemy' && obj.targetId === id)) {
+        dependents.push(`Mục tiêu tiêu diệt trong nhiệm vụ: ${q.title}`);
+      }
+    }
+  } else if (type === 'location') {
+    // Check structures
+    for (const s of db.locationStructures) {
+      if (s.locationId === id) dependents.push(`Công trình thuộc địa điểm này: ${s.name}`);
+    }
+    // Check quests
+    for (const q of db.quests) {
+      if (q.relatedLocations?.includes(id) || q.objectives.some((obj) => obj.targetId === id)) {
+        dependents.push(`Nhiệm vụ liên quan: ${q.title}`);
+      }
+    }
+  }
+
+  return {
+    hasDependencies: dependents.length > 0,
+    dependents,
+  };
 }

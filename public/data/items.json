@@ -16,11 +16,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 10.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "makeshift_bat",
@@ -39,11 +35,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 14.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "cleaver",
@@ -62,11 +54,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 23.8
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "crowbar",
@@ -85,11 +73,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 27.2
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "spiked_devastator",
@@ -108,11 +92,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 29.7
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "machete",
@@ -131,11 +111,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 39.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "pipe",
@@ -154,11 +130,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 28.6
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "saw_blade_mace",
@@ -177,11 +149,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 38.5
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "skull_crusher",
@@ -200,11 +168,7 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 31.5
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "bow",
@@ -223,11 +187,7 @@
       "sneakMultiplier": 2,
       "isFirearm": true,
       "dps": 11.2
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "glock_17",
@@ -246,11 +206,7 @@
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 66.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "shotgun",
@@ -269,11 +225,7 @@
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 70.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "m16",
@@ -292,11 +244,7 @@
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 99.6
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "ak47",
@@ -315,11 +263,7 @@
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 124.5
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "vss_vintorez",
@@ -338,11 +282,7 @@
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 125.0
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "tactical_cap",
@@ -357,11 +297,7 @@
       "armorValue": 4,
       "durability": 200,
       "slot": "head"
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "tactical_body_armor",
@@ -376,11 +312,7 @@
       "armorValue": 8,
       "durability": 250,
       "slot": "chest"
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "tactical_trousers",
@@ -395,11 +327,7 @@
       "armorValue": 6,
       "durability": 220,
       "slot": "legs"
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "tactical_boots",
@@ -414,11 +342,7 @@
       "armorValue": 4,
       "durability": 180,
       "slot": "feet"
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "swat_body_armor",
@@ -433,11 +357,7 @@
       "armorValue": 12,
       "durability": 350,
       "slot": "chest"
-    },
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "pine_log",
@@ -446,11 +366,7 @@
     "description": "Nguyên liệu xây dựng và chế tạo cơ bản nhất trong vùng đất hoang.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "pine_plank",
@@ -460,11 +376,7 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
   },
   {
     "id": "limestone",
@@ -473,11 +385,7 @@
     "description": "Đá thô nhặt từ mặt đất hoặc đập từ mỏ đá.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "iron_ore",
@@ -486,11 +394,7 @@
     "description": "Quặng thô khai thác tại các vách đá vôi.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "iron_bar",
@@ -500,11 +404,17 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
+  },
+  {
+    "id": "iron_plate",
+    "name": "Iron Plate",
+    "vietnameseName": "Tấm sắt",
+    "description": "Gia công từ 2 thỏi sắt trên Bàn thợ nguội (Workbench). Dùng để ráp máy phát điện và gia cố giáp.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true
   },
   {
     "id": "steel_bar",
@@ -514,11 +424,17 @@
     "category": "resource_processed",
     "rarity": "epic",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
+  },
+  {
+    "id": "aluminium_bar",
+    "name": "Aluminium Bar",
+    "vietnameseName": "Thỏi nhôm",
+    "description": "Kim loại nhẹ nung từ dây nhôm (Aluminium Wire) hoặc quặng Bauxite trong lò nung.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true
   },
   {
     "id": "raw_hide",
@@ -527,11 +443,7 @@
     "description": "Thu được khi săn hươu hoặc chó sói hoang dã.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "leather",
@@ -541,11 +453,7 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
   },
   {
     "id": "plant_fiber",
@@ -554,11 +462,7 @@
     "description": "Thu hoạch từ các bụi cỏ hoang dã trên bản đồ.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "cloth",
@@ -568,11 +472,7 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
   },
   {
     "id": "thick_fabric",
@@ -582,11 +482,7 @@
     "category": "resource_processed",
     "rarity": "rare",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
   },
   {
     "id": "nails",
@@ -596,11 +492,7 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
   },
   {
     "id": "duct_tape",
@@ -609,11 +501,7 @@
     "description": "Vật liệu sinh tồn đa năng, tìm thấy trong rương loot tại mọi khu vực.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "rope",
@@ -623,11 +511,71 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "craftable": true
+  },
+  {
+    "id": "bolt",
+    "name": "Bolt",
+    "vietnameseName": "Bu-lông",
+    "description": "Linh kiện cơ khí nhặt từ hòm loot và xác xe hơi, cần thiết để chế tạo máy móc.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "wrench",
+    "name": "Wrench",
+    "vietnameseName": "Cờ lê",
+    "description": "Dụng cụ cơ khí kim loại để sửa chữa trạm phát điện và lắp ráp xe.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 10
+  },
+  {
+    "id": "rubber_parts",
+    "name": "Rubber Parts",
+    "vietnameseName": "Bộ phận cao su",
+    "description": "Cao su cách điện và đệm ống, dùng trong xe máy và máy phát điện.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "ball_bearing",
+    "name": "Ball Bearing",
+    "vietnameseName": "Vòng bi bạc đạn",
+    "description": "Ổ bi kim loại giảm ma sát trong trục quay cơ khí.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "gasoline",
+    "name": "Gasoline",
+    "vietnameseName": "Bình xăng",
+    "description": "Nhiên liệu chạy xe Chopper và máy phát điện.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20
+  },
+  {
+    "id": "bone",
+    "name": "Bone",
+    "vietnameseName": "Xương thú / Xương quái",
+    "description": "Thu được từ xác quái vật lớn như Ravager hoặc thú săn, dùng làm vũ khí và mod.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "charcoal",
+    "name": "Charcoal",
+    "vietnameseName": "Than củi",
+    "description": "Đốt từ gỗ thông tại Lửa trại (Campfire). Nhiên liệu cháy lâu nhất cho lò nung.",
+    "category": "resource_processed",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true
   },
   {
     "id": "bandage",
@@ -640,11 +588,7 @@
     "craftable": true,
     "consumableStats": {
       "healHp": 40
-    },
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
   },
   {
     "id": "first_aid_kit",
@@ -657,11 +601,85 @@
     "craftable": true,
     "consumableStats": {
       "healHp": 100
-    },
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    }
+  },
+  {
+    "id": "raw_meat",
+    "name": "Raw Meat",
+    "vietnameseName": "Thịt tươi sống",
+    "description": "Thịt tươi săn từ nai và chó sói. Nên nấu chín trước khi ăn.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "jerky",
+    "name": "Jerky",
+    "vietnameseName": "Thịt sấy khô",
+    "description": "Thịt sấy trên Giá sấy thịt (Meat Dryer). Hồi 40 đói và 20 máu.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "consumableStats": {
+      "healHp": 20,
+      "hunger": 40
+    }
+  },
+  {
+    "id": "carrot",
+    "name": "Carrot",
+    "vietnameseName": "Cà rốt tươi",
+    "description": "Củ quả trồng tại luống đất căn cứ, dùng để nấu ăn hoặc hồi phục nhẹ.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "mushroom",
+    "name": "Mushroom",
+    "vietnameseName": "Nấm rừng",
+    "description": "Nấm mọc ở các vùng rừng và đầm lầy, nguyên liệu chính cho các món hầm trên Bếp ga.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20
+  },
+  {
+    "id": "perch",
+    "name": "Perch",
+    "vietnameseName": "Cá rô",
+    "description": "Cá câu từ các bãi câu ven hồ hoặc đầm lầy.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 10
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon",
+    "vietnameseName": "Cá hồi",
+    "description": "Cá hồi béo ngậy, nguyên liệu cho các món tăng % kinh nghiệm và tăng sản lượng gỗ.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 10
+  },
+  {
+    "id": "c4_explosive",
+    "name": "C4 Explosive",
+    "vietnameseName": "Khối thuốc nổ C4",
+    "description": "Thuốc nổ quân dụng mạnh nhất để phá vỡ tường đá cấp 3 trong các trận đột kích Raider.",
+    "category": "special",
+    "rarity": "legendary",
+    "stackSize": 5
+  },
+  {
+    "id": "electric_generator",
+    "name": "Electric Generator",
+    "vietnameseName": "Máy phát điện",
+    "description": "Máy phát điện cơ khí lắp ráp tại căn cứ, chở bằng xe Chopper để mở khóa Tháp canh (Watchtower).",
+    "category": "special",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true
   },
   {
     "id": "engine_part",
@@ -670,12 +688,7 @@
     "description": "Linh kiện quý giá dùng để lắp ráp Chopper, ATV và máy phát điện.",
     "category": "component",
     "rarity": "rare",
-    "stackSize": 20,
-    "craftable": false,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "electronic_circuit",
@@ -684,26 +697,16 @@
     "description": "Mạch điện tử công nghệ cao, cần thiết cho trạm lọc axit và thiết bị căn cứ cao cấp.",
     "category": "component",
     "rarity": "epic",
-    "stackSize": 20,
-    "craftable": false,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "red_coupon",
     "name": "Red Coupon",
     "vietnameseName": "Vé đỏ Bunker Alfa",
-    "description": "30 vé đỏ đổi được Thùng hàng vũ khí hạng nặng tại sảnh Bunker Alfa (chứa súng, giáp SWAT, phụ tùng xe).",
+    "description": "30 vé đỏ đổi được Thùng hàng vũ khí hạng nặng tại sảnh Bunker Alfa.",
     "category": "special",
     "rarity": "epic",
-    "stackSize": 20,
-    "craftable": false,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "yellow_coupon",
@@ -712,12 +715,7 @@
     "description": "25 vé vàng đổi được Rương sinh tồn chứa trang bị chiến thuật và vũ khí tốt.",
     "category": "special",
     "rarity": "rare",
-    "stackSize": 20,
-    "craftable": false,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   },
   {
     "id": "green_coupon",
@@ -726,11 +724,6 @@
     "description": "20 vé xanh đổi được Rương tiếp tế chứa tài nguyên và vũ khí nhẹ.",
     "category": "special",
     "rarity": "common",
-    "stackSize": 20,
-    "craftable": false,
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "stackSize": 20
   }
 ]

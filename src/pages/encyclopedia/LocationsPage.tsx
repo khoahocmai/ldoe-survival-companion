@@ -1,314 +1,276 @@
-import React, { useState, useMemo } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
 import { Location } from '../../types';
-import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
-import { SearchInput } from '../../components/common/SearchInput';
-import { Modal } from '../../components/common/Modal';
-import {
-  MapPin,
-  Zap,
-  Clock,
-  Skull,
-  Package,
-  AlertTriangle,
-  ChevronRight,
-  ExternalLink,
-} from 'lucide-react';
+import { EntityImage } from '../../components/common/EntityImage';
+import { Checkbox, Field, NumberInput, Select, TextInput, Textarea } from '../../components/common/Field';
+import { FormModal, FormRow } from '../../components/common/FormModal';
+import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { dangerTone, LOCATION_DIFFICULTY_LABEL, LOCATION_DIFFICULTY_TONE } from '../../lib/labels';
+
+const FILTERS = [
+  { id: 'all', label: 'Tất cả' },
+  { id: 'easy', label: 'Vùng xanh' },
+  { id: 'medium', label: 'Vùng vàng' },
+  { id: 'hard', label: 'Vùng đỏ' },
+  { id: 'bunker', label: 'Bunker' },
+  { id: 'event', label: 'Sự kiện' },
+];
+
+const newLocation = (): Partial<Location> => ({
+  id: `location_custom_${Date.now()}`,
+  name: '',
+  vietnameseName: '',
+  difficulty: 'easy',
+  dangerLevel: 1,
+  description: '',
+  enemies: [],
+  resources: [],
+  loot: [],
+  energyCost: 15,
+  requiresChopper: false,
+});
 
 export const LocationsPage: React.FC = () => {
   const { db } = useGameData();
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const save = useSaveEntity('customLocations');
+  const [editing, setEditing] = useState<Partial<Location> | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const [search, setSearch] = useState('');
-  const [difficultyFilter, setDifficultyFilter] = useState('all');
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  if (!db) return null;
 
-  const selectId = searchParams.get('select');
-  React.useEffect(() => {
-    if (selectId && db) {
-      const loc = db.locationsMap.get(selectId);
-      if (loc) setSelectedLocation(loc);
-    }
-  }, [selectId, db]);
+  const patch = (changes: Partial<Location>) => setEditing((prev) => (prev ? { ...prev, ...changes } : prev));
 
-  const filteredLocations = useMemo(() => {
-    if (!db) return [];
-    return db.locations.filter((loc) => {
-      if (difficultyFilter !== 'all' && loc.difficulty !== difficultyFilter) {
-        return false;
-      }
-      if (search.trim()) {
-        const q = search.toLowerCase();
-        const matchName = loc.name.toLowerCase().includes(q);
-        const matchVn = loc.vietnameseName?.toLowerCase().includes(q);
-        const matchId = loc.id.toLowerCase().includes(q);
-        if (!matchName && !matchVn && !matchId) return false;
-      }
-      return true;
-    });
-  }, [db, difficultyFilter, search]);
-
-  const handleSelectLocation = (loc: Location) => {
-    setSelectedLocation(loc);
-    setSearchParams({ select: loc.id });
-  };
-
-  const handleCloseModal = () => {
-    setSelectedLocation(null);
-    setSearchParams({});
-  };
-
-  const getDifficultyBadge = (diff: Location['difficulty']) => {
-    switch (diff) {
-      case 'easy':
-        return <Badge variant="olive">Xanh lá (Dễ)</Badge>;
-      case 'medium':
-        return <Badge variant="amber">Vàng (Trung bình)</Badge>;
-      case 'hard':
-        return <Badge variant="red">Đỏ (Nguy hiểm)</Badge>;
-      case 'bunker':
-        return <Badge variant="blue">Hầm ngầm Bunker</Badge>;
-      default:
-        return <Badge variant="charcoal">{diff}</Badge>;
-    }
+  const handleSave = async () => {
+    if (!editing?.name?.trim() || !editing.id?.trim()) return;
+    const entity = {
+      ...editing,
+      id: editing.id.trim(),
+      name: editing.name.trim(),
+      difficulty: editing.difficulty ?? 'easy',
+      dangerLevel: Math.min(5, Math.max(1, editing.dangerLevel || 1)),
+      description: editing.description ?? '',
+      enemies: editing.enemies ?? [],
+      resources: editing.resources ?? [],
+      loot: editing.loot ?? [],
+      energyCost: editing.energyCost || undefined,
+      resetTimeHours: editing.resetTimeHours || undefined,
+      isCustom: true,
+    } as Location;
+    await save(entity);
+    setEditing(null);
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 flex items-center gap-2">
-            <MapPin className="w-6 h-6 text-[#a3b18a]" />
-            Địa điểm sinh tồn (Locations)
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Bản đồ các khu rừng, mỏ đá, hầm ngầm quân sự, boss và tài nguyên thu thập.
-          </p>
-        </div>
-        <div className="text-xs font-mono text-slate-400 bg-charcoal-900 border border-charcoal-800 px-3 py-1.5 rounded-lg w-fit">
-          Tổng số: <span className="text-[#a3b18a] font-bold">{filteredLocations.length}</span> địa điểm
-        </div>
-      </div>
-
-      {/* Filter and Search */}
-      <div className="flex flex-col md:flex-row items-center gap-3">
-        <SearchInput
-          value={search}
-          onChange={setSearch}
-          placeholder="Tìm địa điểm (Pine Bushes, Bunker Alfa, Farm...)"
-          className="flex-1"
-        />
-        <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none py-1">
-          {['all', 'easy', 'medium', 'hard', 'bunker'].map((diff) => (
-            <button
-              key={diff}
-              onClick={() => setDifficultyFilter(diff)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer ${
-                difficultyFilter === diff
-                  ? 'bg-[#656d4a] text-slate-100 font-bold'
-                  : 'bg-charcoal-900 text-slate-400 hover:text-slate-200 border border-charcoal-800'
-              }`}
-            >
-              {diff === 'all'
-                ? 'Tất cả'
-                : diff === 'easy'
-                ? 'Vùng xanh'
-                : diff === 'medium'
-                ? 'Vùng vàng'
-                : diff === 'hard'
-                ? 'Vùng đỏ'
-                : 'Bunker'}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Locations Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredLocations.map((loc) => {
-          return (
-            <Card
-              key={loc.id}
-              hoverable
-              onClick={() => handleSelectLocation(loc)}
-              className="flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div>
-                    <h3 className="font-bold text-slate-200 group-hover:text-amber-400 transition-colors text-base truncate">
-                      {loc.name}
-                    </h3>
-                    {loc.vietnameseName && (
-                      <p className="text-xs text-slate-400 truncate">{loc.vietnameseName}</p>
-                    )}
-                  </div>
-                  {getDifficultyBadge(loc.difficulty)}
-                </div>
-
-                <div className="flex items-center gap-3 text-xs font-mono text-slate-400 mb-3">
-                  <span>Nguy hiểm: {'💀'.repeat(loc.dangerLevel || 1)}</span>
-                  {loc.energyCost && (
-                    <span className="flex items-center gap-1 ml-auto text-amber-500">
-                      <Zap className="w-3.5 h-3.5" /> {loc.energyCost} Năng lượng
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-xs text-slate-400 line-clamp-2 mb-4">{loc.description}</p>
-
-                {/* Enemies & Resources Snapshot */}
-                <div className="space-y-2 mb-3">
-                  <div className="flex items-center gap-2 text-xs">
-                    <Skull className="w-3.5 h-3.5 text-red-400 shrink-0" />
-                    <span className="text-slate-400 font-mono text-[11px]">
-                      {loc.enemies.length} loại quái
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <Package className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span className="text-slate-400 font-mono text-[11px]">
-                      {loc.resources.length + loc.loot.length} tài nguyên & rương loot
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Bottom CTA */}
-              <div className="flex items-center justify-between pt-3 border-t border-charcoal-800 text-xs">
-                {loc.requiresChopper && (
-                  <span className="text-[11px] font-mono text-amber-500 font-medium">
-                    🏍️ Cần Chopper
-                  </span>
-                )}
-                <span className="flex items-center text-slate-500 group-hover:text-slate-200 ml-auto">
-                  Xem chi tiết <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
-                </span>
-              </div>
-            </Card>
-          );
-        })}
-      </div>
-
-      {/* Location Detail Modal */}
-      {selectedLocation && (
-        <Modal
-          isOpen={!!selectedLocation}
-          onClose={handleCloseModal}
-          title={
-            <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#a3b18a]" />
-              <span className="font-bold text-slate-100">{selectedLocation.name}</span>
-              {selectedLocation.vietnameseName && (
-                <span className="text-xs font-normal text-slate-400">
-                  ({selectedLocation.vietnameseName})
-                </span>
-              )}
-            </div>
+    <WikiPage<Location>
+      title="Địa điểm"
+      description="Khu vực, hầm ngầm và công trình: quái, tài nguyên và loot."
+      icon={<MapPin />}
+      noun="địa điểm"
+      overrideKey="customLocations"
+      entities={db.locations}
+      searchPlaceholder="Tìm địa điểm..."
+      getName={(l) => l.name}
+      getSearchText={(l) => `${l.name} ${l.vietnameseName ?? ''} ${l.id}`}
+      filter={{ options: FILTERS, matches: (l, id) => l.difficulty === id }}
+      onEdit={(loc) => {
+        setIsNew(!loc);
+        setEditing(loc ? { ...loc } : newLocation());
+      }}
+      renderCard={(loc, isSelected, onSelect) => (
+        <CompactWikiCard
+          key={loc.id}
+          id={loc.id}
+          title={loc.name}
+          subtitle={loc.vietnameseName}
+          isSelected={isSelected}
+          onClick={onSelect}
+          stats={[
+            { label: 'Nguy hiểm', value: `${loc.dangerLevel}/5` },
+            ...(loc.energyCost ? [{ label: 'Năng lượng', value: loc.energyCost }] : []),
+          ]}
+          badges={
+            <>
+              <Badge tone={LOCATION_DIFFICULTY_TONE[loc.difficulty]}>{LOCATION_DIFFICULTY_LABEL[loc.difficulty]}</Badge>
+              {loc.requiresChopper && <Badge tone="info">Chopper</Badge>}
+              {loc.isCustom && <Badge tone="accent">Tùy chỉnh</Badge>}
+            </>
           }
-          maxWidth="xl"
-        >
-          <div className="space-y-5">
-            <div className="flex flex-wrap items-center gap-2">
-              {getDifficultyBadge(selectedLocation.difficulty)}
-              <span className="text-xs font-mono text-slate-400">
-                Độ nguy hiểm: {'💀'.repeat(selectedLocation.dangerLevel)}
-              </span>
-              {selectedLocation.energyCost && (
-                <span className="text-xs font-mono text-amber-500 flex items-center gap-1">
-                  <Zap className="w-3.5 h-3.5" /> {selectedLocation.energyCost} Năng lượng
-                </span>
-              )}
-              {selectedLocation.resetTimeHours && (
-                <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" /> Làm mới sau {selectedLocation.resetTimeHours}h
-                </span>
-              )}
-            </div>
-
-            <p className="text-sm text-slate-300 bg-charcoal-950 p-3 rounded-lg border border-charcoal-800 leading-relaxed">
-              {selectedLocation.description}
-            </p>
-
-            {/* Tactical Notes */}
-            {selectedLocation.notes && (
-              <div className="bg-amber-950/20 border border-amber-800/40 rounded-lg p-3 text-xs text-amber-300 leading-relaxed">
-                <span className="font-bold block mb-1">⚠️ LƯU Ý TÁC CHIẾN:</span>
-                {selectedLocation.notes}
-              </div>
-            )}
-
-            {/* Enemies in Location */}
-            {db && (
-              <div className="space-y-1.5">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold flex items-center gap-1.5">
-                  <Skull className="w-4 h-4" /> XÁC SỐNG XUẤT HIỆN
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedLocation.enemies.map((enemyId) => {
-                    const enemy = db.enemiesMap.get(enemyId);
-                    return (
-                      <div
-                        key={enemyId}
-                        onClick={() => {
-                          handleCloseModal();
-                          navigate(`/wiki/enemies?select=${enemyId}`);
-                        }}
-                        className="p-2.5 rounded bg-charcoal-950 border border-charcoal-800 flex items-center justify-between hover:border-red-500/50 cursor-pointer transition-colors"
-                      >
-                        <div>
-                          <span className="text-xs font-bold text-slate-200">
-                            {enemy?.name || enemyId}
-                          </span>
-                          {enemy && (
-                            <span className="text-[11px] font-mono text-red-400 block">
-                              HP: {enemy.hp} • Dmg: {enemy.damage}
-                            </span>
-                          )}
-                        </div>
-                        <Button size="sm" variant="ghost" className="text-xs text-slate-400">
-                          Chi tiết
-                        </Button>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Resources and Loot */}
-            {db && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5">
-                  <Package className="w-4 h-4" /> TÀI NGUYÊN & RƯƠNG LOOT
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {[...selectedLocation.resources, ...selectedLocation.loot].map((itemId, idx) => {
-                    const item = db.itemsMap.get(itemId);
-                    return (
-                      <span
-                        key={idx}
-                        onClick={() => {
-                          handleCloseModal();
-                          navigate(`/wiki/items?select=${itemId}`);
-                        }}
-                        className="px-2.5 py-1 rounded bg-charcoal-950 border border-charcoal-800 text-xs text-slate-300 hover:text-amber-400 hover:border-amber-500/40 cursor-pointer transition-colors"
-                      >
-                        {item?.name || itemId}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        </Modal>
+        />
       )}
-    </div>
+      renderDetail={(loc) => {
+        const structures = db.locationStructures.filter((s) => s.locationId === loc.id);
+        const itemIds = Array.from(new Set([...loc.resources, ...loc.loot]));
+
+        return {
+          title: loc.name,
+          subtitle: loc.vietnameseName,
+          badges: (
+            <>
+              <Badge tone={LOCATION_DIFFICULTY_TONE[loc.difficulty]}>{LOCATION_DIFFICULTY_LABEL[loc.difficulty]}</Badge>
+              <Badge tone={dangerTone(loc.dangerLevel)}>{'💀'.repeat(loc.dangerLevel)}</Badge>
+              {loc.requiresChopper && <Badge tone="info">Cần Chopper</Badge>}
+              {loc.isCustom && <Badge tone="accent">Tùy chỉnh</Badge>}
+            </>
+          ),
+          body: (
+            <>
+              <EntityImage folder="locations" id={loc.id} image={loc.image} alt={loc.name} />
+              {loc.description && <p className="text-sm leading-relaxed text-muted">{loc.description}</p>}
+
+              {(loc.energyCost || loc.resetTimeHours) && (
+                <StatGrid cols={3}>
+                  <Stat label="Nguy hiểm" value={`${loc.dangerLevel}/5`} tone={dangerTone(loc.dangerLevel)} />
+                  {loc.energyCost ? <Stat label="Năng lượng" value={loc.energyCost} /> : null}
+                  {loc.resetTimeHours ? <Stat label="Làm mới" value={loc.resetTimeHours} unit="giờ" /> : null}
+                </StatGrid>
+              )}
+
+              {loc.notes && <Callout tone="warn">{loc.notes}</Callout>}
+
+              {structures.length > 0 && (
+                <Section title="Công trình cần sửa">
+                  <ul className="space-y-2">
+                    {structures.map((s) => (
+                      <li key={s.id} className="flex items-center justify-between gap-3 rounded-lg border border-line px-3 py-2.5">
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5 text-sm font-medium">
+                            <Building2 className="h-4 w-4 shrink-0 text-muted" />
+                            <span className="truncate">{s.name}</span>
+                          </div>
+                          <div className="mt-0.5 text-xs text-muted">{s.stages.length} giai đoạn</div>
+                        </div>
+                        <Button size="sm" variant="secondary" onClick={() => navigate(`/construction?structure=${s.id}`)}>
+                          Tính vật liệu
+                        </Button>
+                      </li>
+                    ))}
+                  </ul>
+                </Section>
+              )}
+
+              {loc.enemies.length > 0 && (
+                <Section title={`Quái xuất hiện (${loc.enemies.length})`}>
+                  <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {loc.enemies.map((id) => {
+                      const enemy = db.enemiesMap.get(id);
+                      return (
+                        <li key={id}>
+                          <Link
+                            to={`/wiki/enemies?select=${id}`}
+                            className="flex items-center justify-between gap-2 rounded-lg border border-line px-3 py-2 hover:bg-subtle"
+                          >
+                            <span className="min-w-0">
+                              <span className="block truncate text-sm font-medium">{enemy?.name ?? id}</span>
+                              {enemy && (
+                                <span className="num block text-xs text-muted">
+                                  {enemy.hp} HP · {enemy.damage} dmg
+                                </span>
+                              )}
+                            </span>
+                            <ChevronRight className="h-4 w-4 shrink-0 text-faint" />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Section>
+              )}
+
+              {itemIds.length > 0 && (
+                <Section title="Tài nguyên & loot">
+                  <ul className="flex flex-wrap gap-1.5">
+                    {itemIds.map((id) => (
+                      <li key={id}>
+                        <Link
+                          to={`/wiki/items?select=${id}`}
+                          className="inline-flex rounded-md bg-subtle px-2 py-1 text-xs hover:text-accent"
+                        >
+                          {db.itemsMap.get(id)?.name ?? id}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Section>
+              )}
+            </>
+          ),
+        };
+      }}
+    >
+      <FormModal
+        isOpen={Boolean(editing)}
+        title={isNew ? 'Thêm địa điểm' : 'Sửa địa điểm'}
+        onClose={() => setEditing(null)}
+        onSave={handleSave}
+        saveDisabled={!editing?.name?.trim() || !editing?.id?.trim()}
+        maxWidth="md"
+      >
+        {editing && (
+          <>
+            <FormRow>
+              <Field label="Tên (tiếng Anh)">
+                <TextInput autoFocus value={editing.name ?? ''} onChange={(e) => patch({ name: e.target.value })} />
+              </Field>
+              <Field label="Tên tiếng Việt" hint="Không bắt buộc">
+                <TextInput value={editing.vietnameseName ?? ''} onChange={(e) => patch({ vietnameseName: e.target.value })} />
+              </Field>
+            </FormRow>
+            <FormRow>
+              <Field label="Độ khó">
+                <Select value={editing.difficulty} onChange={(e) => patch({ difficulty: e.target.value as Location['difficulty'] })}>
+                  {Object.entries(LOCATION_DIFFICULTY_LABEL).map(([value, label]) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </Field>
+              <Field label="Mức nguy hiểm">
+                <Select value={editing.dangerLevel ?? 1} onChange={(e) => patch({ dangerLevel: Number(e.target.value) })}>
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <option key={n} value={n}>
+                      {n} / 5
+                    </option>
+                  ))}
+                </Select>
+              </Field>
+            </FormRow>
+            <FormRow cols={3}>
+              <Field label="Năng lượng">
+                <NumberInput value={editing.energyCost} onValueChange={(v) => patch({ energyCost: v || undefined })} />
+              </Field>
+              <Field label="Làm mới (giờ)">
+                <NumberInput value={editing.resetTimeHours} onValueChange={(v) => patch({ resetTimeHours: v || undefined })} />
+              </Field>
+              <Field label="ID" hint={isNew ? 'Duy nhất' : 'Không đổi được'}>
+                <TextInput
+                  value={editing.id ?? ''}
+                  disabled={!isNew}
+                  onChange={(e) => patch({ id: e.target.value })}
+                  className="font-mono"
+                />
+              </Field>
+            </FormRow>
+            <Checkbox
+              checked={Boolean(editing.requiresChopper)}
+              onChange={(checked) => patch({ requiresChopper: checked })}
+              label="Cần Chopper để tới"
+            />
+            <Field label="Mô tả">
+              <Textarea value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
+            </Field>
+            <Field label="Lưu ý tác chiến">
+              <Textarea rows={2} value={editing.notes ?? ''} onChange={(e) => patch({ notes: e.target.value })} />
+            </Field>
+          </>
+        )}
+      </FormModal>
+    </WikiPage>
   );
 };

@@ -1,185 +1,301 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Hammer, Layers, Plus, Sparkles, Trash2 } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
-import { Recipe } from '../../types';
-import { Card } from '../../components/common/Card';
+import { Recipe, RecipeIngredient } from '../../types';
 import { Badge } from '../../components/common/Badge';
-import { Button } from '../../components/common/Button';
-import { SearchInput } from '../../components/common/SearchInput';
-import { Hammer, Layers, Clock, ArrowRight, Wrench } from 'lucide-react';
+import { Button, IconButton } from '../../components/common/Button';
+import { EntityImage } from '../../components/common/EntityImage';
+import { Field, NumberInput, Select, TextInput } from '../../components/common/Field';
+import { FormModal, FormRow } from '../../components/common/FormModal';
+import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { RECIPE_CATEGORY_LABEL } from '../../lib/labels';
+
+const HAND = 'hand';
+
+const workstationOf = (r: Recipe) => r.workstation?.trim() || HAND;
 
 export const RecipesPage: React.FC = () => {
   const { db } = useGameData();
   const navigate = useNavigate();
+  const save = useSaveEntity('customRecipes');
+  const [editing, setEditing] = useState<Partial<Recipe> | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const [search, setSearch] = useState('');
-  const [workstationFilter, setWorkstationFilter] = useState('all');
+  // Filter options come from the data so custom workbenches show up without code changes.
+  const filterOptions = useMemo(() => {
+    const stations = Array.from(new Set((db?.recipes ?? []).map(workstationOf))).sort((a, b) =>
+      a === HAND ? -1 : b === HAND ? 1 : a.localeCompare(b)
+    );
+    return [
+      { id: 'all', label: 'Tất cả' },
+      ...stations.map((s) => ({ id: s, label: s === HAND ? 'Chế tạo tay' : s })),
+    ];
+  }, [db?.recipes]);
 
-  const workstations = [
-    { id: 'all', label: 'Tất cả' },
-    { id: 'hand', label: 'Chế tạo tay' },
-    { id: 'Woodworking Bench', label: 'Bàn xẻ gỗ' },
-    { id: 'Furnace', label: 'Lò nung' },
-    { id: 'Workbench', label: 'Bàn thợ nguội' },
-    { id: 'Tanning Rack', label: 'Giá thuộc da' },
-    { id: 'Loom', label: 'Khung dệt' },
-  ];
+  const sortedItems = useMemo(() => [...(db?.items ?? [])].sort((a, b) => a.name.localeCompare(b.name)), [db?.items]);
 
-  const filteredRecipes = useMemo(() => {
-    if (!db) return [];
-    return db.recipes.filter((r) => {
-      // Workstation filter
-      if (workstationFilter === 'hand' && r.workstation) return false;
-      if (workstationFilter !== 'all' && workstationFilter !== 'hand' && r.workstation !== workstationFilter) return false;
+  if (!db) return null;
 
-      // Search
-      if (search.trim()) {
-        const q = search.toLowerCase();
-        const outputItem = db.itemsMap.get(r.outputItemId);
-        const matchName = outputItem?.name.toLowerCase().includes(q);
-        const matchVn = outputItem?.vietnameseName?.toLowerCase().includes(q);
-        const matchId = r.outputItemId.toLowerCase().includes(q);
+  const nameOf = (itemId: string) => db.itemsMap.get(itemId)?.name ?? itemId;
+  const patch = (changes: Partial<Recipe>) => setEditing((prev) => (prev ? { ...prev, ...changes } : prev));
 
-        const matchIngredient = r.ingredients.some((ing) => {
-          const ingItem = db.itemsMap.get(ing.itemId);
-          return (
-            ingItem?.name.toLowerCase().includes(q) ||
-            ingItem?.vietnameseName?.toLowerCase().includes(q)
-          );
-        });
+  const ingredients = editing?.ingredients ?? [];
+  const setIngredient = (index: number, changes: Partial<RecipeIngredient>) =>
+    patch({ ingredients: ingredients.map((ing, i) => (i === index ? { ...ing, ...changes } : ing)) });
 
-        if (!matchName && !matchVn && !matchId && !matchIngredient) return false;
-      }
+  const canSave = Boolean(editing?.outputItemId) && ingredients.length > 0 && ingredients.every((i) => i.itemId && i.quantity > 0);
 
-      return true;
-    });
-  }, [db, workstationFilter, search]);
+  const handleSave = async () => {
+    if (!editing || !canSave) return;
+    const entity = {
+      ...editing,
+      id: editing.id!,
+      outputItemId: editing.outputItemId!,
+      outputQuantity: editing.outputQuantity || 1,
+      ingredients,
+      workstation: editing.workstation?.trim() || undefined,
+      isCustom: true,
+    } as Recipe;
+    await save(entity);
+    setEditing(null);
+  };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 flex items-center gap-2">
-            <Hammer className="w-6 h-6 text-blue-500" />
-            Công thức chế tạo (Crafting Recipes)
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Tra cứu nguyên liệu cần thiết, bàn chế tác và cấp độ yêu cầu cho từng trang bị.
-          </p>
-        </div>
-        <div className="text-xs font-mono text-slate-400 bg-charcoal-900 border border-charcoal-800 px-3 py-1.5 rounded-lg w-fit">
-          Tổng số: <span className="text-blue-400 font-bold">{filteredRecipes.length}</span> công thức
-        </div>
-      </div>
+    <WikiPage<Recipe>
+      title="Công thức"
+      description="Nguyên liệu, bàn chế tác và hiệu ứng của món ăn."
+      icon={<Hammer />}
+      noun="công thức"
+      overrideKey="customRecipes"
+      entities={db.recipes}
+      searchPlaceholder="Tìm theo thành phẩm hoặc nguyên liệu..."
+      getName={(r) => nameOf(r.outputItemId)}
+      getSearchText={(r) =>
+        [
+          nameOf(r.outputItemId),
+          db.itemsMap.get(r.outputItemId)?.vietnameseName,
+          r.outputItemId,
+          ...r.ingredients.flatMap((i) => [nameOf(i.itemId), db.itemsMap.get(i.itemId)?.vietnameseName]),
+        ]
+          .filter(Boolean)
+          .join(' ')
+      }
+      filter={{ options: filterOptions, matches: (r, id) => workstationOf(r) === id }}
+      onEdit={(recipe) => {
+        setIsNew(!recipe);
+        setEditing(
+          recipe
+            ? { ...recipe, ingredients: recipe.ingredients.map((i) => ({ ...i })) }
+            : {
+                id: `recipe_custom_${Date.now()}`,
+                outputItemId: sortedItems[0]?.id,
+                outputQuantity: 1,
+                category: 'crafting',
+                ingredients: [{ itemId: sortedItems[0]?.id ?? '', quantity: 1 }],
+              }
+        );
+      }}
+      renderCard={(recipe, isSelected, onSelect) => {
+        const output = db.itemsMap.get(recipe.outputItemId);
+        return (
+          <CompactWikiCard
+            key={recipe.id}
+            id={recipe.id}
+            title={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
+            subtitle={output?.vietnameseName}
+            isSelected={isSelected}
+            onClick={onSelect}
+            stats={[
+              { label: 'Nguyên liệu', value: recipe.ingredients.length },
+              ...(recipe.craftTimeSeconds ? [{ label: 'Thời gian', value: `${recipe.craftTimeSeconds}s` }] : []),
+            ]}
+            badges={
+              <>
+                <Badge tone={recipe.category === 'cooking' ? 'ok' : 'info'}>{workstationOf(recipe) === HAND ? 'Chế tạo tay' : recipe.workstation}</Badge>
+                {recipe.category && <Badge>{RECIPE_CATEGORY_LABEL[recipe.category]}</Badge>}
+                {recipe.isCustom && <Badge tone="accent">Tùy chỉnh</Badge>}
+              </>
+            }
+          />
+        );
+      }}
+      renderDetail={(recipe) => {
+        const output = db.itemsMap.get(recipe.outputItemId);
+        const buff = recipe.buffStats;
+        return {
+          title: nameOf(recipe.outputItemId),
+          subtitle: output?.vietnameseName,
+          badges: (
+            <>
+              <Badge tone={recipe.category === 'cooking' ? 'ok' : 'info'}>
+                {workstationOf(recipe) === HAND ? 'Chế tạo tay' : recipe.workstation}
+              </Badge>
+              <Badge tone="accent">Ra ×{recipe.outputQuantity}</Badge>
+              {recipe.levelRequired ? <Badge>Cấp {recipe.levelRequired}</Badge> : null}
+              {recipe.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
+            </>
+          ),
+          body: (
+            <>
+              <EntityImage folder="items" id={recipe.outputItemId} image={recipe.image ?? output?.image} alt={nameOf(recipe.outputItemId)} />
+              {(recipe.craftTimeSeconds || recipe.levelRequired) && (
+                <StatGrid cols={3}>
+                  {recipe.craftTimeSeconds ? <Stat label="Thời gian" value={recipe.craftTimeSeconds} unit="giây" /> : null}
+                  {recipe.levelRequired ? <Stat label="Cấp yêu cầu" value={recipe.levelRequired} /> : null}
+                  <Stat label="Số lượng ra" value={recipe.outputQuantity} />
+                </StatGrid>
+              )}
 
-      {/* Filter and Search */}
-      <div className="flex flex-col md:flex-row items-center gap-3">
-        <SearchInput
-          value={search}
-          onChange={setSearch}
-          placeholder="Tìm công thức chế tạo (Machete, Ván gỗ, Sắt, Đinh...)"
-          className="flex-1"
-        />
-        <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none py-1">
-          {workstations.map((ws) => (
-            <button
-              key={ws.id}
-              onClick={() => setWorkstationFilter(ws.id)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
-                workstationFilter === ws.id
-                  ? 'bg-blue-600 text-white font-bold'
-                  : 'bg-charcoal-900 text-slate-400 hover:text-slate-200 border border-charcoal-800'
-              }`}
-            >
-              {ws.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Recipes Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredRecipes.map((recipe) => {
-          const outputItem = db?.itemsMap.get(recipe.outputItemId);
-
-          return (
-            <Card key={recipe.id} className="flex flex-col justify-between group">
-              <div>
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="font-bold text-slate-200 group-hover:text-blue-400 transition-colors text-base">
-                      {outputItem?.name || recipe.outputItemId}
-                      {recipe.outputQuantity > 1 && (
-                        <span className="text-amber-400 text-sm ml-1 font-mono">
-                          x{recipe.outputQuantity}
-                        </span>
-                      )}
-                    </h3>
-                    {outputItem?.vietnameseName && (
-                      <p className="text-xs text-slate-400">{outputItem.vietnameseName}</p>
-                    )}
-                  </div>
-                  <Badge variant="blue" size="sm">
-                    {recipe.workstation || 'Chế tạo tay'}
-                  </Badge>
-                </div>
-
-                {/* Level & Time Requirements */}
-                <div className="flex items-center gap-3 text-xs font-mono text-slate-400 mb-4 bg-charcoal-950 p-2 rounded border border-charcoal-800">
-                  <span>Cấp yêu cầu: <b className="text-slate-200">{recipe.levelRequired || 1}</b></span>
-                  {recipe.craftTimeSeconds && (
-                    <span className="flex items-center gap-1 ml-auto">
-                      <Clock className="w-3.5 h-3.5 text-slate-500" />
-                      {recipe.craftTimeSeconds >= 60
-                        ? `${Math.round(recipe.craftTimeSeconds / 60)} phút`
-                        : `${recipe.craftTimeSeconds}s`}
-                    </span>
-                  )}
-                </div>
-
-                {/* Ingredients List */}
-                <div className="space-y-1.5 mb-4">
-                  <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">
-                    NGUYÊN LIỆU ĐÒI HỎI:
-                  </span>
-                  <div className="grid grid-cols-2 gap-2">
-                    {recipe.ingredients.map((ing) => {
-                      const ingItem = db?.itemsMap.get(ing.itemId);
-                      return (
-                        <div
-                          key={ing.itemId}
-                          className="flex items-center justify-between p-2 rounded bg-charcoal-950 border border-charcoal-800/80 text-xs"
-                        >
-                          <span className="text-slate-300 truncate mr-2" title={ingItem?.name || ing.itemId}>
-                            {ingItem?.name || ing.itemId}
-                          </span>
-                          <span className="font-mono font-bold text-amber-400 shrink-0">
-                            x{ing.quantity}
-                          </span>
+              {buff && (
+                <Section title="Hiệu quả món ăn">
+                  <Callout tone="accent" icon={<Sparkles />}>
+                    <div className="space-y-0.5">
+                      {buff.buffEffect && <div className="font-medium">{buff.buffEffect}</div>}
+                      {buff.durationSeconds ? (
+                        <div>
+                          Kéo dài {Math.round(buff.durationSeconds / 60)} phút ({buff.durationSeconds}s)
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+                      ) : null}
+                      {buff.hunger ? <div>No +{buff.hunger}</div> : null}
+                      {buff.thirst ? <div>Khát +{buff.thirst}</div> : null}
+                      {buff.healHp ? <div>Hồi {buff.healHp} HP</div> : null}
+                    </div>
+                  </Callout>
+                </Section>
+              )}
 
-              {/* Bottom CTA Button */}
-              <div className="pt-3 border-t border-charcoal-800 flex items-center justify-between">
+              <Section title={`Nguyên liệu (${recipe.ingredients.length})`}>
+                <ul className="divide-y divide-line rounded-lg border border-line">
+                  {recipe.ingredients.map((ing) => {
+                    const item = db.itemsMap.get(ing.itemId);
+                    return (
+                      <li key={ing.itemId}>
+                        <Link
+                          to={`/wiki/items?select=${ing.itemId}`}
+                          className="flex items-center justify-between gap-3 px-3 py-2 text-sm hover:bg-subtle"
+                        >
+                          <span className="min-w-0">
+                            <span className="block truncate font-medium">{item?.name ?? ing.itemId}</span>
+                            {item?.vietnameseName && <span className="block truncate text-xs text-muted">{item.vietnameseName}</span>}
+                          </span>
+                          <span className="num shrink-0 font-semibold text-accent">×{ing.quantity}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Section>
+
+              <Button block icon={<Layers />} onClick={() => navigate(`/planner?item=${recipe.outputItemId}`)}>
+                Mở trong kế hoạch chế tạo
+              </Button>
+            </>
+          ),
+        };
+      }}
+    >
+      <FormModal
+        isOpen={Boolean(editing)}
+        title={isNew ? 'Thêm công thức' : 'Sửa công thức'}
+        onClose={() => setEditing(null)}
+        onSave={handleSave}
+        saveDisabled={!canSave}
+        maxWidth="md"
+      >
+        {editing && (
+          <>
+            <Field label="Thành phẩm">
+              <Select value={editing.outputItemId ?? ''} onChange={(e) => patch({ outputItemId: e.target.value })}>
+                {sortedItems.map((i) => (
+                  <option key={i.id} value={i.id}>
+                    {i.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <FormRow cols={3}>
+              <Field label="Số lượng ra">
+                <NumberInput min={1} value={editing.outputQuantity} onValueChange={(v) => patch({ outputQuantity: Math.max(1, v) })} />
+              </Field>
+              <Field label="Thời gian (giây)">
+                <NumberInput value={editing.craftTimeSeconds} onValueChange={(v) => patch({ craftTimeSeconds: v || undefined })} />
+              </Field>
+              <Field label="Loại">
+                <Select value={editing.category ?? 'crafting'} onChange={(e) => patch({ category: e.target.value as Recipe['category'] })}>
+                  {Object.entries(RECIPE_CATEGORY_LABEL).map(([value, label]) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </Field>
+            </FormRow>
+            <Field label="Bàn chế tác" hint="Để trống nếu chế tạo tay">
+              <TextInput
+                list="workstation-options"
+                value={editing.workstation ?? ''}
+                onChange={(e) => patch({ workstation: e.target.value })}
+              />
+              <datalist id="workstation-options">
+                {filterOptions
+                  .filter((o) => o.id !== 'all' && o.id !== HAND)
+                  .map((o) => (
+                    <option key={o.id} value={o.id} />
+                  ))}
+              </datalist>
+            </Field>
+
+            <Section
+              title="Nguyên liệu"
+              action={
                 <Button
                   size="sm"
-                  variant="outline"
-                  icon={<Layers className="w-4 h-4" />}
-                  onClick={() => navigate(`/planner?item=${recipe.outputItemId}`)}
-                  className="w-full justify-center"
+                  variant="ghost"
+                  icon={<Plus />}
+                  onClick={() => patch({ ingredients: [...ingredients, { itemId: sortedItems[0]?.id ?? '', quantity: 1 }] })}
                 >
-                  Lên kế hoạch chế tạo này
+                  Thêm
                 </Button>
-              </div>
-            </Card>
-          );
-        })}
-      </div>
-    </div>
+              }
+            >
+              <ul className="space-y-2">
+                {ingredients.map((ing, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <Select
+                      aria-label="Nguyên liệu"
+                      value={ing.itemId}
+                      onChange={(e) => setIngredient(index, { itemId: e.target.value })}
+                      className="flex-1"
+                    >
+                      {sortedItems.map((i) => (
+                        <option key={i.id} value={i.id}>
+                          {i.name}
+                        </option>
+                      ))}
+                    </Select>
+                    <NumberInput
+                      aria-label="Số lượng"
+                      min={1}
+                      value={ing.quantity}
+                      onValueChange={(v) => setIngredient(index, { quantity: Math.max(1, v) })}
+                      className="w-20"
+                    />
+                    <IconButton
+                      label="Xóa nguyên liệu"
+                      disabled={ingredients.length <= 1}
+                      onClick={() => patch({ ingredients: ingredients.filter((_, i) => i !== index) })}
+                    >
+                      <Trash2 />
+                    </IconButton>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          </>
+        )}
+      </FormModal>
+    </WikiPage>
   );
 };

@@ -3,187 +3,192 @@
     "id": "recipe_pine_plank",
     "outputItemId": "pine_plank",
     "outputQuantity": 1,
+    "category": "processing",
     "workstation": "Woodworking Bench",
     "craftTimeSeconds": 240,
     "levelRequired": 6,
     "ingredients": [
       { "itemId": "pine_log", "quantity": 1 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_iron_bar",
     "outputItemId": "iron_bar",
     "outputQuantity": 1,
+    "category": "processing",
     "workstation": "Furnace",
     "craftTimeSeconds": 240,
     "levelRequired": 10,
     "ingredients": [
       { "itemId": "iron_ore", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
+  },
+  {
+    "id": "recipe_iron_plate",
+    "outputItemId": "iron_plate",
+    "outputQuantity": 1,
+    "category": "processing",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 300,
+    "levelRequired": 28,
+    "ingredients": [
+      { "itemId": "iron_bar", "quantity": 2 }
+    ]
   },
   {
     "id": "recipe_nails",
     "outputItemId": "nails",
     "outputQuantity": 2,
+    "category": "processing",
     "workstation": "Workbench",
     "craftTimeSeconds": 120,
     "levelRequired": 18,
     "ingredients": [
       { "itemId": "iron_bar", "quantity": 1 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_leather",
     "outputItemId": "leather",
     "outputQuantity": 1,
+    "category": "processing",
     "workstation": "Tanning Rack",
     "craftTimeSeconds": 360,
     "levelRequired": 14,
     "ingredients": [
       { "itemId": "raw_hide", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_cloth",
     "outputItemId": "cloth",
     "outputQuantity": 1,
+    "category": "processing",
     "workstation": "Loom",
     "craftTimeSeconds": 180,
     "levelRequired": 8,
     "ingredients": [
       { "itemId": "plant_fiber", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_thick_fabric",
     "outputItemId": "thick_fabric",
     "outputQuantity": 1,
+    "category": "processing",
     "workstation": "Loom",
     "craftTimeSeconds": 300,
     "levelRequired": 24,
     "ingredients": [
       { "itemId": "cloth", "quantity": 2 }
+    ]
+  },
+  {
+    "id": "recipe_charcoal",
+    "outputItemId": "charcoal",
+    "outputQuantity": 2,
+    "category": "processing",
+    "workstation": "Campfire",
+    "craftTimeSeconds": 120,
+    "levelRequired": 2,
+    "ingredients": [
+      { "itemId": "pine_log", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "recipe_jerky",
+    "outputItemId": "jerky",
+    "outputQuantity": 1,
+    "category": "processing",
+    "workstation": "Meat Dryer",
+    "craftTimeSeconds": 240,
+    "levelRequired": 12,
+    "ingredients": [
+      { "itemId": "raw_meat", "quantity": 1 }
     ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "buffStats": {
+      "hunger": 40,
+      "healHp": 20
+    }
   },
   {
     "id": "recipe_spear",
     "outputItemId": "spear",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 5,
     "levelRequired": 1,
     "ingredients": [
       { "itemId": "pine_log", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_makeshift_bat",
     "outputItemId": "makeshift_bat",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 10,
     "levelRequired": 4,
     "ingredients": [
       { "itemId": "pine_log", "quantity": 5 },
       { "itemId": "duct_tape", "quantity": 1 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_cleaver",
     "outputItemId": "cleaver",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 15,
     "levelRequired": 12,
     "ingredients": [
       { "itemId": "iron_bar", "quantity": 4 },
       { "itemId": "leather", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_crowbar",
     "outputItemId": "crowbar",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 15,
     "levelRequired": 14,
     "ingredients": [
       { "itemId": "iron_bar", "quantity": 7 },
       { "itemId": "leather", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_spiked_devastator",
     "outputItemId": "spiked_devastator",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 20,
     "levelRequired": 20,
     "ingredients": [
       { "itemId": "pine_plank", "quantity": 8 },
       { "itemId": "iron_bar", "quantity": 6 },
       { "itemId": "nails", "quantity": 5 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_machete",
     "outputItemId": "machete",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 25,
     "levelRequired": 30,
     "ingredients": [
       { "itemId": "iron_bar", "quantity": 15 },
       { "itemId": "pine_plank", "quantity": 4 },
       { "itemId": "leather", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_saw_blade_mace",
     "outputItemId": "saw_blade_mace",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 30,
     "levelRequired": 40,
     "ingredients": [
@@ -191,16 +196,13 @@
       { "itemId": "pine_plank", "quantity": 10 },
       { "itemId": "nails", "quantity": 5 },
       { "itemId": "duct_tape", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_skull_crusher",
     "outputItemId": "skull_crusher",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 30,
     "levelRequired": 44,
     "ingredients": [
@@ -208,101 +210,112 @@
       { "itemId": "pine_plank", "quantity": 10 },
       { "itemId": "nails", "quantity": 8 },
       { "itemId": "leather", "quantity": 4 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_bow",
     "outputItemId": "bow",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 20,
     "levelRequired": 16,
     "ingredients": [
       { "itemId": "pine_plank", "quantity": 5 },
       { "itemId": "rope", "quantity": 5 },
       { "itemId": "duct_tape", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_bandage",
     "outputItemId": "bandage",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 5,
     "levelRequired": 2,
     "ingredients": [
       { "itemId": "cloth", "quantity": 5 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_tactical_cap",
     "outputItemId": "tactical_cap",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 25,
     "levelRequired": 34,
     "ingredients": [
       { "itemId": "thick_fabric", "quantity": 4 },
       { "itemId": "leather", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "recipe_tactical_body_armor",
     "outputItemId": "tactical_body_armor",
     "outputQuantity": 1,
+    "category": "crafting",
     "craftTimeSeconds": 30,
     "levelRequired": 34,
     "ingredients": [
       { "itemId": "thick_fabric", "quantity": 6 },
       { "itemId": "leather", "quantity": 3 },
       { "itemId": "iron_bar", "quantity": 2 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
-    "id": "recipe_tactical_trousers",
-    "outputItemId": "tactical_trousers",
+    "id": "recipe_electric_generator",
+    "outputItemId": "electric_generator",
     "outputQuantity": 1,
-    "craftTimeSeconds": 25,
+    "category": "crafting",
+    "craftTimeSeconds": 120,
     "levelRequired": 34,
+    "workstation": "Base Ground Assembly",
     "ingredients": [
-      { "itemId": "thick_fabric", "quantity": 6 },
-      { "itemId": "leather", "quantity": 3 }
-    ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+      { "itemId": "iron_plate", "quantity": 20 },
+      { "itemId": "bolt", "quantity": 55 },
+      { "itemId": "wrench", "quantity": 5 },
+      { "itemId": "duct_tape", "quantity": 40 },
+      { "itemId": "gasoline", "quantity": 10 },
+      { "itemId": "rubber_parts", "quantity": 15 },
+      { "itemId": "ball_bearing", "quantity": 20 }
+    ]
   },
   {
-    "id": "recipe_tactical_boots",
-    "outputItemId": "tactical_boots",
+    "id": "recipe_roasted_salmon",
+    "outputItemId": "salmon",
     "outputQuantity": 1,
-    "craftTimeSeconds": 20,
-    "levelRequired": 34,
+    "category": "cooking",
+    "workstation": "Kitchen Stove",
+    "craftTimeSeconds": 300,
+    "levelRequired": 25,
     "ingredients": [
-      { "itemId": "thick_fabric", "quantity": 4 },
-      { "itemId": "leather", "quantity": 2 }
+      { "itemId": "salmon", "quantity": 1 },
+      { "itemId": "carrot", "quantity": 2 },
+      { "itemId": "mushroom", "quantity": 2 }
     ],
-    "verificationStatus": "verified",
-    "source": "In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "buffStats": {
+      "healHp": 45,
+      "hunger": 50,
+      "buffEffect": "+30% kinh nghiệm (XP) từ quái vật trong 15 phút",
+      "durationSeconds": 900
+    }
+  },
+  {
+    "id": "recipe_sweet_and_sour_perch",
+    "outputItemId": "perch",
+    "outputQuantity": 1,
+    "category": "cooking",
+    "workstation": "Kitchen Stove",
+    "craftTimeSeconds": 180,
+    "levelRequired": 20,
+    "ingredients": [
+      { "itemId": "perch", "quantity": 1 },
+      { "itemId": "plant_fiber", "quantity": 3 }
+    ],
+    "buffStats": {
+      "healHp": 30,
+      "thirst": 50,
+      "buffEffect": "Giải tỏa hoàn toàn cơn khát và phục hồi sinh lực",
+      "durationSeconds": 600
+    }
   }
 ]

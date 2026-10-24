@@ -1,44 +1,61 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger' | 'ghost' | 'outline';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'soft';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
+  /** Stretch to the full width of the container. */
+  block?: boolean;
 }
+
+const base =
+  'inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap select-none transition-colors disabled:cursor-not-allowed disabled:opacity-50';
+
+const sizes = {
+  sm: 'h-8 px-3 text-xs rounded-md',
+  md: 'h-9 px-4 text-sm rounded-lg',
+  lg: 'h-11 px-5 text-sm rounded-lg',
+};
+
+const variants = {
+  primary: 'bg-accent-solid text-accent-fg hover:brightness-110 active:brightness-95',
+  secondary: 'bg-surface text-fg border border-line hover:bg-subtle',
+  soft: 'bg-accent-soft text-accent hover:brightness-95',
+  ghost: 'text-muted hover:text-fg hover:bg-subtle',
+  danger: 'bg-danger text-white hover:brightness-110 dark:text-surface',
+};
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
   size = 'md',
   icon,
+  block,
   className = '',
-  disabled,
+  type = 'button',
   ...props
-}) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-150 select-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50';
+}) => (
+  <button
+    type={type}
+    className={`${base} ${sizes[size]} ${variants[variant]} ${block ? 'w-full' : ''} ${className}`}
+    {...props}
+  >
+    {icon && <span className="shrink-0 [&>svg]:h-4 [&>svg]:w-4">{icon}</span>}
+    {children}
+  </button>
+);
 
-  const sizeStyles = {
-    sm: 'text-xs px-2.5 py-1.5 rounded gap-1.5',
-    md: 'text-sm px-3.5 py-2 rounded-md gap-2',
-    lg: 'text-base px-5 py-2.5 rounded-lg gap-2.5 font-semibold',
-  };
-
-  const variantStyles = {
-    primary: 'bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-charcoal-950 font-bold border border-amber-500 shadow-sm shadow-amber-950/40',
-    secondary: 'bg-charcoal-800 hover:bg-charcoal-750 active:bg-charcoal-700 text-slate-200 border border-charcoal-700 hover:border-slate-500',
-    danger: 'bg-red-900/80 hover:bg-red-800 text-red-200 border border-red-700 active:bg-red-950',
-    ghost: 'bg-transparent hover:bg-charcoal-800 text-slate-400 hover:text-slate-200 border border-transparent',
-    outline: 'bg-transparent hover:bg-charcoal-800 text-amber-400 border border-amber-600/60 hover:border-amber-500',
-  };
-
-  return (
-    <button
-      className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
-      disabled={disabled}
-      {...props}
-    >
-      {icon && <span className="shrink-0">{icon}</span>}
-      {children}
-    </button>
-  );
-};
+/** Square icon-only button used for toolbars and dialog close buttons. */
+export const IconButton: React.FC<
+  React.ButtonHTMLAttributes<HTMLButtonElement> & { label: string; children: React.ReactNode }
+> = ({ label, children, className = '', type = 'button', ...props }) => (
+  <button
+    type={type}
+    aria-label={label}
+    title={label}
+    className={`inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
+    {...props}
+  >
+    {children}
+  </button>
+);

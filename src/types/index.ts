@@ -1,10 +1,10 @@
-export type VerificationStatus = 'verified' | 'unverified' | 'demo';
+export type VerificationStatus = 'verified' | 'unverified' | 'custom';
 
 export interface EntityMetadata {
-  source?: string;
-  verifiedAt?: string;
-  gameVersion?: string;
-  verificationStatus: VerificationStatus;
+  isCustom?: boolean;
+  notes?: string;
+  /** Optional screenshot path (relative to /public). Defaults to images/<kind>/<id>.png when omitted. */
+  image?: string;
 }
 
 export type ItemCategory =
@@ -42,6 +42,8 @@ export interface ConsumableStats {
   healHp?: number;
   hunger?: number;
   thirst?: number;
+  buffEffect?: string;
+  durationSeconds?: number;
 }
 
 export interface Item extends EntityMetadata {
@@ -89,15 +91,25 @@ export interface RecipeIngredient {
   quantity: number;
 }
 
+export interface RecipeBuffStats {
+  healHp?: number;
+  hunger?: number;
+  thirst?: number;
+  buffEffect?: string;
+  durationSeconds?: number;
+}
+
 export interface Recipe extends EntityMetadata {
   id: string;
   outputItemId: string;
   outputQuantity: number;
   ingredients: RecipeIngredient[];
+  category?: 'crafting' | 'processing' | 'cooking';
   workstation?: string;
   craftTimeSeconds?: number;
   levelRequired?: number;
   isWorkbenchOnly?: boolean;
+  buffStats?: RecipeBuffStats;
 }
 
 export interface Location extends EntityMetadata {
@@ -116,12 +128,23 @@ export interface Location extends EntityMetadata {
   notes?: string;
 }
 
-export interface QuestStep {
+export type QuestObjectiveType =
+  | 'kill_enemy'
+  | 'earn_points'
+  | 'collect_item'
+  | 'craft_item'
+  | 'visit_location'
+  | 'repair_structure'
+  | 'unlock_area'
+  | 'interact'
+  | 'other';
+
+export interface QuestObjective {
   id: string;
-  text: string;
-  vietnameseText?: string;
-  requiredItemId?: string;
-  requiredQuantity?: number;
+  type: QuestObjectiveType;
+  description: string;
+  targetId?: string; // enemyId, itemId, locationId, structureId
+  quantity?: number;
 }
 
 export interface QuestReward {
@@ -133,81 +156,114 @@ export interface Quest extends EntityMetadata {
   id: string;
   title: string;
   vietnameseTitle?: string;
-  category: 'survivors_path' | 'story' | 'raiders' | 'daily';
+  category: 'survivors_path' | 'story' | 'raiders' | 'daily' | 'event';
   chapter?: string;
   description: string;
   prerequisites?: string[];
-  steps: QuestStep[];
+  objectives: QuestObjective[];
   rewards: QuestReward[];
+  relatedLocations?: string[];
+  relatedEnemies?: string[];
+  relatedItems?: string[];
+  instructions?: string;
 }
 
-// User / Personal Progress Storage Types
-export interface WeaponInstance {
+export interface LocationStructureStage {
   id: string;
-  itemId: string;
-  durabilityPercent: number; // 0 - 100%
-  customDamage?: number;
+  name: string;
+  requirements: Array<{
+    itemId: string;
+    quantity: number;
+  }>;
+}
+
+export interface LocationStructure extends EntityMetadata {
+  id: string;
+  locationId: string;
+  name: string;
+  type: 'repair' | 'construction' | 'unlock' | 'upgrade';
+  description?: string;
+  stages: LocationStructureStage[];
+  prerequisiteIds?: string[];
+  unlocks?: string[];
+}
+
+export interface PointMilestone {
+  id: string;
+  name: string;
+  points: number;
+}
+
+export interface PointSystem extends EntityMetadata {
+  id: string;
+  name: string;
+  description?: string;
+  unit: string;
+  milestones: PointMilestone[];
+}
+
+export interface EnemyPointRule extends EntityMetadata {
+  id: string;
+  pointSystemId: string;
+  enemyId: string;
+  locationId?: string; // optional location-specific override
+  points: number | null; // null if unknown
   notes?: string;
-  createdAt: string;
 }
 
-export interface Goal {
+export interface ReferenceSource {
   id: string;
-  title: string;
-  targetItemId: string;
-  targetQuantity: number;
-  completed: boolean;
-  notes?: string;
-  createdAt: string;
-  updatedAt: string;
+  name: string;
+  url: string;
+  description?: string;
 }
 
-export interface UserNote {
-  id: string;
-  title: string;
-  content: string;
-  linkedEntity?: {
-    type: 'item' | 'enemy' | 'recipe' | 'location' | 'quest';
-    id: string;
-    name?: string;
-  };
-  isPinned: boolean;
-  createdAt: string;
-  updatedAt: string;
+export interface WikiOverrides {
+  customItems: Item[];
+  customEnemies: Enemy[];
+  customRecipes: Recipe[];
+  customLocations: Location[];
+  customQuests: Quest[];
+  customLocationStructures: LocationStructure[];
+  customPointSystems: PointSystem[];
+  customEnemyPointRules: EnemyPointRule[];
+  hiddenEntityIds: string[];
 }
 
-export interface FavoriteItem {
-  type: 'item' | 'enemy' | 'recipe' | 'location' | 'quest';
-  id: string;
-  addedAt: string;
+export interface AppSettings {
+  theme: 'light' | 'dark' | 'system';
+  language: 'vi';
 }
 
-export interface QuestUserProgress {
-  status: 'not_started' | 'in_progress' | 'completed';
-  completedStepIds: string[];
-  updatedAt: string;
-}
-
-export interface UserDataSchema {
+export interface AppStorageSchema {
   version: number;
-  inventory: Record<string, number>; // itemId -> count
-  weaponInstances: WeaponInstance[];
-  questProgress: Record<string, QuestUserProgress>; // questId -> progress
-  goals: Goal[];
-  notes: UserNote[];
-  favorites: FavoriteItem[];
-  recentlyViewed: Array<{ type: 'item' | 'enemy' | 'recipe' | 'location' | 'quest'; id: string; timestamp: number }>;
-  settings: {
-    language: 'vi';
-    compactView: boolean;
-  };
+  theme: 'light' | 'dark' | 'system';
+  settings: AppSettings;
+  overrides: WikiOverrides;
+  referenceSources: ReferenceSource[];
+  legacyData?: any; // preserved previous user inventory, goals, notes
 }
 
-// Global Game Database Cache Interface
 export interface GameDatabase {
-  items: Map<string, Item>;
-  enemies: Map<string, Enemy>;
-  recipes: Map<string, Recipe>;
-  locations: Map<string, Location>;
-  quests: Map<string, Quest>;
+  items: Item[];
+  enemies: Enemy[];
+  recipes: Recipe[];
+  locations: Location[];
+  quests: Quest[];
+  locationStructures: LocationStructure[];
+  pointSystems: PointSystem[];
+  enemyPointRules: EnemyPointRule[];
+
+  itemsMap: Map<string, Item>;
+  enemiesMap: Map<string, Enemy>;
+  recipesMap: Map<string, Recipe>;
+  recipesByOutputMap: Map<string, Recipe[]>;
+  locationsMap: Map<string, Location>;
+  questsMap: Map<string, Quest>;
+  locationStructuresMap: Map<string, LocationStructure>;
+  pointSystemsMap: Map<string, PointSystem>;
+  enemyPointRulesMap: Map<string, EnemyPointRule>;
+
+  isLoading: boolean;
+  error: string | null;
 }

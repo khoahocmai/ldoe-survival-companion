@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rule_supply_roamer",
+    "pointSystemId": "supply_event",
+    "enemyId": "roamer",
+    "points": 1,
+    "notes": "Zombie cơ bản vùng rừng/đá xanh."
+  },
+  {
+    "id": "rule_supply_fast_biter",
+    "pointSystemId": "supply_event",
+    "enemyId": "fast_biter",
+    "points": 2,
+    "notes": "Zombie chạy nhanh vùng vàng/đỏ."
+  },
+  {
+    "id": "rule_supply_toxic_spitter",
+    "pointSystemId": "supply_event",
+    "enemyId": "toxic_spitter",
+    "points": 3,
+    "notes": "Zombie khạc axit gây hôi thối."
+  },
+  {
+    "id": "rule_supply_floater_bloater",
+    "pointSystemId": "supply_event",
+    "enemyId": "floater_bloater",
+    "points": 5,
+    "notes": "Zombie béo dậm đất."
+  },
+  {
+    "id": "rule_supply_toxic_abomination",
+    "pointSystemId": "supply_event",
+    "enemyId": "toxic_abomination",
+    "points": 7,
+    "notes": "Zombie béo độc vùng đỏ & Bunker."
+  },
+  {
+    "id": "rule_supply_frenzied_giant",
+    "pointSystemId": "supply_event",
+    "enemyId": "frenzied_giant",
+    "points": 15,
+    "notes": "Mục tiêu farm điểm cực nhanh trong Bunker Alfa (15 điểm/con)."
+  },
+  {
+    "id": "rule_supply_blind_one",
+    "pointSystemId": "supply_event",
+    "enemyId": "the_blind_one",
+    "points": 50,
+    "notes": "Boss tầng 3 Bunker Alfa hardmode (50 điểm)."
+  },
+  {
+    "id": "rule_supply_the_ravager",
+    "pointSystemId": "supply_event",
+    "enemyId": "the_ravager",
+    "points": 40,
+    "notes": "Boss nông trại Farm (40 điểm)."
+  },
+  {
+    "id": "rule_supply_pd_exclusion",
+    "pointSystemId": "supply_event",
+    "enemyId": "*",
+    "locationId": "blackport_pd",
+    "points": 0,
+    "notes": "Quy tắc game: Đấu trường đợt sóng Blackport PD KHÔNG tính điểm cho sự kiện Supply."
+  }
+]

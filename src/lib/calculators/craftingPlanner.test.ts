@@ -9,21 +9,18 @@ describe('craftingPlanner', () => {
       outputItemId: 'pine_plank',
       outputQuantity: 1,
       ingredients: [{ itemId: 'pine_log', quantity: 1 }],
-      verificationStatus: 'verified',
     },
     {
       id: 'r_iron_bar',
       outputItemId: 'iron_bar',
       outputQuantity: 1,
       ingredients: [{ itemId: 'iron_ore', quantity: 2 }],
-      verificationStatus: 'verified',
     },
     {
       id: 'r_nails',
       outputItemId: 'nails',
       outputQuantity: 2, // crafts 2 at a time!
       ingredients: [{ itemId: 'iron_bar', quantity: 1 }],
-      verificationStatus: 'verified',
     },
     {
       id: 'r_devastator',
@@ -34,25 +31,23 @@ describe('craftingPlanner', () => {
         { itemId: 'iron_bar', quantity: 6 },
         { itemId: 'nails', quantity: 5 },
       ],
-      verificationStatus: 'verified',
     },
     {
       id: 'r_spear',
       outputItemId: 'spear',
       outputQuantity: 1,
       ingredients: [{ itemId: 'pine_log', quantity: 3 }],
-      verificationStatus: 'verified',
     },
   ];
 
   const dummyItems: Item[] = [
-    { id: 'pine_log', name: 'Pine Log', category: 'resource_raw', rarity: 'common', stackSize: 20, description: '', verificationStatus: 'verified' },
-    { id: 'pine_plank', name: 'Pine Plank', category: 'resource_processed', rarity: 'common', stackSize: 20, description: '', verificationStatus: 'verified' },
-    { id: 'iron_ore', name: 'Iron Ore', category: 'resource_raw', rarity: 'common', stackSize: 20, description: '', verificationStatus: 'verified' },
-    { id: 'iron_bar', name: 'Iron Bar', category: 'resource_processed', rarity: 'common', stackSize: 20, description: '', verificationStatus: 'verified' },
-    { id: 'nails', name: 'Nails', category: 'component', rarity: 'common', stackSize: 20, description: '', verificationStatus: 'verified' },
-    { id: 'spiked_devastator', name: 'Spiked Devastator', category: 'weapon_melee', rarity: 'rare', stackSize: 1, description: '', verificationStatus: 'verified' },
-    { id: 'spear', name: 'Spear', category: 'weapon_melee', rarity: 'common', stackSize: 1, description: '', verificationStatus: 'verified' },
+    { id: 'pine_log', name: 'Pine Log', category: 'resource_raw', rarity: 'common', stackSize: 20, description: '' },
+    { id: 'pine_plank', name: 'Pine Plank', category: 'resource_processed', rarity: 'common', stackSize: 20, description: '' },
+    { id: 'iron_ore', name: 'Iron Ore', category: 'resource_raw', rarity: 'common', stackSize: 20, description: '' },
+    { id: 'iron_bar', name: 'Iron Bar', category: 'resource_processed', rarity: 'common', stackSize: 20, description: '' },
+    { id: 'nails', name: 'Nails', category: 'component', rarity: 'common', stackSize: 20, description: '' },
+    { id: 'spiked_devastator', name: 'Spiked Devastator', category: 'weapon_melee', rarity: 'rare', stackSize: 1, description: '' },
+    { id: 'spear', name: 'Spear', category: 'weapon_melee', rarity: 'common', stackSize: 1, description: '' },
   ];
 
   const itemsMap = new Map<string, Item>(dummyItems.map((i) => [i.id, i]));
@@ -127,6 +122,34 @@ describe('craftingPlanner', () => {
     expect(ironOreReq?.missing).toBe(10);
   });
 
+  it('keeps the total requirement of a raw material when part of it is in the inventory', () => {
+    // 2 spears need 6 logs. Owning 4 must leave "required" at 6 and only 2 missing.
+    const partial = planCrafting({
+      targetItemId: 'spear',
+      quantity: 2,
+      inventory: { pine_log: 4 },
+      recipesByOutput: recipesByOutputMap,
+      itemsMap,
+    });
+    const logs = partial.totalRawMaterials.find((m) => m.itemId === 'pine_log');
+    expect(logs?.required).toBe(6);
+    expect(logs?.inInventory).toBe(4);
+    expect(logs?.missing).toBe(2);
+    expect(logs?.isSatisfied).toBe(false);
+  });
+
+  it('still lists a raw material that the inventory fully covers', () => {
+    const covered = planCrafting({
+      targetItemId: 'spear',
+      quantity: 2,
+      inventory: { pine_log: 10 },
+      recipesByOutput: recipesByOutputMap,
+      itemsMap,
+    });
+    expect(covered.totalRawMaterials).toHaveLength(1);
+    expect(covered.totalRawMaterials[0]).toMatchObject({ itemId: 'pine_log', required: 6, missing: 0, isSatisfied: true });
+  });
+
   it('detects circular recipe dependencies safely', () => {
     const loopRecipesByOutput = new Map<string, Recipe[]>();
     loopRecipesByOutput.set('item_a', [
@@ -135,7 +158,6 @@ describe('craftingPlanner', () => {
         outputItemId: 'item_a',
         outputQuantity: 1,
         ingredients: [{ itemId: 'item_b', quantity: 1 }],
-        verificationStatus: 'verified',
       },
     ]);
     loopRecipesByOutput.set('item_b', [
@@ -144,7 +166,6 @@ describe('craftingPlanner', () => {
         outputItemId: 'item_b',
         outputQuantity: 1,
         ingredients: [{ itemId: 'item_a', quantity: 1 }],
-        verificationStatus: 'verified',
       },
     ]);
 

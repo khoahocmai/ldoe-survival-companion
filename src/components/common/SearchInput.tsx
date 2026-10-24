@@ -11,28 +11,28 @@ interface SearchInputProps {
 export const SearchInput: React.FC<SearchInputProps> = ({
   value,
   onChange,
-  placeholder = 'Tìm kiếm tên hoặc từ khóa...',
+  placeholder = 'Tìm kiếm...',
   className = '',
-}) => {
-  return (
-    <div className={`relative flex items-center w-full ${className}`}>
-      <Search className="absolute left-3 w-4 h-4 text-slate-400 pointer-events-none" />
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full bg-charcoal-950 border border-charcoal-750 focus:border-amber-500 rounded-md pl-9 pr-9 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none transition-colors"
-      />
-      {value && (
-        <button
-          type="button"
-          onClick={() => onChange('')}
-          className="absolute right-3 text-slate-500 hover:text-slate-300"
-        >
-          <X className="w-4 h-4" />
-        </button>
-      )}
-    </div>
-  );
-};
+}) => (
+  <div className={`relative flex w-full items-center ${className}`}>
+    <Search className="pointer-events-none absolute left-3 h-4 w-4 text-faint" />
+    <input
+      type="search"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      aria-label={placeholder}
+      className="h-9 w-full rounded-lg border border-line bg-surface pl-9 pr-9 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+    />
+    {value && (
+      <button
+        type="button"
+        onClick={() => onChange('')}
+        aria-label="Xóa tìm kiếm"
+        className="absolute right-2 rounded p-1 text-faint hover:text-fg"
+      >
+        <X className="h-4 w-4" />
+      </button>
+    )}
+  </div>
+);

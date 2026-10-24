@@ -1,60 +1,87 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { CheckCircle2, Layers, Minus, Plus, RotateCcw, Sparkles } from 'lucide-react';
 import { useGameData } from '../context/DataContext';
-import { usePersonalData } from '../hooks/usePersonalData';
-import { planCrafting, CraftingTreeNode } from '../lib/calculators/craftingPlanner';
-import { Card } from '../components/common/Card';
+import { CraftingTreeNode, planCrafting } from '../lib/calculators/craftingPlanner';
 import { Badge } from '../components/common/Badge';
-import { Button } from '../components/common/Button';
-import {
-  Layers,
-  CheckCircle2,
-  AlertCircle,
-  Plus,
-  Minus,
-  Target,
-  Package,
-  ChevronRight,
-  ChevronDown,
-  Hammer,
-  RotateCcw,
-  ListTodo,
-} from 'lucide-react';
+import { Button, IconButton } from '../components/common/Button';
+import { Card } from '../components/common/Card';
+import { Field, NumberInput, Select } from '../components/common/Field';
+import { Callout, EmptyState, PageHeader, Stat, StatGrid } from '../components/common/Layout';
+import { Tabs } from '../components/common/Tabs';
+
+type PlannerTab = 'materials' | 'steps' | 'checklist' | 'tree';
+
+const TreeNode: React.FC<{ node: CraftingTreeNode }> = ({ node }) => (
+  <li>
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 py-1 text-sm">
+      <span className="font-medium">{node.itemName}</span>
+      <span className="num font-semibold text-accent">×{node.quantityRequired}</span>
+      {node.usedFromInventory > 0 && <Badge tone="ok">Có sẵn {node.usedFromInventory}</Badge>}
+      {node.craftsNeeded > 0 && (
+        <span className="text-xs text-muted">
+          chế {node.craftsNeeded} lần · {node.recipe?.workstation || 'chế tạo tay'}
+        </span>
+      )}
+    </div>
+    {node.children.length > 0 && (
+      <ul className="ml-2 border-l border-line pl-4">
+        {node.children.map((child, i) => (
+          <TreeNode key={`${child.itemId}-${i}`} node={child} />
+        ))}
+      </ul>
+    )}
+  </li>
+);
 
 export const CraftingPlanner: React.FC = () => {
   const { db } = useGameData();
-  const { inventory, addGoal } = usePersonalData();
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
 
-  // Selected item & quantity
-  const [targetItemId, setTargetItemId] = useState<string>('spiked_devastator');
-  const [quantity, setQuantity] = useState<number>(1);
-  const [activeTab, setActiveTab] = useState<'materials' | 'steps' | 'tree' | 'checklist'>('materials');
-  const [checklistCompleted, setChecklistCompleted] = useState<Record<string, boolean>>({});
-  const [goalCreatedNotice, setGoalCreatedNotice] = useState<string | null>(null);
+  const craftableItems = useMemo(
+    () => (db?.items ?? []).filter((item) => db!.recipesByOutputMap.has(item.id)).sort((a, b) => a.name.localeCompare(b.name)),
+    [db]
+  );
 
-  // Sync with URL params
+  const [targetItemId, setTargetItemId] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [inventory, setInventory] = useState<Record<string, number>>({});
+  const [tab, setTab] = useState<PlannerTab>('materials');
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
+
   useEffect(() => {
+    if (!db) return;
     const itemParam = searchParams.get('item');
-    const qtyParam = searchParams.get('qty');
-    if (itemParam && db?.itemsMap.has(itemParam)) {
-      setTargetItemId(itemParam);
-    }
-    if (qtyParam && !isNaN(Number(qtyParam))) {
-      setQuantity(Math.max(1, Number(qtyParam)));
-    }
+    const qtyParam = Number(searchParams.get('qty'));
+    setTargetItemId((current) =>
+      itemParam && db.itemsMap.has(itemParam)
+        ? itemParam
+        : db.itemsMap.has(current)
+          ? current
+          : craftableItems[0]?.id ?? ''
+    );
+    if (Number.isFinite(qtyParam) && qtyParam >= 1) setQuantity(Math.floor(qtyParam));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, db]);
 
-  // Craftable items list for dropdown
-  const craftableItems = useMemo(() => {
-    if (!db) return [];
-    return db.items.filter((item) => db.recipesByOutputMap.has(item.id));
-  }, [db]);
+  const sync = (item: string, qty: number) =>
+    setSearchParams({ item, qty: String(qty) }, { replace: true });
 
-  // Run pure crafting planner engine
+  const changeItem = (id: string) => {
+    setTargetItemId(id);
+    setInventory({});
+    setChecked({});
+    sync(id, quantity);
+  };
+
+  const changeQuantity = (value: number) => {
+    const next = Math.min(999, Math.max(1, Math.floor(value) || 1));
+    setQuantity(next);
+    sync(targetItemId, next);
+  };
+
   const plan = useMemo(() => {
-    if (!db) return null;
+    if (!db || !targetItemId) return null;
     return planCrafting({
       targetItemId,
       quantity,
@@ -64,248 +91,140 @@ export const CraftingPlanner: React.FC = () => {
     });
   }, [db, targetItemId, quantity, inventory]);
 
-  const handleCreateGoal = () => {
-    if (!plan || !plan.targetItem) return;
-    const goalTitle = `Chế tạo ${quantity}x ${plan.targetItem.name}`;
-    addGoal(goalTitle, targetItemId, quantity, 'Tạo từ Công cụ Lên kế hoạch chế tạo (Crafting Planner)');
-    setGoalCreatedNotice(`Đã thêm mục tiêu "${goalTitle}" vào danh sách Mục tiêu cá nhân!`);
-    setTimeout(() => setGoalCreatedNotice(null), 4000);
-  };
+  const buff = db?.recipesByOutputMap.get(targetItemId)?.[0]?.buffStats;
+  const missingCount = plan?.totalRawMaterials.filter((m) => !m.isSatisfied).length ?? 0;
+  const hasInventory = Object.values(inventory).some((v) => v > 0);
 
-  const handleToggleChecklist = (id: string) => {
-    setChecklistCompleted((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
-  // Render tree node recursively
-  const renderTreeNode = (node: CraftingTreeNode, depth = 0) => {
-    return (
-      <div key={`${node.itemId}_${depth}`} className="ml-4 border-l border-charcoal-750 pl-3 my-2">
-        <div className="flex items-center gap-2 text-xs font-mono">
-          <span className="font-semibold text-slate-200">{node.itemName}</span>
-          <span className="text-amber-400 font-bold">x{node.quantityRequired}</span>
-          {node.usedFromInventory > 0 && (
-            <span className="text-emerald-400 text-[11px] bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800">
-              Có sẵn: {node.usedFromInventory}
-            </span>
-          )}
-          {node.craftsNeeded > 0 && (
-            <span className="text-blue-400 text-[11px]">
-              (Cần chế tạo {node.craftsNeeded} lần • {node.recipe?.workstation || 'Chế tạo tay'})
-            </span>
-          )}
-        </div>
-        {node.children.length > 0 && (
-          <div className="mt-1">
-            {node.children.map((child, idx) => renderTreeNode(child, depth + 1))}
-          </div>
-        )}
-      </div>
-    );
-  };
+  const tabs = plan
+    ? [
+        { id: 'materials', label: 'Nguyên liệu', count: plan.totalRawMaterials.length },
+        { id: 'steps', label: 'Các bước chế', count: plan.intermediateSteps.length },
+        { id: 'checklist', label: 'Checklist' },
+        { id: 'tree', label: 'Cây công thức' },
+      ]
+    : [];
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 flex items-center gap-2">
-            <Layers className="w-6 h-6 text-amber-500" />
-            Kế hoạch chế tạo (Crafting Planner)
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Tính toán nguyên liệu phân rã đệ quy (nested recipes), tự động đối chiếu kho đồ và tạo checklist.
-          </p>
-        </div>
-        {plan && (
-          <Button
-            variant="primary"
-            icon={<Target className="w-4 h-4" />}
-            onClick={handleCreateGoal}
-          >
-            Tạo mục tiêu cá nhân
-          </Button>
-        )}
-      </div>
+    <div>
+      <PageHeader
+        title="Kế hoạch chế tạo"
+        description="Phân rã công thức nhiều tầng thành nguyên liệu thô, trừ đi đồ bạn đang có."
+        icon={<Layers />}
+      />
 
-      {goalCreatedNotice && (
-        <div className="p-3 bg-emerald-950/80 border border-emerald-600/60 rounded-lg text-emerald-300 text-xs font-mono flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>{goalCreatedNotice}</span>
-        </div>
-      )}
-
-      {/* Target Item Controls */}
-      <Card highlight="amber">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-          <div className="md:col-span-8">
-            <label className="text-xs font-mono uppercase tracking-wider text-amber-500 font-semibold block mb-1.5">
-              CHỌN VẬT PHẨM MỤC TIÊU CẦN CHẾ TẠO:
-            </label>
-            <select
-              value={targetItemId}
-              onChange={(e) => {
-                setTargetItemId(e.target.value);
-                setSearchParams({ item: e.target.value, qty: String(quantity) });
-              }}
-              className="w-full bg-charcoal-950 border border-charcoal-750 focus:border-amber-500 rounded-md px-3 py-2 text-sm text-slate-100 font-medium focus:outline-none"
-            >
+      <Card className="mb-6 space-y-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <Field label="Cần chế tạo" className="md:col-span-8">
+            <Select value={targetItemId} onChange={(e) => changeItem(e.target.value)}>
               {craftableItems.map((item) => (
                 <option key={item.id} value={item.id}>
-                  {item.name} {item.vietnameseName ? `(${item.vietnameseName})` : ''} — {item.category}
+                  {item.name}
+                  {item.vietnameseName ? ` — ${item.vietnameseName}` : ''}
                 </option>
               ))}
-            </select>
-          </div>
-
+            </Select>
+          </Field>
           <div className="md:col-span-4">
-            <label className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1.5">
-              SỐ LƯỢNG CẦN CHẾ TẠO:
-            </label>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                variant="secondary"
-                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-              >
-                <Minus className="w-3.5 h-3.5" />
-              </Button>
-              <input
-                type="number"
-                min="1"
-                max="999"
+            <span className="mb-1.5 block text-xs font-medium text-muted">Số lượng</span>
+            <div className="flex items-center gap-1.5">
+              <IconButton label="Giảm" className="border border-line" onClick={() => changeQuantity(quantity - 1)}>
+                <Minus />
+              </IconButton>
+              <NumberInput
+                aria-label="Số lượng"
+                min={1}
+                max={999}
                 value={quantity}
-                onChange={(e) => {
-                  const val = Math.max(1, Number(e.target.value) || 1);
-                  setQuantity(val);
-                  setSearchParams({ item: targetItemId, qty: String(val) });
-                }}
-                className="w-20 text-center bg-charcoal-950 border border-charcoal-750 rounded px-2 py-1.5 text-sm font-mono font-bold text-amber-400 focus:outline-none"
+                onValueChange={changeQuantity}
+                className="w-20 text-center font-semibold"
               />
-              <Button
-                size="sm"
-                variant="secondary"
-                onClick={() => setQuantity((q) => q + 1)}
-              >
-                <Plus className="w-3.5 h-3.5" />
-              </Button>
-              <div className="flex items-center gap-1 ml-auto">
-                <button
-                  onClick={() => setQuantity(5)}
-                  className="px-2 py-1 text-xs bg-charcoal-800 hover:bg-charcoal-750 rounded text-slate-300"
-                >
-                  5
-                </button>
-                <button
-                  onClick={() => setQuantity(10)}
-                  className="px-2 py-1 text-xs bg-charcoal-800 hover:bg-charcoal-750 rounded text-slate-300"
-                >
-                  10
-                </button>
+              <IconButton label="Tăng" className="border border-line" onClick={() => changeQuantity(quantity + 1)}>
+                <Plus />
+              </IconButton>
+              <div className="ml-auto flex gap-1">
+                {[5, 10, 20].map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => changeQuantity(n)}
+                    className="num h-9 rounded-lg bg-subtle px-2.5 text-xs text-muted hover:text-fg"
+                  >
+                    {n}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         </div>
+
+        {buff && (
+          <Callout tone="accent" icon={<Sparkles />}>
+            <strong>{buff.buffEffect || 'Tăng chỉ số'}</strong>
+            {buff.durationSeconds ? ` · ${Math.round(buff.durationSeconds / 60)} phút` : ''}
+            {buff.hunger ? ` · No +${buff.hunger}` : ''}
+            {buff.thirst ? ` · Khát +${buff.thirst}` : ''}
+            {buff.healHp ? ` · Hồi ${buff.healHp} HP` : ''}
+          </Callout>
+        )}
       </Card>
 
-      {/* Plan Details & Tabs */}
-      {plan && (
+      {!plan || !plan.tree ? (
+        <EmptyState icon={<Layers />} title="Chọn vật phẩm để bắt đầu" />
+      ) : (
         <div className="space-y-4">
-          {/* Navigation Tabs */}
-          <div className="flex items-center gap-2 border-b border-charcoal-800 pb-2">
-            <button
-              onClick={() => setActiveTab('materials')}
-              className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
-                activeTab === 'materials'
-                  ? 'bg-amber-600 text-charcoal-950 font-bold'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Tổng nguyên liệu cần farm ({plan.totalRawMaterials.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('steps')}
-              className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
-                activeTab === 'steps'
-                  ? 'bg-amber-600 text-charcoal-950 font-bold'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Các bước chế biến ({plan.intermediateSteps.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('checklist')}
-              className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
-                activeTab === 'checklist'
-                  ? 'bg-amber-600 text-charcoal-950 font-bold'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Checklist gom đồ
-            </button>
-            <button
-              onClick={() => setActiveTab('tree')}
-              className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
-                activeTab === 'tree'
-                  ? 'bg-amber-600 text-charcoal-950 font-bold'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Cây phân rã đệ quy (Tree)
-            </button>
-          </div>
+          <StatGrid cols={3}>
+            <Stat label="Nguyên liệu thô" value={plan.totalRawMaterials.length} unit="loại" />
+            <Stat label="Còn thiếu" value={missingCount} unit="loại" tone={missingCount ? 'danger' : 'ok'} />
+            <Stat label="Lượt chế" value={plan.intermediateSteps.reduce((sum, s) => sum + s.craftCount, 0)} />
+          </StatGrid>
 
-          {/* Tab 1: Total Raw Materials & Inventory Match */}
-          {activeTab === 'materials' && (
-            <Card>
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-slate-200 font-bold">
-                    ĐỐI CHIẾU NGUYÊN LIỆU VỚI KHO ĐỒ
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    Hệ thống tự động khấu trừ vật phẩm đang có sẵn và chỉ tính số lượng còn thiếu.
-                  </p>
-                </div>
+          {plan.hasCircularDependency && (
+            <Callout tone="warn">Công thức có vòng lặp: một số nguyên liệu được tính như nguyên liệu thô.</Callout>
+          )}
+
+          <Tabs tabs={tabs} activeTab={tab} onChange={(id) => setTab(id as PlannerTab)} />
+
+          {tab === 'materials' && (
+            <Card padded={false}>
+              <div className="flex items-center justify-between gap-3 px-4 pt-4">
+                <p className="text-xs text-muted">Nhập số bạn đang có. Chỉ dùng cho lần tính này, không lưu lại.</p>
+                {hasInventory && (
+                  <Button variant="ghost" size="sm" icon={<RotateCcw />} onClick={() => setInventory({})}>
+                    Xóa
+                  </Button>
+                )}
               </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs font-mono">
+              <div className="mt-3 overflow-x-auto">
+                <table className="w-full min-w-[480px] text-left text-sm">
                   <thead>
-                    <tr className="border-b border-charcoal-800 text-slate-400 uppercase text-[10px]">
-                      <th className="py-2.5 px-3">Nguyên liệu</th>
-                      <th className="py-2.5 px-3">Tổng cần</th>
-                      <th className="py-2.5 px-3">Có trong kho</th>
-                      <th className="py-2.5 px-3">Còn thiếu</th>
-                      <th className="py-2.5 px-3 text-right">Trạng thái</th>
+                    <tr className="border-y border-line text-xs text-muted">
+                      <th className="px-4 py-2 font-medium">Nguyên liệu</th>
+                      <th className="px-2 py-2 text-right font-medium">Cần</th>
+                      <th className="px-2 py-2 text-center font-medium">Đang có</th>
+                      <th className="px-4 py-2 text-right font-medium">Thiếu</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-charcoal-800/60">
+                  <tbody className="divide-y divide-line">
                     {plan.totalRawMaterials.map((mat) => (
-                      <tr key={mat.itemId} className="hover:bg-charcoal-800/40">
-                        <td className="py-3 px-3 font-semibold text-slate-200">{mat.itemName}</td>
-                        <td className="py-3 px-3 font-bold text-slate-300">{mat.required}</td>
-                        <td className="py-3 px-3 font-bold text-slate-400">{mat.inInventory}</td>
-                        <td className="py-3 px-3">
-                          <span
-                            className={`font-bold ${
-                              mat.missing > 0 ? 'text-red-400' : 'text-emerald-400'
-                            }`}
-                          >
-                            {mat.missing > 0 ? mat.missing : 'Đủ'}
-                          </span>
+                      <tr key={mat.itemId}>
+                        <td className="px-4 py-2.5 font-medium">{mat.itemName}</td>
+                        <td className="num px-2 py-2.5 text-right font-semibold">{mat.required}</td>
+                        <td className="px-2 py-2.5">
+                          <NumberInput
+                            aria-label={`Số ${mat.itemName} đang có`}
+                            value={inventory[mat.itemId] || undefined}
+                            placeholder="0"
+                            onValueChange={(v) => setInventory((prev) => ({ ...prev, [mat.itemId]: Math.max(0, Math.floor(v)) }))}
+                            className="mx-auto h-8 w-20 text-center"
+                          />
                         </td>
-                        <td className="py-3 px-3 text-right">
+                        <td className="num px-4 py-2.5 text-right font-semibold">
                           {mat.isSatisfied ? (
-                            <span className="inline-flex items-center gap-1 text-emerald-400 text-xs">
-                              <CheckCircle2 className="w-3.5 h-3.5" /> Đã sẵn sàng
+                            <span className="inline-flex items-center gap-1 text-ok">
+                              <CheckCircle2 className="h-4 w-4" /> Đủ
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1 text-red-400 text-xs">
-                              <AlertCircle className="w-3.5 h-3.5" /> Cần farm thêm
-                            </span>
+                            <span className="text-danger">{mat.missing}</span>
                           )}
                         </td>
                       </tr>
@@ -316,102 +235,74 @@ export const CraftingPlanner: React.FC = () => {
             </Card>
           )}
 
-          {/* Tab 2: Intermediate Craft Steps */}
-          {activeTab === 'steps' && (
-            <div className="space-y-3">
-              {plan.intermediateSteps.map((step, idx) => (
-                <Card key={step.itemId} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-blue-950 text-blue-400 border border-blue-700/60 flex items-center justify-center font-mono text-xs font-bold">
-                        {idx + 1}
+          {tab === 'steps' && (
+            <ol className="space-y-2">
+              {plan.intermediateSteps.length === 0 && (
+                <EmptyState title="Không cần chế bước trung gian" description="Mọi thứ đã có sẵn hoặc là nguyên liệu thô." />
+              )}
+              {plan.intermediateSteps.map((step, index) => (
+                <li key={step.itemId}>
+                  <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-start gap-3">
+                      <span className="num flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
+                        {index + 1}
                       </span>
-                      <h4 className="font-bold text-slate-200 text-sm">
-                        Chế tạo {step.itemName} (x{step.totalOutputQuantity})
-                      </h4>
-                      <Badge variant="blue" size="sm">
-                        {step.workstation || 'Chế tạo tay'}
-                      </Badge>
+                      <div>
+                        <h3 className="text-sm font-semibold">
+                          {step.itemName} <span className="num text-accent">×{step.totalOutputQuantity}</span>
+                        </h3>
+                        <p className="text-xs text-muted">
+                          {step.craftCount} lượt · {step.workstation || 'chế tạo tay'}
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-slate-400 font-mono pl-7">
-                      Thực hiện: <b>{step.craftCount}</b> lượt chế tạo
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 sm:justify-end pl-7 sm:pl-0">
-                    {step.ingredients.map((ing) => (
-                      <span
-                        key={ing.itemId}
-                        className="px-2 py-1 rounded bg-charcoal-950 border border-charcoal-800 text-xs font-mono text-slate-300"
-                      >
-                        {ing.itemName}: <b className="text-amber-400">{ing.quantity * step.craftCount}</b>
-                      </span>
-                    ))}
-                  </div>
-                </Card>
+                    <ul className="flex flex-wrap gap-1.5 sm:justify-end">
+                      {step.ingredients.map((ing) => (
+                        <li key={ing.itemId} className="num rounded-md bg-subtle px-2 py-1 text-xs">
+                          {ing.itemName} <span className="font-semibold text-accent">{ing.quantity * step.craftCount}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                </li>
               ))}
-            </div>
+            </ol>
           )}
 
-          {/* Tab 3: Interactive Checklist */}
-          {activeTab === 'checklist' && (
-            <Card>
-              <h3 className="text-sm font-mono uppercase tracking-wider text-slate-200 font-bold mb-3 flex items-center gap-2">
-                <ListTodo className="w-4 h-4 text-amber-500" /> CHECKLIST NGUYÊN LIỆU ĐI FARM
-              </h3>
-              <p className="text-xs text-slate-400 mb-4">
-                Đánh dấu các nguyên liệu bạn đã thu thập được trong balo khi đi rừng.
-              </p>
-              <div className="space-y-2">
+          {tab === 'checklist' && (
+            <Card padded={false}>
+              <p className="px-4 pt-4 text-xs text-muted">Đánh dấu nguyên liệu bạn đã gom đủ khi đi farm.</p>
+              <ul className="mt-3 divide-y divide-line border-t border-line">
                 {plan.totalRawMaterials.map((mat) => {
-                  const isDone = checklistCompleted[mat.itemId] || mat.isSatisfied;
+                  const done = checked[mat.itemId] || mat.isSatisfied;
                   return (
-                    <label
-                      key={mat.itemId}
-                      onClick={() => handleToggleChecklist(mat.itemId)}
-                      className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-colors select-none ${
-                        isDone
-                          ? 'bg-charcoal-950/40 border-charcoal-800/40 opacity-70'
-                          : 'bg-charcoal-950 border-charcoal-800 hover:border-charcoal-700'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
+                    <li key={mat.itemId}>
+                      <label className="flex cursor-pointer items-center gap-3 px-4 py-3 hover:bg-subtle">
                         <input
                           type="checkbox"
-                          checked={isDone}
-                          onChange={() => {}}
-                          className="rounded border-charcoal-700 text-amber-600 focus:ring-0 w-4 h-4 cursor-pointer"
+                          checked={done}
+                          disabled={mat.isSatisfied}
+                          onChange={() => setChecked((prev) => ({ ...prev, [mat.itemId]: !prev[mat.itemId] }))}
+                          className="h-4 w-4 accent-[rgb(var(--accent-solid))]"
                         />
-                        <span
-                          className={`text-sm font-medium ${
-                            isDone ? 'line-through text-slate-500' : 'text-slate-200'
-                          }`}
-                        >
-                          {mat.itemName}
+                        <span className={`flex-1 text-sm font-medium ${done ? 'text-faint line-through' : ''}`}>{mat.itemName}</span>
+                        <span className="num text-xs text-muted">
+                          cần {mat.required}
+                          {mat.missing > 0 && <span className="text-danger"> · thiếu {mat.missing}</span>}
                         </span>
-                      </div>
-                      <span className="font-mono text-xs text-amber-400 font-bold">
-                        Cần {mat.required} (Thiếu: {mat.missing})
-                      </span>
-                    </label>
+                      </label>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </Card>
           )}
 
-          {/* Tab 4: Recursive Tree */}
-          {activeTab === 'tree' && (
-            <Card>
-              <h3 className="text-sm font-mono uppercase tracking-wider text-slate-200 font-bold mb-2">
-                CẤU TRÚC PHÂN TÁCH NGUYÊN LIỆU (CRAFTING TREE)
-              </h3>
-              <p className="text-xs text-slate-400 mb-4">
-                Hiển thị từng tầng công thức từ thành phẩm đến vật liệu thô.
-              </p>
-              <div className="bg-charcoal-950 p-4 rounded-lg border border-charcoal-800 overflow-x-auto">
-                {plan.tree && renderTreeNode(plan.tree)}
-              </div>
+          {tab === 'tree' && (
+            <Card className="overflow-x-auto">
+              <ul>
+                <TreeNode node={plan.tree} />
+              </ul>
             </Card>
           )}
         </div>

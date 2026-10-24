@@ -10,11 +10,7 @@
     "enemies": ["roamer", "fast_biter"],
     "resources": ["pine_log", "limestone", "plant_fiber"],
     "loot": ["rope", "cloth", "bandage"],
-    "notes": "Có thể dọn sạch chỉ bằng 1 cây Spear hoặc vài cú đánh Crowbar.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Có thể dọn sạch chỉ bằng 1 cây Spear hoặc vài cú đánh Crowbar."
   },
   {
     "id": "pine_grove",
@@ -27,11 +23,7 @@
     "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
     "resources": ["pine_log", "raw_hide", "plant_fiber", "limestone"],
     "loot": ["duct_tape", "rope", "cloth", "green_coupon"],
-    "notes": "Nên mang theo ít nhất 1 vũ khí tốt như Cleaver hoặc Crowbar và 10 miếng băng gạc Bandage.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Nên mang theo ít nhất 1 vũ khí tốt như Cleaver hoặc Crowbar và 10 miếng băng gạc Bandage."
   },
   {
     "id": "pine_wood",
@@ -44,11 +36,7 @@
     "enemies": ["fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination"],
     "resources": ["pine_log", "raw_hide", "iron_ore"],
     "loot": ["duct_tape", "nails", "yellow_coupon", "red_coupon"],
-    "notes": "Luôn để ý radar mini map! Nếu thấy chấm đỏ di chuyển cực nhanh với súng tỉa thì hãy lập tức chạy khỏi mép bản đồ.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Luôn để ý radar mini map! Nếu thấy chấm đỏ di chuyển cực nhanh với súng tỉa thì hãy lập tức chạy khỏi mép bản đồ."
   },
   {
     "id": "limestone_ridge",
@@ -61,11 +49,7 @@
     "enemies": ["roamer", "fast_biter"],
     "resources": ["limestone", "iron_ore", "pine_log"],
     "loot": ["rope", "cloth"],
-    "notes": "Mang cuốc đá (Pickaxe) để tối ưu việc khai khoáng quặng sắt.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Mang cuốc đá (Pickaxe) để tối ưu việc khai khoáng quặng sắt."
   },
   {
     "id": "limestone_grove",
@@ -78,11 +62,7 @@
     "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
     "resources": ["limestone", "iron_ore", "plant_fiber"],
     "loot": ["duct_tape", "iron_bar", "green_coupon"],
-    "notes": "Cẩn thận tiếng đào đá sẽ thu hút zombie chạy tới từ phía sau.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Cẩn thận tiếng đào đá sẽ thu hút zombie chạy tới từ phía sau."
   },
   {
     "id": "limestone_cliffs",
@@ -95,11 +75,7 @@
     "enemies": ["fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination"],
     "resources": ["iron_ore", "limestone", "raw_hide"],
     "loot": ["duct_tape", "yellow_coupon", "red_coupon"],
-    "notes": "Nên trang bị giáp vải dày hoặc giáp chiến thuật và vũ khí sát thương cao.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Nên trang bị giáp vải dày hoặc giáp chiến thuật và vũ khí sát thương cao."
   },
   {
     "id": "bunker_alfa",
@@ -113,11 +89,7 @@
     "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination", "frenzied_giant", "the_blind_one"],
     "resources": ["iron_bar", "steel_bar", "aluminium_bar"],
     "loot": ["glock_17", "shotgun", "m16", "ak47", "tactical_body_armor", "swat_body_armor", "engine_part", "red_coupon", "yellow_coupon", "green_coupon"],
-    "notes": "Cần nhập mật mã Radio (A-Code) để mở cửa thang máy. Sử dụng chiến thuật Wall-trick tại Tầng 2 & 3 để tiết kiệm tối đa vũ khí súng.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Cần nhập mật mã Radio (A-Code) để mở cửa thang máy. Sử dụng chiến thuật Wall-trick tại Tầng 2 & 3 để tiết kiệm tối đa vũ khí súng."
   },
   {
     "id": "crooked_creek_farm",
@@ -132,11 +104,7 @@
     "enemies": ["fast_biter", "floater_bloater", "frenzied_giant", "the_ravager"],
     "resources": ["pine_log", "iron_ore", "raw_hide"],
     "loot": ["bone", "machete", "glock_17", "engine_part"],
-    "notes": "Cần xe máy Chopper để chở máy cắt kho báu. Khi cắt hòm xanh tiếng cưa sẽ đánh thức toàn bộ zombie nông trại.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Cần xe máy Chopper để chở máy cắt kho báu. Khi cắt hòm xanh tiếng cưa sẽ đánh thức toàn bộ zombie nông trại."
   },
   {
     "id": "motel",
@@ -150,10 +118,32 @@
     "enemies": ["roamer", "fast_biter"],
     "resources": ["pine_log", "cloth"],
     "loot": ["bandage", "duct_tape", "rope", "green_coupon"],
-    "notes": "Có thể phá các cửa phòng bằng rìu thường. Đừng quên nhặt các lon thức ăn và chai nước.",
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    "notes": "Có thể phá các cửa phòng bằng rìu thường. Đừng quên nhặt các lon thức ăn và chai nước."
+  },
+  {
+    "id": "northern_watchtower",
+    "name": "Northern Watchtower",
+    "vietnameseName": "Tháp canh phía Bắc",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 28,
+    "requiresChopper": true,
+    "description": "Tháp quan sát vùng băng tuyết phía Bắc. Kích hoạt tháp sẽ mở khóa các vùng Rừng sồi (Oak Grove) và Vùng tuyết.",
+    "enemies": ["fast_biter", "floater_bloater", "toxic_abomination"],
+    "resources": ["pine_log", "limestone"],
+    "loot": ["bolt", "wrench"],
+    "notes": "Yêu cầu chở Máy phát điện (Electric Generator) trên xe Chopper đến cắm vào nguồn điện tháp canh."
+  },
+  {
+    "id": "blackport_pd",
+    "name": "Blackport PD",
+    "vietnameseName": "Sở cảnh sát Blackport (đấu trường sóng)",
+    "difficulty": "event",
+    "dangerLevel": 3,
+    "description": "Đấu trường phòng thủ 99 đợt sóng zombie để thu thập Thẻ cảnh sát đổi vũ khí và bản thiết kế súng hiếm.",
+    "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
+    "resources": [],
+    "loot": [],
+    "notes": "Quái trong đấu trường sóng KHÔNG cộng điểm cho sự kiện Tiếp tế (Supply)."
   }
 ]

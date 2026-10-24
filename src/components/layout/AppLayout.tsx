@@ -1,65 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { MobileNav } from './MobileNav';
 import { GlobalSearchModal } from './GlobalSearchModal';
 
 export const AppLayout: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const mainRef = React.useRef<HTMLElement>(null);
+  const { pathname } = useLocation();
 
-  // Global Ctrl+K / Cmd+K shortcut listener
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsSearchOpen((prev) => !prev);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
+  // A new page should start at the top, not wherever the previous one was scrolled.
+  useEffect(() => {
+    mainRef.current?.scrollTo({ top: 0 });
+  }, [pathname]);
+
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-charcoal-950 text-slate-200">
-      {/* Desktop Sidebar */}
-      <div className="hidden lg:block h-full">
+    <div className="flex h-screen w-screen overflow-hidden bg-bg">
+      <div className="hidden h-full lg:block">
         <Sidebar />
       </div>
 
-      {/* Mobile Drawer Sidebar */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 flex">
-          <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-hidden="true"
-          />
-          <div className="relative z-50 w-72 h-full">
-            <Sidebar onCloseMobile={() => setIsMobileMenuOpen(false)} />
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-40 flex lg:hidden">
+          <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
+          <div className="relative h-full animate-slide-in shadow-pop">
+            <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />
           </div>
         </div>
       )}
 
-      {/* Main Workspace Column */}
-      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden">
-        <Topbar
-          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
-          onOpenSearch={() => setIsSearchOpen(true)}
-        />
-
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 pb-20 lg:pb-8">
-          <div className="max-w-7xl mx-auto">
+      <div className="flex h-full min-w-0 flex-1 flex-col">
+        <Topbar onOpenMobileMenu={() => setIsMenuOpen(true)} onOpenSearch={() => setIsSearchOpen(true)} />
+        <main ref={mainRef} className="flex-1 overflow-y-auto px-4 py-5 pb-24 sm:px-6 lg:px-8 lg:py-7 lg:pb-8">
+          <div className="mx-auto max-w-[1400px]">
             <Outlet />
           </div>
         </main>
-
-        {/* Mobile Bottom Navigation */}
-        <MobileNav />
+        <MobileNav onOpenMenu={() => setIsMenuOpen(true)} />
       </div>
 
-      {/* Global Search Dialog */}
       <GlobalSearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </div>
   );

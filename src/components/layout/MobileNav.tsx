@@ -1,32 +1,35 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Sword, Calculator, Layers, Package } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import { ALL_NAV_ITEMS, MOBILE_PRIMARY_PATHS } from './navigation';
 
-export const MobileNav: React.FC = () => {
-  const navItems = [
-    { path: '/', label: 'Bảng tin', icon: <LayoutDashboard className="w-5 h-5" /> },
-    { path: '/wiki/items', label: 'Vật phẩm', icon: <Sword className="w-5 h-5" /> },
-    { path: '/combat', label: 'Chiến đấu', icon: <Calculator className="w-5 h-5" /> },
-    { path: '/planner', label: 'Chế tạo', icon: <Layers className="w-5 h-5" /> },
-    { path: '/inventory', label: 'Kho đồ', icon: <Package className="w-5 h-5" /> },
-  ];
+interface MobileNavProps {
+  onOpenMenu: () => void;
+}
+
+const itemClass = (active: boolean) =>
+  `flex flex-1 flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium transition-colors ${
+    active ? 'text-accent' : 'text-muted'
+  }`;
+
+export const MobileNav: React.FC<MobileNavProps> = ({ onOpenMenu }) => {
+  const primary = MOBILE_PRIMARY_PATHS.map((p) => ALL_NAV_ITEMS.find((i) => i.path === p)!).filter(Boolean);
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-charcoal-950/95 backdrop-blur-md border-t border-charcoal-800 flex items-center justify-around px-2 z-30 select-none">
-      {navItems.map((item) => (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          className={({ isActive }) =>
-            `flex flex-col items-center justify-center flex-1 py-1 gap-1 text-[11px] font-medium transition-all ${
-              isActive ? 'text-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
-            }`
-          }
-        >
-          {item.icon}
-          <span>{item.label}</span>
+    <nav
+      aria-label="Điều hướng nhanh"
+      className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden"
+    >
+      {primary.map(({ path, shortLabel, icon: Icon }) => (
+        <NavLink key={path} to={path} className={({ isActive }) => itemClass(isActive)}>
+          <Icon className="h-5 w-5" />
+          <span>{shortLabel}</span>
         </NavLink>
       ))}
+      <button type="button" onClick={onOpenMenu} className={itemClass(false)}>
+        <Menu className="h-5 w-5" />
+        <span>Thêm</span>
+      </button>
     </nav>
   );
 };

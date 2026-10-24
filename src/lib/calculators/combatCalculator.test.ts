@@ -18,7 +18,6 @@ describe('combatCalculator', () => {
       sneakMultiplier: 3,
       isFirearm: false,
     },
-    verificationStatus: 'verified',
   };
 
   const dummySawBlade: Item = {
@@ -36,7 +35,6 @@ describe('combatCalculator', () => {
       sneakMultiplier: 3,
       isFirearm: false,
     },
-    verificationStatus: 'verified',
   };
 
   const dummyGlock: Item = {
@@ -54,7 +52,6 @@ describe('combatCalculator', () => {
       sneakMultiplier: 1,
       isFirearm: true,
     },
-    verificationStatus: 'verified',
   };
 
   const dummyRoamer: Enemy = {
@@ -68,7 +65,6 @@ describe('combatCalculator', () => {
     description: 'Slow zombie',
     drops: [],
     locations: [],
-    verificationStatus: 'verified',
   };
 
   const dummyFastBiter: Enemy = {
@@ -82,7 +78,6 @@ describe('combatCalculator', () => {
     description: 'Fast zombie',
     drops: [],
     locations: [],
-    verificationStatus: 'verified',
   };
 
   const dummyFG: Enemy = {
@@ -96,7 +91,6 @@ describe('combatCalculator', () => {
     description: 'One shot monster',
     drops: [],
     locations: [],
-    verificationStatus: 'verified',
   };
 
   it('calculates regular hits to kill without sneak attack', () => {

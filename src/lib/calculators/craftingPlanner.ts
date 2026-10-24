@@ -3,7 +3,7 @@ import { Item, Recipe } from '../../types';
 export interface CraftingPlanParams {
   targetItemId: string;
   quantity: number;
-  inventory: Record<string, number>;
+  inventory?: Record<string, number>; // optional hypothetical in-hand quantities
   recipesByOutput: Map<string, Recipe[]>;
   itemsMap: Map<string, Item>;
 }
@@ -50,7 +50,7 @@ export interface CraftingPlanResult {
 }
 
 export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
-  const { targetItemId, quantity, inventory, recipesByOutput, itemsMap } = params;
+  const { targetItemId, quantity, inventory = {}, recipesByOutput, itemsMap } = params;
 
   if (!targetItemId || quantity <= 0) {
     return {
@@ -71,7 +71,6 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
     rarity: 'common',
     stackSize: 20,
     description: '',
-    verificationStatus: 'unverified',
   };
 
   // Clone inventory so deductions are tracked globally without double-counting
@@ -83,6 +82,10 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
   const visiting = new Set<string>();
   let hasCircular = false;
   const unresolved = new Set<string>();
+  // Raw materials are tracked twice: what the plan needs in total (`gross`) and what is still
+  // missing after the inventory was applied. Showing only the net figure would make the "needed"
+  // column shrink as the user types what they own, and hide fully covered materials altogether.
+  const rawMaterialGross: Record<string, number> = {};
   const rawMaterialTotals: Record<string, number> = {};
   const craftStepMap = new Map<string, IntermediateCraftStep>();
 
@@ -90,11 +93,19 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
     const item = itemsMap.get(itemId);
     const itemName = item?.name || itemId;
 
+    const candidateRecipes = recipesByOutput.get(itemId) || [];
+    const recipe = candidateRecipes.length > 0 ? candidateRecipes[0] : undefined;
+    const isRaw = !recipe || recipe.ingredients.length === 0;
+
     // 1. Consume from inventory if available
     const available = remainingInventory[itemId] || 0;
     const usedFromInventory = Math.min(neededQuantity, available);
     remainingInventory[itemId] = available - usedFromInventory;
     const stillNeeded = neededQuantity - usedFromInventory;
+
+    if (isRaw) {
+      rawMaterialGross[itemId] = (rawMaterialGross[itemId] || 0) + neededQuantity;
+    }
 
     // If fully covered by inventory, we do not need to craft
     if (stillNeeded <= 0) {
@@ -112,6 +123,7 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
     // 2. Check circular dependency
     if (visiting.has(itemId)) {
       hasCircular = true;
+      rawMaterialGross[itemId] = (rawMaterialGross[itemId] || 0) + neededQuantity;
       rawMaterialTotals[itemId] = (rawMaterialTotals[itemId] || 0) + stillNeeded;
       return {
         itemId,
@@ -124,10 +136,7 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
       };
     }
 
-    // 3. Look for recipes
-    const candidateRecipes = recipesByOutput.get(itemId) || [];
-    const recipe = candidateRecipes.length > 0 ? candidateRecipes[0] : undefined;
-
+    // 3. Base raw material or uncraftable
     if (!recipe || recipe.ingredients.length === 0) {
       // Base raw material or uncraftable
       rawMaterialTotals[itemId] = (rawMaterialTotals[itemId] || 0) + stillNeeded;
@@ -206,10 +215,10 @@ export function planCrafting(params: CraftingPlanParams): CraftingPlanResult {
   const rootNode = resolveItem(targetItemId, quantity);
 
   // Build raw materials summary list
-  const totalRawMaterials: RawMaterialRequirement[] = Object.entries(rawMaterialTotals).map(([matId, required]) => {
+  const totalRawMaterials: RawMaterialRequirement[] = Object.entries(rawMaterialGross).map(([matId, required]) => {
     const item = itemsMap.get(matId);
     const inInv = inventory[matId] || 0;
-    const missing = Math.max(0, required);
+    const missing = Math.max(0, rawMaterialTotals[matId] || 0);
     return {
       itemId: matId,
       itemName: item?.name || matId,

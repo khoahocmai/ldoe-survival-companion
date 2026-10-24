@@ -1,0 +1,218 @@
+import React, { useCallback, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Plus, SearchX } from 'lucide-react';
+import { Button } from '../common/Button';
+import { SearchInput } from '../common/SearchInput';
+import { EmptyState, FilterChips, PageHeader } from '../common/Layout';
+import { ConfirmDialog } from '../common/ConfirmDialog';
+import { storageService } from '../../services/storageService';
+import { useGameData } from '../../context/DataContext';
+import { WikiOverrides } from '../../types';
+import { WikiSplitLayout } from './WikiSplitLayout';
+import { WikiDetailPanel } from './WikiDetailPanel';
+import { WikiDetailHeader } from './WikiDetailHeader';
+
+type OverrideKey = keyof Omit<WikiOverrides, 'hiddenEntityIds'>;
+
+interface FilterConfig<T> {
+  options: Array<{ id: string; label: string }>;
+  matches: (entity: T, filterId: string) => boolean;
+}
+
+export interface WikiDetailView {
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  badges?: React.ReactNode;
+  body: React.ReactNode;
+}
+
+interface WikiPageProps<T extends { id: string }> {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  entities: T[];
+  /** Singular noun used in labels, e.g. "vật phẩm". */
+  noun: string;
+  /** Which override list in storage this page edits. */
+  overrideKey: OverrideKey;
+  searchPlaceholder: string;
+  getName: (entity: T) => string;
+  getSearchText: (entity: T) => string;
+  filter?: FilterConfig<T>;
+  renderCard: (entity: T, isSelected: boolean, onSelect: () => void) => React.ReactNode;
+  renderDetail: (entity: T) => WikiDetailView;
+  /** Opens the page's edit dialog. Omit `entity` to start a new one. */
+  onEdit: (entity?: T) => void;
+  /** Dialogs owned by the page (edit form, extra confirms). */
+  children?: React.ReactNode;
+}
+
+/**
+ * Shared scaffold for the five encyclopedia pages: header, search + filters, card grid,
+ * URL-driven selection (?select=id), detail panel and the hide/delete flow.
+ * Pages only describe what is different (cards, detail body and the edit form).
+ */
+export function WikiPage<T extends { id: string }>({
+  title,
+  description,
+  icon,
+  entities,
+  noun,
+  overrideKey,
+  searchPlaceholder,
+  getName,
+  getSearchText,
+  filter,
+  renderCard,
+  renderDetail,
+  onEdit,
+  children,
+}: WikiPageProps<T>) {
+  const { reload } = useGameData();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState('');
+  const [filterId, setFilterId] = useState('all');
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
+  const selectId = searchParams.get('select');
+  const selected = useMemo(() => entities.find((e) => e.id === selectId) ?? null, [entities, selectId]);
+
+  const visible = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return entities.filter((e) => {
+      if (filter && filterId !== 'all' && !filter.matches(e, filterId)) return false;
+      return !q || getSearchText(e).toLowerCase().includes(q);
+    });
+  }, [entities, search, filter, filterId, getSearchText]);
+
+  const select = useCallback(
+    (id: string | null) => {
+      const next = new URLSearchParams(searchParams);
+      if (id) next.set('select', id);
+      else next.delete('select');
+      setSearchParams(next, { replace: Boolean(id && selectId) });
+    },
+    [searchParams, selectId, setSearchParams]
+  );
+
+  const close = useCallback(() => select(null), [select]);
+
+  const handleDelete = async () => {
+    if (!selected) return;
+    storageService.deleteOrHideEntity(overrideKey, selected.id);
+    await reload();
+    close();
+  };
+
+  const detail = selected ? renderDetail(selected) : null;
+
+  const filterOptions = filter
+    ? filter.options.map((opt) => ({
+        ...opt,
+        count: opt.id === 'all' ? entities.length : entities.filter((e) => filter.matches(e, opt.id)).length,
+      }))
+    : [];
+
+  const listContent = (
+    <div>
+      <PageHeader
+        title={title}
+        description={description}
+        icon={icon}
+        actions={
+          <Button icon={<Plus />} onClick={() => onEdit()}>
+            <span className="hidden sm:inline">Thêm {noun}</span>
+            <span className="sm:hidden">Thêm</span>
+          </Button>
+        }
+      />
+
+      <div className="mb-5 space-y-3">
+        <SearchInput value={search} onChange={setSearch} placeholder={searchPlaceholder} className="sm:max-w-sm" />
+        {filter && <FilterChips options={filterOptions} value={filterId} onChange={setFilterId} />}
+      </div>
+
+      {visible.length === 0 ? (
+        <EmptyState
+          icon={<SearchX />}
+          title={`Không có ${noun} nào phù hợp`}
+          description="Thử từ khóa khác hoặc bỏ bộ lọc đang chọn."
+          action={
+            (search || filterId !== 'all') && (
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setSearch('');
+                  setFilterId('all');
+                }}
+              >
+                Xóa bộ lọc
+              </Button>
+            )
+          }
+        />
+      ) : (
+        <div
+          className={`grid gap-3 ${
+            selected
+              ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3'
+              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'
+          }`}
+        >
+          {visible.map((entity) => renderCard(entity, entity.id === selected?.id, () => select(entity.id)))}
+        </div>
+      )}
+    </div>
+  );
+
+  const detailContent =
+    selected && detail ? (
+      <WikiDetailPanel
+        selectedId={selected.id}
+        header={
+          <WikiDetailHeader
+            title={detail.title}
+            subtitle={detail.subtitle}
+            badges={detail.badges}
+            onEdit={() => onEdit(selected)}
+            onDelete={() => setIsDeleteOpen(true)}
+            onClose={close}
+          />
+        }
+      >
+        {detail.body}
+      </WikiDetailPanel>
+    ) : null;
+
+  return (
+    <>
+      <WikiSplitLayout listContent={listContent} detailContent={detailContent} selectedId={selected?.id ?? null} onClose={close} />
+      {children}
+      <ConfirmDialog
+        isOpen={isDeleteOpen && Boolean(selected)}
+        title={`Ẩn ${noun} này?`}
+        message={`"${selected ? getName(selected) : ''}" sẽ bị ẩn khỏi bách khoa.`}
+        confirmLabel="Ẩn"
+        onConfirm={handleDelete}
+        onCancel={() => setIsDeleteOpen(false)}
+      />
+    </>
+  );
+}
+
+/** Save helper shared by the edit forms: persist, refresh the merged database, then select the entity. */
+export function useSaveEntity(overrideKey: OverrideKey) {
+  const { reload } = useGameData();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  return useCallback(
+    async (entity: { id: string }) => {
+      storageService.saveEntity(overrideKey, entity);
+      await reload();
+      const next = new URLSearchParams(searchParams);
+      next.set('select', entity.id);
+      setSearchParams(next);
+    },
+    [overrideKey, reload, searchParams, setSearchParams]
+  );
+}

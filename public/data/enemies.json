@@ -20,11 +20,7 @@
     "combatTips": [
       "Có thể tiêu diệt bằng 4 phát chém giáo hoặc 1 đòn sneak bằng Machete/Saw Blade Mace.",
       "Dễ dàng kite hoặc né tránh mà không tốn giáp."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "fast_biter",
@@ -47,11 +43,7 @@
     "combatTips": [
       "Đòn sneak attack bằng Cleaver (51 dmg) hoặc Crowbar (51 dmg) sẽ rút phần lớn máu trước khi cận chiến.",
       "Sneak bằng Saw Blade Mace (165 dmg) sẽ hạ gục ngay lập tức."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "toxic_spitter",
@@ -73,11 +65,7 @@
     "combatTips": [
       "Di chuyển theo đường zig-zag để né luồng phun axit màu xanh lá.",
       "Ưu tiên tiêu diệt trước các Bloater để tránh bị 'bốc mùi'."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "floater_bloater",
@@ -101,11 +89,7 @@
     "combatTips": [
       "Khi thấy hắn dậm chân chuẩn bị nhảy, chạy ngay ra khỏi vòng cảnh báo màu đỏ.",
       "Sau cú nhảy hụt, hắn bị đơ khoảng 1.5 giây, đây là thời điểm tuyệt vời để phản công dồn dập."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "toxic_abomination",
@@ -129,11 +113,7 @@
     "combatTips": [
       "Dùng phương pháp Wall-trick trong Bunker Alfa để tiêu diệt bằng Crowbar hoặc Cleaver không tốn giáp.",
       "Có thể mở đầu bằng 1 đòn sneak Saw Blade Mace (165 dmg) rút hơn nửa bình máu."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "frenzied_giant",
@@ -157,11 +137,7 @@
       "TUYỆT ĐỐI không đổi đòn cận chiến trực diện ở khoảng trống.",
       "Thực hiện Wall-trick sau cửa ra vào: đợi FG vung tay đập vào tường xong bước ra đập 1 nhịp rồi thụt lại.",
       "Nếu chưa thuần thục wall-trick, hãy dùng Glock 17 (25 viên là xong) hoặc Shotgun."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "the_blind_one",
@@ -180,18 +156,15 @@
       "Carcass Feast (hồi máu khi chạm mốc 700 HP và 400 HP)"
     ],
     "drops": [
-      { "itemId": "red_coupon", "chance": "100%", "quantity": "10" }
+      { "itemId": "red_coupon", "chance": "100%", "quantity": "10" },
+      { "itemId": "bone", "chance": "100%", "quantity": "5" }
     ],
     "locations": ["bunker_alfa"],
     "combatTips": [
       "Đếm đúng 5 đòn đánh thường của boss, sau đó bước sang bên né đường húc đỏ.",
       "Khi boss húc vào tường bị choáng, xả súng ngắn/shotgun dồn sát thương.",
       "Khi boss chạy tới ăn xác (700 HP và 400 HP), lập tức bấm công tắc còi báo động để ngăn hắn hồi máu."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   },
   {
     "id": "the_ravager",
@@ -213,10 +186,6 @@
     "combatTips": [
       "Kite boss chạy vòng quanh cọc rơm hoặc xe tải mà không cần mặc giáp đắt tiền.",
       "Né sang một bên mỗi khi hắn gầm lên chuẩn bị phun dịch, rồi vung 2-3 nhát dao rựa Machete."
-    ],
-    "verificationStatus": "verified",
-    "source": "LDoE Fandom Wiki / In-game Verified",
-    "verifiedAt": "2024-03-01",
-    "gameVersion": "1.20+"
+    ]
   }
 ]

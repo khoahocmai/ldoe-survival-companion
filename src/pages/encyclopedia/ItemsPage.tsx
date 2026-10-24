@@ -1,472 +1,320 @@
-import React, { useState, useMemo } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Calculator, Layers, Sword } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
-import { usePersonalData } from '../../hooks/usePersonalData';
 import { Item, ItemCategory } from '../../types';
-import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
-import { SearchInput } from '../../components/common/SearchInput';
-import { Modal } from '../../components/common/Modal';
-import {
-  Sword,
-  Shield,
-  Layers,
-  Heart,
-  Wrench,
-  Star,
-  Calculator,
-  ChevronRight,
-  ExternalLink,
-  Package,
-} from 'lucide-react';
+import { EntityImage } from '../../components/common/EntityImage';
+import { Field, Select, TextInput, Textarea, NumberInput } from '../../components/common/Field';
+import { FormModal, FormRow } from '../../components/common/FormModal';
+import { PropertyList, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { ITEM_CATEGORY_LABEL, RARITY_LABEL, RARITY_TONE } from '../../lib/labels';
+
+const FILTERS = [
+  { id: 'all', label: 'Tất cả' },
+  { id: 'weapons', label: 'Vũ khí' },
+  { id: 'armor', label: 'Giáp' },
+  { id: 'resources', label: 'Tài nguyên' },
+  { id: 'medical', label: 'Y tế & thức ăn' },
+  { id: 'components', label: 'Linh kiện' },
+];
+
+const matchesFilter = (item: Item, filterId: string) => {
+  switch (filterId) {
+    case 'weapons':
+      return item.category.startsWith('weapon_');
+    case 'armor':
+      return item.category.startsWith('armor_');
+    case 'resources':
+      return item.category.startsWith('resource_');
+    case 'medical':
+      return item.category === 'medical' || item.category === 'food';
+    case 'components':
+      return item.category === 'component' || item.category === 'special' || item.category === 'tool';
+    default:
+      return true;
+  }
+};
+
+const newItem = (): Partial<Item> => ({
+  id: `item_custom_${Date.now()}`,
+  name: '',
+  vietnameseName: '',
+  category: 'resource_raw',
+  rarity: 'common',
+  stackSize: 20,
+  description: '',
+  notes: '',
+});
 
 export const ItemsPage: React.FC = () => {
   const { db } = useGameData();
-  const { isFavorite, toggleFavorite, inventory, adjustInventoryItem } = usePersonalData();
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const save = useSaveEntity('customItems');
+  const [editing, setEditing] = useState<Partial<Item> | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  if (!db) return null;
 
-  // Sync selected item with URL query parameter ?select=...
-  const selectId = searchParams.get('select');
-  React.useEffect(() => {
-    if (selectId && db) {
-      const item = db.itemsMap.get(selectId);
-      if (item) setSelectedItem(item);
-    }
-  }, [selectId, db]);
+  const patch = (changes: Partial<Item>) => setEditing((prev) => (prev ? { ...prev, ...changes } : prev));
 
-  const categories = [
-    { id: 'all', label: 'Tất cả' },
-    { id: 'weapons', label: 'Vũ khí' },
-    { id: 'armor', label: 'Giáp bảo hộ' },
-    { id: 'resources', label: 'Tài nguyên' },
-    { id: 'medical', label: 'Y tế & Thức ăn' },
-    { id: 'components', label: 'Linh kiện' },
-  ];
-
-  const filteredItems = useMemo(() => {
-    if (!db) return [];
-    return db.items.filter((item) => {
-      // Category filter
-      if (selectedCategory === 'weapons') {
-        if (!item.category.startsWith('weapon_')) return false;
-      } else if (selectedCategory === 'armor') {
-        if (!item.category.startsWith('armor_')) return false;
-      } else if (selectedCategory === 'resources') {
-        if (!item.category.startsWith('resource_')) return false;
-      } else if (selectedCategory === 'medical') {
-        if (item.category !== 'medical' && item.category !== 'food') return false;
-      } else if (selectedCategory === 'components') {
-        if (item.category !== 'component' && item.category !== 'special') return false;
-      }
-
-      // Search filter
-      if (search.trim()) {
-        const q = search.toLowerCase();
-        const matchName = item.name.toLowerCase().includes(q);
-        const matchVn = item.vietnameseName?.toLowerCase().includes(q);
-        const matchId = item.id.toLowerCase().includes(q);
-        if (!matchName && !matchVn && !matchId) return false;
-      }
-
-      return true;
-    });
-  }, [db, selectedCategory, search]);
-
-  const handleSelectItem = (item: Item) => {
-    setSelectedItem(item);
-    setSearchParams({ select: item.id });
-  };
-
-  const handleCloseModal = () => {
-    setSelectedItem(null);
-    setSearchParams({});
-  };
-
-  const getRarityBadgeVariant = (rarity: Item['rarity']) => {
-    switch (rarity) {
-      case 'legendary':
-        return 'amber';
-      case 'epic':
-        return 'blue';
-      case 'rare':
-        return 'olive';
-      default:
-        return 'charcoal';
-    }
+  const handleSave = async () => {
+    if (!editing?.name?.trim() || !editing.id?.trim()) return;
+    // Spread the whole entity first: fields the form does not edit (craftable, obtainLocations,
+    // icon, stats...) must survive an edit instead of being silently dropped.
+    const entity = {
+      ...editing,
+      id: editing.id.trim(),
+      name: editing.name.trim(),
+      category: editing.category as ItemCategory,
+      rarity: editing.rarity ?? 'common',
+      stackSize: editing.stackSize || 1,
+      description: editing.description ?? '',
+      isCustom: true,
+    } as Item;
+    await save(entity);
+    setEditing(null);
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 flex items-center gap-2">
-            <Sword className="w-6 h-6 text-amber-500" />
-            Vật phẩm & Trang bị
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Tra cứu vũ khí, giáp, nguyên vật liệu và thông số chiến thuật trong LDoE.
-          </p>
-        </div>
-        <div className="text-xs font-mono text-slate-400 bg-charcoal-900 border border-charcoal-800 px-3 py-1.5 rounded-lg w-fit">
-          Tổng số: <span className="text-amber-400 font-bold">{filteredItems.length}</span> vật phẩm
-        </div>
-      </div>
+    <>
+      <WikiPage<Item>
+        title="Vật phẩm"
+        description="Vũ khí, giáp, nguyên liệu và đồ dùng: tra thông số và công thức."
+        icon={<Sword />}
+        noun="vật phẩm"
+        overrideKey="customItems"
+        entities={db.items}
+        searchPlaceholder="Tìm vật phẩm..."
+        getName={(i) => i.name}
+        getSearchText={(i) => `${i.name} ${i.vietnameseName ?? ''} ${i.id} ${ITEM_CATEGORY_LABEL[i.category] ?? ''}`}
+        filter={{ options: FILTERS, matches: matchesFilter }}
+        onEdit={(item) => {
+          setIsNew(!item);
+          setEditing(item ? { ...item } : newItem());
+        }}
+        renderCard={(item, isSelected, onSelect) => (
+          <CompactWikiCard
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            subtitle={item.vietnameseName}
+            isSelected={isSelected}
+            onClick={onSelect}
+            stats={
+              item.weaponStats
+                ? [
+                    { label: 'Dmg', value: item.weaponStats.damage },
+                    { label: 'Bền', value: item.weaponStats.durability },
+                  ]
+                : item.armorStats
+                  ? [
+                      { label: 'Giáp', value: item.armorStats.armorValue },
+                      { label: 'Bền', value: item.armorStats.durability },
+                    ]
+                  : item.consumableStats?.healHp
+                    ? [{ label: 'Hồi', value: `+${item.consumableStats.healHp} HP` }]
+                    : [{ label: 'Stack', value: item.stackSize }]
+            }
+            badges={
+              <>
+                <Badge tone={RARITY_TONE[item.rarity]}>{RARITY_LABEL[item.rarity]}</Badge>
+                <Badge>{ITEM_CATEGORY_LABEL[item.category] ?? item.category}</Badge>
+                {item.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
+              </>
+            }
+          />
+        )}
+        renderDetail={(item) => {
+          const recipe = db.recipesByOutputMap.get(item.id)?.[0];
+          const locations = (item.obtainLocations ?? [])
+            .map((id) => db.locationsMap.get(id))
+            .filter((l): l is NonNullable<typeof l> => Boolean(l));
 
-      {/* Filter and Search Bar */}
-      <div className="flex flex-col md:flex-row items-center gap-3">
-        <SearchInput
-          value={search}
-          onChange={setSearch}
-          placeholder="Tìm tên vật phẩm (Spear, Cleaver, Gỗ, Sắt...)"
-          className="flex-1"
-        />
-        <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none py-1">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
-                selectedCategory === cat.id
-                  ? 'bg-amber-600 text-charcoal-950 font-bold'
-                  : 'bg-charcoal-900 text-slate-400 hover:text-slate-200 border border-charcoal-800'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-      </div>
+          return {
+            title: item.name,
+            subtitle: item.vietnameseName,
+            badges: (
+              <>
+                <Badge tone={RARITY_TONE[item.rarity]}>{RARITY_LABEL[item.rarity]}</Badge>
+                <Badge>{ITEM_CATEGORY_LABEL[item.category] ?? item.category}</Badge>
+                <Badge>Stack {item.stackSize}</Badge>
+                {item.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
+              </>
+            ),
+            body: (
+              <>
+                <EntityImage folder="items" id={item.id} image={item.image} alt={item.name} />
+                {item.description && <p className="text-sm leading-relaxed text-muted">{item.description}</p>}
 
-      {/* Items Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filteredItems.map((item) => {
-          const favorite = isFavorite('item', item.id);
-          const inStock = inventory[item.id] || 0;
-
-          return (
-            <Card
-              key={item.id}
-              hoverable
-              onClick={() => handleSelectItem(item)}
-              className="flex flex-col justify-between group relative"
-            >
-              <div>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-slate-200 group-hover:text-amber-400 transition-colors truncate">
-                      {item.name}
-                    </h3>
-                    {item.vietnameseName && (
-                      <p className="text-xs text-slate-400 truncate">{item.vietnameseName}</p>
-                    )}
-                  </div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleFavorite('item', item.id);
-                    }}
-                    className={`p-1.5 rounded hover:bg-charcoal-800 transition-colors shrink-0 ${
-                      favorite ? 'text-amber-400' : 'text-slate-600 hover:text-slate-400'
-                    }`}
-                    title={favorite ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}
-                  >
-                    <Star className="w-4 h-4 fill-current" />
-                  </button>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-1.5 mb-3">
-                  <Badge size="sm" variant={getRarityBadgeVariant(item.rarity)}>
-                    {item.rarity}
-                  </Badge>
-                  {item.weaponStats && (
-                    <Badge size="sm" variant="amber">
-                      {item.weaponStats.isFirearm ? 'Súng' : 'Cận chiến'}
-                    </Badge>
-                  )}
-                  {item.armorStats && (
-                    <Badge size="sm" variant="blue">
-                      Giáp +{item.armorStats.armorValue}
-                    </Badge>
-                  )}
-                  {item.consumableStats?.healHp && (
-                    <Badge size="sm" variant="olive">
-                      +{item.consumableStats.healHp} HP
-                    </Badge>
-                  )}
-                </div>
-
-                {/* Quick stats snapshot */}
                 {item.weaponStats && (
-                  <div className="grid grid-cols-3 gap-1 bg-charcoal-950 p-2 rounded border border-charcoal-800 text-[11px] font-mono mb-3">
-                    <div>
-                      <span className="text-slate-500 block">S.Thương</span>
-                      <span className="text-amber-400 font-bold">{item.weaponStats.damage}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block">Tốc độ</span>
-                      <span className="text-slate-200">{item.weaponStats.attackSpeed}/s</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-500 block">Độ bền</span>
-                      <span className="text-slate-200">{item.weaponStats.durability}</span>
-                    </div>
-                  </div>
-                )}
-
-                <p className="text-xs text-slate-400 line-clamp-2 mb-3">{item.description}</p>
-              </div>
-
-              {/* Card Footer */}
-              <div className="flex items-center justify-between text-xs pt-3 border-t border-charcoal-800 text-slate-400 font-mono">
-                <span className="flex items-center gap-1">
-                  <Package className="w-3.5 h-3.5 text-slate-500" />
-                  <span>Kho: </span>
-                  <span className={inStock > 0 ? 'text-emerald-400 font-bold' : 'text-slate-500'}>
-                    {inStock}
-                  </span>
-                </span>
-                <span className="flex items-center text-amber-500/80 group-hover:text-amber-400">
-                  Chi tiết <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
-                </span>
-              </div>
-            </Card>
-          );
-        })}
-      </div>
-
-      {/* Item Detail Modal */}
-      {selectedItem && (
-        <Modal
-          isOpen={!!selectedItem}
-          onClose={handleCloseModal}
-          title={
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-slate-100">{selectedItem.name}</span>
-              {selectedItem.vietnameseName && (
-                <span className="text-xs font-normal text-slate-400">
-                  ({selectedItem.vietnameseName})
-                </span>
-              )}
-            </div>
-          }
-          maxWidth="xl"
-        >
-          <div className="space-y-5">
-            {/* Badges & Verification Status */}
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant={getRarityBadgeVariant(selectedItem.rarity)}>
-                {selectedItem.rarity}
-              </Badge>
-              <Badge variant="charcoal">{selectedItem.category}</Badge>
-              <Badge variant="olive">
-                {selectedItem.verificationStatus === 'verified' ? 'Đã xác minh' : 'Chưa xác minh'}
-              </Badge>
-              {selectedItem.source && (
-                <span className="text-[11px] font-mono text-slate-500">
-                  Nguồn: {selectedItem.source}
-                </span>
-              )}
-            </div>
-
-            {/* Description */}
-            <p className="text-sm text-slate-300 bg-charcoal-950 p-3 rounded-lg border border-charcoal-800 leading-relaxed">
-              {selectedItem.description}
-            </p>
-
-            {/* Weapon Detailed Stats */}
-            {selectedItem.weaponStats && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-amber-500 font-semibold">
-                  THÔNG SỐ TÁC CHIẾN
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-sm">
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Sát thương cơ bản</span>
-                    <span className="text-lg font-bold text-amber-400">
-                      {selectedItem.weaponStats.damage}
-                    </span>
-                  </div>
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Tốc độ đánh</span>
-                    <span className="text-lg font-bold text-slate-200">
-                      {selectedItem.weaponStats.attackSpeed} /s
-                    </span>
-                  </div>
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Độ bền tối đa</span>
-                    <span className="text-lg font-bold text-slate-200">
-                      {selectedItem.weaponStats.durability} đòn
-                    </span>
-                  </div>
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Sneak Sát thương</span>
-                    <span className="text-lg font-bold text-red-400">
-                      {selectedItem.weaponStats.damage * (selectedItem.weaponStats.sneakMultiplier || 3)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Armor Detailed Stats */}
-            {selectedItem.armorStats && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">
-                  THÔNG SỐ PHÒNG THỦ
-                </h4>
-                <div className="grid grid-cols-2 gap-2 font-mono text-sm">
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Chỉ số giáp</span>
-                    <span className="text-lg font-bold text-blue-400">
-                      +{selectedItem.armorStats.armorValue}
-                    </span>
-                  </div>
-                  <div className="bg-charcoal-950 p-2.5 rounded border border-charcoal-800">
-                    <span className="text-xs text-slate-500 block">Độ bền giáp</span>
-                    <span className="text-lg font-bold text-slate-200">
-                      {selectedItem.armorStats.durability}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Consumable Stats */}
-            {selectedItem.consumableStats && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
-                  HIỆU QUẢ SỬ DỤNG
-                </h4>
-                <div className="bg-charcoal-950 p-3 rounded border border-charcoal-800 text-sm">
-                  {selectedItem.consumableStats.healHp && (
-                    <div className="text-emerald-400 font-bold">
-                      Hồi phục HP: +{selectedItem.consumableStats.healHp} máu
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Related Recipes & Crafting */}
-            {db && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
-                  CÔNG THỨC CHẾ TẠO LIÊN QUAN
-                </h4>
-                {db.recipesByOutputMap.get(selectedItem.id)?.map((recipe) => (
-                  <div
-                    key={recipe.id}
-                    className="bg-charcoal-950 p-3 rounded border border-charcoal-800 flex items-center justify-between"
-                  >
-                    <div>
-                      <p className="text-xs font-medium text-slate-300">
-                        {recipe.workstation || 'Chế tạo thủ công'} (Cần cấp{' '}
-                        {recipe.levelRequired || 1})
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {recipe.ingredients.map((ing) => {
-                          const ingItem = db.itemsMap.get(ing.itemId);
-                          return (
-                            <span
-                              key={ing.itemId}
-                              className="text-xs font-mono text-slate-400 bg-charcoal-900 px-2 py-0.5 rounded border border-charcoal-800"
-                            >
-                              {ingItem?.name || ing.itemId}:{' '}
-                              <span className="text-amber-400 font-bold">{ing.quantity}</span>
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
+                  <Section title="Thông số vũ khí">
+                    <StatGrid cols={4}>
+                      <Stat label="Sát thương" value={item.weaponStats.damage} tone="accent" />
+                      <Stat label="Tốc đánh" value={item.weaponStats.attackSpeed} unit="/s" />
+                      <Stat label="Độ bền" value={item.weaponStats.durability} unit="đòn" />
+                      <Stat label="Đánh lén" value={`×${item.weaponStats.sneakMultiplier ?? (item.weaponStats.isFirearm ? 1 : 3)}`} />
+                    </StatGrid>
                     <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => {
-                        handleCloseModal();
-                        navigate(`/planner?item=${selectedItem.id}`);
-                      }}
+                      variant="soft"
+                      block
+                      className="mt-3"
+                      icon={<Calculator />}
+                      onClick={() => navigate(`/combat?weapon=${item.id}`)}
                     >
-                      Lên kế hoạch
+                      Tính hạ quái bằng vũ khí này
                     </Button>
-                  </div>
-                ))}
-                {!db.recipesByOutputMap.has(selectedItem.id) && (
-                  <p className="text-xs text-slate-500 italic">
-                    Vật phẩm này không thể tự chế tạo (tìm thấy trong hòm loot, sự kiện hoặc đổi vé).
-                  </p>
+                  </Section>
                 )}
-              </div>
-            )}
 
-            {/* Inventory Quick Adjust */}
-            <div className="flex items-center justify-between p-3 rounded bg-charcoal-950 border border-charcoal-800 text-sm">
-              <span className="text-slate-400 font-medium">Số lượng trong kho của bạn:</span>
-              <div className="flex items-center gap-2">
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  onClick={() => adjustInventoryItem(selectedItem.id, -1)}
-                  disabled={(inventory[selectedItem.id] || 0) <= 0}
-                >
-                  -1
-                </Button>
-                <span className="w-12 text-center font-mono font-bold text-amber-400">
-                  {inventory[selectedItem.id] || 0}
-                </span>
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  onClick={() => adjustInventoryItem(selectedItem.id, 1)}
-                >
-                  +1
-                </Button>
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  onClick={() => adjustInventoryItem(selectedItem.id, 10)}
-                >
-                  +10
-                </Button>
-              </div>
-            </div>
+                {item.armorStats && (
+                  <Section title="Chỉ số giáp">
+                    <StatGrid cols={3}>
+                      <Stat label="Vị trí" value={ITEM_CATEGORY_LABEL[item.category]} />
+                      <Stat label="Điểm giáp" value={`+${item.armorStats.armorValue}`} tone="info" />
+                      <Stat label="Độ bền" value={item.armorStats.durability} />
+                    </StatGrid>
+                  </Section>
+                )}
 
-            {/* Action Buttons */}
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-charcoal-800">
-              {selectedItem.weaponStats && (
-                <Button
-                  variant="primary"
-                  icon={<Calculator className="w-4 h-4" />}
-                  onClick={() => {
-                    handleCloseModal();
-                    navigate(`/combat?weapon=${selectedItem.id}`);
-                  }}
-                >
-                  Tính toán chiến đấu
-                </Button>
-              )}
-              {db?.recipesByOutputMap.has(selectedItem.id) && (
-                <Button
-                  variant="secondary"
-                  icon={<Layers className="w-4 h-4" />}
-                  onClick={() => {
-                    handleCloseModal();
-                    navigate(`/planner?item=${selectedItem.id}`);
-                  }}
-                >
-                  Lên kế hoạch chế tạo
-                </Button>
-              )}
-            </div>
-          </div>
-        </Modal>
-      )}
-    </div>
+                {item.consumableStats && (
+                  <Section title="Hiệu quả sử dụng">
+                    <StatGrid cols={3}>
+                      {item.consumableStats.healHp ? <Stat label="Hồi máu" value={`+${item.consumableStats.healHp}`} tone="ok" /> : null}
+                      {item.consumableStats.hunger ? <Stat label="Độ no" value={`+${item.consumableStats.hunger}`} tone="accent" /> : null}
+                      {item.consumableStats.thirst ? <Stat label="Độ khát" value={`+${item.consumableStats.thirst}`} tone="info" /> : null}
+                    </StatGrid>
+                    {item.consumableStats.buffEffect && (
+                      <p className="mt-2 text-sm text-muted">
+                        {item.consumableStats.buffEffect}
+                        {item.consumableStats.durationSeconds ? ` (${item.consumableStats.durationSeconds}s)` : ''}
+                      </p>
+                    )}
+                  </Section>
+                )}
+
+                {recipe && (
+                  <Section title="Công thức chế tạo">
+                    <PropertyList
+                      items={[
+                        { label: 'Bàn chế tạo', value: recipe.workstation || 'Chế tạo tay' },
+                        { label: 'Số lượng ra', value: recipe.outputQuantity },
+                      ]}
+                    />
+                    <ul className="mt-2 flex flex-wrap gap-1.5">
+                      {recipe.ingredients.map((ing) => (
+                        <li key={ing.itemId}>
+                          <Link
+                            to={`/wiki/items?select=${ing.itemId}`}
+                            className="num inline-flex rounded-md bg-subtle px-2 py-1 text-xs hover:text-accent"
+                          >
+                            {ing.quantity}× {db.itemsMap.get(ing.itemId)?.name ?? ing.itemId}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      variant="secondary"
+                      block
+                      className="mt-3"
+                      icon={<Layers />}
+                      onClick={() => navigate(`/planner?item=${item.id}`)}
+                    >
+                      Lên kế hoạch chế tạo
+                    </Button>
+                  </Section>
+                )}
+
+                {locations.length > 0 && (
+                  <Section title="Nơi nhận được">
+                    <ul className="flex flex-wrap gap-1.5">
+                      {locations.map((loc) => (
+                        <li key={loc.id}>
+                          <Link
+                            to={`/wiki/locations?select=${loc.id}`}
+                            className="inline-flex rounded-md bg-subtle px-2 py-1 text-xs hover:text-accent"
+                          >
+                            {loc.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Section>
+                )}
+
+                {item.notes && (
+                  <Section title="Ghi chú">
+                    <p className="whitespace-pre-line rounded-lg bg-subtle p-3 text-sm leading-relaxed text-muted">{item.notes}</p>
+                  </Section>
+                )}
+              </>
+            ),
+          };
+        }}
+      >
+        <FormModal
+          isOpen={Boolean(editing)}
+          title={isNew ? 'Thêm vật phẩm' : 'Sửa vật phẩm'}
+          onClose={() => setEditing(null)}
+          onSave={handleSave}
+          saveDisabled={!editing?.name?.trim() || !editing?.id?.trim()}
+          maxWidth="md"
+        >
+          {editing && (
+            <>
+              <FormRow>
+                <Field label="Tên (tiếng Anh)">
+                  <TextInput autoFocus value={editing.name ?? ''} onChange={(e) => patch({ name: e.target.value })} />
+                </Field>
+                <Field label="Tên tiếng Việt" hint="Không bắt buộc">
+                  <TextInput value={editing.vietnameseName ?? ''} onChange={(e) => patch({ vietnameseName: e.target.value })} />
+                </Field>
+              </FormRow>
+              <FormRow>
+                <Field label="Nhóm">
+                  <Select value={editing.category} onChange={(e) => patch({ category: e.target.value as ItemCategory })}>
+                    {Object.entries(ITEM_CATEGORY_LABEL).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </Select>
+                </Field>
+                <Field label="Độ hiếm">
+                  <Select value={editing.rarity} onChange={(e) => patch({ rarity: e.target.value as Item['rarity'] })}>
+                    {Object.entries(RARITY_LABEL).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </Select>
+                </Field>
+              </FormRow>
+              <FormRow>
+                <Field label="Số lượng tối đa mỗi ô">
+                  <NumberInput min={1} value={editing.stackSize} onValueChange={(v) => patch({ stackSize: v })} />
+                </Field>
+                <Field label="ID" hint={isNew ? 'Duy nhất, viết thường không dấu' : 'Không thể đổi khi sửa'}>
+                  <TextInput
+                    value={editing.id ?? ''}
+                    disabled={!isNew}
+                    onChange={(e) => patch({ id: e.target.value })}
+                    className="font-mono"
+                  />
+                </Field>
+              </FormRow>
+              <Field label="Mô tả">
+                <Textarea rows={2} value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
+              </Field>
+              <Field label="Ghi chú / mẹo">
+                <Textarea rows={2} value={editing.notes ?? ''} onChange={(e) => patch({ notes: e.target.value })} />
+              </Field>
+            </>
+          )}
+        </FormModal>
+      </WikiPage>
+    </>
   );
 };

@@ -3,33 +3,42 @@ import React from 'react';
 interface CardProps {
   children: React.ReactNode;
   className?: string;
-  hoverable?: boolean;
-  highlight?: 'amber' | 'olive' | 'hazard' | 'none';
+  /** Makes the whole card a keyboard accessible button. */
   onClick?: () => void;
+  selected?: boolean;
+  disabled?: boolean;
+  padded?: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
   children,
   className = '',
-  hoverable = false,
-  highlight = 'none',
   onClick,
+  selected = false,
+  disabled = false,
+  padded = true,
 }) => {
-  const highlightStyles = {
-    none: 'border-charcoal-800',
-    amber: 'border-amber-600/40 shadow-sm shadow-amber-950/20',
-    olive: 'border-[#656d4a]/40 shadow-sm shadow-[#1c222c]/40',
-    hazard: 'border-red-600/40 shadow-sm shadow-red-950/20',
-  };
-
-  const hoverStyles = hoverable
-    ? 'hover:border-charcoal-700 hover:bg-charcoal-850 hover:shadow-md transition-all cursor-pointer'
-    : '';
+  const interactive = Boolean(onClick) && !disabled;
 
   return (
     <div
-      onClick={onClick}
-      className={`bg-charcoal-900 border rounded-lg p-4 sm:p-5 text-slate-200 ${highlightStyles[highlight]} ${hoverStyles} ${className}`}
+      role={interactive ? 'button' : undefined}
+      tabIndex={interactive ? 0 : undefined}
+      aria-pressed={interactive ? selected : undefined}
+      onClick={interactive ? onClick : undefined}
+      onKeyDown={
+        interactive
+          ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onClick?.();
+              }
+            }
+          : undefined
+      }
+      className={`rounded-xl border bg-surface shadow-card transition-colors ${padded ? 'p-4' : ''} ${
+        selected ? 'border-accent-solid ring-1 ring-accent-solid' : 'border-line'
+      } ${interactive ? 'cursor-pointer hover:border-faint/60' : ''} ${disabled ? 'opacity-60' : ''} ${className}`}
     >
       {children}
     </div>

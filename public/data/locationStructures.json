@@ -1,0 +1,58 @@
+[
+  {
+    "id": "struct_northern_watchtower",
+    "locationId": "northern_watchtower",
+    "name": "Northern Watchtower Generator Grid",
+    "type": "unlock",
+    "description": "Lắp đặt và kích hoạt máy phát điện để mở rộng tầm phủ sóng bản đồ tới vùng Rừng sồi (Oak) và Đất tuyết.",
+    "stages": [
+      {
+        "id": "stage_install_generator",
+        "name": "Lắp đặt Máy phát điện hoàn chỉnh",
+        "requirements": [
+          { "itemId": "electric_generator", "quantity": 1 },
+          { "itemId": "crowbar", "quantity": 1 }
+        ]
+      }
+    ],
+    "unlocks": ["oak_bushes", "oak_grove", "snow_zone"],
+    "notes": "Máy phát điện phải được lắp ráp hoàn chỉnh tại căn cứ rồi chở bằng xe máy Chopper đến Tháp canh. Chuẩn bị súng đạn vì khi cắm điện sẽ có đàn zombie tràn ra bao vây!"
+  },
+  {
+    "id": "struct_farm_bridge",
+    "locationId": "crooked_creek_farm",
+    "name": "Crooked Creek Farm Bridge Repair",
+    "type": "repair",
+    "description": "Sửa chữa cây cầu gỗ bắc qua con suối để tiến vào trung tâm nông trại bỏ hoang.",
+    "stages": [
+      {
+        "id": "stage_bridge_framing",
+        "name": "Gia cố mặt cầu và cọc giằng",
+        "requirements": [
+          { "itemId": "pine_plank", "quantity": 100 },
+          { "itemId": "iron_bar", "quantity": 10 },
+          { "itemId": "rope", "quantity": 10 },
+          { "itemId": "nails", "quantity": 10 }
+        ]
+      }
+    ],
+    "unlocks": ["farm_main_compound", "blue_crate_saw"],
+    "notes": "Chỉ cần sửa cầu một lần duy nhất, sau các đợt reset 48 tiếng cây cầu vẫn nguyên vẹn."
+  },
+  {
+    "id": "struct_bunker_alfa_elevator",
+    "locationId": "bunker_alfa",
+    "name": "Bunker Alfa Access Terminal",
+    "type": "unlock",
+    "description": "Mở khóa thang máy dẫn xuống các tầng ngầm 2, 3 và 4 bằng mật mã vô tuyến (A-Code).",
+    "stages": [
+      {
+        "id": "stage_terminal_passcode",
+        "name": "Nhập mật mã vô tuyến",
+        "requirements": []
+      }
+    ],
+    "unlocks": ["bunker_alfa_floor_2", "bunker_alfa_floor_3", "bunker_alfa_floor_4"],
+    "notes": "Lấy mật mã hàng ngày từ đài radio CB Radio ở nhà hoặc từ xác binh lính tại các vùng rừng/mỏ đá."
+  }
+]
