@@ -6,7 +6,7 @@ import { CraftingTreeNode, planCrafting } from '../lib/calculators/craftingPlann
 import { Button, IconButton } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { Field, NumberInput, Select } from '../components/common/Field';
-import { Callout, EmptyState, PageHeader, Stat, StatGrid } from '../components/common/Layout';
+import { Callout, EmptyState, PageHeader } from '../components/common/Layout';
 import { Tabs } from '../components/common/Tabs';
 
 type PlannerTab = 'materials' | 'steps' | 'tree';
@@ -104,7 +104,6 @@ export const CraftingPlanner: React.FC = () => {
   );
 
   const buff = db?.recipesByOutputMap.get(targetItemId)?.[0]?.buffStats;
-  const totalCrafts = plan?.intermediateSteps.reduce((sum, s) => sum + s.craftCount, 0) ?? 0;
 
   const tabs = plan
     ? [
@@ -180,18 +179,6 @@ export const CraftingPlanner: React.FC = () => {
                   <IconButton label="Tăng" className="border border-line" onClick={() => changeQuantity(quantity + 1)}>
                     <Plus />
                   </IconButton>
-                  <div className="ml-auto flex gap-1">
-                    {[5, 10, 20].map((n) => (
-                      <button
-                        key={n}
-                        type="button"
-                        onClick={() => changeQuantity(n)}
-                        className="num h-9 rounded-lg bg-subtle px-2.5 text-xs text-muted hover:text-fg"
-                      >
-                        {n}
-                      </button>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -211,11 +198,6 @@ export const CraftingPlanner: React.FC = () => {
             <EmptyState icon={<Layers />} title="Chọn vật phẩm để bắt đầu" />
           ) : (
             <div className="space-y-4">
-              <StatGrid cols={2}>
-                <Stat label="Nguyên liệu thô" value={plan.totalRawMaterials.length} unit="loại" />
-                <Stat label="Tổng lượt chế" value={totalCrafts} />
-              </StatGrid>
-
               {plan.hasCircularDependency && (
                 <Callout tone="warn">Công thức có vòng lặp: một số nguyên liệu được tính như nguyên liệu thô.</Callout>
               )}
