@@ -7,6 +7,7 @@ import {
   LocationStructure,
   PointSystem,
   EnemyPointRule,
+  WeaponMod,
   GameDatabase,
 } from '../types';
 import { storageService } from './storageService';
@@ -44,6 +45,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         structuresRes,
         pointSystemsRes,
         enemyPointRulesRes,
+        weaponModsRes,
       ] = await Promise.all([
         fetch(`${cleanBase}data/items.json`),
         fetch(`${cleanBase}data/enemies.json`),
@@ -53,6 +55,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         fetch(`${cleanBase}data/locationStructures.json`),
         fetch(`${cleanBase}data/pointSystems.json`),
         fetch(`${cleanBase}data/enemyPointRules.json`),
+        fetch(`${cleanBase}data/weaponMods.json`),
       ]);
 
       // A missing data file is a real failure: surface it instead of silently showing an empty wiki.
@@ -70,6 +73,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
       const baseStructures = await readJson<LocationStructure>(structuresRes, 'locationStructures.json');
       const basePointSystems = await readJson<PointSystem>(pointSystemsRes, 'pointSystems.json');
       const baseEnemyPointRules = await readJson<EnemyPointRule>(enemyPointRulesRes, 'enemyPointRules.json');
+      const baseWeaponMods = await readJson<WeaponMod>(weaponModsRes, 'weaponMods.json');
 
       // Load overrides from storage
       const overrides = storageService.getOverrides();
@@ -78,7 +82,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
       // Merge helper: Base + Custom/Edited, minus Hidden
       const mergeEntities = <T extends { id: string; isCustom?: boolean }>(
         baseList: T[],
-        customList: T[]
+        customList: T[] = []
       ): T[] => {
         const map = new Map<string, T>();
         for (const item of baseList) {
@@ -102,6 +106,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
       const locationStructures = mergeEntities(baseStructures, overrides.customLocationStructures);
       const pointSystems = mergeEntities(basePointSystems, overrides.customPointSystems);
       const enemyPointRules = mergeEntities(baseEnemyPointRules, overrides.customEnemyPointRules);
+      const weaponMods = mergeEntities(baseWeaponMods, overrides.customWeaponMods);
 
       // Maps for O(1) lookups
       const itemsMap = new Map<string, Item>(items.map((i) => [i.id, i]));
@@ -112,6 +117,14 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
       const locationStructuresMap = new Map<string, LocationStructure>(locationStructures.map((s) => [s.id, s]));
       const pointSystemsMap = new Map<string, PointSystem>(pointSystems.map((p) => [p.id, p]));
       const enemyPointRulesMap = new Map<string, EnemyPointRule>(enemyPointRules.map((r) => [r.id, r]));
+      const weaponModsMap = new Map<string, WeaponMod>(weaponMods.map((m) => [m.id, m]));
+
+      const weaponModsByWeaponIdMap = new Map<string, WeaponMod[]>();
+      for (const mod of weaponMods) {
+        const list = weaponModsByWeaponIdMap.get(mod.weaponId) || [];
+        list.push(mod);
+        weaponModsByWeaponIdMap.set(mod.weaponId, list);
+      }
 
       const recipesByOutputMap = new Map<string, Recipe[]>();
       for (const recipe of recipes) {
@@ -129,6 +142,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         locationStructures,
         pointSystems,
         enemyPointRules,
+        weaponMods,
         itemsMap,
         enemiesMap,
         recipesMap,
@@ -138,6 +152,8 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         locationStructuresMap,
         pointSystemsMap,
         enemyPointRulesMap,
+        weaponModsMap,
+        weaponModsByWeaponIdMap,
         isLoading: false,
         error: null,
       };
@@ -154,6 +170,7 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         locationStructures: [],
         pointSystems: [],
         enemyPointRules: [],
+        weaponMods: [],
         itemsMap: new Map(),
         enemiesMap: new Map(),
         recipesMap: new Map(),
@@ -163,6 +180,8 @@ export async function loadGameData(forceRefresh = false): Promise<GameDatabase> 
         locationStructuresMap: new Map(),
         pointSystemsMap: new Map(),
         enemyPointRulesMap: new Map(),
+        weaponModsMap: new Map(),
+        weaponModsByWeaponIdMap: new Map(),
         isLoading: false,
         error: err?.message || 'Lỗi khi tải dữ liệu game',
       };
@@ -209,6 +228,11 @@ export function checkEntityDependencies(
       if (q.rewards.some((rew) => rew.itemId === id)) {
         dependents.push(`Phần thưởng nhiệm vụ: ${q.title}`);
       }
+    }
+    // Check weapon mods
+    for (const mod of db.weaponMods) {
+      if (mod.weaponId === id) dependents.push(`Vũ khí của bản độ: ${mod.name}`);
+      if (mod.materials.some((m) => m.itemId === id)) dependents.push(`Nguyên liệu trong bản độ: ${mod.name}`);
     }
   } else if (type === 'enemy') {
     // Check point rules

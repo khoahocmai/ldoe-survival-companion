@@ -45,6 +45,7 @@ export const EMPTY_OVERRIDES: WikiOverrides = {
   customLocationStructures: [],
   customPointSystems: [],
   customEnemyPointRules: [],
+  customWeaponMods: [],
   hiddenEntityIds: [],
 };
 
@@ -61,12 +62,12 @@ class StorageService {
     if (this.cache) return this.cache;
 
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
       let legacyData: any = undefined;
 
       // Safely check for previous personal data from older session to preserve it
       try {
-        const legacyRaw = localStorage.getItem(LEGACY_STORAGE_KEY);
+        const legacyRaw = typeof localStorage !== 'undefined' ? localStorage.getItem(LEGACY_STORAGE_KEY) : null;
         if (legacyRaw) {
           legacyData = JSON.parse(legacyRaw);
         }
@@ -99,6 +100,7 @@ class StorageService {
           customLocationStructures: Array.isArray(parsed.overrides?.customLocationStructures) ? parsed.overrides.customLocationStructures : [],
           customPointSystems: Array.isArray(parsed.overrides?.customPointSystems) ? parsed.overrides.customPointSystems : [],
           customEnemyPointRules: Array.isArray(parsed.overrides?.customEnemyPointRules) ? parsed.overrides.customEnemyPointRules : [],
+          customWeaponMods: Array.isArray(parsed.overrides?.customWeaponMods) ? parsed.overrides.customWeaponMods : [],
           hiddenEntityIds: Array.isArray(parsed.overrides?.hiddenEntityIds) ? parsed.overrides.hiddenEntityIds : [],
         },
         referenceSources: Array.isArray(parsed.referenceSources) && parsed.referenceSources.length > 0
@@ -124,7 +126,9 @@ class StorageService {
   public save(data: AppStorageSchema, notify = true): void {
     try {
       this.cache = data;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
       if (notify) {
         notifyDataChange('save');
       }
