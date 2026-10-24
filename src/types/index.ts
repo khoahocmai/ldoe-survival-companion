@@ -218,7 +218,7 @@ export interface ReferenceSource {
   description?: string;
 }
 
-export type WeaponModSlot = 'blade' | 'handle' | 'muzzle' | 'magazine' | 'sight' | 'grip' | 'stock';
+export type WeaponModSlot = 'blade' | 'tip' | 'handle' | 'muzzle' | 'magazine' | 'sight' | 'grip' | 'stock';
 
 export interface WeaponModStatBonus {
   damage?: number; // Sát thương cộng thêm (vd: +4)

@@ -858,5 +858,143 @@
     ],
     "obtainDescription": "Bunker Alfa tầng 3",
     "description": "Tăng tốc độ lên đạn và độ bền bắn của súng săn."
+  },
+  {
+    "id": "mod_spear_bone_tip",
+    "weaponId": "spear",
+    "slot": "tip",
+    "name": "Bone Tip",
+    "vietnameseName": "Mũi giáo bọc xương",
+    "rarity": "common",
+    "stats": {
+      "damage": 3,
+      "critChance": 8
+    },
+    "materials": [
+      { "itemId": "bone", "quantity": 10 },
+      { "itemId": "rope", "quantity": 6 },
+      { "itemId": "duct_tape", "quantity": 4 }
+    ],
+    "obtainDescription": "Rương vùng rừng vàng / đỏ",
+    "description": "Bọc xương nhọn vào đầu giáo giúp tăng lực đâm và cơ hội chí mạng."
+  },
+  {
+    "id": "mod_spear_metal_tip",
+    "weaponId": "spear",
+    "slot": "tip",
+    "name": "Metal Tip",
+    "vietnameseName": "Mũi giáo kim loại",
+    "rarity": "rare",
+    "stats": {
+      "damage": 5,
+      "attackSpeed": 0.05,
+      "durability": 15
+    },
+    "materials": [
+      { "itemId": "iron_bar", "quantity": 8 },
+      { "itemId": "nails", "quantity": 10 },
+      { "itemId": "duct_tape", "quantity": 5 }
+    ],
+    "obtainDescription": "Rương Farm / Bunker Alfa",
+    "description": "Mũi sắt nhọn gia công sắc bén giúp ngọn giáo trở thành vũ khí cận chiến lợi hại."
+  },
+  {
+    "id": "mod_spear_heavy_spearhead",
+    "weaponId": "spear",
+    "slot": "tip",
+    "name": "Heavy Spearhead",
+    "vietnameseName": "Mũi giáo chiến đấu nặng",
+    "rarity": "common",
+    "stats": {
+      "damage": 7,
+      "attackSpeed": -0.05,
+      "durability": 20
+    },
+    "materials": [
+      { "itemId": "iron_plate", "quantity": 6 },
+      { "itemId": "nails", "quantity": 12 },
+      { "itemId": "rope", "quantity": 8 }
+    ],
+    "obtainDescription": "Rương nhà gỗ vùng sồi",
+    "description": "Đầu giáo sắt tấm nặng đâm cực mạnh nhưng làm giảm nhẹ tốc độ ra đòn."
+  },
+  {
+    "id": "mod_spear_saw_blade",
+    "weaponId": "spear",
+    "slot": "tip",
+    "name": "Saw Blade Tip",
+    "vietnameseName": "Mũi cưa xé rách",
+    "rarity": "extremely_rare",
+    "stats": {
+      "damage": 9,
+      "critChance": 15,
+      "critDamage": 30
+    },
+    "activeSkill": "Đâm xoáy xé rách (Tearing Thrust)",
+    "materials": [
+      { "itemId": "steel_bar", "quantity": 4 },
+      { "itemId": "factory_parts", "quantity": 4 },
+      { "itemId": "duct_tape", "quantity": 8 },
+      { "itemId": "rope", "quantity": 10 }
+    ],
+    "obtainDescription": "Đổi thẻ tím PD / Rương Farm Floppy",
+    "description": "Bản mod tím tối thượng cho Ngọn giáo: biến cây giáo bình dân thành cỗ máy xé thịt đáng sợ."
+  },
+  {
+    "id": "mod_spear_rag_handle",
+    "weaponId": "spear",
+    "slot": "handle",
+    "name": "Rag Handle",
+    "vietnameseName": "Tay cầm quấn vải",
+    "rarity": "common",
+    "stats": {
+      "attackSpeed": 0.08
+    },
+    "materials": [
+      { "itemId": "cloth", "quantity": 8 },
+      { "itemId": "rope", "quantity": 5 }
+    ],
+    "obtainDescription": "Rương vùng rừng xanh/vàng",
+    "description": "Quấn vải thô quanh thân giáo giúp chống trơn và vung đâm nhanh hơn."
+  },
+  {
+    "id": "mod_spear_reinforced_handle",
+    "weaponId": "spear",
+    "slot": "handle",
+    "name": "Reinforced Handle",
+    "vietnameseName": "Tay cầm gia cố",
+    "rarity": "common",
+    "stats": {
+      "durability": 20,
+      "damage": 1
+    },
+    "materials": [
+      { "itemId": "pine_plank", "quantity": 10 },
+      { "itemId": "leather", "quantity": 6 },
+      { "itemId": "nails", "quantity": 8 }
+    ],
+    "obtainDescription": "Bunker Alfa rương vàng",
+    "description": "Gia cố độ cứng của cán giáo giúp tăng độ bền sử dụng."
+  },
+  {
+    "id": "mod_spear_bone_handle",
+    "weaponId": "spear",
+    "slot": "handle",
+    "name": "Bone Handle",
+    "vietnameseName": "Tay cầm xương",
+    "rarity": "rare",
+    "stats": {
+      "damage": 2,
+      "attackSpeed": 0.05,
+      "critChance": 6,
+      "durability": 10
+    },
+    "materials": [
+      { "itemId": "bone", "quantity": 8 },
+      { "itemId": "duct_tape", "quantity": 6 },
+      { "itemId": "leather", "quantity": 6 }
+    ],
+    "obtainDescription": "Rương Farm / Bãi rác",
+    "description": "Tay cầm ốp xương meta tăng đều các chỉ số tấn công của ngọn giáo."
   }
 ]

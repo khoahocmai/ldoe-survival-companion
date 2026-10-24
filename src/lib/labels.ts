@@ -3,6 +3,7 @@ import type { Tone } from '../components/common/Badge';
 
 export const WEAPON_MOD_SLOT_LABEL: Record<WeaponModSlot, string> = {
   blade: 'Lưỡi dao',
+  tip: 'Mũi giáo / Đầu nhọn',
   handle: 'Tay cầm',
   muzzle: 'Đầu nòng',
   magazine: 'Băng đạn',

@@ -72,6 +72,7 @@ export const ItemsPage: React.FC = () => {
       rarity: editing.rarity ?? 'common',
       stackSize: editing.stackSize || 1,
       description: editing.description ?? '',
+      weaponStats: editing.weaponStats,
       isCustom: true,
     } as Item;
     await save(entity);
@@ -166,16 +167,16 @@ export const ItemsPage: React.FC = () => {
                       >
                         Tính hạ quái bằng vũ khí này
                       </Button>
-                      {(db.weaponModsByWeaponIdMap?.get(item.id)?.length ?? 0) > 0 && (
-                        <Button
-                          variant="secondary"
-                          className="flex-1"
-                          icon={<Wrench />}
-                          onClick={() => navigate(`/wiki/weapon-mods?weapon=${item.id}`)}
-                        >
-                          Độ vũ khí này ({db.weaponModsByWeaponIdMap.get(item.id)?.length} bản mod)
-                        </Button>
-                      )}
+                      <Button
+                        variant="secondary"
+                        className="flex-1"
+                        icon={<Wrench />}
+                        onClick={() => navigate(`/wiki/weapon-mods?weapon=${item.id}`)}
+                      >
+                        {(db.weaponModsByWeaponIdMap?.get(item.id)?.length ?? 0) > 0
+                          ? `Độ vũ khí này (${db.weaponModsByWeaponIdMap.get(item.id)?.length} bản mod)`
+                          : '+ Thêm bản độ cho vũ khí này'}
+                      </Button>
                     </div>
                   </Section>
                 )}
@@ -316,6 +317,91 @@ export const ItemsPage: React.FC = () => {
                   />
                 </Field>
               </FormRow>
+
+              {(editing.category?.startsWith('weapon_') || editing.weaponStats) && (
+                <div className="space-y-3 rounded-xl border border-line bg-subtle/40 p-3">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-accent">Thông số vũ khí</h4>
+                  <FormRow>
+                    <Field label="Sát thương">
+                      <NumberInput
+                        min={1}
+                        value={editing.weaponStats?.damage ?? 10}
+                        onValueChange={(damage) =>
+                          patch({
+                            weaponStats: {
+                              attackSpeed: 1,
+                              durability: 50,
+                              sneakMultiplier: editing.category === 'weapon_firearm' ? 1 : 3,
+                              isFirearm: editing.category === 'weapon_firearm',
+                              ...editing.weaponStats,
+                              damage: damage || 1,
+                              dps: Math.round((damage || 1) * (editing.weaponStats?.attackSpeed ?? 1) * 10) / 10,
+                            },
+                          })
+                        }
+                      />
+                    </Field>
+                    <Field label="Tốc độ đánh (/giây)">
+                      <NumberInput
+                        min={0.1}
+                        step={0.1}
+                        value={editing.weaponStats?.attackSpeed ?? 1}
+                        onValueChange={(speed) =>
+                          patch({
+                            weaponStats: {
+                              damage: 10,
+                              durability: 50,
+                              sneakMultiplier: editing.category === 'weapon_firearm' ? 1 : 3,
+                              isFirearm: editing.category === 'weapon_firearm',
+                              ...editing.weaponStats,
+                              attackSpeed: speed || 1,
+                              dps: Math.round((editing.weaponStats?.damage ?? 10) * (speed || 1) * 10) / 10,
+                            },
+                          })
+                        }
+                      />
+                    </Field>
+                  </FormRow>
+                  <FormRow>
+                    <Field label="Độ bền (số đòn)">
+                      <NumberInput
+                        min={1}
+                        value={editing.weaponStats?.durability ?? 50}
+                        onValueChange={(durability) =>
+                          patch({
+                            weaponStats: {
+                              damage: 10,
+                              attackSpeed: 1,
+                              sneakMultiplier: editing.category === 'weapon_firearm' ? 1 : 3,
+                              isFirearm: editing.category === 'weapon_firearm',
+                              ...editing.weaponStats,
+                              durability: durability || 1,
+                            },
+                          })
+                        }
+                      />
+                    </Field>
+                    <Field label="Đánh lén (hệ số)">
+                      <NumberInput
+                        min={1}
+                        value={editing.weaponStats?.sneakMultiplier ?? (editing.category === 'weapon_firearm' ? 1 : 3)}
+                        onValueChange={(sneak) =>
+                          patch({
+                            weaponStats: {
+                              damage: 10,
+                              attackSpeed: 1,
+                              durability: 50,
+                              isFirearm: editing.category === 'weapon_firearm',
+                              ...editing.weaponStats,
+                              sneakMultiplier: sneak || 1,
+                            },
+                          })
+                        }
+                      />
+                    </Field>
+                  </FormRow>
+                </div>
+              )}
               <Field label="Mô tả">
                 <Textarea rows={2} value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
               </Field>

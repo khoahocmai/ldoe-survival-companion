@@ -24,7 +24,7 @@ describe('Task 2: Weapon Mods Dataset Validation', () => {
       expect(mod.name, `Mod ${mod.id} must have non-empty name`).toBeTruthy();
       expect(mod.vietnameseName, `Mod ${mod.id} must have non-empty vietnameseName`).toBeTruthy();
       expect(['common', 'rare', 'extremely_rare']).toContain(mod.rarity);
-      expect(['blade', 'handle', 'muzzle', 'magazine', 'sight', 'grip', 'stock']).toContain(mod.slot);
+      expect(['blade', 'tip', 'handle', 'muzzle', 'magazine', 'sight', 'grip', 'stock']).toContain(mod.slot);
 
       // Verify weapon exists
       const weapon = itemsMap.get(mod.weaponId);
@@ -41,10 +41,10 @@ describe('Task 2: Weapon Mods Dataset Validation', () => {
     }
   });
 
-  it('should have mods for all 6 target weapons: Cleaver, Machete, Glock 17, M16, AK-47, Shotgun', () => {
+  it('should have mods for primary weapons including Spear, Cleaver, Machete, Glock 17, M16, AK-47, Shotgun', () => {
     if (!fs.existsSync(filePath)) return;
     const mods = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    const targetWeapons = ['cleaver', 'machete', 'glock_17', 'm16', 'ak47', 'shotgun'];
+    const targetWeapons = ['spear', 'cleaver', 'machete', 'glock_17', 'm16', 'ak47', 'shotgun'];
     const weaponsCovered = new Set(mods.map((m: any) => m.weaponId));
 
     for (const weaponId of targetWeapons) {

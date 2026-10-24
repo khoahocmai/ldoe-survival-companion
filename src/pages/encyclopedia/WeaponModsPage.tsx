@@ -6,13 +6,13 @@ import {
   Layers,
   Sparkles,
   RotateCcw,
-  Check,
   Sword,
-  Crosshair,
-  Info,
   ChevronRight,
   Shield,
   Zap,
+  Plus,
+  Pencil,
+  Trash2,
 } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
 import { Item, WeaponMod, WeaponModSlot } from '../../types';
@@ -20,7 +20,11 @@ import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
-import { Callout, EmptyState, PageHeader, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { Callout, EmptyState, PageHeader, Section } from '../../components/common/Layout';
+import { FormModal, FormRow } from '../../components/common/FormModal';
+import { Field, NumberInput, Select, TextInput, Textarea } from '../../components/common/Field';
+import { ConfirmDialog } from '../../components/common/ConfirmDialog';
+import { storageService } from '../../services/storageService';
 import {
   WEAPON_MOD_SLOT_LABEL,
   WEAPON_MOD_RARITY_LABEL,
@@ -31,21 +35,31 @@ import { calculateModdedStats, aggregateModMaterials } from '../../lib/calculato
 type WeaponCategoryFilter = 'all' | 'melee' | 'firearm';
 
 export const WeaponModsPage: React.FC = () => {
-  const { db } = useGameData();
+  const { db, reload } = useGameData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // 1. Filter weapons that have weaponMods
+  // All weapons, prioritizing those with mods first
   const moddableWeapons = useMemo(() => {
     if (!db) return [];
     return db.items
-      .filter((item) => item.weaponStats && (db.weaponModsByWeaponIdMap.get(item.id)?.length ?? 0) > 0)
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .filter((item) => !!item.weaponStats)
+      .sort((a, b) => {
+        const countA = db.weaponModsByWeaponIdMap.get(a.id)?.length ?? 0;
+        const countB = db.weaponModsByWeaponIdMap.get(b.id)?.length ?? 0;
+        if ((countA > 0) !== (countB > 0)) return countB - countA;
+        return a.name.localeCompare(b.name);
+      });
   }, [db]);
 
   const [categoryFilter, setCategoryFilter] = useState<WeaponCategoryFilter>('all');
   const [selectedWeaponId, setSelectedWeaponId] = useState<string>('');
   const [selectedModsBySlot, setSelectedModsBySlot] = useState<Record<string, string | null>>({});
+
+  // Mod editing / creating state
+  const [editingMod, setEditingMod] = useState<Partial<WeaponMod> | null>(null);
+  const [isNewMod, setIsNewMod] = useState(false);
+  const [deletingModId, setDeletingModId] = useState<string | null>(null);
 
   // Sync with URL search params ?weapon=...
   useEffect(() => {
@@ -75,8 +89,19 @@ export const WeaponModsPage: React.FC = () => {
     for (const mod of availableMods) {
       set.add(mod.slot);
     }
+    // If no mods exist yet, show standard default slots for its category
+    if (set.size === 0 && currentWeapon) {
+      if (currentWeapon.category === 'weapon_melee') {
+        set.add('blade');
+        set.add('handle');
+      } else {
+        set.add('muzzle');
+        set.add('magazine');
+        set.add('sight');
+      }
+    }
     return Array.from(set);
-  }, [availableMods]);
+  }, [availableMods, currentWeapon]);
 
   // Filtered weapon list based on category
   const filteredWeapons = useMemo(() => {
@@ -108,7 +133,6 @@ export const WeaponModsPage: React.FC = () => {
     const metaSelection: Record<string, string | null> = {};
     for (const slot of weaponSlots) {
       const slotMods = availableMods.filter((m) => m.slot === slot);
-      // Prefer extremely_rare or rare with highest damage / speed
       const sorted = [...slotMods].sort((a, b) => {
         const rarityScore = (r: string) => (r === 'extremely_rare' ? 3 : r === 'rare' ? 2 : 1);
         if (rarityScore(b.rarity) !== rarityScore(a.rarity)) {
@@ -165,6 +189,67 @@ export const WeaponModsPage: React.FC = () => {
     navigate(`/planner?materials=${encodeURIComponent(encoded)}&title=${encodeURIComponent(`Bản độ ${currentWeapon?.name ?? ''}`)}`);
   };
 
+  // Open modal to add a brand new mod
+  const openNewModModal = (defaultSlot?: WeaponModSlot) => {
+    if (!currentWeapon) return;
+    setIsNewMod(true);
+    setEditingMod({
+      id: `mod_${currentWeapon.id}_custom_${Date.now()}`,
+      weaponId: currentWeapon.id,
+      slot: defaultSlot ?? (weaponSlots[0] || 'blade'),
+      name: '',
+      vietnameseName: '',
+      rarity: 'common',
+      stats: { damage: 2 },
+      materials: [{ itemId: 'iron_bar', quantity: 5 }],
+      obtainDescription: '',
+      description: '',
+    });
+  };
+
+  // Open modal to edit an existing mod
+  const openEditModModal = (mod: WeaponMod, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsNewMod(false);
+    setEditingMod({ ...mod });
+  };
+
+  // Open confirm dialog to delete a mod
+  const openDeleteConfirm = (modId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDeletingModId(modId);
+  };
+
+  // Save mod to storageService and reload
+  const handleSaveMod = async () => {
+    if (!editingMod?.name?.trim() || !editingMod?.id?.trim() || !editingMod?.weaponId) return;
+    const entity: WeaponMod = {
+      id: editingMod.id.trim(),
+      weaponId: editingMod.weaponId,
+      slot: editingMod.slot ?? 'blade',
+      name: editingMod.name.trim(),
+      vietnameseName: editingMod.vietnameseName?.trim() || editingMod.name.trim(),
+      rarity: editingMod.rarity ?? 'common',
+      stats: editingMod.stats ?? {},
+      activeSkill: editingMod.activeSkill?.trim() || undefined,
+      materials: (editingMod.materials ?? []).filter((m) => m.itemId && m.quantity > 0),
+      obtainDescription: editingMod.obtainDescription?.trim() || undefined,
+      description: editingMod.description?.trim() || undefined,
+      isCustom: true,
+    };
+    storageService.saveEntity('customWeaponMods', entity);
+    await reload();
+    setEditingMod(null);
+  };
+
+  // Delete mod from storageService and reload
+  const handleConfirmDelete = async () => {
+    if (!deletingModId) return;
+    storageService.deleteOrHideEntity('customWeaponMods', deletingModId);
+    await reload();
+    setDeletingModId(null);
+  };
+
   if (!db || !currentWeapon || !moddedStats) {
     return (
       <div className="py-12">
@@ -177,15 +262,24 @@ export const WeaponModsPage: React.FC = () => {
     <div>
       <PageHeader
         title="Bàn độ vũ khí (Gunsmith Bench)"
-        description="Lắp ráp các bản độ meta, so sánh chỉ số tăng giảm và tổng hợp nguyên liệu chế tạo."
+        description="Lắp ráp các bản độ meta, cập nhật chỉ số và tổng hợp nguyên liệu chế tạo."
         icon={<Wrench />}
         actions={
           <div className="flex flex-wrap items-center gap-2">
+            <Button
+              variant="primary"
+              size="sm"
+              icon={<Plus />}
+              onClick={() => openNewModModal()}
+            >
+              Thêm bản độ
+            </Button>
             <Button
               variant="secondary"
               size="sm"
               icon={<Sparkles />}
               onClick={handleApplyMeta}
+              disabled={availableMods.length === 0}
             >
               Gợi ý Meta
             </Button>
@@ -207,7 +301,7 @@ export const WeaponModsPage: React.FC = () => {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">1. Chọn vũ khí nâng cấp</h2>
-            <p className="text-xs text-muted">Chọn vũ khí để mở các slot bản vẽ tương ứng</p>
+            <p className="text-xs text-muted">Chọn vũ khí để mở các vị trí (Slot) lắp ráp linh kiện</p>
           </div>
 
           <div className="flex items-center gap-1 rounded-lg bg-subtle p-1">
@@ -242,10 +336,10 @@ export const WeaponModsPage: React.FC = () => {
         </div>
 
         {/* Weapons Carousel / Grid */}
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-7">
           {filteredWeapons.map((w) => {
             const isSelected = w.id === currentWeapon.id;
-            const slotCount = new Set((db.weaponModsByWeaponIdMap.get(w.id) ?? []).map((m) => m.slot)).size;
+            const modsCount = db.weaponModsByWeaponIdMap.get(w.id)?.length ?? 0;
             return (
               <button
                 key={w.id}
@@ -267,7 +361,9 @@ export const WeaponModsPage: React.FC = () => {
                 </div>
                 <span className="line-clamp-1 text-xs font-semibold text-fg">{w.name}</span>
                 <span className="line-clamp-1 text-[11px] text-muted">{w.vietnameseName || w.name}</span>
-                <span className="mt-1 text-[10px] text-accent font-medium">{slotCount} vị trí độ</span>
+                <span className="mt-1 text-[10px] text-accent font-medium">
+                  {modsCount > 0 ? `${modsCount} bản mod` : 'Chưa có mod'}
+                </span>
               </button>
             );
           })}
@@ -282,10 +378,26 @@ export const WeaponModsPage: React.FC = () => {
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
               2. Bàn lắp ráp linh kiện ({equippedModsList.length}/{weaponSlots.length} slot đã lắp)
             </h2>
-            <Link to={`/wiki/items?item=${currentWeapon.id}`} className="text-xs text-accent hover:underline flex items-center gap-1">
+            <Link to={`/wiki/items?select=${currentWeapon.id}`} className="text-xs text-accent hover:underline flex items-center gap-1">
               Xem trong Vật phẩm <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
+
+          {availableMods.length === 0 && (
+            <Card className="text-center py-8 space-y-3">
+              <p className="text-sm text-muted">
+                Vũ khí <strong>{currentWeapon.name}</strong> chưa có bản độ nào trong dữ liệu.
+              </p>
+              <Button
+                variant="primary"
+                size="sm"
+                icon={<Plus />}
+                onClick={() => openNewModModal()}
+              >
+                Thêm bản độ đầu tiên cho {currentWeapon.name}
+              </Button>
+            </Card>
+          )}
 
           {weaponSlots.map((slot) => {
             const slotMods = availableMods.filter((m) => m.slot === slot);
@@ -339,14 +451,32 @@ export const WeaponModsPage: React.FC = () => {
                         }`}
                       >
                         <div>
-                          <div className="flex items-start justify-between gap-2 mb-1.5">
+                          <div className="flex items-start justify-between gap-1 mb-1.5">
                             <div>
                               <h4 className="text-sm font-semibold text-fg leading-tight">{mod.name}</h4>
                               <p className="text-xs text-muted leading-tight">{mod.vietnameseName}</p>
                             </div>
-                            <Badge tone={tone} size="sm">
-                              {WEAPON_MOD_RARITY_LABEL[mod.rarity]}
-                            </Badge>
+                            <div className="flex items-center gap-1 shrink-0">
+                              <Badge tone={tone} size="sm">
+                                {WEAPON_MOD_RARITY_LABEL[mod.rarity]}
+                              </Badge>
+                              <button
+                                type="button"
+                                title="Sửa bản độ"
+                                onClick={(e) => openEditModModal(mod, e)}
+                                className="p-1 rounded hover:bg-subtle text-muted hover:text-fg transition"
+                              >
+                                <Pencil className="h-3 w-3" />
+                              </button>
+                              <button
+                                type="button"
+                                title="Xóa bản độ"
+                                onClick={(e) => openDeleteConfirm(mod.id, e)}
+                                className="p-1 rounded hover:bg-subtle text-muted hover:text-danger transition"
+                              >
+                                <Trash2 className="h-3 w-3" />
+                              </button>
+                            </div>
                           </div>
 
                           {mod.description && (
@@ -446,6 +576,15 @@ export const WeaponModsPage: React.FC = () => {
                     );
                   })}
                 </div>
+
+                {/* Add mod shortcut for this specific slot */}
+                <button
+                  type="button"
+                  onClick={() => openNewModModal(slot)}
+                  className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-line py-2 text-xs text-muted hover:border-accent hover:text-accent transition"
+                >
+                  <Plus className="h-3.5 w-3.5" /> Thêm bản độ cho slot {WEAPON_MOD_SLOT_LABEL[slot] || slot}
+                </button>
               </Card>
             );
           })}
@@ -675,6 +814,209 @@ export const WeaponModsPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Add / Edit Mod FormModal */}
+      {editingMod && (
+        <FormModal
+          isOpen={Boolean(editingMod)}
+          title={isNewMod ? 'Thêm bản độ vũ khí' : 'Sửa bản độ vũ khí'}
+          onClose={() => setEditingMod(null)}
+          onSave={handleSaveMod}
+        >
+          <FormRow>
+            <Field label="Vũ khí áp dụng">
+              <Select
+                value={editingMod.weaponId}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, weaponId: e.target.value }))}
+              >
+                {moddableWeapons.map((w) => (
+                  <option key={w.id} value={w.id}>
+                    {w.name} {w.vietnameseName ? `(${w.vietnameseName})` : ''}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+
+            <Field label="Vị trí lắp ráp (Slot)">
+              <Select
+                value={editingMod.slot}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, slot: e.target.value as WeaponModSlot }))}
+              >
+                {Object.entries(WEAPON_MOD_SLOT_LABEL).map(([slotKey, slotName]) => (
+                  <option key={slotKey} value={slotKey}>
+                    {slotName}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+          </FormRow>
+
+          <FormRow>
+            <Field label="Tên tiếng Anh">
+              <TextInput
+                value={editingMod.name ?? ''}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, name: e.target.value }))}
+                placeholder="Tactical Butcher Blade..."
+                autoFocus
+              />
+            </Field>
+
+            <Field label="Tên tiếng Việt">
+              <TextInput
+                value={editingMod.vietnameseName ?? ''}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, vietnameseName: e.target.value }))}
+                placeholder="Lưỡi dao mổ chiến thuật..."
+              />
+            </Field>
+          </FormRow>
+
+          <FormRow>
+            <Field label="Phẩm cấp bản vẽ">
+              <Select
+                value={editingMod.rarity}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, rarity: e.target.value as any }))}
+              >
+                {Object.entries(WEAPON_MOD_RARITY_LABEL).map(([rarityKey, rarityLabel]) => (
+                  <option key={rarityKey} value={rarityKey}>
+                    {rarityLabel}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+
+            <Field label="ID bản độ" hint={isNewMod ? 'Mã định danh duy nhất' : 'Không sửa ID'}>
+              <TextInput
+                value={editingMod.id ?? ''}
+                disabled={!isNewMod}
+                onChange={(e) => setEditingMod((prev) => ({ ...prev, id: e.target.value.toLowerCase().replace(/\s+/g, '_') }))}
+                className="font-mono"
+              />
+            </Field>
+          </FormRow>
+
+          {/* Stats Section */}
+          <div className="space-y-3 rounded-xl border border-line bg-subtle/40 p-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-accent">Chỉ số cộng thêm / Giảm bớt</h4>
+            <FormRow>
+              <Field label="Sát thương (+/-)">
+                <NumberInput
+                  value={editingMod.stats?.damage}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, damage: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+              <Field label="Tốc đánh (/giây, +/-)">
+                <NumberInput
+                  step={0.01}
+                  value={editingMod.stats?.attackSpeed}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, attackSpeed: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+            </FormRow>
+
+            <FormRow>
+              <Field label="Độ bền (+/- đòn)">
+                <NumberInput
+                  value={editingMod.stats?.durability}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, durability: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+              <Field label="Chí mạng (+%)">
+                <NumberInput
+                  value={editingMod.stats?.critChance}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, critChance: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+            </FormRow>
+
+            <FormRow>
+              <Field label="Độ ổn định (+/-)">
+                <NumberInput
+                  value={editingMod.stats?.stability}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, stability: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+              <Field label="Độ ồn (+/- %)">
+                <NumberInput
+                  value={editingMod.stats?.noise}
+                  placeholder="0"
+                  onValueChange={(v) =>
+                    setEditingMod((prev) => ({
+                      ...prev,
+                      stats: { ...prev?.stats, noise: v || undefined },
+                    }))
+                  }
+                />
+              </Field>
+            </FormRow>
+          </div>
+
+          <Field label="Kỹ năng đặc biệt (Active skill, nếu có)">
+            <TextInput
+              value={editingMod.activeSkill ?? ''}
+              onChange={(e) => setEditingMod((prev) => ({ ...prev, activeSkill: e.target.value }))}
+              placeholder="Vd: Chém xoáy (Whirlwind Slash), Phóng lựu..."
+            />
+          </Field>
+
+          <Field label="Nguồn kiếm bản vẽ">
+            <TextInput
+              value={editingMod.obtainDescription ?? ''}
+              onChange={(e) => setEditingMod((prev) => ({ ...prev, obtainDescription: e.target.value }))}
+              placeholder="Vd: Rương xanh Farm, Thẻ tím PD..."
+            />
+          </Field>
+
+          <Field label="Mô tả">
+            <Textarea
+              rows={2}
+              value={editingMod.description ?? ''}
+              onChange={(e) => setEditingMod((prev) => ({ ...prev, description: e.target.value }))}
+            />
+          </Field>
+        </FormModal>
+      )}
+
+      {/* Delete confirmation dialog */}
+      {deletingModId && (
+        <ConfirmDialog
+          isOpen={Boolean(deletingModId)}
+          title="Xác nhận xóa bản độ"
+          message="Bạn có chắc chắn muốn xóa bản độ này không? Bạn có thể khôi phục lại trong Cài đặt nếu cần."
+          confirmLabel="Xóa bản độ"
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setDeletingModId(null)}
+        />
+      )}
     </div>
   );
 };
