@@ -104,7 +104,7 @@ export const CombatCalculator: React.FC = () => {
         }
       />
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
         <div className="space-y-4 lg:col-span-5">
           <Card className="space-y-4">
             <Section title="Mục tiêu">
@@ -204,7 +204,7 @@ export const CombatCalculator: React.FC = () => {
           </Card>
         </div>
 
-        <div className="space-y-6 lg:col-span-7">
+        <div className="space-y-4 lg:col-span-7">
           {result?.isValid ? (
             <Card className="space-y-4" selected>
               <div className="flex items-start justify-between gap-3">

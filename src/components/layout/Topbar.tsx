@@ -1,30 +1,40 @@
 import React from 'react';
-import { Laptop, Menu, Moon, Search, Sun } from 'lucide-react';
+import { Laptop, Menu, Moon, PanelLeftClose, PanelLeftOpen, Search, Sun } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { IconButton } from '../common/Button';
 
 interface TopbarProps {
   onOpenMobileMenu: () => void;
   onOpenSearch: () => void;
+  isSidebarCollapsed: boolean;
+  onToggleSidebar: () => void;
 }
 
 const NEXT_THEME = { dark: 'light', light: 'system', system: 'dark' } as const;
 const THEME_LABEL = { dark: 'Tối', light: 'Sáng', system: 'Theo hệ thống' } as const;
 
-export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch }) => {
+export const Topbar: React.FC<TopbarProps> = ({ onOpenMobileMenu, onOpenSearch, isSidebarCollapsed, onToggleSidebar }) => {
   const { theme, setTheme } = useTheme();
   const ThemeIcon = theme === 'system' ? Laptop : theme === 'dark' ? Moon : Sun;
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-2 border-b border-line bg-surface px-3 sm:px-5">
+    <header className="flex h-12 shrink-0 items-center gap-2 border-b border-line bg-surface px-3">
       <IconButton label="Mở menu" onClick={onOpenMobileMenu} className="lg:hidden">
         <Menu />
+      </IconButton>
+      <IconButton
+        label={isSidebarCollapsed ? 'Mở rộng menu' : 'Thu gọn menu'}
+        onClick={onToggleSidebar}
+        aria-pressed={isSidebarCollapsed}
+        className="hidden lg:inline-flex"
+      >
+        {isSidebarCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
       </IconButton>
 
       <button
         type="button"
         onClick={onOpenSearch}
-        className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-lg border border-line bg-bg px-3 text-sm text-faint transition-colors hover:border-faint/60 sm:max-w-md sm:flex-none sm:basis-96"
+        className="flex h-8 min-w-0 flex-1 items-center gap-2 rounded-lg border border-line bg-bg px-3 text-sm text-faint transition-colors hover:border-faint/60 sm:max-w-md sm:flex-none sm:basis-96"
       >
         <Search className="h-4 w-4 shrink-0" />
         <span className="truncate">Tìm vật phẩm, quái, địa điểm...</span>

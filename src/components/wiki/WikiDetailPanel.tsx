@@ -27,10 +27,10 @@ export const WikiDetailPanel: React.FC<WikiDetailPanelProps> = ({
       className={`flex h-full flex-col overflow-hidden bg-surface xl:rounded-xl xl:border xl:border-line xl:shadow-card ${className}`}
     >
       {header}
-      <div ref={scrollRef} className="flex-1 space-y-5 overflow-y-auto px-5 py-4">
+      <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-3">
         {children}
       </div>
-      {footer && <div className="shrink-0 border-t border-line bg-subtle/50 px-5 py-3">{footer}</div>}
+      {footer && <div className="shrink-0 border-t border-line bg-subtle/50 px-4 py-2.5">{footer}</div>}
     </div>
   );
 };

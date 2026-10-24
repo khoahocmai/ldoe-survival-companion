@@ -40,7 +40,7 @@ export const CompactWikiCard: React.FC<CompactWikiCardProps> = ({
     onClick={onClick}
     selected={isSelected}
     padded={false}
-    className={`flex min-h-[112px] flex-col justify-between gap-3 p-3.5 ${className}`}
+    className={`flex min-h-[96px] flex-col justify-between gap-2 p-3 ${className}`}
   >
     <div className="min-w-0">
       {eyebrow && <span className="mb-0.5 block truncate text-[11px] font-medium text-faint">{eyebrow}</span>}

@@ -10,16 +10,16 @@ interface PageHeaderProps {
 
 /** Every page starts with this: short title, one line of context, primary actions on the right. */
 export const PageHeader: React.FC<PageHeaderProps> = ({ title, description, icon, actions }) => (
-  <header className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+  <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
     <div className="flex min-w-0 items-start gap-3">
       {icon && (
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent [&>svg]:h-5 [&>svg]:w-5">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent [&>svg]:h-5 [&>svg]:w-5">
           {icon}
         </span>
       )}
       <div className="min-w-0">
-        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">{title}</h1>
-        {description && <p className="mt-1 max-w-2xl text-sm text-muted">{description}</p>}
+        <h1 className="text-lg font-semibold tracking-tight sm:text-xl">{title}</h1>
+        {description && <p className="mt-0.5 max-w-2xl text-sm text-muted">{description}</p>}
       </div>
     </div>
     {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
@@ -68,7 +68,7 @@ const statValueTone: Record<Tone, string> = {
 };
 
 export const Stat: React.FC<StatProps> = ({ label, value, unit, tone = 'neutral', hint }) => (
-  <div className="rounded-lg bg-subtle px-3 py-2.5">
+  <div className="rounded-lg bg-subtle px-2.5 py-2">
     <div className="text-xs text-muted">{label}</div>
     <div className={`num mt-0.5 text-lg font-semibold leading-tight ${statValueTone[tone]}`}>
       {value}

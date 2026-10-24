@@ -127,7 +127,7 @@ export function WikiPage<T extends { id: string }>({
         }
       />
 
-      <div className="mb-5 space-y-3">
+      <div className="mb-3 space-y-2">
         <SearchInput value={search} onChange={setSearch} placeholder={searchPlaceholder} className="sm:max-w-sm" />
         {filter && <FilterChips options={filterOptions} value={filterId} onChange={setFilterId} />}
       </div>
@@ -153,7 +153,7 @@ export function WikiPage<T extends { id: string }>({
         />
       ) : (
         <div
-          className={`grid gap-3 ${
+          className={`grid gap-2.5 ${
             selected
               ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3'
               : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'

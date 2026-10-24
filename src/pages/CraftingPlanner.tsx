@@ -157,7 +157,7 @@ export const CraftingPlanner: React.FC = () => {
       />
 
       {customMaterialsList && (
-        <Card className="mb-6 space-y-3 border-accent bg-accent-soft/30">
+        <Card className="mb-4 space-y-3 border-accent bg-accent-soft/30">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-accent">Gom đồ bản độ vũ khí</span>
@@ -176,7 +176,7 @@ export const CraftingPlanner: React.FC = () => {
       )}
 
       {!customMaterialsList && (
-        <Card className="mb-6 space-y-4">
+        <Card className="mb-4 space-y-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
             <Field label="Cần chế tạo" className="md:col-span-8">
               <Select value={targetItemId} onChange={(e) => changeItem(e.target.value)}>

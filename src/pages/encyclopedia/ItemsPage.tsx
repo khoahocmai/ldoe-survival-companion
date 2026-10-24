@@ -130,6 +130,7 @@ export const ItemsPage: React.FC = () => {
         )}
         renderDetail={(item) => {
           const recipe = db.recipesByOutputMap.get(item.id)?.[0];
+          const modCount = db.weaponModsByWeaponIdMap?.get(item.id)?.length ?? 0;
           const locations = (item.obtainLocations ?? [])
             .map((id) => db.locationsMap.get(id))
             .filter((l): l is NonNullable<typeof l> => Boolean(l));
@@ -158,24 +159,12 @@ export const ItemsPage: React.FC = () => {
                       <Stat label="Độ bền" value={item.weaponStats.durability} unit="đòn" />
                       <Stat label="Đánh lén" value={`×${item.weaponStats.sneakMultiplier ?? (item.weaponStats.isFirearm ? 1 : 3)}`} />
                     </StatGrid>
-                    <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-                      <Button
-                        variant="soft"
-                        className="flex-1"
-                        icon={<Calculator />}
-                        onClick={() => navigate(`/combat?weapon=${item.id}`)}
-                      >
+                    <div className="mt-3 space-y-2">
+                      <Button variant="soft" block icon={<Calculator />} onClick={() => navigate(`/combat?weapon=${item.id}`)}>
                         Tính hạ quái bằng vũ khí này
                       </Button>
-                      <Button
-                        variant="secondary"
-                        className="flex-1"
-                        icon={<Wrench />}
-                        onClick={() => navigate(`/wiki/weapon-mods?weapon=${item.id}`)}
-                      >
-                        {(db.weaponModsByWeaponIdMap?.get(item.id)?.length ?? 0) > 0
-                          ? `Độ vũ khí này (${db.weaponModsByWeaponIdMap.get(item.id)?.length} bản mod)`
-                          : '+ Thêm bản độ cho vũ khí này'}
+                      <Button variant="secondary" block icon={<Wrench />} onClick={() => navigate(`/wiki/weapon-mods?weapon=${item.id}`)}>
+                        {modCount > 0 ? `Độ vũ khí (${modCount} bản độ)` : 'Thêm bản độ cho vũ khí này'}
                       </Button>
                     </div>
                   </Section>

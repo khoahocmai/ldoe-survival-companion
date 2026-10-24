@@ -12,6 +12,8 @@ interface EntityImageProps {
   alt: string;
   /** Optional explicit path/URL from the data; otherwise `public/images/<folder>/<id>.<ext>` is used. */
   image?: string;
+  /** Bare thumbnail (fills its parent, no zoom, no text) for lists. */
+  compact?: boolean;
 }
 
 const base = () => {
@@ -30,7 +32,7 @@ function candidatesFor({ folder, id, image }: Pick<EntityImageProps, 'folder' | 
  * Shows the screenshot for an entity. Drop a file named after the entity id into
  * `public/images/<folder>/` (png, jpg or webp) and it appears here; until then a small placeholder is shown.
  */
-export const EntityImage: React.FC<EntityImageProps> = ({ folder, id, alt, image }) => {
+export const EntityImage: React.FC<EntityImageProps> = ({ folder, id, alt, image, compact = false }) => {
   const sources = candidatesFor({ folder, id, image });
   const key = sources.join('|');
   // undefined = still looking, null = nothing found, string = the first candidate that really is an image.
@@ -61,6 +63,16 @@ export const EntityImage: React.FC<EntityImageProps> = ({ folder, id, alt, image
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
+
+  if (compact) {
+    return src ? (
+      <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+    ) : (
+      <span className="flex h-full w-full items-center justify-center text-faint" aria-hidden="true">
+        {src === null && <ImageOff className="h-4 w-4" />}
+      </span>
+    );
+  }
 
   if (src === undefined) return <div className="h-14 animate-pulse rounded-lg bg-subtle" aria-hidden="true" />;
 

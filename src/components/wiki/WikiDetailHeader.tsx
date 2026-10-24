@@ -20,11 +20,11 @@ export const WikiDetailHeader: React.FC<WikiDetailHeaderProps> = ({
   onClose,
   className = '',
 }) => (
-  <div className={`flex shrink-0 items-start justify-between gap-3 border-b border-line px-5 py-4 ${className}`}>
+  <div className={`flex shrink-0 items-start justify-between gap-3 border-b border-line px-4 py-3 ${className}`}>
     <div className="min-w-0 flex-1">
       <h2 className="truncate text-lg font-semibold leading-tight">{title}</h2>
       {subtitle && <div className="mt-0.5 truncate text-sm text-muted">{subtitle}</div>}
-      {badges && <div className="mt-2.5 flex flex-wrap items-center gap-1.5">{badges}</div>}
+      {badges && <div className="mt-2 flex flex-wrap items-center gap-1.5">{badges}</div>}
     </div>
     <WikiEntityActions onEdit={onEdit} onDelete={onDelete} onClose={onClose} />
   </div>

@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { ErrorBoundary } from '../common/ErrorBoundary';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { MobileNav } from './MobileNav';
 import { GlobalSearchModal } from './GlobalSearchModal';
 
+const SIDEBAR_KEY = 'ldoe_sidebar_collapsed';
+
 export const AppLayout: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem(SIDEBAR_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
   const mainRef = React.useRef<HTMLElement>(null);
   const { pathname } = useLocation();
 
@@ -22,6 +32,17 @@ export const AppLayout: React.FC = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
+  const toggleSidebar = () =>
+    setIsCollapsed((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(SIDEBAR_KEY, next ? '1' : '0');
+      } catch {
+        /* preference just won't persist */
+      }
+      return next;
+    });
+
   // A new page should start at the top, not wherever the previous one was scrolled.
   useEffect(() => {
     mainRef.current?.scrollTo({ top: 0 });
@@ -30,7 +51,7 @@ export const AppLayout: React.FC = () => {
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-bg">
       <div className="hidden h-full lg:block">
-        <Sidebar />
+        <Sidebar collapsed={isCollapsed} />
       </div>
 
       {isMenuOpen && (
@@ -43,10 +64,17 @@ export const AppLayout: React.FC = () => {
       )}
 
       <div className="flex h-full min-w-0 flex-1 flex-col">
-        <Topbar onOpenMobileMenu={() => setIsMenuOpen(true)} onOpenSearch={() => setIsSearchOpen(true)} />
-        <main ref={mainRef} className="flex-1 overflow-y-auto px-4 py-5 pb-24 sm:px-6 lg:px-8 lg:py-7 lg:pb-8">
+        <Topbar
+          onOpenMobileMenu={() => setIsMenuOpen(true)}
+          onOpenSearch={() => setIsSearchOpen(true)}
+          isSidebarCollapsed={isCollapsed}
+          onToggleSidebar={toggleSidebar}
+        />
+        <main ref={mainRef} className="flex-1 overflow-y-auto px-3 py-4 pb-24 sm:px-4 lg:px-5 lg:py-4 lg:pb-5">
           <div className="mx-auto max-w-[1400px]">
-            <Outlet />
+            <ErrorBoundary key={pathname}>
+              <Outlet />
+            </ErrorBoundary>
           </div>
         </main>
         <MobileNav onOpenMenu={() => setIsMenuOpen(true)} />
