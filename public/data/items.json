@@ -10,13 +10,15 @@
     "craftable": true,
     "weaponStats": {
       "damage": 10,
-      "attackSpeed": 1.0,
+      "attackSpeed": 1,
       "durability": 50,
       "range": 1.5,
       "sneakMultiplier": 3,
       "isFirearm": false,
-      "dps": 10.0
-    }
+      "dps": 10
+    },
+    "order": 1,
+    "image": "images/items/weapons/spear.png"
   },
   {
     "id": "makeshift_bat",
@@ -29,13 +31,15 @@
     "craftable": true,
     "weaponStats": {
       "damage": 14,
-      "attackSpeed": 1.0,
+      "attackSpeed": 1,
       "durability": 60,
       "range": 1.4,
       "sneakMultiplier": 3,
       "isFirearm": false,
-      "dps": 14.0
-    }
+      "dps": 14
+    },
+    "order": 2,
+    "image": "images/items/weapons/makeshift_bat.png"
   },
   {
     "id": "cleaver",
@@ -54,7 +58,9 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 23.8
-    }
+    },
+    "order": 3,
+    "image": "images/items/weapons/cleaver.png"
   },
   {
     "id": "crowbar",
@@ -73,7 +79,9 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 27.2
-    }
+    },
+    "order": 4,
+    "image": "images/items/tools/crowbar.png"
   },
   {
     "id": "spiked_devastator",
@@ -92,7 +100,8 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 29.7
-    }
+    },
+    "order": 6
   },
   {
     "id": "machete",
@@ -110,8 +119,10 @@
       "range": 1.3,
       "sneakMultiplier": 3,
       "isFirearm": false,
-      "dps": 39.0
-    }
+      "dps": 39
+    },
+    "order": 5,
+    "image": "images/items/weapons/machete.png"
   },
   {
     "id": "metal_pipe",
@@ -130,7 +141,9 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 28.6
-    }
+    },
+    "order": 7,
+    "image": "images/items/weapons/metal_pipe.png"
   },
   {
     "id": "saw_blade_mace",
@@ -149,7 +162,9 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 38.5
-    }
+    },
+    "order": 8,
+    "image": "images/items/weapons/saw_blade_mace.png"
   },
   {
     "id": "skull_crusher",
@@ -168,7 +183,9 @@
       "sneakMultiplier": 3,
       "isFirearm": false,
       "dps": 31.5
-    }
+    },
+    "order": 9,
+    "image": "images/items/weapons/skull_crusher.png"
   },
   {
     "id": "bow",
@@ -183,11 +200,13 @@
       "damage": 14,
       "attackSpeed": 0.8,
       "durability": 60,
-      "range": 25.0,
+      "range": 25,
       "sneakMultiplier": 2,
       "isFirearm": true,
       "dps": 11.2
-    }
+    },
+    "order": 10,
+    "image": "images/items/weapons/bow.png"
   },
   {
     "id": "glock_17",
@@ -202,11 +221,13 @@
       "damage": 20,
       "attackSpeed": 3.3,
       "durability": 100,
-      "range": 35.0,
+      "range": 35,
       "sneakMultiplier": 1,
       "isFirearm": true,
-      "dps": 66.0
-    }
+      "dps": 66
+    },
+    "order": 11,
+    "image": "images/items/weapons/glock_17.png"
   },
   {
     "id": "shotgun",
@@ -219,13 +240,15 @@
     "craftable": false,
     "weaponStats": {
       "damage": 70,
-      "attackSpeed": 1.0,
+      "attackSpeed": 1,
       "durability": 80,
-      "range": 20.0,
+      "range": 20,
       "sneakMultiplier": 1,
       "isFirearm": true,
-      "dps": 70.0
-    }
+      "dps": 70
+    },
+    "order": 12,
+    "image": "images/items/weapons/shotgun.png"
   },
   {
     "id": "m16",
@@ -240,11 +263,13 @@
       "damage": 12,
       "attackSpeed": 8.3,
       "durability": 145,
-      "range": 38.0,
+      "range": 38,
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 99.6
-    }
+    },
+    "order": 13,
+    "image": "images/items/weapons/m16.png"
   },
   {
     "id": "ak47",
@@ -259,11 +284,13 @@
       "damage": 15,
       "attackSpeed": 8.3,
       "durability": 160,
-      "range": 38.0,
+      "range": 38,
       "sneakMultiplier": 1,
       "isFirearm": true,
       "dps": 124.5
-    }
+    },
+    "order": 14,
+    "image": "images/items/weapons/ak47.png"
   },
   {
     "id": "vss_vintorez",
@@ -278,32 +305,41 @@
       "damage": 50,
       "attackSpeed": 2.5,
       "durability": 120,
-      "range": 45.0,
+      "range": 45,
       "sneakMultiplier": 1,
       "isFirearm": true,
-      "dps": 125.0
-    }
+      "dps": 125
+    },
+    "order": 15,
+    "image": "images/items/weapons/vss_vintorez.png"
   },
   {
     "id": "tactical_cap",
     "name": "Tactical Cap",
     "vietnameseName": "Mũ chiến thuật",
-    "description": "Mũ giáp chiến thuật bằng vải dệt chịu lực cao.",
+    "description": "Mũ giáp dã chiến bằng sợi vải dệt chịu lực cao và da chống cắt bảo vệ đầu.",
     "category": "armor_head",
     "rarity": "rare",
     "stackSize": 1,
     "craftable": true,
     "armorStats": {
-      "armorValue": 4,
+      "armorValue": 5,
       "durability": 200,
       "slot": "head"
-    }
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd",
+      "crooked_creek_farm"
+    ],
+    "order": 17,
+    "image": "images/items/armor/tactical_cap.png"
   },
   {
     "id": "tactical_body_armor",
     "name": "Tactical Body Armor",
     "vietnameseName": "Áo giáp chiến thuật",
-    "description": "Áo giáp chống đạn và cắn xé của lực lượng đặc nhiệm.",
+    "description": "Áo giáp chống đạn và cắn xé của lực lượng đặc nhiệm với các tấm sắt gia cường.",
     "category": "armor_chest",
     "rarity": "rare",
     "stackSize": 1,
@@ -312,28 +348,42 @@
       "armorValue": 8,
       "durability": 250,
       "slot": "chest"
-    }
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd",
+      "crooked_creek_farm"
+    ],
+    "order": 18,
+    "image": "images/items/armor/tactical_body_armor.png"
   },
   {
     "id": "tactical_trousers",
     "name": "Tactical Trousers",
     "vietnameseName": "Quần chiến thuật",
-    "description": "Quần dã chiến tiện dụng với lớp lót bảo vệ gối.",
+    "description": "Quần tác chiến dã chiến tiện dụng với lớp lót đệm gối bằng sắt và da chịu mài mòn.",
     "category": "armor_legs",
     "rarity": "rare",
     "stackSize": 1,
     "craftable": true,
     "armorStats": {
-      "armorValue": 6,
+      "armorValue": 7,
       "durability": 220,
       "slot": "legs"
-    }
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd",
+      "crooked_creek_farm"
+    ],
+    "order": 19,
+    "image": "images/items/armor/tactical_trousers.png"
   },
   {
     "id": "tactical_boots",
     "name": "Tactical Boots",
     "vietnameseName": "Ủng chiến thuật",
-    "description": "Ủng quân đội bảo vệ bàn chân và tăng khả năng di chuyển linh hoạt.",
+    "description": "Ủng quân đội tiêu chuẩn bảo vệ bàn chân, tăng độ bám và linh hoạt khi hành quân.",
     "category": "armor_feet",
     "rarity": "rare",
     "stackSize": 1,
@@ -342,22 +392,34 @@
       "armorValue": 4,
       "durability": 180,
       "slot": "feet"
-    }
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd",
+      "crooked_creek_farm"
+    ],
+    "order": 20,
+    "image": "images/items/armor/tactical_boots.png"
   },
   {
     "id": "swat_body_armor",
     "name": "SWAT Body Armor",
     "vietnameseName": "Áo giáp đặc nhiệm SWAT",
-    "description": "Áo giáp chống đạn hạng nặng bảo vệ tối đa trước những đòn đánh chí mạng.",
+    "description": "Áo giáp chống đạn hạng nặng lót tấm thép gia cường, giảm thiểu sát thương chí mạng từ súng và zombie hung tợn.",
     "category": "armor_chest",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": false,
+    "craftable": true,
     "armorStats": {
-      "armorValue": 12,
+      "armorValue": 10,
       "durability": 350,
       "slot": "chest"
-    }
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 43
   },
   {
     "id": "pine_log",
@@ -366,7 +428,8 @@
     "description": "Nguyên liệu xây dựng và chế tạo cơ bản nhất trong vùng đất hoang.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "pine_plank",
@@ -376,7 +439,8 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "limestone",
@@ -385,7 +449,8 @@
     "description": "Đá thô nhặt từ mặt đất hoặc đập từ mỏ đá.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "iron_ore",
@@ -394,7 +459,8 @@
     "description": "Quặng thô khai thác tại các vách đá vôi.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "iron_bar",
@@ -404,7 +470,8 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "iron_plate",
@@ -414,7 +481,8 @@
     "category": "resource_processed",
     "rarity": "rare",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "steel_bar",
@@ -424,7 +492,8 @@
     "category": "resource_processed",
     "rarity": "epic",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "aluminium_bar",
@@ -434,7 +503,8 @@
     "category": "resource_processed",
     "rarity": "rare",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "raw_hide",
@@ -443,7 +513,8 @@
     "description": "Thu được khi săn hươu hoặc chó sói hoang dã.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "leather",
@@ -453,7 +524,8 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "plant_fiber",
@@ -462,7 +534,8 @@
     "description": "Thu hoạch từ các bụi cỏ hoang dã trên bản đồ.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "cloth",
@@ -472,7 +545,8 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "thick_fabric",
@@ -482,7 +556,8 @@
     "category": "resource_processed",
     "rarity": "rare",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "nails",
@@ -492,7 +567,8 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "duct_tape",
@@ -501,7 +577,8 @@
     "description": "Vật liệu sinh tồn đa năng, tìm thấy trong rương loot tại mọi khu vực.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "rope",
@@ -511,7 +588,8 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
     "id": "bolt",
@@ -520,7 +598,8 @@
     "description": "Linh kiện cơ khí nhặt từ hòm loot và xác xe hơi, cần thiết để chế tạo máy móc.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "wrench",
@@ -529,7 +608,8 @@
     "description": "Dụng cụ cơ khí kim loại để sửa chữa trạm phát điện và lắp ráp xe.",
     "category": "tool",
     "rarity": "rare",
-    "stackSize": 10
+    "stackSize": 10,
+    "order": 0
   },
   {
     "id": "rubber_parts",
@@ -538,7 +618,8 @@
     "description": "Cao su cách điện và đệm ống, dùng trong xe máy và máy phát điện.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "ball_bearing",
@@ -547,7 +628,8 @@
     "description": "Ổ bi kim loại giảm ma sát trong trục quay cơ khí.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "gasoline",
@@ -556,7 +638,8 @@
     "description": "Nhiên liệu chạy xe Chopper và máy phát điện.",
     "category": "resource_raw",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "bone",
@@ -565,7 +648,8 @@
     "description": "Thu được từ xác quái vật lớn như Ravager hoặc thú săn, dùng làm vũ khí và mod.",
     "category": "resource_raw",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "charcoal",
@@ -575,11 +659,12 @@
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
-    "craftable": true
+    "craftable": true,
+    "order": 0
   },
   {
-    "id": "bandage",
-    "name": "Bandage",
+    "id": "bandages",
+    "name": "Bandages",
     "vietnameseName": "Băng gạc y tế",
     "description": "Hồi phục 40 HP ngay lập tức.",
     "category": "medical",
@@ -588,7 +673,9 @@
     "craftable": true,
     "consumableStats": {
       "healHp": 40
-    }
+    },
+    "order": 1,
+    "image": "images/items/medical/bandages.png"
   },
   {
     "id": "first_aid_kit",
@@ -601,7 +688,9 @@
     "craftable": true,
     "consumableStats": {
       "healHp": 100
-    }
+    },
+    "order": 2,
+    "image": "images/items/medical/first_aid_kit.png"
   },
   {
     "id": "raw_meat",
@@ -610,7 +699,8 @@
     "description": "Thịt tươi săn từ nai và chó sói. Nên nấu chín trước khi ăn.",
     "category": "food",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "jerky",
@@ -624,7 +714,8 @@
     "consumableStats": {
       "healHp": 20,
       "hunger": 40
-    }
+    },
+    "order": 0
   },
   {
     "id": "carrot",
@@ -633,7 +724,8 @@
     "description": "Củ quả trồng tại luống đất căn cứ, dùng để nấu ăn hoặc hồi phục nhẹ.",
     "category": "food",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "mushroom",
@@ -642,7 +734,8 @@
     "description": "Nấm mọc ở các vùng rừng và đầm lầy, nguyên liệu chính cho các món hầm trên Bếp ga.",
     "category": "food",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "perch",
@@ -651,7 +744,8 @@
     "description": "Cá câu từ các bãi câu ven hồ hoặc đầm lầy.",
     "category": "food",
     "rarity": "common",
-    "stackSize": 10
+    "stackSize": 10,
+    "order": 0
   },
   {
     "id": "salmon",
@@ -660,7 +754,8 @@
     "description": "Cá hồi béo ngậy, nguyên liệu cho các món tăng % kinh nghiệm và tăng sản lượng gỗ.",
     "category": "food",
     "rarity": "rare",
-    "stackSize": 10
+    "stackSize": 10,
+    "order": 0
   },
   {
     "id": "c4_explosive",
@@ -669,17 +764,21 @@
     "description": "Thuốc nổ quân dụng mạnh nhất để phá vỡ tường đá cấp 3 trong các trận đột kích Raider.",
     "category": "special",
     "rarity": "legendary",
-    "stackSize": 5
+    "stackSize": 5,
+    "order": 1,
+    "image": "images/items/special/c4_explosive.png"
   },
   {
     "id": "electric_generator",
     "name": "Electric Generator",
     "vietnameseName": "Máy phát điện",
     "description": "Máy phát điện cơ khí lắp ráp tại căn cứ, chở bằng xe Chopper để mở khóa Tháp canh (Watchtower).",
-    "category": "special",
+    "category": "workstation",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/electric_generator.png"
   },
   {
     "id": "engine_part",
@@ -688,7 +787,8 @@
     "description": "Linh kiện quý giá dùng để lắp ráp Chopper, ATV và máy phát điện.",
     "category": "component",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "electronic_circuit",
@@ -697,7 +797,8 @@
     "description": "Mạch điện tử công nghệ cao, cần thiết cho trạm lọc axit và thiết bị căn cứ cao cấp.",
     "category": "component",
     "rarity": "epic",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "red_coupon",
@@ -706,7 +807,8 @@
     "description": "30 vé đỏ đổi được Thùng hàng vũ khí hạng nặng tại sảnh Bunker Alfa.",
     "category": "special",
     "rarity": "epic",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "yellow_coupon",
@@ -715,7 +817,8 @@
     "description": "25 vé vàng đổi được Rương sinh tồn chứa trang bị chiến thuật và vũ khí tốt.",
     "category": "special",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "green_coupon",
@@ -724,7 +827,8 @@
     "description": "20 vé xanh đổi được Rương tiếp tế chứa tài nguyên và vũ khí nhẹ.",
     "category": "special",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "factory_parts",
@@ -733,7 +837,8 @@
     "description": "Linh kiện quan trọng chế tạo và độ súng ở Gunsmith Bench. Thu thập bằng cách rã súng ở Recycler hoặc rương PD/Bunker.",
     "category": "component",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "carbon_composite",
@@ -742,7 +847,8 @@
     "description": "Vật liệu siêu bền dùng cho các bản độ súng cao cấp tím. Thu thập tại Blackport PD hoặc rã vũ khí công nghệ cao.",
     "category": "component",
     "rarity": "epic",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "spring",
@@ -751,7 +857,8 @@
     "description": "Lò xo đàn hồi dùng trong cơ chế nạp đạn và giảm giật của súng. Kiếm được khi rã súng hoặc rương đồ quân sự.",
     "category": "component",
     "rarity": "common",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "hi_tech_component",
@@ -760,7 +867,8 @@
     "description": "Mạch vi xử lý hiện đại cần cho các ống ngắm điện tử và mod súng tiên tiến.",
     "category": "component",
     "rarity": "epic",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "oil",
@@ -769,7 +877,8 @@
     "description": "Dầu bôi trơn chuyên dụng chống kẹt đạn và nâng cao độ bền các chi tiết súng.",
     "category": "component",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
   },
   {
     "id": "lens",
@@ -778,6 +887,3247 @@
     "description": "Thấu kính chuẩn xác cao dùng để chế tạo kính ngắm Red Dot và ống ngắm bắn tỉa.",
     "category": "component",
     "rarity": "rare",
-    "stackSize": 20
+    "stackSize": 20,
+    "order": 0
+  },
+  {
+    "id": "steel_plate",
+    "name": "Steel Plate",
+    "vietnameseName": "Tấm thép",
+    "description": "Thép cán tấm siêu bền, dùng để chế tạo các loại áo giáp cao cấp như SWAT, Kevlar và gia cố căn cứ.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "fur",
+    "name": "Fur",
+    "vietnameseName": "Lông thú",
+    "description": "Lông thú ấm áp thu hoạch từ cáo tuyết hoặc sói ở các khu rừng tuyết phương Bắc.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 0
+  },
+  {
+    "id": "dad_hat",
+    "name": "Dad Hat",
+    "vietnameseName": "Mũ lưỡi trai",
+    "description": "Mũ vải lưỡi trai đơn giản bảo vệ đầu khỏi nắng và cào xước nhẹ của zombie yếu.",
+    "category": "armor_head",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 2,
+      "durability": 100,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge",
+      "motel"
+    ],
+    "order": 2,
+    "image": "images/items/armor/dad_hat.png"
+  },
+  {
+    "id": "shirt",
+    "name": "Shirt",
+    "vietnameseName": "Áo sơ mi",
+    "description": "Áo vải thô may cơ bản, bảo vệ nhẹ phần thân trên trong giai đoạn đầu sinh tồn.",
+    "category": "armor_chest",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 120,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge",
+      "motel"
+    ],
+    "order": 3,
+    "image": "images/items/armor/shirt.png"
+  },
+  {
+    "id": "cargo_pants",
+    "name": "Cargo Pants",
+    "vietnameseName": "Quần túi hộp",
+    "description": "Quần vải bền có nhiều túi hộp tiện dụng, cung cấp khả năng bảo vệ chân cơ bản.",
+    "category": "armor_legs",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 120,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge",
+      "motel"
+    ],
+    "order": 4,
+    "image": "images/items/armor/cargo_pants.png"
+  },
+  {
+    "id": "sneakers",
+    "name": "Sneakers",
+    "vietnameseName": "Giày thể thao",
+    "description": "Giày thể thao đế bằng giúp di chuyển nhanh nhẹn và êm ái hơn trong các khu vực tài nguyên.",
+    "category": "armor_feet",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 0,
+      "durability": 120,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge",
+      "motel"
+    ],
+    "order": 5,
+    "image": "images/items/armor/sneakers.png"
+  },
+  {
+    "id": "reinforced_shirt",
+    "name": "Reinforced Shirt",
+    "vietnameseName": "Áo sơ mi gia cố",
+    "description": "Áo sơ mi vải được gia cố thêm lớp da thuộc và dây thừng, tăng khả năng chống cắn xé.",
+    "category": "armor_chest",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 150,
+      "slot": "chest"
+    },
+    "order": 6,
+    "image": "images/items/armor/reinforced_shirt.png"
+  },
+  {
+    "id": "reinforced_trousers",
+    "name": "Reinforced Trousers",
+    "vietnameseName": "Quần vải gia cố",
+    "description": "Quần túi hộp bọc thêm da bảo vệ đầu gối và đùi, độ bền cao hơn quần thường.",
+    "category": "armor_legs",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 150,
+      "slot": "legs"
+    },
+    "order": 7,
+    "image": "images/items/armor/reinforced_trousers.png"
+  },
+  {
+    "id": "reinforced_sneakers",
+    "name": "Reinforced Sneakers",
+    "vietnameseName": "Giày thể thao gia cố",
+    "description": "Giày thể thao được bọc thêm lớp da chịu ma sát, vừa giữ tốc độ di chuyển vừa có điểm giáp.",
+    "category": "armor_feet",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 1,
+      "durability": 150,
+      "slot": "feet"
+    },
+    "order": 8,
+    "image": "images/items/armor/reinforced_sneakers.png"
+  },
+  {
+    "id": "beanie",
+    "name": "Beanie",
+    "vietnameseName": "Mũ len",
+    "description": "Mũ len đan dày dặn giúp giữ ấm và phân tán lực chấn thương ở đầu.",
+    "category": "armor_head",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 150,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove",
+      "motel"
+    ],
+    "order": 9,
+    "image": "images/items/armor/beanie.png"
+  },
+  {
+    "id": "thick_jacket",
+    "name": "Thick Jacket",
+    "vietnameseName": "Áo khoác dày",
+    "description": "Áo khoác dệt từ vải dày kết hợp lớp lót da thuộc, giảm đáng kể sát thương từ zombie thông thường.",
+    "category": "armor_chest",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 180,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove",
+      "crooked_creek_farm"
+    ],
+    "order": 10,
+    "image": "images/items/armor/thick_jacket.png"
+  },
+  {
+    "id": "denim_jeans",
+    "name": "Denim Jeans",
+    "vietnameseName": "Quần bò Jeans",
+    "description": "Quần vải bò dày dặn, chịu ma sát tốt và hạn chế các vết cào cắn vào chân.",
+    "category": "armor_legs",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 180,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove",
+      "crooked_creek_farm"
+    ],
+    "order": 11,
+    "image": "images/items/armor/denim_jeans.png"
+  },
+  {
+    "id": "work_boots",
+    "name": "Work Boots",
+    "vietnameseName": "Ủng bảo hộ lao động",
+    "description": "Ủng da bảo hộ đế cao su dày chống đâm xuyên và bảo vệ cổ chân khi di chuyển địa hình gồ ghề.",
+    "category": "armor_feet",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 2,
+      "durability": 150,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove",
+      "crooked_creek_farm"
+    ],
+    "order": 12,
+    "image": "images/items/armor/work_boots.png"
+  },
+  {
+    "id": "reinforced_beanie",
+    "name": "Reinforced Beanie",
+    "vietnameseName": "Mũ len gia cố",
+    "description": "Mũ len gắn thêm các tấm sắt nhỏ và đinh tán, tăng khả năng chống va đập trực tiếp.",
+    "category": "armor_head",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 180,
+      "slot": "head"
+    },
+    "order": 13,
+    "image": "images/items/armor/reinforced_beanie.png"
+  },
+  {
+    "id": "reinforced_jacket",
+    "name": "Reinforced Jacket",
+    "vietnameseName": "Áo khoác dày gia cố",
+    "description": "Áo khoác dày được tán đinh gia cố tấm sắt và da thuộc, độ bảo hộ tương đương giáp cảnh sát nhẹ.",
+    "category": "armor_chest",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 7,
+      "durability": 220,
+      "slot": "chest"
+    },
+    "order": 14,
+    "image": "images/items/armor/reinforced_jacket.png"
+  },
+  {
+    "id": "reinforced_jeans",
+    "name": "Reinforced Jeans",
+    "vietnameseName": "Quần Jeans gia cố",
+    "description": "Quần jeans được tán thêm đệm sắt bảo vệ đầu gối và lớp lót da gia cường.",
+    "category": "armor_legs",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 220,
+      "slot": "legs"
+    },
+    "order": 15,
+    "image": "images/items/armor/reinforced_jeans.png"
+  },
+  {
+    "id": "reinforced_boots",
+    "name": "Reinforced Boots",
+    "vietnameseName": "Ủng bảo hộ gia cố",
+    "description": "Ủng bảo hộ được bọc mũi sắt và gia cố đinh tán, chống dẫm đinh và giảm sát thương va chạm.",
+    "category": "armor_feet",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 180,
+      "slot": "feet"
+    },
+    "order": 16,
+    "image": "images/items/armor/reinforced_boots.png"
+  },
+  {
+    "id": "swat_helmet",
+    "name": "SWAT Helmet",
+    "vietnameseName": "Mũ đặc nhiệm SWAT",
+    "description": "Mũ bảo hộ bạo động quân sự bằng sợi Kevlar và kính chống va đập, bảo vệ tối đa vùng đầu.",
+    "category": "armor_head",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 7,
+      "durability": 300,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 42
+  },
+  {
+    "id": "swat_trousers",
+    "name": "SWAT Trousers",
+    "vietnameseName": "Quần đặc nhiệm SWAT",
+    "description": "Quần đặc nhiệm bọc sợi Kevlar và các tấm thép lót bảo vệ đùi và đầu gối khỏi mảnh đạn.",
+    "category": "armor_legs",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 10,
+      "durability": 320,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 44
+  },
+  {
+    "id": "swat_boots",
+    "name": "SWAT Boots",
+    "vietnameseName": "Ủng đặc nhiệm SWAT",
+    "description": "Ủng tác chiến đặc công bọc thép nhẹ, bảo vệ bàn chân tối ưu và hỗ trợ bứt tốc vượt trội.",
+    "category": "armor_feet",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 280,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 45
+  },
+  {
+    "id": "fur_beanie",
+    "name": "Fur Beanie",
+    "vietnameseName": "Mũ lông thú",
+    "description": "Mũ len lót lông thú dầy giúp giữ ấm đầu tuyệt đối, không bị cóng ở vùng tuyết phương Bắc.",
+    "category": "armor_head",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 180,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 21,
+    "image": "images/items/armor/fur_beanie.png"
+  },
+  {
+    "id": "fur_jacket",
+    "name": "Fur Jacket",
+    "vietnameseName": "Áo khoác lông thú",
+    "description": "Áo khoác lông thú dày chống hạ thân nhiệt chết người do bão tuyết và giá rét vùng cực.",
+    "category": "armor_chest",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 220,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 22,
+    "image": "images/items/armor/fur_jacket.png"
+  },
+  {
+    "id": "fur_trousers",
+    "name": "Fur Trousers",
+    "vietnameseName": "Quần lông thú",
+    "description": "Quần may bằng da lông dày dặn, cách nhiệt hoàn hảo khi lội qua tuyết sâu.",
+    "category": "armor_legs",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 220,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 23,
+    "image": "images/items/armor/fur_trousers.png"
+  },
+  {
+    "id": "fur_boots",
+    "name": "Fur Boots",
+    "vietnameseName": "Ủng lông thú",
+    "description": "Ủng mùa đông bọc lông chống thấm nước và giữ nhiệt bàn chân trên băng tuyết.",
+    "category": "armor_feet",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 2,
+      "durability": 180,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 24,
+    "image": "images/items/armor/fur_boots.png"
+  },
+  {
+    "id": "hazmat_helmet",
+    "name": "Hazmat Helmet",
+    "vietnameseName": "Mũ chống độc Hazmat",
+    "description": "Mũ bảo hộ kín khí tích hợp mặt nạ phòng độc lọc phóng xạ và khí độc hại.",
+    "category": "armor_head",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "armorStats": {
+      "armorValue": 2,
+      "durability": 200,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 50
+  },
+  {
+    "id": "hazmat_jacket",
+    "name": "Hazmat Jacket",
+    "vietnameseName": "Áo chống độc Hazmat",
+    "description": "Áo bảo hộ đặc chủng cao su tổng hợp chống thấm chất lỏng ăn mòn và bụi phóng xạ độc hại.",
+    "category": "armor_chest",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 200,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 51
+  },
+  {
+    "id": "hazmat_pants",
+    "name": "Hazmat Pants",
+    "vietnameseName": "Quần chống độc Hazmat",
+    "description": "Quần bảo hộ kín chống axit và hóa chất ăn mòn da.",
+    "category": "armor_legs",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 200,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 52
+  },
+  {
+    "id": "hazmat_shoes",
+    "name": "Hazmat Shoes",
+    "vietnameseName": "Ủng chống độc Hazmat",
+    "description": "Ủng cao su bảo hộ dày chống axit ăn mòn khi bước qua các vũng hóa chất độc hại.",
+    "category": "armor_feet",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "armorStats": {
+      "armorValue": 1,
+      "durability": 200,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 53
+  },
+  {
+    "id": "kevlar_helmet",
+    "name": "Kevlar Helmet",
+    "vietnameseName": "Mũ Kevlar quân sự",
+    "description": "Mũ bảo vệ quân sự tối tân bằng sợi Kevlar và hợp kim titan chống sát thương đạn đạo cực mạnh.",
+    "category": "armor_head",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 8,
+      "durability": 350,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 46
+  },
+  {
+    "id": "kevlar_body_armor",
+    "name": "Kevlar Body Armor",
+    "vietnameseName": "Áo giáp Kevlar",
+    "description": "Áo giáp hạng nặng tối tân cản đạn và xung kích va chạm lớn nhất trong game.",
+    "category": "armor_chest",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 12,
+      "durability": 400,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 47
+  },
+  {
+    "id": "kevlar_trousers",
+    "name": "Kevlar Trousers",
+    "vietnameseName": "Quần Kevlar",
+    "description": "Quần tác chiến bảo hộ tối đa từ hông đến mắt cá chân với các tấm gia cường Kevlar dày.",
+    "category": "armor_legs",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 12,
+      "durability": 380,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 48
+  },
+  {
+    "id": "kevlar_boots",
+    "name": "Kevlar Boots",
+    "vietnameseName": "Ủng Kevlar",
+    "description": "Ủng chiến thuật cao cấp bọc titan và sợi Kevlar, vừa bảo vệ tối ưu vừa có độ linh hoạt cao.",
+    "category": "armor_feet",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 320,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 49
+  },
+  {
+    "id": "shovel",
+    "name": "Shovel",
+    "vietnameseName": "Xẻng",
+    "description": "Một công cụ đào đất kiêm vũ khí cận chiến có tầm đánh vừa phải và sát thương tương đối tốt.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 26,
+      "attackSpeed": 1,
+      "durability": 70,
+      "dps": 26,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove",
+      "motel"
+    ],
+    "order": 6,
+    "image": "images/items/tools/shovel.png"
+  },
+  {
+    "id": "makeshift_crossbow",
+    "name": "Makeshift Crossbow",
+    "vietnameseName": "Nỏ tự chế",
+    "description": "Nỏ tự chế bằng gỗ thông và dây dù, bắn tên tầm xa gây sát thương lớn trên từng phát bắn.",
+    "category": "weapon_firearm",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 50,
+      "attackSpeed": 0.6,
+      "durability": 60,
+      "range": 25,
+      "dps": 30,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_cliffs"
+    ],
+    "order": 16,
+    "image": "images/items/weapons/makeshift_crossbow.png"
+  },
+  {
+    "id": "zip_gun",
+    "name": "Zip Gun",
+    "vietnameseName": "Súng tự chế Zip Gun",
+    "description": "Súng ngắn tự chế đơn sơ bắn từng phát một. Hỏa lực tuy khiêm tốn nhưng hữu ích khi cần vũ khí tầm xa đầu game.",
+    "category": "weapon_firearm",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 18,
+      "attackSpeed": 0.8,
+      "durability": 100,
+      "range": 20,
+      "dps": 14.4,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "limestone_cliffs",
+      "crooked_creek_farm"
+    ],
+    "order": 17,
+    "image": "images/items/weapons/zip_gun.png"
+  },
+  {
+    "id": "torch",
+    "name": "Torch",
+    "vietnameseName": "Đuốc lửa",
+    "description": "Đuốc tẩm dầu chiếu sáng ban đêm và xua đuổi các sinh vật bóng tối, có thể dùng làm vũ khí thiêu đốt.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 12,
+      "attackSpeed": 1.1,
+      "durability": 100,
+      "dps": 13.2,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "motel"
+    ],
+    "order": 7,
+    "image": "images/items/tools/torch.png"
+  },
+  {
+    "id": "molotov_cocktail",
+    "name": "Molotov Cocktail",
+    "vietnameseName": "Bom xăng Molotov",
+    "description": "Chai xăng cháy ném ra gây nổ và thiêu đốt cả bầy zombie trên diện rộng liên tục trong vài giây.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 10,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 50,
+      "attackSpeed": 0.7,
+      "durability": 10,
+      "range": 25,
+      "dps": 35,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "northern_watchtower"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/molotov_cocktail.png"
+  },
+  {
+    "id": "flare_gun",
+    "name": "Flare Gun",
+    "vietnameseName": "Súng pháo sáng",
+    "description": "Súng bắn đạn pháo sáng phát nhiệt cao, vừa báo hiệu vừa thiêu cháy kẻ thù từ khoảng cách xa.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 20,
+      "attackSpeed": 1,
+      "durability": 20,
+      "range": 30,
+      "dps": 20,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/flare_gun.png"
+  },
+  {
+    "id": "bear_trap",
+    "name": "Bear Trap",
+    "vietnameseName": "Bẫy gấu",
+    "description": "Bẫy kẹp kim loại đặt dưới đất giữ chân kẻ thù và gây sát thương mạnh khi dẫm phải.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 5,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 100,
+      "attackSpeed": 1,
+      "durability": 1,
+      "dps": 100,
+      "sneakMultiplier": 1,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/bear_trap.png"
+  },
+  {
+    "id": "land_mine",
+    "name": "Land Mine",
+    "vietnameseName": "Mìn bộ binh",
+    "description": "Mìn nổ quân sự kích hoạt sau 3 giây đặt xuống. Gây lượng sát thương nổ diện rộng cực lớn lên bất kỳ ai bước qua.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 5,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 400,
+      "attackSpeed": 1,
+      "durability": 1,
+      "dps": 400,
+      "range": 15,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/land_mine.png"
+  },
+  {
+    "id": "crossbow",
+    "name": "Crossbow",
+    "vietnameseName": "Nỏ săn quân sự",
+    "description": "Nỏ săn hạng nặng làm bằng hợp kim nhôm và báng gỗ, uy lực xuyên phá cao gấp nhiều lần nỏ tự chế.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 65,
+      "attackSpeed": 0.6,
+      "durability": 80,
+      "range": 30,
+      "dps": 39,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "crooked_creek_farm"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/crossbow.png"
+  },
+  {
+    "id": "flamethrower",
+    "name": "Flamethrower",
+    "vietnameseName": "Súng phun lửa",
+    "description": "Vũ khí quân dụng phun luồng lửa áp lực cao liên tục, thiêu rụi hoàn toàn các đàn zombie đông đúc.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 16,
+      "attackSpeed": 4,
+      "durability": 150,
+      "range": 20,
+      "dps": 64,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/flamethrower.png"
+  },
+  {
+    "id": "slasher",
+    "name": "Slasher",
+    "vietnameseName": "Dao cưa Slasher",
+    "description": "Lưỡi cưa cơ khí cận chiến hung bạo xé rách da thịt và gây hiệu ứng chảy máu liên tục cho mục tiêu.",
+    "category": "weapon_melee",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 45,
+      "attackSpeed": 1.2,
+      "durability": 85,
+      "dps": 54,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/slasher.png"
+  },
+  {
+    "id": "scorcher",
+    "name": "Scorcher",
+    "vietnameseName": "Súng nhiệt Scorcher",
+    "description": "Súng phun nhiệt cực mạnh làm tan lớp giáp băng của quái vật vùng Bắc cực và phá hủy phòng thủ kẻ thù.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 22,
+      "attackSpeed": 3.5,
+      "durability": 120,
+      "range": 25,
+      "dps": 77,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "northern_watchtower",
+      "bunker_alfa"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/scorcher.png"
+  },
+  {
+    "id": "apocalypse_breath",
+    "name": "Apocalypse Breath",
+    "vietnameseName": "Hơi thở tận thế",
+    "description": "Khẩu súng 4 nòng bắn hỏa lực chùm uy lực kinh hoàng, chuyên dụng để hạ gục các trùm quái vật băng giá.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 95,
+      "attackSpeed": 0.8,
+      "durability": 40,
+      "range": 25,
+      "dps": 76,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/apocalypse_breath.png"
+  },
+  {
+    "id": "anti_spore_pistol",
+    "name": "Anti-Spore Pistol",
+    "vietnameseName": "Súng ngắn chống bào tử",
+    "description": "Súng lục được nghiên cứu đặc chế để bắn đạn chống bào tử nấm độc trong Phòng thí nghiệm Genesis.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 25,
+      "attackSpeed": 3,
+      "durability": 120,
+      "range": 28,
+      "dps": 75,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/anti_spore_pistol.png"
+  },
+  {
+    "id": "anti_spore_rifle",
+    "name": "Anti-Spore Rifle",
+    "vietnameseName": "Súng trường chống bào tử",
+    "description": "Súng trường tấn công bắn đạn đặc chủng phá vỡ giáp bào tử của các zombie đột biến thí nghiệm.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 20,
+      "attackSpeed": 7.5,
+      "durability": 180,
+      "range": 35,
+      "dps": 150,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/anti_spore_rifle.png"
+  },
+  {
+    "id": "anti_spore_sniper_rifle",
+    "name": "Anti-Spore Sniper Rifle",
+    "vietnameseName": "Súng tỉa chống bào tử",
+    "description": "Súng bắn tỉa công nghệ cao tiêu diệt các ổ bào tử và mục tiêu biến dị từ cự ly siêu xa an toàn.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 85,
+      "attackSpeed": 1.2,
+      "durability": 70,
+      "range": 45,
+      "dps": 102,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/anti_spore_sniper_rifle.png"
+  },
+  {
+    "id": "spore_destroyer",
+    "name": "Spore Destroyer",
+    "vietnameseName": "Kẻ hủy diệt bào tử",
+    "description": "Súng phóng lựu phân tán hoạt chất chống bào tử trên diện rộng, tiêu diệt hàng loạt mầm bệnh.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 120,
+      "attackSpeed": 0.8,
+      "durability": 40,
+      "range": 30,
+      "dps": 96,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/spore_destroyer.png"
+  },
+  {
+    "id": "dissolver",
+    "name": "Dissolver",
+    "vietnameseName": "Súng phân giải Dissolver",
+    "description": "Vũ khí phun hóa chất ăn mòn cực mạnh làm tan chảy vỏ bọc hữu cơ và giảm mạnh giáp phòng ngự của quái vật.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 30,
+      "attackSpeed": 2.5,
+      "durability": 100,
+      "range": 22,
+      "dps": 75,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/dissolver.png"
+  },
+  {
+    "id": "neutralizer",
+    "name": "Neutralizer",
+    "vietnameseName": "Súng triệt tiêu Neutralizer",
+    "description": "Súng lục công nghệ Genesis Foundation với khả năng xuyên giáp lên đến 80%, sát thương đơn mục tiêu cực cao.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 55,
+      "attackSpeed": 2,
+      "durability": 100,
+      "range": 30,
+      "dps": 110,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/neutralizer.png"
+  },
+  {
+    "id": "the_equalizer",
+    "name": "The Equalizer",
+    "vietnameseName": "Súng trường Equalizer",
+    "description": "Súng trường xung lực Genesis tối tân bắn đạn năng lượng tốc độ xả đạn cực nhanh và độ ổn định chuẩn xác.",
+    "category": "weapon_firearm",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 24,
+      "attackSpeed": 8,
+      "durability": 200,
+      "range": 35,
+      "dps": 192,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/the_equalizer.png"
+  },
+  {
+    "id": "ultimatum",
+    "name": "Ultimatum",
+    "vietnameseName": "Súng ngắn Ultimatum",
+    "description": "Khẩu súng lục tối thượng của Genesis, tích hợp công nghệ xung kích nén tạo uy lực bắn thủng mọi loại giáp nặng.",
+    "category": "weapon_firearm",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 60,
+      "attackSpeed": 2.2,
+      "durability": 110,
+      "range": 32,
+      "dps": 132,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/ultimatum.png"
+  },
+  {
+    "id": "protector",
+    "name": "Protector",
+    "vietnameseName": "Súng trường Protector",
+    "description": "Vũ khí tiêu chuẩn của lực lượng hộ vệ Genesis, vừa bền bỉ vừa duy trì lượng sát thương liên tục ở mức rất cao.",
+    "category": "weapon_firearm",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 28,
+      "attackSpeed": 6.5,
+      "durability": 220,
+      "range": 36,
+      "dps": 182,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/protector.png"
+  },
+  {
+    "id": "resonator",
+    "name": "Resonator",
+    "vietnameseName": "Súng năng lượng Resonator",
+    "description": "Súng năng lượng sử dụng pin Energy Cell, bắn sóng xung kích cộng hưởng xuyên thấu hàng loạt mục tiêu.",
+    "category": "weapon_firearm",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 45,
+      "attackSpeed": 3.5,
+      "durability": 150,
+      "range": 35,
+      "dps": 157.5,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/resonator.png"
+  },
+  {
+    "id": "the_dragunov",
+    "name": "The Dragunov",
+    "vietnameseName": "Súng bắn tỉa Dragunov",
+    "description": "Khẩu súng bắn tỉa huyền thoại SVD Dragunov mang hỏa lực hạ gục mục tiêu chỉ trong 1 đến 2 phát đạn từ tầm xa.",
+    "category": "weapon_firearm",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 110,
+      "attackSpeed": 1,
+      "durability": 60,
+      "range": 50,
+      "dps": 110,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/the_dragunov.png"
+  },
+  {
+    "id": "minigun",
+    "name": "M134 Minigun",
+    "vietnameseName": "Súng 6 nòng Minigun",
+    "description": "Súng máy 6 nòng xoay nã đạn không ngừng nghỉ với tốc độ bắn khủng khiếp, quét sạch mọi đám đông zombie.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 17,
+      "attackSpeed": 8.3,
+      "durability": 200,
+      "range": 35,
+      "dps": 141.1,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0
+  },
+  {
+    "id": "milkor_mgl",
+    "name": "Milkor MGL",
+    "vietnameseName": "Súng phóng lựu Milkor MGL",
+    "description": "Súng phóng lựu ổ quay 6 viên đạn nổ. Mỗi phát bắn hủy diệt cả một cụm kẻ thù với 200 sát thương lan.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 200,
+      "attackSpeed": 0.8,
+      "durability": 20,
+      "range": 30,
+      "dps": 160,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0
+  },
+  {
+    "id": "katana",
+    "name": "Katana",
+    "vietnameseName": "Thanh kiếm Katana",
+    "description": "Thanh kiếm truyền thống Nhật Bản siêu sắc bén, tốc độ chém nhanh và sát thương cao hàng đầu vũ khí cận chiến.",
+    "category": "weapon_melee",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 35,
+      "attackSpeed": 1.3,
+      "durability": 80,
+      "dps": 45.5,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "crooked_creek_farm",
+      "blackport_pd"
+    ],
+    "order": 0
+  },
+  {
+    "id": "fn_scar",
+    "name": "FN SCAR",
+    "vietnameseName": "Súng trường FN SCAR",
+    "description": "Súng trường tấn công hiện đại bậc nhất quân đội, hỏa lực mạnh mẽ và tầm bắn xa vượt trội hơn cả AK-47 và M16.",
+    "category": "weapon_firearm",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 22,
+      "attackSpeed": 7.5,
+      "durability": 200,
+      "range": 38,
+      "dps": 165,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 0
+  },
+  {
+    "id": "colt_python",
+    "name": "Colt Python",
+    "vietnameseName": "Súng lục Colt Python",
+    "description": "Súng lục ổ quay cổ điển sử dụng đạn Magnum uy lực lớn, độ chính xác cao.",
+    "category": "weapon_firearm",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 45,
+      "attackSpeed": 1.5,
+      "durability": 75,
+      "range": 30,
+      "dps": 67.5,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd",
+      "crooked_creek_farm"
+    ],
+    "order": 0,
+    "image": "images/items/weapons/colt_python.png"
+  },
+  {
+    "id": "winchester",
+    "name": "Winchester",
+    "vietnameseName": "Súng trường Winchester",
+    "description": "Súng trường đòn bẩy cổ điển kiểu cao bồi miền Tây, độ bền vừa phải nhưng thích hợp chiến đấu tầm xa.",
+    "category": "weapon_firearm",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 21,
+      "attackSpeed": 0.9,
+      "durability": 65,
+      "range": 30,
+      "dps": 18.9,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "crooked_creek_farm",
+      "motel",
+      "limestone_cliffs"
+    ],
+    "order": 18
+  },
+  {
+    "id": "baseball_bat",
+    "name": "Baseball Bat",
+    "vietnameseName": "Gậy bóng chày",
+    "description": "Gậy bóng chày bằng gỗ cứng tiện dụng, gây chấn động mạnh khi đánh lén đối phương.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 20,
+      "attackSpeed": 1,
+      "durability": 80,
+      "dps": 20,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "motel",
+      "pine_grove",
+      "limestone_grove"
+    ],
+    "order": 0
+  },
+  {
+    "id": "golf_club",
+    "name": "Golf Club",
+    "vietnameseName": "Gậy đánh gôn",
+    "description": "Gậy thể thao bằng kim loại nhẹ, tốc độ vung đòn nhanh và đập gãy xương kẻ thù hiệu quả.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 18,
+      "attackSpeed": 1.1,
+      "durability": 80,
+      "dps": 19.8,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "motel",
+      "crooked_creek_farm"
+    ],
+    "order": 0
+  },
+  {
+    "id": "hockey_stick",
+    "name": "Hockey Stick",
+    "vietnameseName": "Gậy khúc côn cầu",
+    "description": "Gậy thể thao nhẹ và dài với tốc độ vung chém linh hoạt, hỗ trợ giữ khoảng cách an toàn trước zombie nhanh.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 15,
+      "attackSpeed": 1.3,
+      "durability": 80,
+      "dps": 19.5,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "motel",
+      "pine_grove"
+    ],
+    "order": 0
+  },
+  {
+    "id": "paddle",
+    "name": "Paddle",
+    "vietnameseName": "Mái chèo gỗ",
+    "description": "Mái chèo xuồng bằng gỗ cứng chắc, tiện tay dùng làm vũ khí đập mạnh tự vệ.",
+    "category": "weapon_melee",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 20,
+      "attackSpeed": 1,
+      "durability": 80,
+      "dps": 20,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "motel",
+      "crooked_creek_farm"
+    ],
+    "order": 0
+  },
+  {
+    "id": "road_sign",
+    "name": "Road Sign",
+    "vietnameseName": "Biển báo giao thông",
+    "description": "Tấm biển báo sắt cắm trên cọc kim loại nặng nề, tốc độ vung chậm nhưng lực va đập cực mạnh.",
+    "category": "weapon_melee",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 30,
+      "attackSpeed": 0.7,
+      "durability": 60,
+      "dps": 21,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "crooked_creek_farm",
+      "limestone_cliffs"
+    ],
+    "order": 0
+  },
+  {
+    "id": "basic_backpack",
+    "name": "Basic Backpack",
+    "vietnameseName": "Balo cơ bản",
+    "description": "Balo vải thô nhỏ gọn dùng cho các chuyến thám hiểm ngắn, mở rộng thêm 5 ô chứa đồ trong hành trang.",
+    "category": "special",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge"
+    ],
+    "order": 1,
+    "image": "images/items/armor/basic_backpack.png"
+  },
+  {
+    "id": "military_backpack",
+    "name": "Military Backpack",
+    "vietnameseName": "Balo quân sự",
+    "description": "Balo dã chiến chuyên dụng quân đội có sức chứa lớn, mở rộng thêm 10 ô chứa đồ trong hành trang.",
+    "category": "special",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 29,
+    "image": "images/items/armor/military_backpack.png"
+  },
+  {
+    "id": "tactical_backpack",
+    "name": "Tactical Backpack",
+    "vietnameseName": "Balo chiến thuật",
+    "description": "Balo cao cấp tối tân nhất của lực lượng đặc nhiệm, mở rộng tối đa thêm 15 ô chứa đồ trong hành trang.",
+    "category": "special",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": false,
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 62
+  },
+  {
+    "id": "dog_saddle_bag",
+    "name": "Dog Saddle Bag",
+    "vietnameseName": "Túi yên lưng cho chó",
+    "description": "Túi vải đeo hai bên lưng chó cưng giúp chú chó mang theo thêm đồ đạc hỗ trợ chủ nhân khi đi săn.",
+    "category": "special",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 30
+  },
+  {
+    "id": "spiked_collar",
+    "name": "Spiked Collar",
+    "vietnameseName": "Vòng cổ gai cho chó",
+    "description": "Vòng da đính gai sắt sắc nhọn đeo cổ cho chó chiến đấu, tăng khả năng tự vệ và sát thương cắn xé.",
+    "category": "special",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 31
+  },
+  {
+    "id": "protective_coat",
+    "name": "Protective Coat",
+    "vietnameseName": "Áo bảo hộ cho chó",
+    "description": "Áo vải dù bọc da bảo vệ thân mình chú chó khỏi vết cào cắn của zombie trong giao tranh nguy hiểm.",
+    "category": "special",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 40
+  },
+  {
+    "id": "reinforced_fur_beanie",
+    "name": "Reinforced Fur Beanie",
+    "vietnameseName": "Mũ lông thú gia cố",
+    "description": "Mũ lông thú được gắn thêm tấm sắt và đinh tán, vừa giữ ấm vùng đầu vừa tăng khả năng chống chấn thương.",
+    "category": "armor_head",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 200,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 25,
+    "image": "images/items/armor/reinforced_fur_beanie.png"
+  },
+  {
+    "id": "reinforced_fur_jacket",
+    "name": "Reinforced Fur Jacket",
+    "vietnameseName": "Áo khoác lông thú gia cố",
+    "description": "Áo khoác lông thú kết hợp da thú và đính thêm giáp sắt bảo vệ ngực, chống cóng và chống cào xé cực tốt.",
+    "category": "armor_chest",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 250,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 26,
+    "image": "images/items/armor/reinforced_fur_jacket.png"
+  },
+  {
+    "id": "reinforced_fur_trousers",
+    "name": "Reinforced Fur Trousers",
+    "vietnameseName": "Quần lông thú gia cố",
+    "description": "Quần may bằng da lông dày gia cố miếng kim loại bảo vệ đầu gối và đùi trên tuyết lạnh.",
+    "category": "armor_legs",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 250,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 27,
+    "image": "images/items/armor/reinforced_fur_trousers.png"
+  },
+  {
+    "id": "reinforced_fur_boots",
+    "name": "Reinforced Fur Boots",
+    "vietnameseName": "Ủng lông thú gia cố",
+    "description": "Ủng lông thú bọc mũi sắt và đinh gai chống trơn trượt trên băng tuyết và bảo vệ bàn chân tối ưu.",
+    "category": "armor_feet",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 200,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "northern_watchtower"
+    ],
+    "order": 28,
+    "image": "images/items/armor/reinforced_fur_boots.png"
+  },
+  {
+    "id": "protective_mask",
+    "name": "Protective Mask",
+    "vietnameseName": "Mặt nạ bảo hộ",
+    "description": "Mặt nạ kính bảo hộ quân sự che mắt và mũi, bảo vệ khuôn mặt khỏi bụi bẩn và dịch lỏng độc hại.",
+    "category": "armor_head",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 150,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 41
+  },
+  {
+    "id": "anti_spore_mask",
+    "name": "Anti-Spore Mask",
+    "vietnameseName": "Mặt nạ chống bào tử",
+    "description": "Mặt nạ phòng độc trang bị màng lọc đặc chủng chống lại các bào tử nấm độc trong Phòng thí nghiệm Genesis.",
+    "category": "armor_head",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 150,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 32
+  },
+  {
+    "id": "anti_spore_jacket",
+    "name": "Anti-Spore Jacket",
+    "vietnameseName": "Áo khoác chống bào tử",
+    "description": "Áo khoác dệt từ sợi cao su tổng hợp chống thấm bào tử và chất nhầy ăn mòn từ quái vật nấm độc.",
+    "category": "armor_chest",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 180,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 33
+  },
+  {
+    "id": "anti_spore_pants",
+    "name": "Anti-Spore Pants",
+    "vietnameseName": "Quần chống bào tử",
+    "description": "Quần bảo hộ kín chống bám dính dịch độc khi lội qua các khu vực ô nhiễm bào tử dày đặc.",
+    "category": "armor_legs",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 180,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 34
+  },
+  {
+    "id": "anti_spore_boots",
+    "name": "Anti-Spore Boots",
+    "vietnameseName": "Ủng chống bào tử",
+    "description": "Ủng cao su dày chống mài mòn hóa học khi di chuyển qua các thảm bào tử nguy hiểm.",
+    "category": "armor_feet",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 3,
+      "durability": 150,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 35
+  },
+  {
+    "id": "enhanced_anti_spore_mask",
+    "name": "Enhanced Anti-Spore Mask",
+    "vietnameseName": "Mặt nạ chống bào tử nâng cao",
+    "description": "Phiên bản nâng cấp của mặt nạ chống bào tử với phin lọc kép bằng kim loại titan và màng carbon cao cấp.",
+    "category": "armor_head",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 200,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 36
+  },
+  {
+    "id": "enhanced_anti_spore_jacket",
+    "name": "Enhanced Anti-Spore Jacket",
+    "vietnameseName": "Áo chống bào tử nâng cao",
+    "description": "Áo giáp chống bào tử lót thêm các tấm giáp thép nhẹ, bảo vệ tối ưu trước mầm bệnh và các cú cào xé mạnh.",
+    "category": "armor_chest",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 8,
+      "durability": 240,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 37
+  },
+  {
+    "id": "enhanced_anti_spore_pants",
+    "name": "Enhanced Anti-Spore Pants",
+    "vietnameseName": "Quần chống bào tử nâng cao",
+    "description": "Quần bảo hộ tác chiến nâng cao gia cường các khớp cử động và đệm chống đạn chịu lực.",
+    "category": "armor_legs",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 7,
+      "durability": 240,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 38
+  },
+  {
+    "id": "enhanced_anti_spore_boots",
+    "name": "Enhanced Anti-Spore Boots",
+    "vietnameseName": "Ủng chống bào tử nâng cao",
+    "description": "Ủng bảo hộ đặc nhiệm nâng cấp với đế chống hóa chất ăn mòn và bảo vệ cổ chân hoàn hảo.",
+    "category": "armor_feet",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 4,
+      "durability": 200,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 39
+  },
+  {
+    "id": "cbrn_combat_helmet",
+    "name": "CBRN Combat Helmet",
+    "vietnameseName": "Mũ chiến đấu CBRN",
+    "description": "Mũ bảo hộ quân sự kín khí tích hợp kính lọc quang học, chống hoàn toàn khí độc và chất lỏng ăn mòn tại Đầm lầy và Port Sewer.",
+    "category": "armor_head",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 7,
+      "durability": 150,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 54
+  },
+  {
+    "id": "cbrn_combat_armor",
+    "name": "CBRN Combat Armor",
+    "vietnameseName": "Áo giáp chiến đấu CBRN",
+    "description": "Áo giáp chống hóa học, sinh học và phóng xạ (CBRN) tối tân, chịu đòn đạn đạo và miễn nhiễm các vùng vũng nhớt độc hại.",
+    "category": "armor_chest",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 10,
+      "durability": 150,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 55
+  },
+  {
+    "id": "cbrn_combat_pants",
+    "name": "CBRN Combat Pants",
+    "vietnameseName": "Quần chiến đấu CBRN",
+    "description": "Quần tác chiến bọc lớp phủ chống hóa chất quân sự, cho phép lội qua các vũng axit mà không bị tổn hại cơ thể.",
+    "category": "armor_legs",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 10,
+      "durability": 150,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 56
+  },
+  {
+    "id": "cbrn_combat_boots",
+    "name": "CBRN Combat Boots",
+    "vietnameseName": "Ủng chiến đấu CBRN",
+    "description": "Ủng chiến đấu đặc chủng bọc cao su lưu hóa chịu axit cực cao, bảo vệ tuyệt đối khi bước qua vùng chất thải ô nhiễm.",
+    "category": "armor_feet",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 5,
+      "durability": 150,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 57
+  },
+  {
+    "id": "assault_helmet",
+    "name": "Assault Helmet",
+    "vietnameseName": "Mũ đột kích hạng nặng",
+    "description": "Mũ chiến đấu bọc hợp kim siêu cứng và kính ngắm ban đêm tối tân, cung cấp khả năng bảo vệ đầu cấp cao nhất.",
+    "category": "armor_head",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 12,
+      "durability": 400,
+      "slot": "head"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 58
+  },
+  {
+    "id": "assault_body_armor",
+    "name": "Assault Body Armor",
+    "vietnameseName": "Áo giáp đột kích hạng nặng",
+    "description": "Bộ giáp chiến đấu tối thượng với 20 điểm phòng ngự và 400 độ bền, cản đứng mọi sát thương hủy diệt từ quái vật và đạn pháo.",
+    "category": "armor_chest",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 20,
+      "durability": 400,
+      "slot": "chest"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 59
+  },
+  {
+    "id": "assault_trousers",
+    "name": "Assault Trousers",
+    "vietnameseName": "Quần giáp đột kích",
+    "description": "Quần giáp trợ lực bọc sợi carbon composite và titan, chống chịu đạn đạo và giảm chấn động tối đa cho đôi chân.",
+    "category": "armor_legs",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 14,
+      "durability": 400,
+      "slot": "legs"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 60
+  },
+  {
+    "id": "assault_boots",
+    "name": "Assault Boots",
+    "vietnameseName": "Ủng giáp đột kích",
+    "description": "Ủng tác chiến hạng nặng bọc composite, vừa chịu lực cắn đè vừa tăng tốc độ di chuyển trên mọi địa hình hiểm trở.",
+    "category": "armor_feet",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "armorStats": {
+      "armorValue": 6,
+      "durability": 400,
+      "slot": "feet"
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 61
+  },
+  {
+    "id": "hatchet",
+    "name": "Hatchet",
+    "vietnameseName": "Rìu đá",
+    "description": "Lưỡi đá mài gắn cán gỗ, công cụ cơ bản không thể thiếu để đốn gỗ thông trên bản đồ sinh tồn.",
+    "category": "tool",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 7,
+      "attackSpeed": 0.9,
+      "durability": 50,
+      "dps": 6.3,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge"
+    ],
+    "order": 1,
+    "image": "images/items/tools/hatchet.png"
+  },
+  {
+    "id": "pickaxe",
+    "name": "Pickaxe",
+    "vietnameseName": "Cuốc đá",
+    "description": "Dụng cụ khai mỏ bằng đầu đá gắn cán gỗ, dùng để đập đá vôi và khai thác các mỏ quặng sắt thô.",
+    "category": "tool",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 7,
+      "attackSpeed": 1.1,
+      "durability": 50,
+      "dps": 7.7,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_bushes",
+      "limestone_ridge"
+    ],
+    "order": 2,
+    "image": "images/items/tools/pickaxe.png"
+  },
+  {
+    "id": "iron_hatchet",
+    "name": "Iron Hatchet",
+    "vietnameseName": "Rìu sắt",
+    "description": "Rìu lưỡi sắt sắc bén và bền bỉ hơn rìu đá, công cụ bắt buộc để đốn hạ các cây gỗ sồi (Oak) lấy gỗ quý.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 14,
+      "attackSpeed": 0.9,
+      "durability": 75,
+      "dps": 12.6,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove"
+    ],
+    "order": 4,
+    "image": "images/items/tools/iron_hatchet.png"
+  },
+  {
+    "id": "iron_pickaxe",
+    "name": "Iron Pickaxe",
+    "vietnameseName": "Cuốc sắt",
+    "description": "Cuốc mũi thép cứng cáp giúp đập đá nhanh chóng và khai thác được quặng đồng, bauxite và quặng titan.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 14,
+      "attackSpeed": 1.1,
+      "durability": 75,
+      "dps": 15.4,
+      "sneakMultiplier": 3,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "pine_grove",
+      "limestone_grove"
+    ],
+    "order": 5,
+    "image": "images/items/tools/iron_pickaxe.png"
+  },
+  {
+    "id": "fishing_rod",
+    "name": "Fishing Rod",
+    "vietnameseName": "Cần câu cá",
+    "description": "Cần câu bằng gỗ uốn dẻo và dây dù chắc chắn, dùng để câu các loài cá hồi, cá rô tại các điểm câu trên bản đồ.",
+    "category": "tool",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "obtainLocations": [
+      "pine_grove",
+      "motel"
+    ],
+    "order": 3,
+    "image": "images/items/tools/fishing_rod.png"
+  },
+  {
+    "id": "warming_first_aid_kit",
+    "name": "Warming First Aid Kit",
+    "vietnameseName": "Bộ sơ cứu giữ ấm",
+    "description": "Bộ cứu thương kết hợp cồn giữ nhiệt đặc chế cho vùng cực Bắc, hồi phục ngay 100 HP và loại bỏ trạng thái cóng lạnh.",
+    "category": "medical",
+    "rarity": "rare",
+    "stackSize": 5,
+    "craftable": true,
+    "consumableStats": {
+      "healHp": 100,
+      "buffEffect": "Làm ấm cơ thể tức thì và chống hạ thân nhiệt trong 10 phút",
+      "durationSeconds": 600
+    },
+    "obtainLocations": [
+      "northern_watchtower",
+      "bunker_alfa"
+    ],
+    "order": 3,
+    "image": "images/items/medical/warming_first_aid_kit.png"
+  },
+  {
+    "id": "manual_earth_drill",
+    "name": "Manual Earth Drill",
+    "vietnameseName": "Máy khoan đất cầm tay",
+    "description": "Thiết bị khoan cơ khí gắn động cơ dùng để khoan lấy đất sét và bùn than bùn quý hiếm tại vùng đầm lầy.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 8,
+    "image": "images/items/tools/manual_earth_drill.png"
+  },
+  {
+    "id": "inhaler",
+    "name": "Inhaler",
+    "vietnameseName": "Ống hít phục hồi",
+    "description": "Thiết bị xông hít y tế cấp tốc làm sạch đường thở, phục hồi sinh lực và hóa giải hiệu ứng ngạt khí độc.",
+    "category": "medical",
+    "rarity": "rare",
+    "stackSize": 10,
+    "craftable": true,
+    "consumableStats": {
+      "healHp": 60,
+      "buffEffect": "Thanh lọc phổi, chống độc và khôi phục nhịp thở",
+      "durationSeconds": 180
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 4,
+    "image": "images/items/medical/inhaler.png"
+  },
+  {
+    "id": "starter_unit",
+    "name": "Starter Unit",
+    "vietnameseName": "Bộ kích điện ắc quy",
+    "description": "Bộ ắc quy kích nguồn công suất cao có kẹp cực, dùng để khởi động máy phát điện và các loại xe cơ giới dã chiến.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 5,
+    "craftable": true,
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 2,
+    "image": "images/items/tools/starter_unit.png"
+  },
+  {
+    "id": "anti_radiation_pills",
+    "name": "Anti-radiation Pills",
+    "vietnameseName": "Thuốc chống phóng xạ",
+    "description": "Viên nang y tế khẩn cấp giúp đào thải chất phóng xạ khỏi cơ thể và giảm mức phơi nhiễm phóng xạ.",
+    "category": "medical",
+    "rarity": "rare",
+    "stackSize": 10,
+    "craftable": true,
+    "consumableStats": {
+      "healHp": 30,
+      "buffEffect": "Giảm 50 điểm phơi nhiễm phóng xạ và tăng kháng phóng xạ trong 3 phút",
+      "durationSeconds": 180
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 5,
+    "image": "images/items/medical/anti_radiation_pills.png"
+  },
+  {
+    "id": "antirad",
+    "name": "AntiRad",
+    "vietnameseName": "Thuốc giải phóng xạ AntiRad",
+    "description": "Ống tiêm huyết thanh đặc chủng của Genesis, triệt tiêu lập tức lượng lớn nhiễm xạ và bảo vệ cơ thể trước bức xạ cực mạnh.",
+    "category": "medical",
+    "rarity": "epic",
+    "stackSize": 10,
+    "craftable": true,
+    "consumableStats": {
+      "healHp": 50,
+      "buffEffect": "Triệt tiêu 100 điểm phóng xạ và tăng +12 phòng ngự phóng xạ trong 5 phút",
+      "durationSeconds": 300
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 6,
+    "image": "images/items/medical/antirad.png"
+  },
+  {
+    "id": "chainsaw",
+    "name": "Chainsaw",
+    "vietnameseName": "Máy cưa cầm tay",
+    "description": "Máy cưa xích chạy bằng xăng động cơ lớn, cưa đổ các đại thụ cứng nhất trong tích tắc và chém nát zombie cận chiến.",
+    "category": "tool",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 45,
+      "attackSpeed": 1.4,
+      "durability": 150,
+      "dps": 63,
+      "sneakMultiplier": 1,
+      "isFirearm": false
+    },
+    "obtainLocations": [
+      "bunker_alfa"
+    ],
+    "order": 9,
+    "image": "images/items/tools/chainsaw.png"
+  },
+  {
+    "id": "portable_turret_t1",
+    "name": "Portable Turret T-I",
+    "vietnameseName": "Tháp súng máy di động T-I",
+    "description": "Tháp súng phòng thủ xách tay lắp đặt trong 3 giây, tự động phát hiện và khai hỏa bằng súng ngắn vào kẻ thù xung quanh.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 15,
+      "attackSpeed": 2.5,
+      "durability": 100,
+      "dps": 37.5,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 10,
+    "image": "images/items/tools/portable_turret_t1.png"
+  },
+  {
+    "id": "portable_turret_t2",
+    "name": "Portable Turret T-II",
+    "vietnameseName": "Tháp súng máy di động T-II",
+    "description": "Tháp súng di động nâng cấp tích hợp súng trường M16, có khả năng bắn đạn xuyên giáp và tầm bắn xa hơn.",
+    "category": "tool",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 22,
+      "attackSpeed": 3,
+      "durability": 150,
+      "dps": 66,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 11,
+    "image": "images/items/tools/portable_turret_t2.png"
+  },
+  {
+    "id": "portable_turret_t3",
+    "name": "Portable Turret T-III",
+    "vietnameseName": "Tháp súng máy di động T-III",
+    "description": "Tháp súng máy di động tối tân trang bị hỏa lực súng trường hạng nặng AK-47, uy lực dọn dẹp quái vật cực kỳ mạnh mẽ.",
+    "category": "tool",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "weaponStats": {
+      "damage": 30,
+      "attackSpeed": 3.5,
+      "durability": 200,
+      "dps": 105,
+      "sneakMultiplier": 1,
+      "isFirearm": true
+    },
+    "obtainLocations": [
+      "bunker_alfa",
+      "blackport_pd"
+    ],
+    "order": 12,
+    "image": "images/items/tools/portable_turret_t3.png"
+  },
+  {
+    "id": "small_box",
+    "name": "Small Box",
+    "vietnameseName": "Rương nhỏ",
+    "description": "Rương chứa đồ cơ bản bằng gỗ, chứa được tối đa 15 ô vật phẩm.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/small_box.png"
+  },
+  {
+    "id": "garden_bed",
+    "name": "Garden Bed",
+    "vietnameseName": "Luống trồng trọt",
+    "description": "Luống đất xới để gieo hạt giống cà rốt, cung cấp nguồn lương thực ổn định.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/garden_bed.png"
+  },
+  {
+    "id": "woodworking_bench",
+    "name": "Woodworking Bench lvl 1",
+    "vietnameseName": "Bàn cưa gỗ cấp 1",
+    "description": "Bàn thợ mộc dùng để xẻ thân gỗ thông thành các tấm ván gỗ (Pine Plank).",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/woodworking_bench.png"
+  },
+  {
+    "id": "rain_catcher",
+    "name": "Rain Catcher",
+    "vietnameseName": "Thùng hứng nước mưa",
+    "description": "Hứng nước mưa làm đầy các chai nước rỗng, cung cấp nguồn nước sạch cho căn cứ.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/rain_catcher.png"
+  },
+  {
+    "id": "campfire",
+    "name": "Campfire lvl 1",
+    "vietnameseName": "Lửa trại cấp 1",
+    "description": "Nấu chín thực phẩm cơ bản như thịt nướng, cà rốt om và sản xuất than củi.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/campfire.png"
+  },
+  {
+    "id": "meat_dryer",
+    "name": "Meat Dryer lvl 1",
+    "vietnameseName": "Giá sấy thịt cấp 1",
+    "description": "Sấy khô thịt sống thành thịt khô (Jerky), bảo quản lâu hơn và bổ dưỡng hơn.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/meat_dryer.png"
+  },
+  {
+    "id": "melting_furnace",
+    "name": "Melting Furnace lvl 1",
+    "vietnameseName": "Lò nung quặng cấp 1",
+    "description": "Sử dụng than củi nung chảy quặng sắt thô thành các thỏi sắt nguyên chất.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/melting_furnace.png"
+  },
+  {
+    "id": "stonecutter_table",
+    "name": "Stonecutter's Table lvl 1",
+    "vietnameseName": "Bàn đẽo đá cấp 1",
+    "description": "Đẽo gọt các khối đá vôi thô thành đá xây dựng (Stone Brick) kiên cố.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/stonecutter_table.png"
+  },
+  {
+    "id": "kitchen_stove",
+    "name": "Kitchen stove",
+    "vietnameseName": "Bếp nấu ăn",
+    "description": "Bếp gas nấu các món ăn cao cấp mang lại các chỉ số buff đặc biệt cho sinh tồn.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/kitchen_stove.png"
+  },
+  {
+    "id": "tanning_rack",
+    "name": "Tanning Rack lvl 1",
+    "vietnameseName": "Giá thuộc da cấp 1",
+    "description": "Thuộc da sống thành da thuộc chất lượng cao và dây da phục vụ chế giáp.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/tanning_rack.png"
+  },
+  {
+    "id": "workbench",
+    "name": "Workbench lvl 1",
+    "vietnameseName": "Bàn chế tạo cấp 1",
+    "description": "Dập đinh tán, ép các tấm sắt (Iron Plate) và gia công kim loại tấm.",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/workbench.png"
+  },
+  {
+    "id": "sewing_table",
+    "name": "Sewing Table lvl 1",
+    "vietnameseName": "Bàn may vải cấp 1",
+    "description": "Bàn máy may dùng để dệt sợi vải bông và gia công vải dày (Thick Fabric).",
+    "category": "workstation",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/sewing_table.png"
+  },
+  {
+    "id": "recycler",
+    "name": "Recycler lvl 1",
+    "vietnameseName": "Máy tái chế cấp 1",
+    "description": "Phân rã vũ khí, trang bị cũ hỏng và linh kiện điện tử để thu hồi vật liệu quý.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/recycler.png"
+  },
+  {
+    "id": "medical_table",
+    "name": "Medical Table lvl 1",
+    "vietnameseName": "Bàn y tế cấp 1",
+    "description": "Pha chế cồn y tế, chất sát trùng và dây chuyền đóng gói bộ sơ cứu y tế.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/medical_table.png"
+  },
+  {
+    "id": "refined_melting_furnace",
+    "name": "Refined Melting Furnace lvl 1",
+    "vietnameseName": "Lò luyện kim cao cấp lvl 1",
+    "description": "Lò luyện nhiệt độ cực cao để tinh luyện các thỏi thép (Steel Bar) và nhôm cao cấp.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/refined_melting_furnace.png"
+  },
+  {
+    "id": "repair_workbench",
+    "name": "Repair Workbench",
+    "vietnameseName": "Bàn sửa chữa",
+    "description": "Bàn kỹ thuật chuyên dụng phục hồi độ bền của vũ khí và áo giáp quý hiếm.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/repair_workbench.png"
+  },
+  {
+    "id": "chemistry_station",
+    "name": "Chemistry Station lvl 1",
+    "vietnameseName": "Trạm hóa chất lvl 1",
+    "description": "Điều chế thuốc nổ, axit nồng độ cao và các hợp chất tẩy rửa phòng thí nghiệm.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/chemistry_station.png"
+  },
+  {
+    "id": "pressing_machine",
+    "name": "Pressing Machine lvl 1",
+    "vietnameseName": "Máy ép lvl 1",
+    "description": "Dùng lực ép thủy lực khổng lồ để cán các tấm kim loại nặng và phôi nhiên liệu nén.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/pressing_machine.png"
+  },
+  {
+    "id": "laboratory",
+    "name": "Laboratory lvl 1",
+    "vietnameseName": "Bàn thí nghiệm lvl 1",
+    "description": "Phân tích mẫu bào tử zombie, chế tạo huyết thanh kháng dịch và nghiên cứu công nghệ sinh học.",
+    "category": "workstation",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/laboratory.png"
+  },
+  {
+    "id": "hydroponic_system",
+    "name": "Hydroponic System lvl 1",
+    "vietnameseName": "Hệ thống thủy canh lvl 1",
+    "description": "Hệ thống đèn quang hợp và bơm tuần hoàn khép kín nuôi trồng thảo dược quý hiếm.",
+    "category": "workstation",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/hydroponic_system.png"
+  },
+  {
+    "id": "dog_crate_design",
+    "name": "Dog Crate Design",
+    "vietnameseName": "Bản thiết kế Chuồng chó",
+    "description": "Khung chuồng chó để nuôi dưỡng, chăm sóc và lai tạo các giống chó nghiệp vụ tại căn cứ.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/dog_crate_design.png"
+  },
+  {
+    "id": "gunsmith_bench",
+    "name": "Gunsmith Bench",
+    "vietnameseName": "Bàn thợ súng",
+    "description": "Bàn gia công chuyên nghiệp để lắp ráp bản độ (mods) và tùy biến các loại súng ống.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/gunsmith_bench.png"
+  },
+  {
+    "id": "cat_playpen",
+    "name": "Cat Playpen lvl 1",
+    "vietnameseName": "Quây mèo cấp 1",
+    "description": "Khu vực nuôi dưỡng và nhân giống mèo cưng, mang lại các hiệu ứng may mắn cho sinh tồn.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/cat_playpen.png"
+  },
+  {
+    "id": "cat_tree",
+    "name": "Cat Tree lvl 1",
+    "vietnameseName": "Cây leo cào móng mèo",
+    "description": "Trụ cào móng và vui chơi cho mèo giúp tăng độ thân thiết và tốc độ hồi phục năng lượng.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/cat_tree.png"
+  },
+  {
+    "id": "buzzsaw",
+    "name": "Buzzsaw lvl 1",
+    "vietnameseName": "Máy cưa đĩa xoay cấp 1",
+    "description": "Máy cưa đĩa công nghiệp công suất cao, xẻ gỗ sồi (Oak) và gỗ tần bì (Ash) thành ván cao cấp.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/buzzsaw.png"
+  },
+  {
+    "id": "garage",
+    "name": "Garage",
+    "vietnameseName": "Gara xe Chopper",
+    "description": "Xưởng sửa chữa và bảo dưỡng xe mô tô Chopper, nâng cấp động cơ và rửa xe.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/garage.png"
+  },
+  {
+    "id": "boat_engine",
+    "name": "Boat Engine",
+    "vietnameseName": "Động cơ thuyền máy",
+    "description": "Động cơ chân vịt chuyên dụng đẩy xuồng máy vượt qua các đầm lầy và vùng vịnh biển sâu.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/boat_engine.png"
+  },
+  {
+    "id": "motorboat_design",
+    "name": "Motorboat Design",
+    "vietnameseName": "Bản thiết kế Thuyền máy",
+    "description": "Khung thân xuồng máy tuần tra biển, cho phép tiếp cận hòn đảo mới và bãi rác san hô.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/motorboat_design.png"
+  },
+  {
+    "id": "atv_design",
+    "name": "ATV Design",
+    "vietnameseName": "Bản thiết kế Xe địa hình ATV",
+    "description": "Bản thiết kế khung xe bánh xích vượt đầm lầy, phương tiện duy nhất để khám phá Đầm lầy (Swamp).",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/atv_design.png"
+  },
+  {
+    "id": "atv_garage",
+    "name": "ATV Garage",
+    "vietnameseName": "Gara xe ATV",
+    "description": "Xưởng gara cơ giới hạng nặng chuyên dụng lắp ráp, chứa và nâng cấp xe lội đầm lầy ATV.",
+    "category": "workstation",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/atv_garage.png"
+  },
+  {
+    "id": "drone_docking_station_design",
+    "name": "Drone Docking Station Design",
+    "vietnameseName": "Trạm đỗ Drone",
+    "description": "Bệ phóng và sạc pin tự động cho thiết bị bay không người lái Drone tại căn cứ.",
+    "category": "workstation",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/drone_docking_station_design.png"
+  },
+  {
+    "id": "drone_upgrade_workbench_design",
+    "name": "Drone Upgrade Workbench Design",
+    "vietnameseName": "Bàn nâng cấp Drone",
+    "description": "Trạm công nghệ cao dùng để tùy biến linh kiện, nâng cấp pin và vũ trang cho Drone tác chiến.",
+    "category": "workstation",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/drone_upgrade_workbench_design.png"
+  },
+  {
+    "id": "mi24_helicopter_design",
+    "name": "Mi-24 Helicopter Design",
+    "vietnameseName": "Bản thiết kế Trực thăng Mi-24",
+    "description": "Bản thiết kế đại công trình trực thăng quân sự hạng nặng Mi-24 phục vụ bay xuyên bản đồ thế giới.",
+    "category": "workstation",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/workstations/mi24_helicopter_design.png"
+  },
+  {
+    "id": "shower",
+    "name": "Shower",
+    "vietnameseName": "Buồng tắm dã chiến",
+    "description": "Buồng tắm rửa vệ sinh khử mùi hôi cơ thể, tránh bị quái vật phát hiện từ xa.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/shower.png"
+  },
+  {
+    "id": "spike_trap",
+    "name": "Spike Trap",
+    "vietnameseName": "Bẫy cọc nhọn",
+    "description": "Bẫy cọc gỗ sắc nhọn phòng thủ căn cứ, gây sát thương liên tục lên kẻ thù giẫm phải.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/spike_trap.png"
+  },
+  {
+    "id": "trip_wire_trap",
+    "name": "Trip Wire Trap",
+    "vietnameseName": "Bẫy dây vấp",
+    "description": "Dây bẫy vấp báo động kết hợp lon thiếc, phát hiện và làm chậm kẻ đột nhập.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/trip_wire_trap.png"
+  },
+  {
+    "id": "houseplant",
+    "name": "Houseplant",
+    "vietnameseName": "Chậu cây cảnh trong nhà",
+    "description": "Chậu cây trang trí bằng gỗ giúp căn cứ thêm sinh động và tươi mát.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/houseplant.png"
+  },
+  {
+    "id": "doormat",
+    "name": "Doormat",
+    "vietnameseName": "Thảm chùi chân",
+    "description": "Thảm trải sàn đón khách tại cửa chính căn cứ với chữ Welcome ấm cúng.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/doormat.png"
+  },
+  {
+    "id": "mirror",
+    "name": "Mirror",
+    "vietnameseName": "Gương soi đứng",
+    "description": "Gương soi toàn thân cho phép tùy chỉnh diện mạo, kiểu tóc và râu của nhân vật.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/mirror.png"
+  },
+  {
+    "id": "dining_table",
+    "name": "Dining Table",
+    "vietnameseName": "Bàn ăn gia đình",
+    "description": "Bàn ghế ăn bằng gỗ thông ấm cúng dành cho người sống sót trong căn cứ.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/dining_table.png"
+  },
+  {
+    "id": "cozy_couch",
+    "name": "Cozy Couch",
+    "vietnameseName": "Ghế sofa êm ái",
+    "description": "Ghế bành sofa da êm ái giúp hồi phục sinh lực và thư giãn sau chuyến đi farm.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/cozy_couch.png"
+  },
+  {
+    "id": "barbed_wire",
+    "name": "Barbed Wire",
+    "vietnameseName": "Hàng rào dây thép gai",
+    "description": "Hàng rào thép gai chống vượt tường kiên cố, làm chậm đáng kể zombie và Raider.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/barbed_wire.png"
+  },
+  {
+    "id": "floor_lamp",
+    "name": "Floor Lamp",
+    "vietnameseName": "Đèn cây đứng",
+    "description": "Đèn đứng tỏa ánh sáng vàng ấm áp xua tan bóng tối u ám trong căn phòng.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/floor_lamp.png"
+  },
+  {
+    "id": "weapon_stand",
+    "name": "Weapon Stand",
+    "vietnameseName": "Giá trưng bày vũ khí",
+    "description": "Giá gắn tường trưng bày bộ sưu tập những khẩu súng và vũ khí yêu thích nhất.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/weapon_stand.png"
+  },
+  {
+    "id": "trophy_board",
+    "name": "Trophy Board",
+    "vietnameseName": "Bảng cúp lưu niệm",
+    "description": "Bảng gỗ treo tường kỷ niệm những chiến tích săn boss và hoàn thành thử thách.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/trophy_board.png"
+  },
+  {
+    "id": "comfortable_bed",
+    "name": "Comfortable Bed",
+    "vietnameseName": "Giường ngủ thoải mái",
+    "description": "Chiếc giường sắt đệm êm giúp giấc ngủ ngon hơn, hồi đầy thanh máu và năng lượng.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/comfortable_bed.png"
+  },
+  {
+    "id": "hand_pump",
+    "name": "Hand Pump",
+    "vietnameseName": "Máy bơm tay giếng khoan",
+    "description": "Máy bơm hút nước ngầm thủ công, bơm nước trực tiếp từ lòng đất tại căn cứ.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/hand_pump.png"
+  },
+  {
+    "id": "spruce",
+    "name": "Spruce",
+    "vietnameseName": "Cây thông cảnh trồng chậu",
+    "description": "Cây thông cảnh xanh tươi trồng trong chậu gỗ trang trí góc sân nhà.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/spruce.png"
+  },
+  {
+    "id": "tire_flowerbed",
+    "name": "Tire Flowerbed",
+    "vietnameseName": "Bồn hoa lốp xe cũ",
+    "description": "Tận dụng lốp xe cũ làm bồn trồng hoa dại tô điểm cho căn cứ hậu tận thế.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/tire_flowerbed.png"
+  },
+  {
+    "id": "bath_with_flowers",
+    "name": "Bath with flowers",
+    "vietnameseName": "Bồn tắm rải hoa",
+    "description": "Bồn tắm lộ thiên ngâm hoa thảo mộc thư giãn và khử sạch mùi hôi cơ thể.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/bath_with_flowers.png"
+  },
+  {
+    "id": "outdoor_toilet",
+    "name": "Outdoor toilet",
+    "vietnameseName": "Nhà vệ sinh ngoài trời",
+    "description": "Nhà vệ sinh dã chiến bằng ván gỗ giải quyết nhu cầu bài tiết khi sinh tồn.",
+    "category": "furniture",
+    "rarity": "common",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/outdoor_toilet.png"
+  },
+  {
+    "id": "mortar",
+    "name": "Mortar",
+    "vietnameseName": "Súng cối phòng thủ",
+    "description": "Hỏa cụ hạng nặng cố định phòng thủ, bắn pháo diện rộng tiêu diệt hàng loạt zombie xâm lăng.",
+    "category": "furniture",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/mortar.png"
+  },
+  {
+    "id": "decorative_pond",
+    "name": "Decorative Pond",
+    "vietnameseName": "Hồ nước nhân tạo cảnh quan",
+    "description": "Hồ đá nhỏ nuôi cá cảnh và sen súng mang lại vẻ thanh bình cho khu vườn sinh tồn.",
+    "category": "furniture",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/decorative_pond.png"
+  },
+  {
+    "id": "sculpture",
+    "name": "Sculpture",
+    "vietnameseName": "Tượng điêu khắc nghệ thuật",
+    "description": "Bức tượng đài nghệ thuật bằng đá vôi tạc hình dũng sĩ diệt zombie kiên cường.",
+    "category": "furniture",
+    "rarity": "epic",
+    "stackSize": 1,
+    "craftable": true,
+    "order": 0,
+    "image": "images/items/furniture/sculpture.png"
+  },
+  {
+    "id": "oak_log",
+    "name": "Oak Log",
+    "vietnameseName": "Gỗ sồi",
+    "category": "resource_wood",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Thân cây sồi lấy từ vùng Bắc hoặc Rừng sồi. Cần thiết để xẻ ván gỗ sồi nâng cấp tường đá kiên cố."
+  },
+  {
+    "id": "copper_ore",
+    "name": "Copper Ore",
+    "vietnameseName": "Quặng đồng",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Quặng đồng tự nhiên khai thác tại các vùng núi tuyết phương Bắc. Dùng để luyện phôi đồng và thép."
+  },
+  {
+    "id": "copper_bar",
+    "name": "Copper Bar",
+    "vietnameseName": "Phôi đồng",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0,
+    "description": "Phôi đồng tinh luyện từ quặng đồng. Thành phần chính để tạo ra phôi thép và linh kiện điện tử cao cấp."
+  },
+  {
+    "id": "bauxite",
+    "name": "Bauxite",
+    "vietnameseName": "Quặng bô-xít nhôm",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Quặng chứa nhôm đào được khi khai thác quặng sắt ở vùng đỏ hoặc vùng sồi. Dùng để nung phôi nhôm."
+  },
+  {
+    "id": "titanium_ore",
+    "name": "Titanium Ore",
+    "vietnameseName": "Quặng titan",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Khoáng sản kim loại siêu bền chỉ có tại Đảo chết (Dead Island). Dùng để tinh chế phôi titan siêu cứng."
+  },
+  {
+    "id": "titanium_bar",
+    "name": "Titanium Bar",
+    "vietnameseName": "Phôi titan",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0,
+    "description": "Phôi titan tinh chế từ quặng titan và than củi trong lò nung cao cấp. Dùng chế vũ khí và tường kim loại cấp 5."
+  },
+  {
+    "id": "sand",
+    "name": "Sand",
+    "vietnameseName": "Cát biển",
+    "category": "resource_basic",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Cát biển khai thác từ Mỏ cát trên đảo. Dùng trong lò luyện kính thủy tinh và trộn bê tông xây tường."
+  },
+  {
+    "id": "peat",
+    "name": "Peat",
+    "vietnameseName": "Than bùn",
+    "category": "resource_basic",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Đất than bùn đào từ vùng Đầm than bùn (Wild Bogs). Dùng làm gạch chịu lửa, phân bón và chất đốt."
+  },
+  {
+    "id": "sulfur",
+    "name": "Sulfur",
+    "vietnameseName": "Lưu huỳnh",
+    "category": "resource_basic",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Khoáng chất lưu huỳnh màu vàng khai thác tại đầm lầy. Nguyên liệu quan trọng để chế thuốc súng và đạn dược."
+  },
+  {
+    "id": "lead_ore",
+    "name": "Lead Ore",
+    "vietnameseName": "Quặng chì",
+    "category": "resource_metal",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Quặng chì khai thác từ mỏ đầm lầy. Dùng đúc phôi chì phục vụ sản xuất đầu đạn và giáp cản phóng xạ."
+  },
+  {
+    "id": "plastic",
+    "name": "Plastic",
+    "vietnameseName": "Nhựa dẻo tổng hợp",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Vật liệu nhựa tổng hợp bền chắc dùng trong nhiều công thức chế tạo trang bị điện tử và vũ khí hiện đại."
+  },
+  {
+    "id": "scrap_metal",
+    "name": "Scrap Metal",
+    "vietnameseName": "Mảnh vụn kim loại",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Các mảnh sắt vụn phế liệu nhặt từ bãi rác, xe hơi cũ hoặc nhà máy. Có thể nung thành phôi sắt."
+  },
+  {
+    "id": "wire",
+    "name": "Wire",
+    "vietnameseName": "Cuộn dây điện",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Dây đồng bọc cách điện dùng sửa chữa các tháp canh, máy phát điện và thiết bị điện tử."
+  },
+  {
+    "id": "atv_transmission",
+    "name": "ATV Transmission",
+    "vietnameseName": "Bộ truyền động xe ATV",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Hộp số truyền động cực hiếm của xe địa hình bánh xích ATV. Nhận được từ máy slot machine Trạm xăng hoặc phần thưởng sự kiện."
+  },
+  {
+    "id": "atv_tracks",
+    "name": "ATV Tracks",
+    "vietnameseName": "Bánh xích xe ATV",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Dải xích cao su bọc thép của xe ATV, tìm thấy chủ yếu tại các tầng ngầm Bunker Bravo hoặc bãi phế liệu."
+  },
+  {
+    "id": "car_battery",
+    "name": "Car Battery",
+    "vietnameseName": "Ắc quy ô tô",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Bình ắc quy axit chì điện áp cao dùng lắp ráp xe địa hình ATV, máy phát điện và hệ thống cấp điện khu định cư."
+  },
+  {
+    "id": "gas_cylinder",
+    "name": "Gas Cylinder",
+    "vietnameseName": "Bình khí nén",
+    "category": "component",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Bình thép chứa khí nén áp suất cao kiếm được tại Bunker Bravo. Dùng để hoàn thiện khung gầm xe ATV."
+  },
+  {
+    "id": "caps",
+    "name": "Bottle Caps",
+    "vietnameseName": "Nắp chai may mắn",
+    "category": "special",
+    "stackSize": 50,
+    "craftable": false,
+    "order": 0,
+    "description": "Tiền tệ đặc biệt dùng để quay thưởng tại máy đánh bạc Slot Machine ở Trạm xăng (Gas Station)."
+  },
+  {
+    "id": "witch_head",
+    "name": "Witch Head",
+    "vietnameseName": "Đầu mụ phù thủy",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Chiến lợi phẩm đoạt được sau khi hạ gục trùm Phù thủy (The Witch) ở Rừng nhiễm độc. Đốt trên giàn lửa ở nhà để xua đuổi Zombie Horde."
+  },
+  {
+    "id": "severed_finger",
+    "name": "Severed Finger",
+    "vietnameseName": "Ngón tay binh lính",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Ngón tay đứt lìa của sĩ quan quân đội nhặt tại Đoàn xe bị phục kích (Destroyed Convoy). Dùng quẹt mở phòng bí mật tầng 1 Bunker Alfa."
+  },
+  {
+    "id": "drone_parts",
+    "name": "Drone Parts",
+    "vietnameseName": "Linh kiện drone",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Bo mạch và vi điều khiển đặc thù nhặt tại Trạm trung chuyển (Transport Hub) dùng sửa chữa và nâng cấp Drone."
+  },
+  {
+    "id": "hydraulic_cylinder",
+    "name": "Hydraulic Cylinder",
+    "vietnameseName": "Xi lanh thủy lực",
+    "category": "component",
+    "stackSize": 10,
+    "craftable": false,
+    "order": 0,
+    "description": "Pít-tông xi lanh chịu lực nhặt tại Transport Hub và Cảng. Dùng cho xe nâng, cần cẩu và cơ khí nặng."
+  },
+  {
+    "id": "canned_food",
+    "name": "Canned Food",
+    "vietnameseName": "Đồ hộp cứu sinh",
+    "category": "food",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "consumableStats": {
+      "hunger": 25,
+      "thirst": 10,
+      "hp": 5
+    },
+    "description": "Thức ăn đóng hộp bảo quản lâu năm, hồi phục 25 độ đói và 10 độ khát. Vỏ lon rỗng có thể nung lại thành sắt."
+  },
+  {
+    "id": "bottle_of_water",
+    "name": "Bottle of Water",
+    "vietnameseName": "Chai nước lọc",
+    "category": "food",
+    "stackSize": 10,
+    "craftable": false,
+    "order": 0,
+    "consumableStats": {
+      "thirst": 50
+    },
+    "description": "Nước lọc tinh khiết đóng chai nhựa, hồi phục 50 độ khát. Có thể hứng lại nước mưa bằng máy lọc nước."
+  },
+  {
+    "id": "gold_watch",
+    "name": "Gold Watch",
+    "vietnameseName": "Đồng hồ vàng",
+    "category": "special",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Đồng hồ cơ mạ vàng nhặt từ các vali máy bay rơi hoặc xác zombie. Rất được lái buôn Joe ưa thích."
+  },
+  {
+    "id": "cell_phone",
+    "name": "Cell Phone",
+    "vietnameseName": "Điện thoại cũ",
+    "category": "special",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Điện thoại di động hỏng. Có thể đem vào máy phân rã Recycler để lấy linh kiện điện tử, vàng và đồng bóng."
+  },
+  {
+    "id": "chopper_wheel",
+    "name": "Chopper Wheel",
+    "vietnameseName": "Bánh xe Chopper",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Bánh xe chuyên dụng cho xe máy môtô Chopper, tìm thấy ở Bunker Alfa hoặc sự kiện Trạm dừng nghỉ Rest Stop."
+  },
+  {
+    "id": "grenade",
+    "name": "Grenade",
+    "vietnameseName": "Lựu đạn nổ M67",
+    "category": "weapon_ranged",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "weaponStats": {
+      "damage": 200,
+      "dps": 100,
+      "attackSpeed": 0.5,
+      "range": 6,
+      "durability": 1
+    },
+    "description": "Lựu đạn nổ mảnh sát thương diện rộng 200 damage. Vũ khí cực kỳ hiệu quả để dọn sạch các đợt sóng zombie ở Blackport PD."
+  },
+  {
+    "id": "fox_pelt",
+    "name": "Fox Pelt",
+    "vietnameseName": "Bộ lông cáo đỏ",
+    "category": "resource_basic",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Lông da cáo săn được từ vùng Rừng sồi phía Bắc. Dùng để may bộ quần áo lông thú Fur Set chống rét."
   }
 ]
