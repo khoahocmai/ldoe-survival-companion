@@ -1,5 +1,24 @@
 [
   {
+    "id": "home_base",
+    "name": "Home Base",
+    "vietnameseName": "Căn cứ người chơi",
+    "difficulty": "easy",
+    "dangerLevel": 1,
+    "energyCost": 0,
+    "description": "Mảnh đất an toàn cốt lõi nơi bạn xây dựng nơi trú ẩn, đặt bàn chế tác, chuồng chó, gara xe máy/ATV và các công trình kiên cố.",
+    "enemies": [
+      "roamer"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone",
+      "plant_fiber"
+    ],
+    "loot": [],
+    "notes": "Định kỳ sau mỗi 24 giờ sẽ có đàn Zombie Horde tấn công làm sập các bức tường cấp thấp nếu không được nâng cấp lên tường đá (Cấp 3)."
+  },
+  {
     "id": "pine_bushes",
     "name": "Pine Bushes",
     "vietnameseName": "Bụi thông xanh",
@@ -7,9 +26,20 @@
     "dangerLevel": 1,
     "energyCost": 10,
     "description": "Vùng an toàn lý tưởng cho người mới bắt đầu. Chứa nhiều gỗ thông, đá vôi và cây bụi để nhặt sợi.",
-    "enemies": ["roamer", "fast_biter"],
-    "resources": ["pine_log", "limestone", "plant_fiber"],
-    "loot": ["rope", "cloth", "bandage"],
+    "enemies": [
+      "roamer",
+      "fast_biter"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone",
+      "plant_fiber"
+    ],
+    "loot": [
+      "rope",
+      "cloth",
+      "bandages"
+    ],
     "notes": "Có thể dọn sạch chỉ bằng 1 cây Spear hoặc vài cú đánh Crowbar."
   },
   {
@@ -20,23 +50,54 @@
     "dangerLevel": 2,
     "energyCost": 15,
     "description": "Vùng mức độ trung bình với lượng gỗ thông dồi dào và thú hoang lấy thịt, da thô.",
-    "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
-    "resources": ["pine_log", "raw_hide", "plant_fiber", "limestone"],
-    "loot": ["duct_tape", "rope", "cloth", "green_coupon"],
-    "notes": "Nên mang theo ít nhất 1 vũ khí tốt như Cleaver hoặc Crowbar và 10 miếng băng gạc Bandage."
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater"
+    ],
+    "resources": [
+      "pine_log",
+      "raw_hide",
+      "plant_fiber",
+      "limestone"
+    ],
+    "loot": [
+      "duct_tape",
+      "rope",
+      "cloth",
+      "green_coupon"
+    ],
+    "notes": "Nên mang theo ít nhất 1 vũ khí tốt như Cleaver hoặc Crowbar và 10 miếng băng gạc Bandages."
   },
   {
-    "id": "pine_wood",
-    "name": "Pine Wood",
+    "id": "pine_woods",
+    "name": "Pine Woods",
     "vietnameseName": "Rừng thông đỏ",
     "difficulty": "hard",
     "dangerLevel": 3,
     "energyCost": 22,
-    "description": "Vùng nguy hiểm bậc cao với nhiều quái vật đột biến và xác suất xuất hiện NPC sát thủ cầm súng tỉa VSS Vintorez.",
-    "enemies": ["fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination"],
-    "resources": ["pine_log", "raw_hide", "iron_ore"],
-    "loot": ["duct_tape", "nails", "yellow_coupon", "red_coupon"],
-    "notes": "Luôn để ý radar mini map! Nếu thấy chấm đỏ di chuyển cực nhanh với súng tỉa thì hãy lập tức chạy khỏi mép bản đồ."
+    "description": "Vùng nguy hiểm bậc cao với nhiều quái vật đột biến và xác suất xuất hiện NPC sát thủ cầm súng tỉa VSS Vintorez hoặc The Big One.",
+    "enemies": [
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater",
+      "toxic_abomination",
+      "the_big_one"
+    ],
+    "resources": [
+      "pine_log",
+      "raw_hide",
+      "iron_ore",
+      "bauxite"
+    ],
+    "loot": [
+      "duct_tape",
+      "nails",
+      "yellow_coupon",
+      "red_coupon"
+    ],
+    "notes": "Luôn để ý radar mini map! Nếu thấy chấm đỏ di chuyển cực nhanh với súng tỉa hoặc The Big One thì hãy lập tức chạy khỏi mép bản đồ."
   },
   {
     "id": "limestone_ridge",
@@ -46,10 +107,20 @@
     "dangerLevel": 1,
     "energyCost": 10,
     "description": "Địa điểm tốt nhất để đào đá vôi và thu thập một số mỏ quặng sắt cơ bản.",
-    "enemies": ["roamer", "fast_biter"],
-    "resources": ["limestone", "iron_ore", "pine_log"],
-    "loot": ["rope", "cloth"],
-    "notes": "Mang cuốc đá (Pickaxe) để tối ưu việc khai khoáng quặng sắt."
+    "enemies": [
+      "roamer",
+      "fast_biter"
+    ],
+    "resources": [
+      "limestone",
+      "iron_ore",
+      "pine_log"
+    ],
+    "loot": [
+      "rope",
+      "cloth"
+    ],
+    "notes": "Mang theo 2 chiếc cuốc đá Pickaxe để đào hết toàn bộ khoáng sản."
   },
   {
     "id": "limestone_grove",
@@ -57,12 +128,26 @@
     "vietnameseName": "Mỏ đá vàng",
     "difficulty": "medium",
     "dangerLevel": 2,
-    "energyCost": 15,
-    "description": "Khu mỏ đá vôi tầm trung với trữ lượng quặng sắt phong phú hơn.",
-    "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
-    "resources": ["limestone", "iron_ore", "plant_fiber"],
-    "loot": ["duct_tape", "iron_bar", "green_coupon"],
-    "notes": "Cẩn thận tiếng đào đá sẽ thu hút zombie chạy tới từ phía sau."
+    "energyCost": 16,
+    "description": "Vùng đồi đá vôi mức độ trung bình với lượng lớn mỏ quặng sắt và đá khối.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater"
+    ],
+    "resources": [
+      "limestone",
+      "iron_ore",
+      "pine_log"
+    ],
+    "loot": [
+      "duct_tape",
+      "wire",
+      "green_coupon",
+      "yellow_coupon"
+    ],
+    "notes": "Cẩn thận với Floater Bloater dẫm đất gây choáng và Toxic Spitter phun dịch hôi thối."
   },
   {
     "id": "limestone_cliffs",
@@ -70,12 +155,161 @@
     "vietnameseName": "Vách đá đỏ",
     "difficulty": "hard",
     "dangerLevel": 3,
+    "energyCost": 24,
+    "description": "Vách đá hiểm trở đỏ rực với mật độ quặng sắt dồi dào, quặng nhôm bauxite và tỷ lệ đụng độ kẻ thù cực cao.",
+    "enemies": [
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater",
+      "toxic_abomination",
+      "the_big_one"
+    ],
+    "resources": [
+      "iron_ore",
+      "limestone",
+      "bauxite"
+    ],
+    "loot": [
+      "nails",
+      "duct_tape",
+      "yellow_coupon",
+      "red_coupon"
+    ],
+    "notes": "Nên dùng vũ khí giảm thanh hoặc kỹ năng ngồi lén lút (sneak attack) x3 sát thương."
+  },
+  {
+    "id": "oak_bushes",
+    "name": "Oak Bushes",
+    "vietnameseName": "Bụi cây sồi phía Bắc",
+    "difficulty": "medium",
+    "dangerLevel": 2,
     "energyCost": 22,
-    "description": "Vách đá cao hiểm trở, nguồn khai thác quặng sắt dày đặc nhất nhưng đầy rẫy quái vật độc hại.",
-    "enemies": ["fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination"],
-    "resources": ["iron_ore", "limestone", "raw_hide"],
-    "loot": ["duct_tape", "yellow_coupon", "red_coupon"],
-    "notes": "Nên trang bị giáp vải dày hoặc giáp chiến thuật và vũ khí sát thương cao."
+    "description": "Vùng đồi sồi mở khóa sau khi kích hoạt Tháp canh phương Bắc. Địa điểm lý tưởng để đốn hạ 8 - 12 cây sồi lấy gỗ nâng cấp tường đá.",
+    "enemies": [
+      "toxic_spitter",
+      "toxic_abomination",
+      "fast_biter"
+    ],
+    "resources": [
+      "oak_log",
+      "pine_log",
+      "iron_ore",
+      "limestone"
+    ],
+    "loot": [
+      "duct_tape",
+      "yellow_coupon",
+      "cloth",
+      "raw_hide"
+    ],
+    "notes": "Bắt buộc phải mang Rìu sắt (Iron Hatchet) mới chặt được thân cây sồi. Mặc quần áo giữ ấm cơ bản."
+  },
+  {
+    "id": "oak_grove",
+    "name": "Oak Grove",
+    "vietnameseName": "Rừng sồi đỏ nguyên sinh",
+    "difficulty": "hard",
+    "dangerLevel": 3,
+    "energyCost": 28,
+    "description": "Vùng rừng sồi mật độ dày nhất (25-35 cây sồi mỗi lần quét bản đồ). Nơi săn bắt cáo lông đỏ quý hiếm để may đồ lông thú.",
+    "enemies": [
+      "toxic_abomination",
+      "toxic_spitter",
+      "floater_bloater",
+      "fast_biter"
+    ],
+    "resources": [
+      "oak_log",
+      "fox_pelt",
+      "fur",
+      "iron_ore",
+      "bauxite"
+    ],
+    "loot": [
+      "red_coupon",
+      "yellow_coupon",
+      "nails",
+      "duct_tape",
+      "leather"
+    ],
+    "notes": "Mang theo 3-4 cây Rìu sắt và súng để dọn nhanh quái vật trước khi đốn gỗ."
+  },
+  {
+    "id": "frosty_backwoods",
+    "name": "Frosty Backwoods",
+    "vietnameseName": "Rừng tuyết băng giá phía Bắc",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 34,
+    "description": "Vùng rừng tuyết lạnh buốt phương Bắc, nơi hiếm hoi khai thác được Quặng đồng (Copper Ore). Đôi khi xuất hiện xác xe tăng quân sự chứa vũ khí.",
+    "enemies": [
+      "fast_biter",
+      "toxic_abomination",
+      "screamer"
+    ],
+    "resources": [
+      "copper_ore",
+      "pine_log",
+      "iron_ore"
+    ],
+    "loot": [
+      "aluminium_bar",
+      "first_aid_kit",
+      "gasoline",
+      "tactical_boots"
+    ],
+    "notes": "Bắt buộc phải mặc đầy đủ Bộ giáp lông thú (Fur Armor Set) hoặc nhóm lửa sưởi bằng gỗ để tránh bị chết cóng!"
+  },
+  {
+    "id": "snowy_cliffs",
+    "name": "Snowy Cliffs",
+    "vietnameseName": "Vách đá tuyết đóng băng",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 36,
+    "description": "Dãy vách núi tuyết cheo leo với trữ lượng Quặng đồng (Copper Ore) và sắt cao nhất. Băng giá khắc nghiệt và thú dữ tuyết hung hãn.",
+    "enemies": [
+      "toxic_abomination",
+      "floater_bloater",
+      "toxic_spitter"
+    ],
+    "resources": [
+      "copper_ore",
+      "iron_ore",
+      "limestone"
+    ],
+    "loot": [
+      "aluminium_bar",
+      "first_aid_kit",
+      "fur",
+      "factory_parts"
+    ],
+    "notes": "Cần Giáp lông thú dày và rượu sưởi ấm. Mang nhiều Cuốc chim sắt (Iron Pickaxe) để đào quặng đồng."
+  },
+  {
+    "id": "peat_bog",
+    "name": "Wild Bogs",
+    "vietnameseName": "Đầm than bùn hoang dã (Peat Bog)",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 32,
+    "description": "Vùng đầm lầy hiểm trở ngập bùn lún và khí độc mêtan. Nơi duy nhất khai thác Than bùn (Peat), quặng Lưu huỳnh (Sulfur) và quặng Chì (Lead).",
+    "enemies": [
+      "fetid_corpse",
+      "toxic_darter",
+      "exploder"
+    ],
+    "resources": [
+      "peat",
+      "sulfur",
+      "lead_ore"
+    ],
+    "loot": [
+      "anti_radiation_pills",
+      "carbon_composite",
+      "rubber_parts"
+    ],
+    "notes": "Bắt buộc phải lái xe ATV vượt bùn lún và đeo Mặt nạ phòng độc (Gas Mask / Protective Mask) để chống khí mêtan."
   },
   {
     "id": "bunker_alfa",
@@ -83,13 +317,96 @@
     "vietnameseName": "Hầm ngầm quân sự Alfa",
     "difficulty": "bunker",
     "dangerLevel": 4,
-    "energyCost": 26,
+    "energyCost": 25,
     "resetTimeHours": 48,
-    "description": "Hầm ngầm quân sự chiến lược gồm sảnh chính đổi vé và 4 tầng ngầm chứa đầy Frenzied Giant, súng đạn, giáp và động cơ xe máy.",
-    "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater", "toxic_abomination", "frenzied_giant", "the_blind_one"],
-    "resources": ["iron_bar", "steel_bar", "aluminium_bar"],
-    "loot": ["glock_17", "shotgun", "m16", "ak47", "tactical_body_armor", "swat_body_armor", "engine_part", "red_coupon", "yellow_coupon", "green_coupon"],
-    "notes": "Cần nhập mật mã Radio (A-Code) để mở cửa thang máy. Sử dụng chiến thuật Wall-trick tại Tầng 2 & 3 để tiết kiệm tối đa vũ khí súng."
+    "description": "Hầm ngầm quân sự chủ chốt nhất của game. Gồm 4 tầng ngầm chứa vô số súng đạn, giáp quân sự, thẻ vé Coupon đổi hòm và phụ tùng xe Chopper.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater",
+      "toxic_abomination",
+      "frenzied_giant",
+      "the_blind_one",
+      "turret",
+      "heavy_turret"
+    ],
+    "resources": [],
+    "loot": [
+      "glock_17",
+      "shotgun",
+      "m16",
+      "ak47",
+      "first_aid_kit",
+      "tactical_body_armor",
+      "chopper_wheel",
+      "engine_part",
+      "green_coupon",
+      "yellow_coupon",
+      "red_coupon"
+    ],
+    "notes": "Cần mật mã mở cửa hàng ngày từ radio. Tầng 3 có The Blind One (Boss mù) rớt 10 vé đỏ và phụ kiện súng."
+  },
+  {
+    "id": "bunker_bravo",
+    "name": "Bunker Bravo",
+    "vietnameseName": "Hầm ngầm quân sự Bravo",
+    "difficulty": "bunker",
+    "dangerLevel": 5,
+    "energyCost": 35,
+    "resetTimeHours": 60,
+    "description": "Căn cứ ngầm quân sự tối mật đã sụp đổ, bị nhiễm phóng xạ nặng nề. Là pháo đài endgame thử thách nhất để thu thập phụ tùng hoàn thiện xe địa hình bánh xích ATV.",
+    "enemies": [
+      "exploder",
+      "screamer",
+      "toxic_darter",
+      "fetid_corpse",
+      "colonel",
+      "turret",
+      "heavy_turret"
+    ],
+    "resources": [],
+    "loot": [
+      "atv_tracks",
+      "car_battery",
+      "gas_cylinder",
+      "carbon_composite",
+      "factory_parts",
+      "electronic_circuit",
+      "m16",
+      "ak47"
+    ],
+    "notes": "Phải mặc giáp chống phóng xạ (CBRN), dùng súng độ tối đa và kích hoạt các thiết bị thông gió khử phóng xạ tại Terminal."
+  },
+  {
+    "id": "blackport_pd",
+    "name": "Blackport PD",
+    "vietnameseName": "Sở cảnh sát Blackport (Đấu trường sóng)",
+    "difficulty": "event",
+    "dangerLevel": 3,
+    "energyCost": 20,
+    "resetTimeHours": 72,
+    "description": "Khu đồn cảnh sát bỏ hoang với đấu trường sinh tử 99 đợt sóng zombie. Nơi thu thập thẻ cảnh sát Police Badge để đổi các hòm vũ khí và bản vẽ phụ kiện súng cực xịn.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater",
+      "toxic_abomination",
+      "frenzied_giant",
+      "colonel"
+    ],
+    "resources": [],
+    "loot": [
+      "glock_17",
+      "shotgun",
+      "m16",
+      "ak47",
+      "first_aid_kit",
+      "carbon_composite",
+      "factory_parts"
+    ],
+    "notes": "Dùng lựu đạn M67 Grenade hoặc súng phóng lựu MGL để dọn sạch quái ở các wave cao một cách an toàn và tiết kiệm súng."
   },
   {
     "id": "crooked_creek_farm",
@@ -97,14 +414,140 @@
     "vietnameseName": "Nông trại Crooked Creek",
     "difficulty": "hard",
     "dangerLevel": 4,
-    "energyCost": 24,
+    "energyCost": 22,
     "resetTimeHours": 48,
-    "requiresChopper": true,
-    "description": "Nông trại bị bỏ hoang với chiếc hộp kho báu màu xanh lam Blue Crate, nơi trú ngụ của boss The Ravager và đàn zombie đột biến.",
-    "enemies": ["fast_biter", "floater_bloater", "frenzied_giant", "the_ravager"],
-    "resources": ["pine_log", "iron_ore", "raw_hide"],
-    "loot": ["bone", "machete", "glock_17", "engine_part"],
-    "notes": "Cần xe máy Chopper để chở máy cắt kho báu. Khi cắt hòm xanh tiếng cưa sẽ đánh thức toàn bộ zombie nông trại."
+    "description": "Nông trại ngoại ô bỏ hoang có cây cầu gỗ bắc qua suối. Chứa hòm xanh bí ẩn Blue Barn Crate cần cắt bằng máy cưa, và trùm The Ravager hung dữ.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "floater_bloater",
+      "toxic_abomination",
+      "frenzied_giant",
+      "the_ravager"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone",
+      "raw_hide",
+      "raw_meat"
+    ],
+    "loot": [
+      "chopper_wheel",
+      "engine_part",
+      "first_aid_kit",
+      "glock_17",
+      "shotgun",
+      "carbon_composite"
+    ],
+    "notes": "Sau khi dọn sạch, hãy đặt Hòm xanh lên máy cưa để rạch hòm. Âm thanh cưa sẽ kích hoạt đàn zombie từ trong chuồng bò tràn ra!"
+  },
+  {
+    "id": "port",
+    "name": "The Port",
+    "vietnameseName": "Cảng biển & Cống ngầm",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 28,
+    "resetTimeHours": 48,
+    "description": "Khu cảng biển công nghiệp với cần cẩu hàng, khu giao hàng tăng danh tiếng (Deliveries), lối vào hệ thống cống ngầm (Port Sewer) và xưởng đóng Thuyền máy.",
+    "enemies": [
+      "roamer",
+      "toxic_spitter",
+      "toxic_abomination",
+      "fetid_corpse",
+      "exploder"
+    ],
+    "resources": [
+      "scrap_metal"
+    ],
+    "loot": [
+      "rubber_parts",
+      "factory_parts",
+      "carbon_composite",
+      "boat_engine",
+      "electronic_circuit",
+      "hi_tech_component"
+    ],
+    "notes": "Cần Máy phát điện để khởi động thang máy xuống Cống ngầm (Sewer). Chú ý không chết trong các tầng hầm phụ vì đồ sẽ mất vĩnh viễn!"
+  },
+  {
+    "id": "genesis_laboratory",
+    "name": "Genesis Laboratory",
+    "vietnameseName": "Phòng thí nghiệm Genesis (Lab)",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 32,
+    "resetTimeHours": 72,
+    "description": "Cơ sở nghiên cứu tối mật của Genesis với các khu vực Sector A và B. Tràn ngập bào tử đột biến, quái vật axit và cạm bẫy công nghệ sinh học tối tân.",
+    "enemies": [
+      "screamer",
+      "toxic_darter",
+      "exploder",
+      "fetid_corpse",
+      "toxic_abomination"
+    ],
+    "resources": [],
+    "loot": [
+      "anti_spore_pistol",
+      "anti_spore_sniper_rifle",
+      "anti_radiation_pills",
+      "spore_destroyer",
+      "carbon_composite",
+      "electronic_circuit"
+    ],
+    "notes": "Bắt buộc trang bị đồ chống bào tử Bio-threat. Được chọn các đặc quyền (perks) tại terminal trước mỗi đợt quét phòng."
+  },
+  {
+    "id": "transport_hub",
+    "name": "Transport Hub",
+    "vietnameseName": "Trạm trung chuyển hàng hóa",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 28,
+    "resetTimeHours": 48,
+    "description": "Khu kho vận container khổng lồ của Genesis. Người chơi dùng Drone bay quét mã mở cửa, sửa xe nâng và giao chiến với đại boss The Miner hoặc The Butcher.",
+    "enemies": [
+      "frenzied_giant",
+      "toxic_abomination",
+      "toxic_spitter",
+      "the_miner",
+      "the_butcher",
+      "toxic_darter"
+    ],
+    "resources": [],
+    "loot": [
+      "drone_parts",
+      "hydraulic_cylinder",
+      "titanium_bar",
+      "carbon_composite",
+      "factory_parts",
+      "hi_tech_component"
+    ],
+    "notes": "Yêu cầu có Drone bay hoàn thiện để mở cửa container. Đánh bại boss ngẫu nhiên (The Miner hoặc The Butcher) để đoạt thẻ mở phòng điều khiển."
+  },
+  {
+    "id": "gas_station",
+    "name": "Gas Station",
+    "vietnameseName": "Trạm xăng ven xa lộ",
+    "difficulty": "medium",
+    "dangerLevel": 2,
+    "energyCost": 18,
+    "resetTimeHours": 48,
+    "description": "Trạm dịch vụ và gara xe máy của nữ thợ máy Jane. Nơi nâng cấp xe Chopper, máy đánh bạc nắp chai (Slot Machine) và đấu trường đường cao tốc (Highway).",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "floater_bloater"
+    ],
+    "resources": [],
+    "loot": [
+      "gasoline",
+      "caps",
+      "engine_part",
+      "rubber_parts",
+      "atv_transmission"
+    ],
+    "notes": "Tích lũy nắp chai may mắn (Caps) để quay thưởng hộp số ATV Transmission tại quầy Slot Machine."
   },
   {
     "id": "motel",
@@ -114,11 +557,236 @@
     "dangerLevel": 1,
     "energyCost": 12,
     "resetTimeHours": 36,
-    "description": "Nhà nghỉ ven xa lộ, nguồn cung cấp nước uống, đồ hộp, quần áo và nước tăng lực tuyệt vời cho người mới bắt đầu.",
-    "enemies": ["roamer", "fast_biter"],
-    "resources": ["pine_log", "cloth"],
-    "loot": ["bandage", "duct_tape", "rope", "green_coupon"],
-    "notes": "Có thể phá các cửa phòng bằng rìu thường. Đừng quên nhặt các lon thức ăn và chai nước."
+    "description": "Nhà nghỉ hai tầng đổ nát gần căn cứ chính. Rất nhiều đồ ăn, nước uống, năng lượng và linh kiện cơ bản cho người sống sót.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "floater_bloater"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone"
+    ],
+    "loot": [
+      "canned_food",
+      "bottle_of_water",
+      "cloth",
+      "rope",
+      "engine_part"
+    ],
+    "notes": "Dùng xà bén Crowbar hoặc rìu để cạy phá các cánh cửa phòng bị kẹt. Phòng tầng trên có thể chứa bình gas rò rỉ."
+  },
+  {
+    "id": "settlement",
+    "name": "The Settlement",
+    "vietnameseName": "Khu định cư của những người sống sót",
+    "difficulty": "easy",
+    "dangerLevel": 1,
+    "energyCost": 0,
+    "description": "Đại căn cứ thứ hai của người sống sót với các công trình quy mô: Trụ sở chỉ huy, Doanh trại lính, Xưởng gỗ, Xưởng đúc. Cử lính đánh thuê đi Thám hiểm (Expeditions).",
+    "enemies": [],
+    "resources": [
+      "pine_log",
+      "iron_ore"
+    ],
+    "loot": [
+      "electronic_circuit",
+      "rubber_parts",
+      "bolt"
+    ],
+    "notes": "Đi lại giữa Căn cứ chính và Khu định cư hoàn toàn MIỄN PHÍ (0 năng lượng)."
+  },
+  {
+    "id": "abandoned_factory",
+    "name": "Abandoned Factory",
+    "vietnameseName": "Nhà máy công nghiệp bỏ hoang",
+    "difficulty": "medium",
+    "dangerLevel": 3,
+    "energyCost": 20,
+    "resetTimeHours": 24,
+    "description": "Nhà máy sản xuất cũ với các phân xưởng máy móc han rỉ và tầng hầm ngập nước rò rỉ khí độc. Nguồn cung cấp linh kiện máy móc và phụ tùng nhà máy.",
+    "enemies": [
+      "roamer",
+      "toxic_spitter",
+      "floater_bloater",
+      "frenzied_giant"
+    ],
+    "resources": [
+      "iron_ore"
+    ],
+    "loot": [
+      "factory_parts",
+      "electronic_circuit",
+      "engine_part",
+      "bolt"
+    ],
+    "notes": "Cẩn thận khóa van khí độc trước khi bước vào kho hàng. Có người sống sót NPC bị kẹt cần giải cứu."
+  },
+  {
+    "id": "hunters_camp",
+    "name": "Hunter's Camp",
+    "vietnameseName": "Trại thợ săn (Hunting Grounds)",
+    "difficulty": "event",
+    "dangerLevel": 3,
+    "energyCost": 20,
+    "resetTimeHours": 48,
+    "description": "Khu trại của thợ săn Gerard và nhà sinh thái Isabelle. Chuyên phục vụ chuỗi sự kiện Bản năng thợ săn (Hunter's Instinct) để nghiên cứu và săn các loài thú đột biến.",
+    "enemies": [
+      "roamer",
+      "floater_bloater",
+      "toxic_spitter"
+    ],
+    "resources": [
+      "raw_hide",
+      "raw_meat"
+    ],
+    "loot": [
+      "leather",
+      "fur",
+      "bandages"
+    ],
+    "notes": "Tuyệt đối không dùng súng hoặc vũ khí thường tấn công thú săn vì sẽ làm hỏng mẫu da! Hãy vào hang động tìm đá mài (Abrasive) để chế vũ khí săn chuyên dụng."
+  },
+  {
+    "id": "fishing_spot",
+    "name": "Fishing Spot",
+    "vietnameseName": "Điểm câu cá (Cầu tàu)",
+    "difficulty": "easy",
+    "dangerLevel": 1,
+    "energyCost": 12,
+    "resetTimeHours": 12,
+    "description": "Điểm câu cá ven sông yên bình xuất hiện định kỳ trên bản đồ thế giới. Nơi người chơi thả mồi câu các loài cá nước ngọt quý giá.",
+    "enemies": [
+      "roamer",
+      "fast_biter"
+    ],
+    "resources": [
+      "perch",
+      "salmon"
+    ],
+    "loot": [],
+    "notes": "Yêu cầu có Kỹ năng Người câu cá (Fisherman Skill) và Cần câu (Fishing Rod). Nấu cá trên bếp giúp cung cấp bùa buff hữu ích."
+  },
+  {
+    "id": "infected_forest",
+    "name": "Infected Forest",
+    "vietnameseName": "Rừng nhiễm độc (Sào huyệt Phù thủy)",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 25,
+    "description": "Khu rừng cây khô cằn chết chóc, nơi cư ngụ của trùm Phù thủy (The Witch) và luôn có The Big One rình rập vĩnh viễn. Nơi xuất phát của đàn Zombie Horde.",
+    "enemies": [
+      "the_witch",
+      "the_big_one",
+      "floater_bloater",
+      "toxic_spitter",
+      "toxic_abomination"
+    ],
+    "resources": [
+      "pine_log"
+    ],
+    "loot": [
+      "bone",
+      "raw_hide",
+      "witch_head"
+    ],
+    "notes": "Không có rương đồ thông thường! Đem C4 đốt tổ kén và tiêu diệt Phù thủy lấy Đầu phù thủy (Witch's Head) về đốt xua đuổi bầy zombie phá nhà."
+  },
+  {
+    "id": "shipwreck",
+    "name": "Shipwreck",
+    "vietnameseName": "Xác tàu chở hàng đắm",
+    "difficulty": "event",
+    "dangerLevel": 2,
+    "energyCost": 15,
+    "resetTimeHours": 24,
+    "description": "Sự kiện bờ biển giới hạn thời gian: một chiếc tàu vận tải hàng hóa bị sóng đánh dạt vào bãi đá, để lại vô số kiện hàng giá trị.",
+    "enemies": [
+      "roamer",
+      "fast_biter",
+      "floater_bloater"
+    ],
+    "resources": [],
+    "loot": [
+      "iron_bar",
+      "duct_tape",
+      "cloth",
+      "bandages",
+      "first_aid_kit",
+      "factory_parts"
+    ],
+    "notes": "Mở các kiện hàng chở đồ sẽ thu hút từng đợt zombie chạy từ mép biển lên bờ. Chuẩn bị vũ khí cận chiến và băng gạc."
+  },
+  {
+    "id": "cemetery",
+    "name": "Cemetery",
+    "vietnameseName": "Nghĩa trang u ám (Sự kiện đêm)",
+    "difficulty": "event",
+    "dangerLevel": 4,
+    "energyCost": 24,
+    "description": "Nghĩa địa hoang vắng phát sáng dưới ánh trăng u tối. Nơi người chơi có thể đào các ngôi mộ cổ tìm kiếm kho báu và đối đầu với linh hồn bóng tối.",
+    "enemies": [
+      "screamer",
+      "roamer",
+      "fast_biter",
+      "toxic_spitter"
+    ],
+    "resources": [],
+    "loot": [
+      "bone",
+      "steel_bar",
+      "electronic_circuit",
+      "hi_tech_component"
+    ],
+    "notes": "Sự kiện diễn ra vào ban đêm. Luôn mang theo xẻng đào và nguồn sáng. Đào mộ có thể kích hoạt bẫy hoặc đánh thức xác chết cổ đại."
+  },
+  {
+    "id": "sand_quarry",
+    "name": "Sand Quarry",
+    "vietnameseName": "Mỏ cát hải đảo",
+    "difficulty": "medium",
+    "dangerLevel": 3,
+    "energyCost": 26,
+    "description": "Mỏ khai thác cát nằm trên một hòn đảo ngoài khơi xa, yêu cầu di chuyển bằng Thuyền máy (Motorboat). Nguồn cung cấp Cát để luyện kính và đổ bê tông xây tường.",
+    "enemies": [
+      "roamer",
+      "toxic_spitter",
+      "floater_bloater"
+    ],
+    "resources": [
+      "sand",
+      "limestone"
+    ],
+    "loot": [
+      "plastic",
+      "rope"
+    ],
+    "notes": "Đòi hỏi phải chế tạo hoàn thiện Thuyền máy (Motorboat) tại Cảng. Mang theo Xẻng xúc cát để thu thập cát nhanh chóng."
+  },
+  {
+    "id": "dead_island",
+    "name": "Dead Island",
+    "vietnameseName": "Đảo chết ngoài khơi",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 35,
+    "description": "Hòn đảo hoang dã nguy hiểm nhất giữa đại dương, chỉ đến được bằng Thuyền máy. Nơi duy nhất trên thế giới có thể khai thác mỏ Quặng Titan (Titanium Ore) tối cao.",
+    "enemies": [
+      "toxic_abomination",
+      "exploder",
+      "fetid_corpse"
+    ],
+    "resources": [
+      "titanium_ore",
+      "sand"
+    ],
+    "loot": [
+      "carbon_composite",
+      "electronic_circuit",
+      "c4_explosive",
+      "hi_tech_component"
+    ],
+    "notes": "Cẩn thận với các kén nhộng biến dị có khả năng phát nổ gây sát thương cực mạnh. Cần cuốc sắt hoặc cuốc titan để khai thác quặng titan."
   },
   {
     "id": "northern_watchtower",
@@ -126,24 +794,204 @@
     "vietnameseName": "Tháp canh phía Bắc",
     "difficulty": "hard",
     "dangerLevel": 4,
-    "energyCost": 28,
-    "requiresChopper": true,
-    "description": "Tháp quan sát vùng băng tuyết phía Bắc. Kích hoạt tháp sẽ mở khóa các vùng Rừng sồi (Oak Grove) và Vùng tuyết.",
-    "enemies": ["fast_biter", "floater_bloater", "toxic_abomination"],
-    "resources": ["pine_log", "limestone"],
-    "loot": ["bolt", "wrench"],
-    "notes": "Yêu cầu chở Máy phát điện (Electric Generator) trên xe Chopper đến cắm vào nguồn điện tháp canh."
+    "energyCost": 25,
+    "description": "Tháp quan sát quân sự phía Bắc bị cắt nguồn điện. Lắp đặt Máy phát điện sẽ mở khóa toàn bộ vùng Rừng sồi (Oak) và Đất tuyết phương Bắc.",
+    "enemies": [
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater",
+      "toxic_abomination"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone"
+    ],
+    "loot": [
+      "wrench",
+      "electronic_circuit",
+      "bolt"
+    ],
+    "notes": "Phải lắp ráp Máy phát điện (Electric Generator) hoàn chỉnh ở nhà rồi chở bằng xe máy Chopper tới cắm vào trạm nguồn."
   },
   {
-    "id": "blackport_pd",
-    "name": "Blackport PD",
-    "vietnameseName": "Sở cảnh sát Blackport (đấu trường sóng)",
-    "difficulty": "event",
+    "id": "eastern_watchtower",
+    "name": "Eastern Watchtower",
+    "vietnameseName": "Tháp canh phía Đông",
+    "difficulty": "medium",
     "dangerLevel": 3,
-    "description": "Đấu trường phòng thủ 99 đợt sóng zombie để thu thập Thẻ cảnh sát đổi vũ khí và bản thiết kế súng hiếm.",
-    "enemies": ["roamer", "fast_biter", "toxic_spitter", "floater_bloater"],
+    "energyCost": 20,
+    "description": "Tháp canh ven biển bờ Đông. Sửa chữa mạng lưới dây điện và khởi động trạm phát sóng để quét bản đồ mở đường tới Cảng (Port) và Sở cảnh sát Blackport.",
+    "enemies": [
+      "fast_biter",
+      "toxic_spitter",
+      "floater_bloater"
+    ],
+    "resources": [
+      "pine_log",
+      "limestone"
+    ],
+    "loot": [
+      "wire",
+      "electronic_circuit",
+      "bolt"
+    ],
+    "notes": "Cần dây điện, bóng đèn và ốc vít để khôi phục bảng điều khiển. Bật nguồn sẽ kích hoạt bầy quái xông ra tấn công tháp."
+  },
+  {
+    "id": "swamp_watchtower",
+    "name": "Swamp Watchtower",
+    "vietnameseName": "Tháp canh vùng đầm lầy",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 30,
+    "description": "Tháp canh ngập bùn nằm sâu trong lưu vực đầm lầy phía Tây. Mở khóa vùng đất than bùn hoang dã và trạm khai thác khoáng sản.",
+    "enemies": [
+      "fetid_corpse",
+      "toxic_darter",
+      "toxic_abomination"
+    ],
     "resources": [],
-    "loot": [],
-    "notes": "Quái trong đấu trường sóng KHÔNG cộng điểm cho sự kiện Tiếp tế (Supply)."
+    "loot": [
+      "engine_part",
+      "rubber_parts",
+      "factory_parts"
+    ],
+    "notes": "Cần sử dụng xe địa hình ATV để chở Máy phát điện (Electric Generator) vượt qua sình lầy để cấp nguồn cho tháp."
+  },
+  {
+    "id": "airdrop",
+    "name": "Air Drop",
+    "vietnameseName": "Hòm thính cứu trợ thả dù",
+    "difficulty": "event",
+    "dangerLevel": 2,
+    "energyCost": 15,
+    "resetTimeHours": 1,
+    "description": "Kiện hàng viện trợ khẩn cấp được máy bay thả xuống vùng ngoại ô ngẫu nhiên khi người chơi dưới 70 năng lượng. Kéo dài trong khoảng 30 - 50 phút.",
+    "enemies": [
+      "roamer",
+      "fast_biter"
+    ],
+    "resources": [],
+    "loot": [
+      "glock_17",
+      "shotgun",
+      "first_aid_kit",
+      "tactical_body_armor",
+      "canned_food"
+    ],
+    "notes": "Rất dễ ăn và hữu ích cho người chơi mới. Đôi khi có 1 người sống sót NPC cầm súng ngắn chạy tới tranh giành hòm."
+  },
+  {
+    "id": "crashed_plane",
+    "name": "Crashed Plane",
+    "vietnameseName": "Máy bay chở khách rơi",
+    "difficulty": "event",
+    "dangerLevel": 1,
+    "energyCost": 12,
+    "description": "Chiếc máy bay chở khách lâm nạn giữa đồng hoang. Rải rác hàng chục chiếc vali hành lý chứa đầy quần áo, giày thể thao, thực phẩm, nước uống và đồ điện tử.",
+    "enemies": [
+      "roamer"
+    ],
+    "resources": [],
+    "loot": [
+      "shirt",
+      "sneakers",
+      "bottle_of_water",
+      "canned_food",
+      "gold_watch",
+      "cell_phone"
+    ],
+    "notes": "Sự kiện khởi đầu xuất hiện từ 2 - 3 lần cho người chơi mới. Quái vật rất yếu và đồ đạc cực kỳ nhiều, hãy mang theo túi đồ trống!"
+  },
+  {
+    "id": "dealer_joe",
+    "name": "Dealer Joe",
+    "vietnameseName": "Thương nhân lái buôn vũ khí Joe",
+    "difficulty": "event",
+    "dangerLevel": 1,
+    "energyCost": 10,
+    "resetTimeHours": 1,
+    "description": "Gã lái buôn Joe đứng cạnh xe tải trên đường cái, sẵn sàng trao đổi các thùng vũ khí quân dụng lấy các món đồ lặt vặt (thuốc lá, đồng hồ, vàng, gỗ, pin).",
+    "enemies": [],
+    "resources": [],
+    "loot": [
+      "ak47",
+      "m16",
+      "shotgun",
+      "glock_17"
+    ],
+    "notes": "Liên lạc qua đài radio CB Radio ở nhà để biết Joe đang cần món đồ nào trước khi xuất phát, tránh tốn công đi lại."
+  },
+  {
+    "id": "destroyed_convoy",
+    "name": "Destroyed Convoy",
+    "vietnameseName": "Đoàn xe quân sự bị phục kích",
+    "difficulty": "event",
+    "dangerLevel": 4,
+    "energyCost": 24,
+    "description": "Đoàn xe thiết giáp của quân đội bị bầy xác sống phục kích tan xác. Rải rác xác xe humvee, binh lính thây ma và ngón tay đứt lìa (Severed Finger) của chỉ huy.",
+    "enemies": [
+      "floater_bloater",
+      "frenzied_giant",
+      "the_big_one"
+    ],
+    "resources": [],
+    "loot": [
+      "severed_finger",
+      "swat_helmet",
+      "military_backpack",
+      "m16",
+      "c4_explosive"
+    ],
+    "notes": "Tìm kiếm ngón tay binh lính (Severed Finger) để đem về quẹt khóa sinh trắc học mở phòng đồ bí mật ở tầng 1 Bunker Alfa."
+  },
+  {
+    "id": "rest_stop",
+    "name": "Rest Stop",
+    "vietnameseName": "Trạm dừng nghỉ xe máy (Chopper Event)",
+    "difficulty": "event",
+    "dangerLevel": 4,
+    "requiresChopper": true,
+    "energyCost": 28,
+    "description": "Sự kiện đụng độ tốc độ cao chỉ xuất hiện khi người chơi lái xe máy Chopper. Nơi các băng đảng cướp hoặc các nhóm tay đua tranh chấp kho đồ.",
+    "enemies": [
+      "fast_biter",
+      "toxic_spitter"
+    ],
+    "resources": [],
+    "loot": [
+      "gasoline",
+      "glock_17",
+      "m16",
+      "grenade",
+      "chopper_wheel"
+    ],
+    "notes": "Yêu cầu có xe máy Chopper. Cẩn thận vì các NPC ở đây cầm súng bắn tỉa Sniper hoặc Shotgun có thể bắn hạ bạn rất nhanh. Đừng quên mang chai rỗng để hút trộm xăng từ xe của địch!"
+  },
+  {
+    "id": "junkyard",
+    "name": "Junkyard",
+    "vietnameseName": "Bãi phế liệu ô tô hoang tàn",
+    "difficulty": "event",
+    "dangerLevel": 4,
+    "requiresChopper": true,
+    "energyCost": 30,
+    "description": "Bãi xe ô tô phế liệu khổng lồ đầy cạm bẫy, yêu cầu cấp độ xe máy Chopper từ cấp 40 trở lên. Nơi tìm kiếm linh kiện động cơ xe quý hiếm.",
+    "enemies": [
+      "floater_bloater",
+      "toxic_spitter",
+      "frenzied_giant"
+    ],
+    "resources": [
+      "scrap_metal"
+    ],
+    "loot": [
+      "engine_part",
+      "steel_plate",
+      "rubber_parts",
+      "gasoline",
+      "atv_tracks"
+    ],
+    "notes": "Cần nâng cấp xe Chopper lên cấp 40+ tại Trạm xăng mới có thể tham gia. Đem theo súng và đồ giải cứu máy móc."
   }
 ]

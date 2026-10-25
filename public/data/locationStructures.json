@@ -10,12 +10,22 @@
         "id": "stage_install_generator",
         "name": "Lắp đặt Máy phát điện hoàn chỉnh",
         "requirements": [
-          { "itemId": "electric_generator", "quantity": 1 },
-          { "itemId": "crowbar", "quantity": 1 }
+          {
+            "itemId": "electric_generator",
+            "quantity": 1
+          },
+          {
+            "itemId": "crowbar",
+            "quantity": 1
+          }
         ]
       }
     ],
-    "unlocks": ["oak_bushes", "oak_grove", "snow_zone"],
+    "unlocks": [
+      "oak_bushes",
+      "oak_grove",
+      "snow_zone"
+    ],
     "notes": "Máy phát điện phải được lắp ráp hoàn chỉnh tại căn cứ rồi chở bằng xe máy Chopper đến Tháp canh. Chuẩn bị súng đạn vì khi cắm điện sẽ có đàn zombie tràn ra bao vây!"
   },
   {
@@ -29,14 +39,29 @@
         "id": "stage_bridge_framing",
         "name": "Gia cố mặt cầu và cọc giằng",
         "requirements": [
-          { "itemId": "pine_plank", "quantity": 100 },
-          { "itemId": "iron_bar", "quantity": 10 },
-          { "itemId": "rope", "quantity": 10 },
-          { "itemId": "nails", "quantity": 10 }
+          {
+            "itemId": "pine_plank",
+            "quantity": 100
+          },
+          {
+            "itemId": "iron_bar",
+            "quantity": 10
+          },
+          {
+            "itemId": "rope",
+            "quantity": 10
+          },
+          {
+            "itemId": "nails",
+            "quantity": 10
+          }
         ]
       }
     ],
-    "unlocks": ["farm_main_compound", "blue_crate_saw"],
+    "unlocks": [
+      "farm_main_compound",
+      "blue_crate_saw"
+    ],
     "notes": "Chỉ cần sửa cầu một lần duy nhất, sau các đợt reset 48 tiếng cây cầu vẫn nguyên vẹn."
   },
   {
@@ -52,7 +77,134 @@
         "requirements": []
       }
     ],
-    "unlocks": ["bunker_alfa_floor_2", "bunker_alfa_floor_3", "bunker_alfa_floor_4"],
+    "unlocks": [
+      "bunker_alfa_floor_2",
+      "bunker_alfa_floor_3",
+      "bunker_alfa_floor_4"
+    ],
     "notes": "Lấy mật mã hàng ngày từ đài radio CB Radio ở nhà hoặc từ xác binh lính tại các vùng rừng/mỏ đá."
+  },
+  {
+    "id": "struct_eastern_watchtower",
+    "locationId": "eastern_watchtower",
+    "name": "Eastern Watchtower Radar Grid",
+    "type": "repair",
+    "description": "Khôi phục hệ thống dây cáp điện, bảng điều khiển và máy biến áp để mở tầm quét bờ biển phía Đông tới Cảng (The Port) và Sở cảnh sát Blackport.",
+    "stages": [
+      {
+        "id": "stage_repair_radar",
+        "name": "Sửa chữa hệ thống radar & mạng lưới điện",
+        "requirements": [
+          {
+            "itemId": "wire",
+            "quantity": 10
+          },
+          {
+            "itemId": "bolt",
+            "quantity": 10
+          },
+          {
+            "itemId": "electronic_circuit",
+            "quantity": 2
+          },
+          {
+            "itemId": "rubber_parts",
+            "quantity": 5
+          }
+        ]
+      }
+    ],
+    "unlocks": [
+      "port",
+      "blackport_pd",
+      "transport_hub"
+    ],
+    "notes": "Sau khi bật nguồn điện, còi báo động sẽ hú vang và thu hút một đàn zombie tới tấn công."
+  },
+  {
+    "id": "struct_swamp_watchtower",
+    "locationId": "swamp_watchtower",
+    "name": "Swamp Watchtower Substation",
+    "type": "unlock",
+    "description": "Vận chuyển Máy phát điện (Electric Generator) bằng xe địa hình bánh xích ATV vượt qua bùn lún để cấp điện cho trạm phát sóng đầm lầy.",
+    "stages": [
+      {
+        "id": "stage_install_swamp_gen",
+        "name": "Lắp đặt Máy phát điện hoàn chỉnh",
+        "requirements": [
+          {
+            "itemId": "electric_generator",
+            "quantity": 1
+          },
+          {
+            "itemId": "wrench",
+            "quantity": 2
+          }
+        ]
+      }
+    ],
+    "unlocks": [
+      "peat_bog"
+    ],
+    "notes": "Bắt buộc phải có xe địa hình ATV mới có thể chở máy phát điện đến đây."
+  },
+  {
+    "id": "struct_port_sewer",
+    "locationId": "port",
+    "name": "Port Sewer Drainage Pump & Lift",
+    "type": "unlock",
+    "description": "Kích hoạt máy phát điện cho hệ thống thang máy và bơm thoát nước tại nhà máy Big Tuna để mở lối xuống cống ngầm Port Sewer.",
+    "stages": [
+      {
+        "id": "stage_port_generator",
+        "name": "Cấp nguồn trạm bơm cống ngầm",
+        "requirements": [
+          {
+            "itemId": "electric_generator",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "unlocks": [
+      "port_sewer_sublevel"
+    ],
+    "notes": "Cần 1 Máy phát điện nguyên chiếc để khởi động cửa cống ngầm."
+  },
+  {
+    "id": "struct_transport_hub_bridge",
+    "locationId": "transport_hub",
+    "name": "Transport Hub Bridge Repair",
+    "type": "repair",
+    "description": "Sửa chữa cây cầu vượt và cấp nhiên liệu cho xe nâng để tiếp cận kho hàng container tối mật.",
+    "stages": [
+      {
+        "id": "stage_repair_bridge",
+        "name": "Sửa chữa cầu vượt dẫn sang kho bãi",
+        "requirements": [
+          {
+            "itemId": "pine_plank",
+            "quantity": 20
+          },
+          {
+            "itemId": "iron_plate",
+            "quantity": 10
+          },
+          {
+            "itemId": "nails",
+            "quantity": 15
+          },
+          {
+            "itemId": "rope",
+            "quantity": 5
+          }
+        ]
+      }
+    ],
+    "unlocks": [
+      "hub_warehouse",
+      "drone_upgrade_station"
+    ],
+    "notes": "Cần hoàn thiện Drone bay để điều khiển mở các cánh cổng từ xa."
   }
 ]

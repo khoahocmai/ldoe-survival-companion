@@ -7,16 +7,29 @@
     "hp": 40,
     "damage": 6,
     "armor": 0,
-    "attackSpeed": 1.0,
+    "attackSpeed": 1,
     "movementSpeed": "normal",
     "dangerRating": 1,
     "description": "Loại zombie chậm chạp phổ biến nhất tại các vùng rừng và núi đá cơ bản.",
     "abilities": [],
     "drops": [
-      { "itemId": "cloth", "chance": "50%", "quantity": "1-2" },
-      { "itemId": "rope", "chance": "30%", "quantity": "1" }
+      {
+        "itemId": "cloth",
+        "chance": "50%",
+        "quantity": "1-2"
+      },
+      {
+        "itemId": "rope",
+        "chance": "30%",
+        "quantity": "1"
+      }
     ],
-    "locations": ["pine_bushes", "limestone_ridge", "pine_grove", "motel"],
+    "locations": [
+      "pine_bushes",
+      "limestone_ridge",
+      "pine_grove",
+      "motel"
+    ],
     "combatTips": [
       "Có thể tiêu diệt bằng 4 phát chém giáo hoặc 1 đòn sneak bằng Machete/Saw Blade Mace.",
       "Dễ dàng kite hoặc né tránh mà không tốn giáp."
@@ -34,12 +47,28 @@
     "movementSpeed": "fast",
     "dangerRating": 2,
     "description": "Zombie lao tới tấn công với tốc độ nhanh, có thể gây bất ngờ khi bạn đang chặt cây đào đá.",
-    "abilities": ["Sprint attack"],
-    "drops": [
-      { "itemId": "cloth", "chance": "60%", "quantity": "1-3" },
-      { "itemId": "rope", "chance": "40%", "quantity": "1" }
+    "abilities": [
+      "Sprint attack"
     ],
-    "locations": ["pine_bushes", "pine_grove", "pine_wood", "limestone_ridge", "bunker_alfa"],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "60%",
+        "quantity": "1-3"
+      },
+      {
+        "itemId": "rope",
+        "chance": "40%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "pine_bushes",
+      "pine_grove",
+      "pine_grove",
+      "limestone_ridge",
+      "bunker_alfa"
+    ],
     "combatTips": [
       "Đòn sneak attack bằng Cleaver (51 dmg) hoặc Crowbar (51 dmg) sẽ rút phần lớn máu trước khi cận chiến.",
       "Sneak bằng Saw Blade Mace (165 dmg) sẽ hạ gục ngay lập tức."
@@ -57,11 +86,22 @@
     "movementSpeed": "fast",
     "dangerRating": 2,
     "description": "Khạc chất độc dạng axit tầm xa. Nếu bị trúng độc 3 lần, người chơi sẽ phát ra mùi hôi thối và thu hút toàn bộ quái trong bản đồ.",
-    "abilities": ["Acid Spit (khoảng cách 15m, gây hôi thối)"],
-    "drops": [
-      { "itemId": "cloth", "chance": "50%", "quantity": "1-2" }
+    "abilities": [
+      "Acid Spit (khoảng cách 15m, gây hôi thối)"
     ],
-    "locations": ["pine_grove", "pine_wood", "limestone_cliffs", "bunker_alfa"],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "50%",
+        "quantity": "1-2"
+      }
+    ],
+    "locations": [
+      "pine_grove",
+      "pine_grove",
+      "limestone_cliffs",
+      "bunker_alfa"
+    ],
     "combatTips": [
       "Di chuyển theo đường zig-zag để né luồng phun axit màu xanh lá.",
       "Ưu tiên tiêu diệt trước các Bloater để tránh bị 'bốc mùi'."
@@ -79,13 +119,32 @@
     "movementSpeed": "slow",
     "dangerRating": 3,
     "description": "Cơ thể to lớn phình trướng. Khi tiếp cận, hắn nhảy lên cao rồi đập mạnh xuống đất gây sát thương diện rộng hình tròn đỏ.",
-    "abilities": ["Body Slam AOE (60 sát thương nếu đứng trong vòng đỏ)"],
-    "drops": [
-      { "itemId": "cloth", "chance": "70%", "quantity": "2-4" },
-      { "itemId": "green_coupon", "chance": "40%", "quantity": "1" },
-      { "itemId": "yellow_coupon", "chance": "20%", "quantity": "1" }
+    "abilities": [
+      "Body Slam AOE (60 sát thương nếu đứng trong vòng đỏ)"
     ],
-    "locations": ["pine_grove", "pine_wood", "limestone_grove", "bunker_alfa"],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "70%",
+        "quantity": "2-4"
+      },
+      {
+        "itemId": "green_coupon",
+        "chance": "40%",
+        "quantity": "1"
+      },
+      {
+        "itemId": "yellow_coupon",
+        "chance": "20%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "pine_grove",
+      "pine_grove",
+      "limestone_grove",
+      "bunker_alfa"
+    ],
     "combatTips": [
       "Khi thấy hắn dậm chân chuẩn bị nhảy, chạy ngay ra khỏi vòng cảnh báo màu đỏ.",
       "Sau cú nhảy hụt, hắn bị đơ khoảng 1.5 giây, đây là thời điểm tuyệt vời để phản công dồn dập."
@@ -103,13 +162,31 @@
     "movementSpeed": "slow",
     "dangerRating": 3,
     "description": "Phiên bản tiến hóa nguy hiểm hơn của Floater Bloater với 300 HP và đòn nhảy đè lên tới 75 sát thương.",
-    "abilities": ["Toxic Slam AOE (75 damage AOE)"],
-    "drops": [
-      { "itemId": "cloth", "chance": "80%", "quantity": "3-5" },
-      { "itemId": "yellow_coupon", "chance": "50%", "quantity": "1" },
-      { "itemId": "red_coupon", "chance": "15%", "quantity": "1" }
+    "abilities": [
+      "Toxic Slam AOE (75 damage AOE)"
     ],
-    "locations": ["pine_wood", "limestone_cliffs", "bunker_alfa"],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "80%",
+        "quantity": "3-5"
+      },
+      {
+        "itemId": "yellow_coupon",
+        "chance": "50%",
+        "quantity": "1"
+      },
+      {
+        "itemId": "red_coupon",
+        "chance": "15%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "pine_grove",
+      "limestone_cliffs",
+      "bunker_alfa"
+    ],
     "combatTips": [
       "Dùng phương pháp Wall-trick trong Bunker Alfa để tiêu diệt bằng Crowbar hoặc Cleaver không tốn giáp.",
       "Có thể mở đầu bằng 1 đòn sneak Saw Blade Mace (165 dmg) rút hơn nửa bình máu."
@@ -127,12 +204,27 @@
     "movementSpeed": "slow",
     "dangerRating": 4,
     "description": "Quái vật khét tiếng trong Bunker Alfa. Đòn vung tay gây tới 80-100 sát thương một phát, có thể 'one-shot' tức thì nếu không mặc giáp bảo hộ đầy đủ.",
-    "abilities": ["Crushing Blow (One-shot nếu thiếu giáp)"],
-    "drops": [
-      { "itemId": "red_coupon", "chance": "60%", "quantity": "1" },
-      { "itemId": "yellow_coupon", "chance": "40%", "quantity": "1" }
+    "abilities": [
+      "Crushing Blow (One-shot nếu thiếu giáp)"
     ],
-    "locations": ["bunker_alfa", "crooked_creek_farm"],
+    "drops": [
+      {
+        "itemId": "red_coupon",
+        "chance": "60%",
+        "quantity": "1"
+      },
+      {
+        "itemId": "yellow_coupon",
+        "chance": "40%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "bunker_alfa",
+      "crooked_creek_farm",
+      "transport_hub",
+      "abandoned_factory"
+    ],
     "combatTips": [
       "TUYỆT ĐỐI không đổi đòn cận chiến trực diện ở khoảng trống.",
       "Thực hiện Wall-trick sau cửa ra vào: đợi FG vung tay đập vào tường xong bước ra đập 1 nhịp rồi thụt lại.",
@@ -156,10 +248,20 @@
       "Carcass Feast (hồi máu khi chạm mốc 700 HP và 400 HP)"
     ],
     "drops": [
-      { "itemId": "red_coupon", "chance": "100%", "quantity": "10" },
-      { "itemId": "bone", "chance": "100%", "quantity": "5" }
+      {
+        "itemId": "red_coupon",
+        "chance": "100%",
+        "quantity": "10"
+      },
+      {
+        "itemId": "bone",
+        "chance": "100%",
+        "quantity": "5"
+      }
     ],
-    "locations": ["bunker_alfa"],
+    "locations": [
+      "bunker_alfa"
+    ],
     "combatTips": [
       "Đếm đúng 5 đòn đánh thường của boss, sau đó bước sang bên né đường húc đỏ.",
       "Khi boss húc vào tường bị choáng, xả súng ngắn/shotgun dồn sát thương.",
@@ -178,14 +280,405 @@
     "movementSpeed": "normal",
     "dangerRating": 5,
     "description": "Boss tại Nông trại Crooked Creek Farm. Khi bị tấn công, hắn phun dịch bọc nhớt làm bào mòn và phá hủy giáp của người chơi cực nhanh.",
-    "abilities": ["Corrosive Bile Spit (phá tan độ bền của giáp trang bị)"],
-    "drops": [
-      { "itemId": "bone", "chance": "100%", "quantity": "3" }
+    "abilities": [
+      "Corrosive Bile Spit (phá tan độ bền của giáp trang bị)"
     ],
-    "locations": ["crooked_creek_farm"],
+    "drops": [
+      {
+        "itemId": "bone",
+        "chance": "100%",
+        "quantity": "3"
+      }
+    ],
+    "locations": [
+      "crooked_creek_farm"
+    ],
     "combatTips": [
       "Kite boss chạy vòng quanh cọc rơm hoặc xe tải mà không cần mặc giáp đắt tiền.",
       "Né sang một bên mỗi khi hắn gầm lên chuẩn bị phun dịch, rồi vung 2-3 nhát dao rựa Machete."
+    ]
+  },
+  {
+    "id": "the_witch",
+    "name": "The Witch",
+    "vietnameseName": "Mụ phù thủy (Infected Forest Boss)",
+    "category": "boss",
+    "hp": 2000,
+    "damage": 35,
+    "armor": 0,
+    "attackSpeed": 1,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Boss tại Rừng nhiễm độc Infected Forest. Tiếng thét của mụ triệu hồi bầy nhện và bầy zombie lũ lượt kéo đến tấn công.",
+    "abilities": [
+      "Terrifying Scream (triệu hồi bầy nhện và zombie con)",
+      "Cocoon Regeneration (chữa lành vết thương tại tổ kén nếu không bị đốt)"
+    ],
+    "drops": [
+      {
+        "itemId": "bone",
+        "chance": "100%",
+        "quantity": "5"
+      }
+    ],
+    "locations": [
+      "infected_forest"
+    ],
+    "combatTips": [
+      "Đốt các tổ kén bằng C4 trước trận chiến để ngăn mụ hồi máu.",
+      "Dùng súng shotgun hoặc AK-47 tiêu diệt nhanh bầy nhện con khi mụ thét."
+    ]
+  },
+  {
+    "id": "the_big_one",
+    "name": "The Big One",
+    "vietnameseName": "Gã khổng lồ bất tử (The Big One)",
+    "category": "boss",
+    "hp": 1000,
+    "damage": 50,
+    "armor": 1000,
+    "attackSpeed": 0.8,
+    "movementSpeed": "fast",
+    "dangerRating": 5,
+    "description": "Quái vật khổng lồ ác mộng xuất hiện ngẫu nhiên ở các khu vực đá và rừng đỏ. Lớp da dày 1000 giáp khiến hắn gần như miễn nhiễm mọi đòn đánh thường.",
+    "abilities": [
+      "Ground Pound",
+      "Unstoppable Charge",
+      "Extreme Armor (1000 giáp)"
+    ],
+    "drops": [
+      {
+        "itemId": "bone",
+        "chance": "100%",
+        "quantity": "10"
+      }
+    ],
+    "locations": [
+      "infected_forest",
+      "pine_woods",
+      "limestone_cliffs",
+      "destroyed_convoy"
+    ],
+    "combatTips": [
+      "Chiến thuật tốt nhất là RỜI KHỎI BẢN ĐỒ ngay lập tức khi thấy hắn xuất hiện.",
+      "Chỉ có thể gây sát thương đáng kể bằng vũ khí đặc chế hoặc súng phóng lựu/VSS Vintorez."
+    ]
+  },
+  {
+    "id": "exploder",
+    "name": "Exploder",
+    "vietnameseName": "Zombie phát nổ (Exploder)",
+    "category": "zombie",
+    "hp": 400,
+    "damage": 35,
+    "armor": 0,
+    "attackSpeed": 0.8,
+    "movementSpeed": "slow",
+    "dangerRating": 4,
+    "description": "Quái vật nguy hiểm trong Bunker Bravo. Khi lượng máu tụt xuống dưới 80 HP, hắn sẽ tự phát nổ gây sát thương diện rộng chết người và thả ra 3 con Ký sinh trùng (Parasites).",
+    "abilities": [
+      "Suicide Explosion (tự sát nổ 150 sát thương khi máu < 80 HP)",
+      "Parasite Spawn (sinh ra 3 ký sinh trùng độc)"
+    ],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "70%",
+        "quantity": "2-4"
+      },
+      {
+        "itemId": "red_coupon",
+        "chance": "20%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "bunker_alfa",
+      "bunker_bravo",
+      "genesis_laboratory",
+      "peat_bog"
+    ],
+    "combatTips": [
+      "Khi máu hắn dưới 120 HP, dùng vũ khí dồn sát thương cực nhanh (Shotgun/AK-47) để kết liễu trước khi kịp kích hoạt vụ nổ."
+    ]
+  },
+  {
+    "id": "screamer",
+    "name": "Screamer",
+    "vietnameseName": "Zombie la hét (Screamer)",
+    "category": "zombie",
+    "hp": 150,
+    "damage": 18,
+    "armor": 0,
+    "attackSpeed": 1,
+    "movementSpeed": "fast",
+    "dangerRating": 3,
+    "description": "Zombie đột biến có dây thanh quản biến dạng. Tiếng thét chói tai của hắn sẽ lập tức báo động và gọi toàn bộ zombie trong phòng kéo tới.",
+    "abilities": [
+      "Deafening Screech (hú gọi viện binh)"
+    ],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "60%",
+        "quantity": "1-3"
+      }
+    ],
+    "locations": [
+      "bunker_alfa",
+      "bunker_bravo",
+      "genesis_laboratory",
+      "peat_bog"
+    ],
+    "combatTips": [
+      "Luôn ưu tiên hạ gục Screamer đầu tiên trong phòng trước khi hắn kịp cất tiếng hú."
+    ]
+  },
+  {
+    "id": "toxic_darter",
+    "name": "Toxic Darter",
+    "vietnameseName": "Zombie phóng độc",
+    "category": "zombie",
+    "hp": 120,
+    "damage": 22,
+    "armor": 0,
+    "attackSpeed": 1.4,
+    "movementSpeed": "very_fast",
+    "dangerRating": 3,
+    "description": "Di chuyển cực kỳ mau lẹ và phóng các gai độc liên tiếp từ xa, gây độc và làm chậm tốc độ di chuyển của người sống sót.",
+    "abilities": [
+      "Poison Dart (phóng phi tiêu độc liên tục)"
+    ],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "50%",
+        "quantity": "1-2"
+      }
+    ],
+    "locations": [
+      "bunker_alfa",
+      "bunker_bravo",
+      "genesis_laboratory",
+      "peat_bog"
+    ],
+    "combatTips": [
+      "Áp sát nhanh hoặc dùng súng trường kết liễu từ xa trước khi bị rỉa máu."
+    ]
+  },
+  {
+    "id": "fetid_corpse",
+    "name": "Fetid Corpse",
+    "vietnameseName": "Xác chết thối rữa",
+    "category": "zombie",
+    "hp": 350,
+    "damage": 28,
+    "armor": 0,
+    "attackSpeed": 0.8,
+    "movementSpeed": "slow",
+    "dangerRating": 3,
+    "description": "Xác sống bốc mùi ô uế nặng nề. Khi đứng gần sẽ bị trừ dần máu liên tục theo từng giây do ngạt khí độc.",
+    "abilities": [
+      "Toxic Cloud (phát tán mây độc xung quanh người)"
+    ],
+    "drops": [
+      {
+        "itemId": "cloth",
+        "chance": "70%",
+        "quantity": "2-3"
+      },
+      {
+        "itemId": "yellow_coupon",
+        "chance": "30%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "bunker_alfa",
+      "bunker_bravo",
+      "genesis_laboratory",
+      "peat_bog"
+    ],
+    "combatTips": [
+      "Dùng súng bắn tỉa hoặc vũ khí tầm xa, tránh giáp lá cà để không bị ngấm khói độc thối rữa."
+    ]
+  },
+  {
+    "id": "turret",
+    "name": "Automated Turret",
+    "vietnameseName": "Súng máy tự động (Turret)",
+    "category": "human",
+    "hp": 250,
+    "damage": 15,
+    "armor": 15,
+    "attackSpeed": 2.5,
+    "movementSpeed": "slow",
+    "dangerRating": 3,
+    "description": "Hệ thống tháp súng máy an ninh quân sự tự động khóa mục tiêu và nã đạn liên thanh khi người chơi bước vào tầm quét laser.",
+    "abilities": [
+      "Rapid Fire",
+      "Armor Plating"
+    ],
+    "drops": [
+      {
+        "itemId": "bolt",
+        "chance": "80%",
+        "quantity": "2-5"
+      },
+      {
+        "itemId": "rubber_parts",
+        "chance": "50%",
+        "quantity": "1-2"
+      }
+    ],
+    "locations": [
+      "bunker_alfa"
+    ],
+    "combatTips": [
+      "Dùng súng trường M16 hoặc AK-47 đứng ngoài tầm quét laser đỏ của turret để bắn tỉa an toàn không mất giọt máu nào."
+    ]
+  },
+  {
+    "id": "heavy_turret",
+    "name": "Heavy Turret",
+    "vietnameseName": "Súng máy hạng nặng (Heavy Turret)",
+    "category": "human",
+    "hp": 500,
+    "damage": 30,
+    "armor": 30,
+    "attackSpeed": 3,
+    "movementSpeed": "slow",
+    "dangerRating": 4,
+    "description": "Phiên bản súng máy phòng thủ tối tân với lớp vỏ thép bọc dày và trang bị súng phóng lựu kèm súng máy liên thanh.",
+    "abilities": [
+      "Grenade Launcher",
+      "Heavy Armor"
+    ],
+    "drops": [
+      {
+        "itemId": "electronic_circuit",
+        "chance": "30%",
+        "quantity": "1"
+      },
+      {
+        "itemId": "factory_parts",
+        "chance": "50%",
+        "quantity": "1-2"
+      }
+    ],
+    "locations": [
+      "bunker_alfa"
+    ],
+    "combatTips": [
+      "Tránh đối đầu trực diện nếu không có VSS Vintorez hoặc súng trường tầm xa ngoài tầm quét."
+    ]
+  },
+  {
+    "id": "colonel",
+    "name": "Colonel",
+    "vietnameseName": "Đại tá Colonel",
+    "category": "human",
+    "hp": 600,
+    "damage": 40,
+    "armor": 20,
+    "attackSpeed": 1.2,
+    "movementSpeed": "fast",
+    "dangerRating": 4,
+    "description": "Chỉ huy lực lượng vũ trang biến chất sống sót. Trang bị súng trường tự động và áo giáp chiến thuật hạng nặng.",
+    "abilities": [
+      "Burst Fire",
+      "Tactical Roll"
+    ],
+    "drops": [
+      {
+        "itemId": "first_aid_kit",
+        "chance": "80%",
+        "quantity": "2"
+      },
+      {
+        "itemId": "red_coupon",
+        "chance": "50%",
+        "quantity": "2"
+      }
+    ],
+    "locations": [
+      "blackport_pd"
+    ],
+    "combatTips": [
+      "Mặc giáp SWAT hoặc Tactical để giảm thiểu loạt đạn nã dồn dập từ súng trường của hắn."
+    ]
+  },
+  {
+    "id": "the_miner",
+    "name": "The Miner",
+    "vietnameseName": "Thợ mỏ đột biến (Transport Hub Boss)",
+    "category": "boss",
+    "hp": 1500,
+    "damage": 65,
+    "armor": 20,
+    "attackSpeed": 0.9,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Một trong hai đại boss ngẫu nhiên tại nhà kho bến container Transport Hub. Vung cuốc chim giáng những đòn cực mạnh có khả năng phá giáp.",
+    "abilities": [
+      "Heavy Pickaxe Slam (đòn đập đất gây choáng và sát thương cực cao)",
+      "Tunnel Charge (lao thẳng về phía mục tiêu hất văng mọi chướng ngại vật)"
+    ],
+    "drops": [
+      {
+        "itemId": "titanium_bar",
+        "chance": "100%",
+        "quantity": "2"
+      },
+      {
+        "itemId": "hydraulic_cylinder",
+        "chance": "60%",
+        "quantity": "1"
+      }
+    ],
+    "locations": [
+      "transport_hub"
+    ],
+    "combatTips": [
+      "Dụ hắn va vào các container để làm hắn bị choáng trong vài giây.",
+      "Dùng súng trường M16 hoặc AK-47 thả diều (kiting) giữ cự ly an toàn."
+    ]
+  },
+  {
+    "id": "the_butcher",
+    "name": "The Butcher",
+    "vietnameseName": "Gã đồ tể (Transport Hub Boss)",
+    "category": "boss",
+    "hp": 1800,
+    "damage": 70,
+    "armor": 15,
+    "attackSpeed": 1,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Đại boss đột biến khát máu tại Transport Hub. Có cơ chế tự động ăn thịt gà tây để hồi phục máu và tỏa khí độc khi máu giảm dưới 1000 HP.",
+    "abilities": [
+      "Turkey Feast (chạy đi săn và ăn gà tây để hồi 200 HP)",
+      "Toxic Gas Aura (tỏa ra vòng khí độc trừ máu trực tiếp bỏ qua giáp khi dưới 1000 HP)",
+      "Meat Cleaver Smash (chém chí mạng gây xuất huyết)"
+    ],
+    "drops": [
+      {
+        "itemId": "drone_parts",
+        "chance": "100%",
+        "quantity": "3"
+      },
+      {
+        "itemId": "carbon_composite",
+        "chance": "80%",
+        "quantity": "2"
+      }
+    ],
+    "locations": [
+      "transport_hub"
+    ],
+    "combatTips": [
+      "Nhanh chóng bắn hạ những con gà tây trước để ngăn The Butcher hồi máu.",
+      "Khi The Butcher tỏa khí độc, lập tức lùi xa và dùng vũ khí tầm xa tấn công."
     ]
   }
 ]
