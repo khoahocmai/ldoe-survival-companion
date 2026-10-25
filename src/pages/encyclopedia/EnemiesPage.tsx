@@ -6,10 +6,11 @@ import { Enemy } from '../../types';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
+import { ImageField } from '../../components/common/ImageField';
 import { Field, NumberInput, Select, TextInput, Textarea } from '../../components/common/Field';
 import { FormModal, FormRow } from '../../components/common/FormModal';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
-import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { dangerTone, ENEMY_CATEGORY_LABEL, MOVEMENT_LABEL } from '../../lib/labels';
 
 const FILTERS = [
@@ -89,28 +90,18 @@ export const EnemiesPage: React.FC = () => {
         setIsNew(!enemy);
         setEditing(enemy ? { ...enemy } : newEnemy());
       }}
+      layout="tiles"
       renderCard={(enemy, isSelected, onSelect) => (
-        <CompactWikiCard
+        <EntityTile
           key={enemy.id}
+          folder="enemies"
           id={enemy.id}
-          title={enemy.name}
-          subtitle={enemy.vietnameseName}
+          name={enemy.name}
+          hint={enemy.vietnameseName}
+          image={enemy.image}
+          tone={enemy.category === 'boss' ? 'danger' : dangerTone(enemy.dangerRating)}
           isSelected={isSelected}
           onClick={onSelect}
-          stats={[
-            { label: 'HP', value: enemy.hp },
-            { label: 'Dmg', value: enemy.damage },
-            ...(enemy.armor ? [{ label: 'Giáp', value: enemy.armor }] : []),
-          ]}
-          badges={
-            <>
-              <Badge tone={enemy.category === 'boss' ? 'danger' : 'neutral'}>{ENEMY_CATEGORY_LABEL[enemy.category]}</Badge>
-              <Badge tone={dangerTone(enemy.dangerRating)}>
-                <Skulls level={enemy.dangerRating} />
-              </Badge>
-              {enemy.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
-            </>
-          }
         />
       )}
       renderDetail={(enemy) => ({
@@ -282,6 +273,7 @@ export const EnemiesPage: React.FC = () => {
                 />
               </Field>
             </FormRow>
+            <ImageField folder="enemies" id={editing.id ?? ''} value={editing.image} onChange={(image) => patch({ image })} />
             <Field label="Mô tả">
               <Textarea value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
             </Field>

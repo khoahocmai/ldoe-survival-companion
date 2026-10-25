@@ -10,8 +10,8 @@ interface PageHeaderProps {
 
 /** Every page starts with this: short title, one line of context, primary actions on the right. */
 export const PageHeader: React.FC<PageHeaderProps> = ({ title, description, icon, actions }) => (
-  <header className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-    <div className="flex min-w-0 items-start gap-3">
+  <header className="mb-4 flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+    <div className="flex min-w-0 flex-1 basis-[15rem] items-start gap-3">
       {icon && (
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent [&>svg]:h-5 [&>svg]:w-5">
           {icon}
@@ -121,14 +121,18 @@ interface ChipOption {
   count?: number;
 }
 
-/** Single-select filter pills. */
+/** Single-select filter pills. Defaults to wrapping so all pills remain visible without horizontal clipping. */
 export const FilterChips: React.FC<{
   options: ChipOption[];
   value: string;
   onChange: (id: string) => void;
   className?: string;
-}> = ({ options, value, onChange, className = '' }) => (
-  <div className={`flex gap-1.5 overflow-x-auto scrollbar-none ${className}`} role="group">
+  wrap?: boolean;
+}> = ({ options, value, onChange, className = '', wrap = true }) => (
+  <div
+    className={`flex gap-1.5 ${wrap ? 'flex-wrap' : 'overflow-x-auto scrollbar-none'} ${className}`}
+    role="group"
+  >
     {options.map((opt) => {
       const active = opt.id === value;
       return (

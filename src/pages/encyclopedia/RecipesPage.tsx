@@ -9,12 +9,18 @@ import { EntityImage } from '../../components/common/EntityImage';
 import { Field, NumberInput, Select, TextInput } from '../../components/common/Field';
 import { FormModal, FormRow } from '../../components/common/FormModal';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
-import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { RECIPE_CATEGORY_LABEL } from '../../lib/labels';
 
 const HAND = 'hand';
 
-const workstationOf = (r: Recipe) => r.workstation?.trim() || HAND;
+// The data writes hand crafting as "Chế tạo tay" on some recipes and leaves it empty on others: one filter for both.
+const HAND_LABELS = new Set(['hand', 'chế tạo tay']);
+
+const workstationOf = (r: Recipe) => {
+  const name = r.workstation?.trim();
+  return !name || HAND_LABELS.has(name.toLowerCase()) ? HAND : name;
+};
 
 export const RecipesPage: React.FC = () => {
   const { db } = useGameData();
@@ -97,27 +103,19 @@ export const RecipesPage: React.FC = () => {
               }
         );
       }}
+      layout="tiles"
       renderCard={(recipe, isSelected, onSelect) => {
         const output = db.itemsMap.get(recipe.outputItemId);
         return (
-          <CompactWikiCard
+          <EntityTile
             key={recipe.id}
-            id={recipe.id}
-            title={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
-            subtitle={output?.vietnameseName}
+            folder="items"
+            id={recipe.outputItemId}
+            name={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
+            hint={output?.vietnameseName}
+            image={recipe.image ?? output?.image}
             isSelected={isSelected}
             onClick={onSelect}
-            stats={[
-              { label: 'Nguyên liệu', value: recipe.ingredients.length },
-              ...(recipe.craftTimeSeconds ? [{ label: 'Thời gian', value: `${recipe.craftTimeSeconds}s` }] : []),
-            ]}
-            badges={
-              <>
-                <Badge tone={recipe.category === 'cooking' ? 'ok' : 'info'}>{workstationOf(recipe) === HAND ? 'Chế tạo tay' : recipe.workstation}</Badge>
-                {recipe.category && <Badge>{RECIPE_CATEGORY_LABEL[recipe.category]}</Badge>}
-                {recipe.isCustom && <Badge tone="accent">Tùy chỉnh</Badge>}
-              </>
-            }
           />
         );
       }}

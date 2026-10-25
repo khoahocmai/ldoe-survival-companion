@@ -6,37 +6,13 @@ import { Item, ItemCategory } from '../../types';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
+import { ImageField } from '../../components/common/ImageField';
 import { Field, Select, TextInput, Textarea, NumberInput } from '../../components/common/Field';
 import { FormModal, FormRow } from '../../components/common/FormModal';
 import { PropertyList, Section, Stat, StatGrid } from '../../components/common/Layout';
-import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { ITEM_CATEGORY_LABEL, RARITY_LABEL, RARITY_TONE } from '../../lib/labels';
-
-const FILTERS = [
-  { id: 'all', label: 'Tất cả' },
-  { id: 'weapons', label: 'Vũ khí' },
-  { id: 'armor', label: 'Giáp' },
-  { id: 'resources', label: 'Tài nguyên' },
-  { id: 'medical', label: 'Y tế & thức ăn' },
-  { id: 'components', label: 'Linh kiện' },
-];
-
-const matchesFilter = (item: Item, filterId: string) => {
-  switch (filterId) {
-    case 'weapons':
-      return item.category.startsWith('weapon_');
-    case 'armor':
-      return item.category.startsWith('armor_');
-    case 'resources':
-      return item.category.startsWith('resource_');
-    case 'medical':
-      return item.category === 'medical' || item.category === 'food';
-    case 'components':
-      return item.category === 'component' || item.category === 'special' || item.category === 'tool';
-    default:
-      return true;
-  }
-};
+import { ITEM_FILTERS, matchesItemFilter, sortItems } from '../../lib/itemFilters';
 
 const newItem = (): Partial<Item> => ({
   id: `item_custom_${Date.now()}`,
@@ -47,6 +23,7 @@ const newItem = (): Partial<Item> => ({
   stackSize: 20,
   description: '',
   notes: '',
+  order: 0,
 });
 
 export const ItemsPage: React.FC = () => {
@@ -72,6 +49,7 @@ export const ItemsPage: React.FC = () => {
       rarity: editing.rarity ?? 'common',
       stackSize: editing.stackSize || 1,
       description: editing.description ?? '',
+      order: typeof editing.order === 'number' ? editing.order : Number(editing.order) || 0,
       weaponStats: editing.weaponStats,
       isCustom: true,
     } as Item;
@@ -91,41 +69,24 @@ export const ItemsPage: React.FC = () => {
         searchPlaceholder="Tìm vật phẩm..."
         getName={(i) => i.name}
         getSearchText={(i) => `${i.name} ${i.vietnameseName ?? ''} ${i.id} ${ITEM_CATEGORY_LABEL[i.category] ?? ''}`}
-        filter={{ options: FILTERS, matches: matchesFilter }}
+        filter={{ options: ITEM_FILTERS, matches: matchesItemFilter }}
+        sort={sortItems}
         onEdit={(item) => {
           setIsNew(!item);
           setEditing(item ? { ...item } : newItem());
         }}
+        layout="tiles"
         renderCard={(item, isSelected, onSelect) => (
-          <CompactWikiCard
+          <EntityTile
             key={item.id}
+            folder="items"
             id={item.id}
-            title={item.name}
-            subtitle={item.vietnameseName}
+            name={item.name}
+            hint={item.vietnameseName}
+            image={item.image}
+            tone={RARITY_TONE[item.rarity]}
             isSelected={isSelected}
             onClick={onSelect}
-            stats={
-              item.weaponStats
-                ? [
-                    { label: 'Dmg', value: item.weaponStats.damage },
-                    { label: 'Bền', value: item.weaponStats.durability },
-                  ]
-                : item.armorStats
-                  ? [
-                      { label: 'Giáp', value: item.armorStats.armorValue },
-                      { label: 'Bền', value: item.armorStats.durability },
-                    ]
-                  : item.consumableStats?.healHp
-                    ? [{ label: 'Hồi', value: `+${item.consumableStats.healHp} HP` }]
-                    : [{ label: 'Stack', value: item.stackSize }]
-            }
-            badges={
-              <>
-                <Badge tone={RARITY_TONE[item.rarity]}>{RARITY_LABEL[item.rarity]}</Badge>
-                <Badge>{ITEM_CATEGORY_LABEL[item.category] ?? item.category}</Badge>
-                {item.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
-              </>
-            }
           />
         )}
         renderDetail={(item) => {
@@ -143,6 +104,7 @@ export const ItemsPage: React.FC = () => {
                 <Badge tone={RARITY_TONE[item.rarity]}>{RARITY_LABEL[item.rarity]}</Badge>
                 <Badge>{ITEM_CATEGORY_LABEL[item.category] ?? item.category}</Badge>
                 <Badge>Stack {item.stackSize}</Badge>
+                {Boolean(item.order && item.order > 0) && <Badge tone="neutral">Thứ tự #{item.order}</Badge>}
                 {item.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
               </>
             ),
@@ -205,7 +167,7 @@ export const ItemsPage: React.FC = () => {
                       ]}
                     />
                     <ul className="mt-2 flex flex-wrap gap-1.5">
-                      {recipe.ingredients.map((ing) => (
+                      {(recipe.ingredients ?? []).map((ing) => (
                         <li key={ing.itemId}>
                           <Link
                             to={`/wiki/items?select=${ing.itemId}`}
@@ -297,6 +259,15 @@ export const ItemsPage: React.FC = () => {
                 <Field label="Số lượng tối đa mỗi ô">
                   <NumberInput min={1} value={editing.stackSize} onValueChange={(v) => patch({ stackSize: v })} />
                 </Field>
+                <Field label="Thứ tự hiển thị (Order)" hint="1 là nhỏ nhất lên đầu, 0 là chưa xếp (xuống cuối)">
+                  <NumberInput
+                    min={0}
+                    value={editing.order ?? 0}
+                    onValueChange={(v) => patch({ order: v !== undefined ? v : 0 })}
+                  />
+                </Field>
+              </FormRow>
+              <FormRow>
                 <Field label="ID" hint={isNew ? 'Duy nhất, viết thường không dấu' : 'Không thể đổi khi sửa'}>
                   <TextInput
                     value={editing.id ?? ''}
@@ -391,6 +362,7 @@ export const ItemsPage: React.FC = () => {
                   </FormRow>
                 </div>
               )}
+              <ImageField folder="items" id={editing.id ?? ''} value={editing.image} onChange={(image) => patch({ image })} />
               <Field label="Mô tả">
                 <Textarea rows={2} value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
               </Field>

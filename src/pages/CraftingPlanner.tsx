@@ -5,7 +5,8 @@ import { useGameData } from '../context/DataContext';
 import { CraftingTreeNode, planCrafting } from '../lib/calculators/craftingPlanner';
 import { Button, IconButton } from '../components/common/Button';
 import { Card } from '../components/common/Card';
-import { Field, NumberInput, Select } from '../components/common/Field';
+import { NumberInput } from '../components/common/Field';
+import { ItemPicker } from '../components/common/ItemPicker';
 import { Callout, EmptyState, PageHeader } from '../components/common/Layout';
 import { Tabs } from '../components/common/Tabs';
 
@@ -151,17 +152,10 @@ export const CraftingPlanner: React.FC = () => {
       ) : (
         <>
           <Card className="mb-4 space-y-3">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-              <Field label="Cần chế tạo" className="md:col-span-8">
-                <Select value={targetItemId} onChange={(e) => changeItem(e.target.value)}>
-                  {craftableItems.map((item) => (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                      {item.vietnameseName ? ` — ${item.vietnameseName}` : ''}
-                    </option>
-                  ))}
-                </Select>
-              </Field>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-8">
+                <ItemPicker label="Cần chế tạo" items={craftableItems} value={targetItemId} onChange={changeItem} />
+              </div>
               <div className="md:col-span-4">
                 <span className="mb-1.5 block text-xs font-medium text-muted">Số lượng</span>
                 <div className="flex items-center gap-1.5">

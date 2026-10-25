@@ -19,6 +19,8 @@ export type ItemCategory =
   | 'medical'
   | 'food'
   | 'tool'
+  | 'workstation'
+  | 'furniture'
   | 'component'
   | 'special';
 
@@ -60,6 +62,7 @@ export interface Item extends EntityMetadata {
   consumableStats?: ConsumableStats;
   obtainLocations?: string[]; // location IDs
   craftable?: boolean;
+  order?: number;
 }
 
 export interface EnemyDrop {

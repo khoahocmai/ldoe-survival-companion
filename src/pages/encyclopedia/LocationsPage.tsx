@@ -6,10 +6,11 @@ import { Location } from '../../types';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
+import { ImageField } from '../../components/common/ImageField';
 import { Checkbox, Field, NumberInput, Select, TextInput, Textarea } from '../../components/common/Field';
 import { FormModal, FormRow } from '../../components/common/FormModal';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
-import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { dangerTone, LOCATION_DIFFICULTY_LABEL, LOCATION_DIFFICULTY_TONE } from '../../lib/labels';
 
 const FILTERS = [
@@ -82,25 +83,18 @@ export const LocationsPage: React.FC = () => {
         setIsNew(!loc);
         setEditing(loc ? { ...loc } : newLocation());
       }}
+      layout="tiles"
       renderCard={(loc, isSelected, onSelect) => (
-        <CompactWikiCard
+        <EntityTile
           key={loc.id}
+          folder="locations"
           id={loc.id}
-          title={loc.name}
-          subtitle={loc.vietnameseName}
+          name={loc.name}
+          hint={loc.vietnameseName}
+          image={loc.image}
+          tone={LOCATION_DIFFICULTY_TONE[loc.difficulty]}
           isSelected={isSelected}
           onClick={onSelect}
-          stats={[
-            { label: 'Nguy hiểm', value: `${loc.dangerLevel}/5` },
-            ...(loc.energyCost ? [{ label: 'Năng lượng', value: loc.energyCost }] : []),
-          ]}
-          badges={
-            <>
-              <Badge tone={LOCATION_DIFFICULTY_TONE[loc.difficulty]}>{LOCATION_DIFFICULTY_LABEL[loc.difficulty]}</Badge>
-              {loc.requiresChopper && <Badge tone="info">Chopper</Badge>}
-              {loc.isCustom && <Badge tone="accent">Tùy chỉnh</Badge>}
-            </>
-          }
         />
       )}
       renderDetail={(loc) => {
@@ -262,6 +256,7 @@ export const LocationsPage: React.FC = () => {
               onChange={(checked) => patch({ requiresChopper: checked })}
               label="Cần Chopper để tới"
             />
+            <ImageField folder="locations" id={editing.id ?? ''} value={editing.image} onChange={(image) => patch({ image })} />
             <Field label="Mô tả">
               <Textarea value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
             </Field>

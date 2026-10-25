@@ -36,6 +36,8 @@ export const ITEM_CATEGORY_LABEL: Record<ItemCategory, string> = {
   medical: 'Y tế',
   food: 'Thực phẩm',
   tool: 'Dụng cụ',
+  workstation: 'Bàn chế tạo',
+  furniture: 'Nội thất & Bẫy',
   component: 'Linh kiện',
   special: 'Đặc biệt',
 };

@@ -5,10 +5,11 @@ import { useGameData } from '../../context/DataContext';
 import { Quest, QuestObjective } from '../../types';
 import { Badge } from '../../components/common/Badge';
 import { EntityImage } from '../../components/common/EntityImage';
+import { ImageField } from '../../components/common/ImageField';
 import { Field, Select, TextInput, Textarea } from '../../components/common/Field';
 import { FormModal, FormRow } from '../../components/common/FormModal';
 import { Section } from '../../components/common/Layout';
-import { CompactWikiCard, WikiPage, useSaveEntity } from '../../components/wiki';
+import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { OBJECTIVE_TYPE_LABEL, QUEST_CATEGORY_LABEL } from '../../lib/labels';
 
 const FILTERS = [{ id: 'all', label: 'Tất cả' }, ...Object.entries(QUEST_CATEGORY_LABEL).map(([id, label]) => ({ id, label }))];
@@ -101,25 +102,17 @@ export const QuestsPage: React.FC = () => {
         setIsNew(!quest);
         setEditing(quest ? { ...quest } : newQuest());
       }}
+      layout="tiles"
       renderCard={(quest, isSelected, onSelect) => (
-        <CompactWikiCard
+        <EntityTile
           key={quest.id}
+          folder="quests"
           id={quest.id}
-          eyebrow={quest.chapter || undefined}
-          title={quest.title}
-          subtitle={quest.vietnameseTitle}
+          name={quest.title}
+          hint={[quest.chapter, quest.vietnameseTitle].filter(Boolean).join(' · ') || undefined}
+          image={quest.image}
           isSelected={isSelected}
           onClick={onSelect}
-          stats={[
-            { label: 'Mục tiêu', value: quest.objectives.length },
-            ...(quest.rewards.length ? [{ label: 'Thưởng', value: quest.rewards.length }] : []),
-          ]}
-          badges={
-            <>
-              <Badge tone="accent">{QUEST_CATEGORY_LABEL[quest.category]}</Badge>
-              {quest.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
-            </>
-          }
         />
       )}
       renderDetail={(quest) => ({
@@ -240,6 +233,7 @@ export const QuestsPage: React.FC = () => {
                 <TextInput value={editing.chapter ?? ''} onChange={(e) => patch({ chapter: e.target.value })} placeholder="Chương 1" />
               </Field>
             </FormRow>
+            <ImageField folder="quests" id={editing.id ?? ''} value={editing.image} onChange={(image) => patch({ image })} />
             <Field label="Mô tả">
               <Textarea value={editing.description ?? ''} onChange={(e) => patch({ description: e.target.value })} />
             </Field>

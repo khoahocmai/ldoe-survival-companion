@@ -109,7 +109,7 @@ describe('pointCalculator', () => {
         { id: 'pd', pointSystemId: 'supply_event', enemyId: '*', locationId: 'blackport_pd', points: 0 },
       ];
       expect(getEnemyPoints('supply_event', 'fast_biter', rules, 'blackport_pd').points).toBe(0);
-      expect(getEnemyPoints('supply_event', 'fast_biter', rules, 'pine_wood').points).toBe(2);
+      expect(getEnemyPoints('supply_event', 'fast_biter', rules, 'pine_grove').points).toBe(2);
       expect(getEnemyPoints('supply_event', 'fast_biter', rules).points).toBe(2);
     });
 

@@ -8,6 +8,8 @@ interface WikiDetailHeaderProps {
   onEdit?: () => void;
   onDelete?: () => void;
   onClose: () => void;
+  /** Extra classes for the close button, e.g. `xl:hidden` when the panel is always visible on wide screens. */
+  closeClassName?: string;
   className?: string;
 }
 
@@ -18,6 +20,7 @@ export const WikiDetailHeader: React.FC<WikiDetailHeaderProps> = ({
   onEdit,
   onDelete,
   onClose,
+  closeClassName,
   className = '',
 }) => (
   <div className={`flex shrink-0 items-start justify-between gap-3 border-b border-line px-4 py-3 ${className}`}>
@@ -26,6 +29,6 @@ export const WikiDetailHeader: React.FC<WikiDetailHeaderProps> = ({
       {subtitle && <div className="mt-0.5 truncate text-sm text-muted">{subtitle}</div>}
       {badges && <div className="mt-2 flex flex-wrap items-center gap-1.5">{badges}</div>}
     </div>
-    <WikiEntityActions onEdit={onEdit} onDelete={onDelete} onClose={onClose} />
+    <WikiEntityActions onEdit={onEdit} onDelete={onDelete} onClose={onClose} closeClassName={closeClassName} />
   </div>
 );
