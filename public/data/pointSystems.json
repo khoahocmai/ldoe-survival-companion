@@ -5,10 +5,26 @@
     "description": "Sự kiện định kỳ tích lũy Điểm kiểm soát (Control Points) khi tiêu diệt zombie và thú săn trên bản đồ để nâng cấp hòm tiếp tế hàng không thả dù.",
     "unit": "Điểm kiểm soát (Control Points)",
     "milestones": [
-      { "id": "ms_common", "name": "Hòm hàng phổ thông (Common Cargo)", "points": 250 },
-      { "id": "ms_worthwhile", "name": "Hòm hàng giá trị (Worthwhile Cargo)", "points": 750 },
-      { "id": "ms_high_value", "name": "Hòm hàng cao cấp (High-Value Cargo)", "points": 1200 },
-      { "id": "ms_extremely_valuable", "name": "Hòm hàng cực phẩm (Extremely Valuable Cargo)", "points": 1500 }
+      {
+        "id": "ms_common",
+        "name": "Hòm hàng phổ thông (Common Cargo)",
+        "points": 250
+      },
+      {
+        "id": "ms_worthwhile",
+        "name": "Hòm hàng giá trị (Worthwhile Cargo)",
+        "points": 750
+      },
+      {
+        "id": "ms_high_value",
+        "name": "Hòm hàng cao cấp (High-Value Cargo)",
+        "points": 1200
+      },
+      {
+        "id": "ms_extremely_valuable",
+        "name": "Hòm hàng cực phẩm (Extremely Valuable Cargo)",
+        "points": 1500
+      }
     ]
   },
   {
@@ -17,10 +33,64 @@
     "description": "Đấu trường phòng thủ 99 đợt sóng zombie tại sân Sở cảnh sát Blackport để thu thập Thẻ cảnh sát (Badges) đổi vũ khí và bản thiết kế súng hiếm.",
     "unit": "Đợt sóng (Waves Cleared)",
     "milestones": [
-      { "id": "ms_wave_10", "name": "Cột mốc Đợt 10 (Thẻ nâu/xanh)", "points": 10 },
-      { "id": "ms_wave_20", "name": "Cột mốc Đợt 20 (Nhiệm vụ Raider / Thẻ xanh)", "points": 20 },
-      { "id": "ms_wave_50", "name": "Cột mốc Đợt 50 (Thẻ lam/tím)", "points": 50 },
-      { "id": "ms_wave_99", "name": "Đỉnh cao Đợt 99 (Full Blue & Purple Badges)", "points": 99 }
+      {
+        "id": "ms_wave_10",
+        "name": "Cột mốc Đợt 10 (Thẻ nâu/xanh)",
+        "points": 10
+      },
+      {
+        "id": "ms_wave_20",
+        "name": "Cột mốc Đợt 20 (Nhiệm vụ Raider / Thẻ xanh)",
+        "points": 20
+      },
+      {
+        "id": "ms_wave_50",
+        "name": "Cột mốc Đợt 50 (Thẻ lam/tím)",
+        "points": 50
+      },
+      {
+        "id": "ms_wave_99",
+        "name": "Đỉnh cao Đợt 99 (Full Blue & Purple Badges)",
+        "points": 99
+      }
+    ]
+  },
+  {
+    "id": "season_pass",
+    "name": "Season Pass (Mùa giải)",
+    "description": "Hệ thống tích lũy Điểm mùa giải (Season Points) khi tiêu diệt các loại zombie, boss trên bản đồ và hoàn thành nhiệm vụ mùa để thăng cấp Season Pass nhận thưởng mốc (Free & Premium).",
+    "unit": "Điểm mùa giải (Season Points)",
+    "milestones": [
+      {
+        "id": "ms_season_lvl_10",
+        "name": "Cấp 10 (Hòm vũ khí & Chó con Corgi/Rottweiler)",
+        "points": 1000
+      },
+      {
+        "id": "ms_season_lvl_20",
+        "name": "Cấp 20 (Súng lục Colt Python & Vé đỏ Alfa)",
+        "points": 2500
+      },
+      {
+        "id": "ms_season_lvl_30",
+        "name": "Cấp 30 (Bộ giáp SWAT & Bản độ vũ khí hiếm)",
+        "points": 5000
+      },
+      {
+        "id": "ms_season_lvl_40",
+        "name": "Cấp 40 (Bộ truyền động ATV Transmission & Skin xe)",
+        "points": 7500
+      },
+      {
+        "id": "ms_season_lvl_50",
+        "name": "Cấp 50 (Súng phóng lựu Milkor MGL & Đồ tối thượng)",
+        "points": 10000
+      },
+      {
+        "id": "ms_season_lvl_80",
+        "name": "Cấp 80 (Trang bị đặc chủng & Hòm thưởng vô hạn)",
+        "points": 16000
+      }
     ]
   }
 ]

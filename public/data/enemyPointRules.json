@@ -62,5 +62,124 @@
     "locationId": "blackport_pd",
     "points": 0,
     "notes": "Quy tắc game: Đấu trường đợt sóng Blackport PD KHÔNG tính điểm cho sự kiện Supply."
+  },
+  {
+    "id": "rule_season_roamer",
+    "pointSystemId": "season_pass",
+    "enemyId": "roamer",
+    "points": 2,
+    "notes": "Zombie cơ bản vùng cỏ/rừng/núi đá (2 điểm)."
+  },
+  {
+    "id": "rule_season_fast_biter",
+    "pointSystemId": "season_pass",
+    "enemyId": "fast_biter",
+    "points": 4,
+    "notes": "Zombie chạy nhanh vùng tài nguyên (4 điểm)."
+  },
+  {
+    "id": "rule_season_toxic_spitter",
+    "pointSystemId": "season_pass",
+    "enemyId": "toxic_spitter",
+    "points": 6,
+    "notes": "Zombie khạc axit gây hôi thối (6 điểm)."
+  },
+  {
+    "id": "rule_season_floater_bloater",
+    "pointSystemId": "season_pass",
+    "enemyId": "floater_bloater",
+    "points": 10,
+    "notes": "Zombie béo phì dậm đất AOE (10 điểm)."
+  },
+  {
+    "id": "rule_season_toxic_abomination",
+    "pointSystemId": "season_pass",
+    "enemyId": "toxic_abomination",
+    "points": 15,
+    "notes": "Zombie béo độc đột biến vùng đỏ & Bunker (15 điểm)."
+  },
+  {
+    "id": "rule_season_screamer",
+    "pointSystemId": "season_pass",
+    "enemyId": "screamer",
+    "points": 20,
+    "notes": "Zombie la hét gọi viện binh (20 điểm)."
+  },
+  {
+    "id": "rule_season_toxic_darter",
+    "pointSystemId": "season_pass",
+    "enemyId": "toxic_darter",
+    "points": 20,
+    "notes": "Zombie phóng phi tiêu độc cực nhanh (20 điểm)."
+  },
+  {
+    "id": "rule_season_turret",
+    "pointSystemId": "season_pass",
+    "enemyId": "turret",
+    "points": 20,
+    "notes": "Súng máy an ninh tự động Bunker (20 điểm)."
+  },
+  {
+    "id": "rule_season_exploder",
+    "pointSystemId": "season_pass",
+    "enemyId": "exploder",
+    "points": 25,
+    "notes": "Zombie tự nổ Bunker Bravo (25 điểm)."
+  },
+  {
+    "id": "rule_season_fetid_corpse",
+    "pointSystemId": "season_pass",
+    "enemyId": "fetid_corpse",
+    "points": 25,
+    "notes": "Xác sống bốc mây khí độc thối rữa (25 điểm)."
+  },
+  {
+    "id": "rule_season_frenzied_giant",
+    "pointSystemId": "season_pass",
+    "enemyId": "frenzied_giant",
+    "points": 30,
+    "notes": "Khổng lồ điên cuồng Bunker Alfa (30 điểm)."
+  },
+  {
+    "id": "rule_season_heavy_turret",
+    "pointSystemId": "season_pass",
+    "enemyId": "heavy_turret",
+    "points": 40,
+    "notes": "Súng máy hạng nặng phóng lựu (40 điểm)."
+  },
+  {
+    "id": "rule_season_colonel",
+    "pointSystemId": "season_pass",
+    "enemyId": "colonel",
+    "points": 50,
+    "notes": "Chỉ huy Đại tá biến chất (50 điểm)."
+  },
+  {
+    "id": "rule_season_the_ravager",
+    "pointSystemId": "season_pass",
+    "enemyId": "the_ravager",
+    "points": 80,
+    "notes": "Boss quái thú Nông trại Farm (80 điểm)."
+  },
+  {
+    "id": "rule_season_the_blind_one",
+    "pointSystemId": "season_pass",
+    "enemyId": "the_blind_one",
+    "points": 100,
+    "notes": "Boss Kẻ mù lòa Bunker Alfa hardmode (100 điểm)."
+  },
+  {
+    "id": "rule_season_the_witch",
+    "pointSystemId": "season_pass",
+    "enemyId": "the_witch",
+    "points": 120,
+    "notes": "Boss Mụ phù thủy Rừng nhiễm độc Infected Forest (120 điểm)."
+  },
+  {
+    "id": "rule_season_the_big_one",
+    "pointSystemId": "season_pass",
+    "enemyId": "the_big_one",
+    "points": 200,
+    "notes": "Gã khổng lồ bất tử vùng rừng/núi đỏ (200 điểm)."
   }
 ]

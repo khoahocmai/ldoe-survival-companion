@@ -8,7 +8,10 @@
     "craftTimeSeconds": 240,
     "levelRequired": 6,
     "ingredients": [
-      { "itemId": "pine_log", "quantity": 1 }
+      {
+        "itemId": "pine_log",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -20,7 +23,10 @@
     "craftTimeSeconds": 240,
     "levelRequired": 10,
     "ingredients": [
-      { "itemId": "iron_ore", "quantity": 2 }
+      {
+        "itemId": "iron_ore",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -32,7 +38,10 @@
     "craftTimeSeconds": 300,
     "levelRequired": 28,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 2 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -44,7 +53,10 @@
     "craftTimeSeconds": 120,
     "levelRequired": 18,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 1 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -56,7 +68,10 @@
     "craftTimeSeconds": 360,
     "levelRequired": 14,
     "ingredients": [
-      { "itemId": "raw_hide", "quantity": 2 }
+      {
+        "itemId": "raw_hide",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -68,7 +83,10 @@
     "craftTimeSeconds": 180,
     "levelRequired": 8,
     "ingredients": [
-      { "itemId": "plant_fiber", "quantity": 2 }
+      {
+        "itemId": "plant_fiber",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -80,7 +98,10 @@
     "craftTimeSeconds": 300,
     "levelRequired": 24,
     "ingredients": [
-      { "itemId": "cloth", "quantity": 2 }
+      {
+        "itemId": "cloth",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -92,7 +113,10 @@
     "craftTimeSeconds": 120,
     "levelRequired": 2,
     "ingredients": [
-      { "itemId": "pine_log", "quantity": 1 }
+      {
+        "itemId": "pine_log",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -104,7 +128,10 @@
     "craftTimeSeconds": 240,
     "levelRequired": 12,
     "ingredients": [
-      { "itemId": "raw_meat", "quantity": 1 }
+      {
+        "itemId": "raw_meat",
+        "quantity": 1
+      }
     ],
     "buffStats": {
       "hunger": 40,
@@ -119,7 +146,10 @@
     "craftTimeSeconds": 5,
     "levelRequired": 1,
     "ingredients": [
-      { "itemId": "pine_log", "quantity": 3 }
+      {
+        "itemId": "pine_log",
+        "quantity": 3
+      }
     ]
   },
   {
@@ -130,8 +160,14 @@
     "craftTimeSeconds": 10,
     "levelRequired": 4,
     "ingredients": [
-      { "itemId": "pine_log", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 1 }
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -142,8 +178,14 @@
     "craftTimeSeconds": 15,
     "levelRequired": 12,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 4 },
-      { "itemId": "leather", "quantity": 3 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 4
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      }
     ]
   },
   {
@@ -154,8 +196,14 @@
     "craftTimeSeconds": 15,
     "levelRequired": 14,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 7 },
-      { "itemId": "leather", "quantity": 3 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 7
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      }
     ]
   },
   {
@@ -166,9 +214,18 @@
     "craftTimeSeconds": 20,
     "levelRequired": 20,
     "ingredients": [
-      { "itemId": "pine_plank", "quantity": 8 },
-      { "itemId": "iron_bar", "quantity": 6 },
-      { "itemId": "nails", "quantity": 5 }
+      {
+        "itemId": "pine_plank",
+        "quantity": 8
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "nails",
+        "quantity": 5
+      }
     ]
   },
   {
@@ -179,9 +236,18 @@
     "craftTimeSeconds": 25,
     "levelRequired": 30,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 15 },
-      { "itemId": "pine_plank", "quantity": 4 },
-      { "itemId": "leather", "quantity": 3 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 4
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      }
     ]
   },
   {
@@ -192,10 +258,22 @@
     "craftTimeSeconds": 30,
     "levelRequired": 40,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 15 },
-      { "itemId": "pine_plank", "quantity": 10 },
-      { "itemId": "nails", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 2 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "nails",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
     ]
   },
   {
@@ -206,10 +284,22 @@
     "craftTimeSeconds": 30,
     "levelRequired": 44,
     "ingredients": [
-      { "itemId": "iron_bar", "quantity": 20 },
-      { "itemId": "pine_plank", "quantity": 10 },
-      { "itemId": "nails", "quantity": 8 },
-      { "itemId": "leather", "quantity": 4 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 20
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "nails",
+        "quantity": 8
+      },
+      {
+        "itemId": "leather",
+        "quantity": 4
+      }
     ]
   },
   {
@@ -220,20 +310,32 @@
     "craftTimeSeconds": 20,
     "levelRequired": 16,
     "ingredients": [
-      { "itemId": "pine_plank", "quantity": 5 },
-      { "itemId": "rope", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 3 }
+      {
+        "itemId": "pine_plank",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
     ]
   },
   {
-    "id": "recipe_bandage",
-    "outputItemId": "bandage",
+    "id": "recipe_bandages",
+    "outputItemId": "bandages",
     "outputQuantity": 1,
     "category": "crafting",
     "craftTimeSeconds": 5,
     "levelRequired": 2,
     "ingredients": [
-      { "itemId": "cloth", "quantity": 5 }
+      {
+        "itemId": "cloth",
+        "quantity": 5
+      }
     ]
   },
   {
@@ -242,10 +344,16 @@
     "outputQuantity": 1,
     "category": "crafting",
     "craftTimeSeconds": 25,
-    "levelRequired": 34,
+    "levelRequired": 40,
     "ingredients": [
-      { "itemId": "thick_fabric", "quantity": 4 },
-      { "itemId": "leather", "quantity": 2 }
+      {
+        "itemId": "thick_fabric",
+        "quantity": 9
+      },
+      {
+        "itemId": "leather",
+        "quantity": 7
+      }
     ]
   },
   {
@@ -254,11 +362,20 @@
     "outputQuantity": 1,
     "category": "crafting",
     "craftTimeSeconds": 30,
-    "levelRequired": 34,
+    "levelRequired": 40,
     "ingredients": [
-      { "itemId": "thick_fabric", "quantity": 6 },
-      { "itemId": "leather", "quantity": 3 },
-      { "itemId": "iron_bar", "quantity": 2 }
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 4
+      }
     ]
   },
   {
@@ -270,13 +387,34 @@
     "levelRequired": 34,
     "workstation": "Base Ground Assembly",
     "ingredients": [
-      { "itemId": "iron_plate", "quantity": 20 },
-      { "itemId": "bolt", "quantity": 55 },
-      { "itemId": "wrench", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 40 },
-      { "itemId": "gasoline", "quantity": 10 },
-      { "itemId": "rubber_parts", "quantity": 15 },
-      { "itemId": "ball_bearing", "quantity": 20 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 20
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 55
+      },
+      {
+        "itemId": "wrench",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 40
+      },
+      {
+        "itemId": "gasoline",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 15
+      },
+      {
+        "itemId": "ball_bearing",
+        "quantity": 20
+      }
     ]
   },
   {
@@ -288,9 +426,18 @@
     "craftTimeSeconds": 300,
     "levelRequired": 25,
     "ingredients": [
-      { "itemId": "salmon", "quantity": 1 },
-      { "itemId": "carrot", "quantity": 2 },
-      { "itemId": "mushroom", "quantity": 2 }
+      {
+        "itemId": "salmon",
+        "quantity": 1
+      },
+      {
+        "itemId": "carrot",
+        "quantity": 2
+      },
+      {
+        "itemId": "mushroom",
+        "quantity": 2
+      }
     ],
     "buffStats": {
       "healHp": 45,
@@ -308,8 +455,14 @@
     "craftTimeSeconds": 180,
     "levelRequired": 20,
     "ingredients": [
-      { "itemId": "perch", "quantity": 1 },
-      { "itemId": "plant_fiber", "quantity": 3 }
+      {
+        "itemId": "perch",
+        "quantity": 1
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 3
+      }
     ],
     "buffStats": {
       "healHp": 30,
@@ -317,5 +470,3552 @@
       "buffEffect": "Giải tỏa hoàn toàn cơn khát và phục hồi sinh lực",
       "durationSeconds": 600
     }
+  },
+  {
+    "id": "recipe_steel_plate",
+    "outputItemId": "steel_plate",
+    "outputQuantity": 1,
+    "category": "processing",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 600,
+    "levelRequired": 50,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_dad_hat",
+    "outputItemId": "dad_hat",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 10,
+    "ingredients": [
+      {
+        "itemId": "plant_fiber",
+        "quantity": 2
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_shirt",
+    "outputItemId": "shirt",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 10,
+    "ingredients": [
+      {
+        "itemId": "plant_fiber",
+        "quantity": 3
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_cargo_pants",
+    "outputItemId": "cargo_pants",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 10,
+    "ingredients": [
+      {
+        "itemId": "plant_fiber",
+        "quantity": 3
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 3
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_sneakers",
+    "outputItemId": "sneakers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 10,
+    "ingredients": [
+      {
+        "itemId": "plant_fiber",
+        "quantity": 2
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_shirt",
+    "outputItemId": "reinforced_shirt",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 16,
+    "ingredients": [
+      {
+        "itemId": "shirt",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_trousers",
+    "outputItemId": "reinforced_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 16,
+    "ingredients": [
+      {
+        "itemId": "cargo_pants",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_sneakers",
+    "outputItemId": "reinforced_sneakers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 16,
+    "ingredients": [
+      {
+        "itemId": "sneakers",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 4
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_beanie",
+    "outputItemId": "beanie",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 22,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 3
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_thick_jacket",
+    "outputItemId": "thick_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 22,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 7
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_denim_jeans",
+    "outputItemId": "denim_jeans",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 22,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 7
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_work_boots",
+    "outputItemId": "work_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 22,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 7
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_beanie",
+    "outputItemId": "reinforced_beanie",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 28,
+    "ingredients": [
+      {
+        "itemId": "beanie",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_jacket",
+    "outputItemId": "reinforced_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 28,
+    "ingredients": [
+      {
+        "itemId": "thick_jacket",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_jeans",
+    "outputItemId": "reinforced_jeans",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 28,
+    "ingredients": [
+      {
+        "itemId": "denim_jeans",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_boots",
+    "outputItemId": "reinforced_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 28,
+    "ingredients": [
+      {
+        "itemId": "work_boots",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_tactical_trousers",
+    "outputItemId": "tactical_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 46,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 7
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_tactical_boots",
+    "outputItemId": "tactical_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 46,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 7
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_swat_helmet",
+    "outputItemId": "swat_helmet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 40,
+    "levelRequired": 58,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_swat_body_armor",
+    "outputItemId": "swat_body_armor",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 45,
+    "levelRequired": 58,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 20
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 15
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_swat_trousers",
+    "outputItemId": "swat_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 45,
+    "levelRequired": 58,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 20
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 15
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_swat_boots",
+    "outputItemId": "swat_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 35,
+    "levelRequired": 58,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_fur_beanie",
+    "outputItemId": "fur_beanie",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 64,
+    "ingredients": [
+      {
+        "itemId": "fur",
+        "quantity": 10
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 12
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_fur_jacket",
+    "outputItemId": "fur_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 40,
+    "levelRequired": 64,
+    "ingredients": [
+      {
+        "itemId": "fur",
+        "quantity": 15
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 20
+      },
+      {
+        "itemId": "rope",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 20
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_fur_trousers",
+    "outputItemId": "fur_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 40,
+    "levelRequired": 64,
+    "ingredients": [
+      {
+        "itemId": "fur",
+        "quantity": 12
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 15
+      },
+      {
+        "itemId": "rope",
+        "quantity": 12
+      },
+      {
+        "itemId": "leather",
+        "quantity": 15
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_fur_boots",
+    "outputItemId": "fur_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 64,
+    "ingredients": [
+      {
+        "itemId": "fur",
+        "quantity": 8
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 12
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_kevlar_helmet",
+    "outputItemId": "kevlar_helmet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 76,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 6
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_kevlar_body_armor",
+    "outputItemId": "kevlar_body_armor",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 76,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 20
+      },
+      {
+        "itemId": "leather",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_kevlar_trousers",
+    "outputItemId": "kevlar_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 76,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 8
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 18
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_kevlar_boots",
+    "outputItemId": "kevlar_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 76,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 4
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 12
+      },
+      {
+        "itemId": "leather",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_shovel",
+    "outputItemId": "shovel",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 18,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 8
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 7
+      },
+      {
+        "itemId": "nails",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_makeshift_crossbow",
+    "outputItemId": "makeshift_crossbow",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 26,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_zip_gun",
+    "outputItemId": "zip_gun",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 36,
+    "ingredients": [
+      {
+        "itemId": "aluminium_bar",
+        "quantity": 4
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 3
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_torch",
+    "outputItemId": "torch",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 2,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "raw_hide",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_molotov_cocktail",
+    "outputItemId": "molotov_cocktail",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 30,
+    "ingredients": [
+      {
+        "itemId": "cloth",
+        "quantity": 5
+      },
+      {
+        "itemId": "gasoline",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_bear_trap",
+    "outputItemId": "bear_trap",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 14,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_land_mine",
+    "outputItemId": "land_mine",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 65,
+    "ingredients": [
+      {
+        "itemId": "c4_explosive",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 4
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_crossbow",
+    "outputItemId": "crossbow",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 54,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "aluminium_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "spring",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_flamethrower",
+    "outputItemId": "flamethrower",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      },
+      {
+        "itemId": "gasoline",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_slasher",
+    "outputItemId": "slasher",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 45,
+    "levelRequired": 68,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      },
+      {
+        "itemId": "spring",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_scorcher",
+    "outputItemId": "scorcher",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 72,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_apocalypse_breath",
+    "outputItemId": "apocalypse_breath",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "spring",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 15
+      }
+    ]
+  },
+  {
+    "id": "recipe_neutralizer",
+    "outputItemId": "neutralizer",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 80,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_the_equalizer",
+    "outputItemId": "the_equalizer",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 85,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 8
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_ultimatum",
+    "outputItemId": "ultimatum",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 82,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 6
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_protector",
+    "outputItemId": "protector",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 85,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 8
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_resonator",
+    "outputItemId": "resonator",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 90,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 18
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 15
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_the_dragunov",
+    "outputItemId": "the_dragunov",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 92,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 20
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 15
+      },
+      {
+        "itemId": "spring",
+        "quantity": 10
+      },
+      {
+        "itemId": "lens",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_pistol",
+    "outputItemId": "anti_spore_pistol",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 50,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 4
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_rifle",
+    "outputItemId": "anti_spore_rifle",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 74,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_sniper_rifle",
+    "outputItemId": "anti_spore_sniper_rifle",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 70,
+    "levelRequired": 78,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      },
+      {
+        "itemId": "lens",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_spore_destroyer",
+    "outputItemId": "spore_destroyer",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_dissolver",
+    "outputItemId": "dissolver",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_basic_backpack",
+    "outputItemId": "basic_backpack",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 2,
+    "ingredients": [
+      {
+        "itemId": "rope",
+        "quantity": 2
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_military_backpack",
+    "outputItemId": "military_backpack",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 64,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 2
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 15
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_dog_saddle_bag",
+    "outputItemId": "dog_saddle_bag",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 20,
+    "ingredients": [
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_spiked_collar",
+    "outputItemId": "spiked_collar",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 18,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "rope",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_protective_coat",
+    "outputItemId": "protective_coat",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 30,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 4
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_fur_beanie",
+    "outputItemId": "reinforced_fur_beanie",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 68,
+    "ingredients": [
+      {
+        "itemId": "fur_beanie",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_fur_jacket",
+    "outputItemId": "reinforced_fur_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 40,
+    "levelRequired": 68,
+    "ingredients": [
+      {
+        "itemId": "fur_jacket",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_fur_trousers",
+    "outputItemId": "reinforced_fur_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 40,
+    "levelRequired": 68,
+    "ingredients": [
+      {
+        "itemId": "fur_trousers",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_reinforced_fur_boots",
+    "outputItemId": "reinforced_fur_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 68,
+    "ingredients": [
+      {
+        "itemId": "fur_boots",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "leather",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_protective_mask",
+    "outputItemId": "protective_mask",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 20,
+    "levelRequired": 45,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_mask",
+    "outputItemId": "anti_spore_mask",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 3
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 1
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_jacket",
+    "outputItemId": "anti_spore_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 3
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_pants",
+    "outputItemId": "anti_spore_pants",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 30,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 5
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 3
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_spore_boots",
+    "outputItemId": "anti_spore_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 25,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "thick_fabric",
+        "quantity": 3
+      },
+      {
+        "itemId": "leather",
+        "quantity": 3
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "rope",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_enhanced_anti_spore_mask",
+    "outputItemId": "enhanced_anti_spore_mask",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 35,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "anti_spore_mask",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_enhanced_anti_spore_jacket",
+    "outputItemId": "enhanced_anti_spore_jacket",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 40,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "anti_spore_jacket",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 4
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_enhanced_anti_spore_pants",
+    "outputItemId": "enhanced_anti_spore_pants",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 40,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "anti_spore_pants",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 2
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 4
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_enhanced_anti_spore_boots",
+    "outputItemId": "enhanced_anti_spore_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 35,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "anti_spore_boots",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 1
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_cbrn_combat_helmet",
+    "outputItemId": "cbrn_combat_helmet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 50,
+    "levelRequired": 80,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 4
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_cbrn_combat_armor",
+    "outputItemId": "cbrn_combat_armor",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 80,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_cbrn_combat_pants",
+    "outputItemId": "cbrn_combat_pants",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 80,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_cbrn_combat_boots",
+    "outputItemId": "cbrn_combat_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 50,
+    "levelRequired": 80,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 3
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 4
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_assault_helmet",
+    "outputItemId": "assault_helmet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 160,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 6
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 5
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_assault_body_armor",
+    "outputItemId": "assault_body_armor",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 120,
+    "levelRequired": 160,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 8
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 18
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 20
+      },
+      {
+        "itemId": "leather",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "id": "recipe_assault_trousers",
+    "outputItemId": "assault_trousers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 120,
+    "levelRequired": 160,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 8
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 12
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_assault_boots",
+    "outputItemId": "assault_boots",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 90,
+    "levelRequired": 160,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 4
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 6
+      },
+      {
+        "itemId": "thick_fabric",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_hatchet",
+    "outputItemId": "hatchet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 1,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 3
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_pickaxe",
+    "outputItemId": "pickaxe",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 5,
+    "levelRequired": 1,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 3
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_iron_hatchet",
+    "outputItemId": "iron_hatchet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 14,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 3
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_iron_pickaxe",
+    "outputItemId": "iron_pickaxe",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 14,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 3
+      },
+      {
+        "itemId": "nails",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_fishing_rod",
+    "outputItemId": "fishing_rod",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 12,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 2
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_warming_first_aid_kit",
+    "outputItemId": "warming_first_aid_kit",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 10,
+    "levelRequired": 25,
+    "ingredients": [
+      {
+        "itemId": "first_aid_kit",
+        "quantity": 1
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_manual_earth_drill",
+    "outputItemId": "manual_earth_drill",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 50,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_inhaler",
+    "outputItemId": "inhaler",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "craftTimeSeconds": 15,
+    "levelRequired": 35,
+    "ingredients": [
+      {
+        "itemId": "first_aid_kit",
+        "quantity": 1
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_starter_unit",
+    "outputItemId": "starter_unit",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 20,
+    "levelRequired": 40,
+    "ingredients": [
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 5
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_anti_radiation_pills",
+    "outputItemId": "anti_radiation_pills",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 60,
+    "ingredients": [
+      {
+        "itemId": "first_aid_kit",
+        "quantity": 2
+      },
+      {
+        "itemId": "charcoal",
+        "quantity": 1
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_antirad",
+    "outputItemId": "antirad",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 30,
+    "levelRequired": 65,
+    "ingredients": [
+      {
+        "itemId": "anti_radiation_pills",
+        "quantity": 1
+      },
+      {
+        "itemId": "first_aid_kit",
+        "quantity": 1
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_chainsaw",
+    "outputItemId": "chainsaw",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 70,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 10
+      },
+      {
+        "itemId": "gasoline",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      },
+      {
+        "itemId": "spring",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_portable_turret_t1",
+    "outputItemId": "portable_turret_t1",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 45,
+    "levelRequired": 65,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      },
+      {
+        "itemId": "glock_17",
+        "quantity": 1
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_portable_turret_t2",
+    "outputItemId": "portable_turret_t2",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 75,
+    "ingredients": [
+      {
+        "itemId": "portable_turret_t1",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "m16",
+        "quantity": 1
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_portable_turret_t3",
+    "outputItemId": "portable_turret_t3",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Workbench",
+    "craftTimeSeconds": 60,
+    "levelRequired": 85,
+    "ingredients": [
+      {
+        "itemId": "portable_turret_t2",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "ak47",
+        "quantity": 1
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_small_box",
+    "outputItemId": "small_box",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 3
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_garden_bed",
+    "outputItemId": "garden_bed",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_woodworking_bench",
+    "outputItemId": "woodworking_bench",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 10
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_rain_catcher",
+    "outputItemId": "rain_catcher",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 2
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 3
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_campfire",
+    "outputItemId": "campfire",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 5
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "recipe_meat_dryer",
+    "outputItemId": "meat_dryer",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_melting_furnace",
+    "outputItemId": "melting_furnace",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "limestone",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_ore",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_stonecutter_table",
+    "outputItemId": "stonecutter_table",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 20
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_kitchen_stove",
+    "outputItemId": "kitchen_stove",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_tanning_rack",
+    "outputItemId": "tanning_rack",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_workbench",
+    "outputItemId": "workbench",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_sewing_table",
+    "outputItemId": "sewing_table",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 15
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_recycler",
+    "outputItemId": "recycler",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "aluminium_bar",
+        "quantity": 2
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_medical_table",
+    "outputItemId": "medical_table",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_refined_melting_furnace",
+    "outputItemId": "refined_melting_furnace",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 20
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_repair_workbench",
+    "outputItemId": "repair_workbench",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_chemistry_station",
+    "outputItemId": "chemistry_station",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "aluminium_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_pressing_machine",
+    "outputItemId": "pressing_machine",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_laboratory",
+    "outputItemId": "laboratory",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 10
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_hydroponic_system",
+    "outputItemId": "hydroponic_system",
+    "outputQuantity": 1,
+    "workstation": "Chế tạo tay",
+    "category": "crafting",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_dog_crate_design",
+    "outputItemId": "dog_crate_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 10
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_gunsmith_bench",
+    "outputItemId": "gunsmith_bench",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 20
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 25
+      },
+      {
+        "itemId": "aluminium_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_cat_playpen",
+    "outputItemId": "cat_playpen",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 15
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 10
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_cat_tree",
+    "outputItemId": "cat_tree",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 20
+      },
+      {
+        "itemId": "rope",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_buzzsaw",
+    "outputItemId": "buzzsaw",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_garage",
+    "outputItemId": "garage",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 20
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_boat_engine",
+    "outputItemId": "boat_engine",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_motorboat_design",
+    "outputItemId": "motorboat_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 20
+      },
+      {
+        "itemId": "steel_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_atv_design",
+    "outputItemId": "atv_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_plate",
+        "quantity": 20
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_atv_garage",
+    "outputItemId": "atv_garage",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 20
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_drone_docking_station_design",
+    "outputItemId": "drone_docking_station_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 10
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_drone_upgrade_workbench_design",
+    "outputItemId": "drone_upgrade_workbench_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 10
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_mi24_helicopter_design",
+    "outputItemId": "mi24_helicopter_design",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 30
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 20
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 15
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_shower",
+    "outputItemId": "shower",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 10
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_ore",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_spike_trap",
+    "outputItemId": "spike_trap",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_trip_wire_trap",
+    "outputItemId": "trip_wire_trap",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 3
+      },
+      {
+        "itemId": "iron_ore",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_houseplant",
+    "outputItemId": "houseplant",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 5
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "id": "recipe_doormat",
+    "outputItemId": "doormat",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "cloth",
+        "quantity": 5
+      },
+      {
+        "itemId": "rope",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_mirror",
+    "outputItemId": "mirror",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "lens",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_dining_table",
+    "outputItemId": "dining_table",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 15
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "nails",
+        "quantity": 4
+      }
+    ]
+  },
+  {
+    "id": "recipe_cozy_couch",
+    "outputItemId": "cozy_couch",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_barbed_wire",
+    "outputItemId": "barbed_wire",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_floor_lamp",
+    "outputItemId": "floor_lamp",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 2
+      },
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_weapon_stand",
+    "outputItemId": "weapon_stand",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 15
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "id": "recipe_trophy_board",
+    "outputItemId": "trophy_board",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "nails",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_comfortable_bed",
+    "outputItemId": "comfortable_bed",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_hand_pump",
+    "outputItemId": "hand_pump",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "limestone",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_spruce",
+    "outputItemId": "spruce",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_log",
+        "quantity": 5
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_tire_flowerbed",
+    "outputItemId": "tire_flowerbed",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "rubber_parts",
+        "quantity": 2
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_bath_with_flowers",
+    "outputItemId": "bath_with_flowers",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_outdoor_toilet",
+    "outputItemId": "outdoor_toilet",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "pine_plank",
+        "quantity": 15
+      },
+      {
+        "itemId": "nails",
+        "quantity": 5
+      },
+      {
+        "itemId": "cloth",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "recipe_mortar",
+    "outputItemId": "mortar",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 15
+      },
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "spring",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "recipe_decorative_pond",
+    "outputItemId": "decorative_pond",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "limestone",
+        "quantity": 20
+      },
+      {
+        "itemId": "plant_fiber",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "recipe_sculpture",
+    "outputItemId": "sculpture",
+    "outputQuantity": 1,
+    "category": "crafting",
+    "workstation": "Chế tạo tay",
+    "craftTimeSeconds": 0,
+    "ingredients": [
+      {
+        "itemId": "limestone",
+        "quantity": 30
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 10
+      }
+    ]
   }
 ]

@@ -30,9 +30,9 @@
     ],
     "rewards": [
       { "itemId": "pine_log", "quantity": 20 },
-      { "itemId": "bandage", "quantity": 5 }
+      { "itemId": "bandages", "quantity": 5 }
     ],
-    "relatedItems": ["pine_log", "spear", "bandage"],
+    "relatedItems": ["pine_log", "spear", "bandages"],
     "instructions": "Chặt các cây thông xung quanh căn cứ bằng rìu hoặc nhặt các cành cây rơi rải rác dưới đất."
   },
   {
@@ -65,10 +65,10 @@
         "quantity": 20
       },
       {
-        "id": "obj_craft_bandage",
+        "id": "obj_craft_bandages",
         "type": "craft_item",
-        "description": "Chế tạo 3 Băng gạc (Bandage) để dự phòng thương tích",
-        "targetId": "bandage",
+        "description": "Chế tạo 3 Băng gạc (Bandages) để dự phòng thương tích",
+        "targetId": "bandages",
         "quantity": 3
       }
     ],
@@ -78,7 +78,7 @@
     ],
     "relatedLocations": ["pine_bushes"],
     "relatedEnemies": ["roamer"],
-    "relatedItems": ["plant_fiber", "bandage"],
+    "relatedItems": ["plant_fiber", "bandages"],
     "instructions": "Bấm nút Sneak (ngồi xổm) để tiếp cận zombie từ phía sau gây sát thương gấp 3 lần."
   },
   {
