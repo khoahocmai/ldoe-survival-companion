@@ -155,13 +155,21 @@ export const LocationsPage: React.FC = () => {
 
                           <div className="shrink-0 self-end sm:self-auto">
                             {isChopper ? (
-                              <Button size="sm" variant="primary" onClick={() => navigate('/construction?tab=chopper')}>
+                              <Button
+                                size="sm"
+                                variant="primary"
+                                onClick={() => navigate('/construction?location=gas_station&structure=struct_gas_station_chopper')}
+                              >
                                 <Bike className="h-3.5 w-3.5" />
-                                Nâng cấp xe máy
+                                Xem nâng cấp Chopper
                               </Button>
                             ) : (
-                              <Button size="sm" variant="secondary" onClick={() => navigate(`/construction?structure=${s.id}`)}>
-                                Tính vật liệu
+                              <Button
+                                size="sm"
+                                variant="secondary"
+                                onClick={() => navigate(`/construction?location=${loc.id}&structure=${s.id}`)}
+                              >
+                                Xem nguyên liệu nộp
                               </Button>
                             )}
                           </div>
