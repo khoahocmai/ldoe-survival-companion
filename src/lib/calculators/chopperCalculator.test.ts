@@ -22,35 +22,46 @@ describe('chopperCalculator', () => {
   });
 
   describe('calculateChopperUpgrade', () => {
-    it('calculates EXP and level-up correctly for user screenshot scenario', () => {
+    it('calculates EXP, level-up and remaining requirement correctly for user screenshot scenario', () => {
       // User is Lvl 42, 3610 / 4500 EXP (needs 890 to reach 43)
-      // Inventory: 100 bolts (+300), 50 ball_bearings (+250), 15 iron_plates (+300) = 850 EXP
-      // Plus 8 thick_leather (+40 EXP) = 890 EXP -> Level 43!
-      const donations = {
-        bolt: 100,
-        ball_bearing: 50,
-        iron_plate: 15,
-        thick_leather: 8,
-      };
-
-      const result = calculateChopperUpgrade({
+      // When donating only 100 bolts (+300 EXP):
+      // totalExpProgress = 3910, remainingExpToNextLevel = 590, isLevelUpSatisfied: false
+      const partialResult = calculateChopperUpgrade({
         currentLevel: 42,
         currentExp: 3610,
-        donations,
+        donations: { bolt: 100 },
         acceptedItems: DEFAULT_CHOPPER_ACCEPTED_ITEMS,
       });
 
-      expect(result.totalExpGained).toBe(890);
-      expect(result.newLevel).toBe(43);
-      expect(result.newExp).toBe(0);
-      expect(result.levelsGained).toBe(1);
-      expect(result.perkRollsAvailable).toBe(1);
-      expect(result.warnings.filter((w) => w.severity === 'danger').length).toBe(0);
-      expect(result.warnings.some((w) => w.itemId === 'thick_leather')).toBe(true);
+      expect(partialResult.totalExpGained).toBe(300);
+      expect(partialResult.remainingExpToNextLevel).toBe(590);
+      expect(partialResult.isLevelUpSatisfied).toBe(false);
+      expect(partialResult.newLevel).toBe(42);
+
+      // When adding 50 bearings (+250), 15 iron plates (+300), 8 thick leather (+40) -> total 890 EXP -> Level 43!
+      const fullResult = calculateChopperUpgrade({
+        currentLevel: 42,
+        currentExp: 3610,
+        donations: {
+          bolt: 100,
+          ball_bearing: 50,
+          iron_plate: 15,
+          thick_leather: 8,
+        },
+        acceptedItems: DEFAULT_CHOPPER_ACCEPTED_ITEMS,
+      });
+
+      expect(fullResult.totalExpGained).toBe(890);
+      expect(fullResult.remainingExpToNextLevel).toBe(0);
+      expect(fullResult.isLevelUpSatisfied).toBe(true);
+      expect(fullResult.newLevel).toBe(43);
+      expect(fullResult.newExp).toBe(0);
+      expect(fullResult.levelsGained).toBe(1);
+      expect(fullResult.perkRollsAvailable).toBe(1);
     });
 
     it('handles multiple level jumps when large exp is donated', () => {
-      // 5 Chopper magazines (+5000 EXP) from Level 1 (needs 1500 to Lvl 2, ~1573 to Lvl 3...)
+      // 5 Chopper magazines (+5000 EXP) from Level 1
       const donations = {
         chopper_magazine: 5,
       };
@@ -66,6 +77,7 @@ describe('chopperCalculator', () => {
       expect(result.newLevel).toBeGreaterThanOrEqual(3);
       expect(result.levelsGained).toBeGreaterThanOrEqual(2);
       expect(result.perkRollsAvailable).toBe(result.levelsGained);
+      expect(result.isLevelUpSatisfied).toBe(true);
     });
 
     it('caps at max level 100', () => {
@@ -83,9 +95,10 @@ describe('chopperCalculator', () => {
       expect(result.newLevel).toBe(100);
       expect(result.isMaxLevel).toBe(true);
       expect(result.newExp).toBe(0);
+      expect(result.remainingExpToNextLevel).toBe(0);
     });
 
-    it('flags danger warnings when rare resources are donated', () => {
+    it('allows entering rare resources without throwing errors or warnings', () => {
       const donations = {
         copper_bar: 5,
         aluminium_plate: 3,
@@ -100,9 +113,10 @@ describe('chopperCalculator', () => {
         acceptedItems: DEFAULT_CHOPPER_ACCEPTED_ITEMS,
       });
 
-      expect(result.warnings.length).toBe(4);
-      expect(result.warnings.some((w) => w.itemId === 'copper_bar')).toBe(true);
-      expect(result.warnings.some((w) => w.itemId === 'engine_part')).toBe(true);
+      // 5*75 (375) + 3*100 (300) + 10*50 (500) + 10*20 (200) = 1375 EXP
+      expect(result.totalExpGained).toBe(1375);
+      expect(result.donatedBreakdown.length).toBe(4);
+      expect(result.isLevelUpSatisfied).toBe(true);
     });
   });
 

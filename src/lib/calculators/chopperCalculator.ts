@@ -20,69 +20,69 @@ export const DEFAULT_CHOPPER_ACCEPTED_ITEMS: StructureCycleItem[] = [
     valuePerItem: 5,
     dailyLimit: 50,
     tier: 'caution',
-    reason: 'Tốn công sấy da thú; nên ưu tiên may giáp SWAT/Tactical hoặc mod súng trước.',
+    reason: 'Tốn công sấy da thú; thường dùng may giáp SWAT/Tactical hoặc mod súng.',
   },
   {
     itemId: 'iron_plate',
     valuePerItem: 20,
     dailyLimit: 15,
     tier: 'recommended',
-    reason: 'Dễ luyện từ quặng sắt thường, 15 tấm đổi được 300 EXP rất hời.',
+    reason: 'Dễ luyện từ quặng sắt thường, 15 tấm đổi được 300 EXP.',
   },
   {
     itemId: 'spring',
     valuePerItem: 20,
     dailyLimit: 10,
     tier: 'avoid',
-    reason: 'Nguyên liệu mod vũ khí quý hiếm, không nên hiến cho thợ xe.',
+    reason: 'Nguyên liệu cho các bản mod vũ khí.',
   },
   {
     itemId: 'engine_part',
     valuePerItem: 50,
     dailyLimit: 10,
     tier: 'avoid',
-    reason: 'Vô cùng quan trọng để đóng xe địa hình ATV, Bồn rửa axit và mod súng.',
+    reason: 'Dùng để đóng xe địa hình ATV, Bồn rửa axit và mod súng.',
   },
   {
     itemId: 'copper_bar',
     valuePerItem: 75,
     dailyLimit: 5,
     tier: 'avoid',
-    reason: 'Nguyên liệu luyện Thép tấm (Steel Plate), cực kỳ tốn công khai thác tuyết.',
+    reason: 'Nguyên liệu luyện Thép tấm (Steel Plate).',
   },
   {
     itemId: 'aluminium_plate',
     valuePerItem: 100,
     dailyLimit: 3,
     tier: 'avoid',
-    reason: 'Nguyên liệu thiết yếu để chế tạo mod súng cao cấp.',
+    reason: 'Nguyên liệu cho các bản mod súng.',
   },
   {
     itemId: 'chopper_wheel',
     valuePerItem: 500,
     dailyLimit: 1,
     tier: 'recommended',
-    reason: 'Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP.',
+    reason: 'Phụ tùng xe máy Chopper (+500 EXP).',
   },
   {
     itemId: 'chopper_fork',
     valuePerItem: 500,
     dailyLimit: 1,
     tier: 'recommended',
-    reason: 'Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP.',
+    reason: 'Phụ tùng xe máy Chopper (+500 EXP).',
   },
   {
     itemId: 'chopper_gas_tank',
     valuePerItem: 500,
     dailyLimit: 1,
     tier: 'recommended',
-    reason: 'Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP.',
+    reason: 'Phụ tùng xe máy Chopper (+500 EXP).',
   },
   {
     itemId: 'chopper_magazine',
     valuePerItem: 1000,
     tier: 'recommended',
-    reason: 'Tạp chí hướng dẫn cho ngay +1,000 EXP tức thì không giới hạn lượt nộp.',
+    reason: 'Tạp chí xe máy cho +1,000 EXP tức thì không giới hạn lượt nộp.',
   },
 ];
 
@@ -104,12 +104,6 @@ export interface ChopperUpgradeParams {
   acceptedItems?: StructureCycleItem[];
 }
 
-export interface ChopperWarning {
-  itemId: string;
-  message: string;
-  severity: 'danger' | 'warning';
-}
-
 export interface ChopperDonationBreakdown {
   itemId: string;
   quantity: number;
@@ -120,14 +114,16 @@ export interface ChopperDonationBreakdown {
 export interface ChopperUpgradeResult {
   currentLevel: number;
   currentExp: number;
+  requiredExpForCurrentLevel: number;
   totalExpGained: number;
+  remainingExpToNextLevel: number;
+  isLevelUpSatisfied: boolean;
   newLevel: number;
   newExp: number;
   requiredExpForNewLevel: number;
   levelsGained: number;
   perkRollsAvailable: number;
   isMaxLevel: boolean;
-  warnings: ChopperWarning[];
   donatedBreakdown: ChopperDonationBreakdown[];
 }
 
@@ -137,7 +133,6 @@ export function calculateChopperUpgrade(params: ChopperUpgradeParams): ChopperUp
   const itemMap = new Map<string, StructureCycleItem>(acceptedItems.map((item) => [item.itemId, item]));
 
   let totalExpGained = 0;
-  const warnings: ChopperWarning[] = [];
   const donatedBreakdown: ChopperDonationBreakdown[] = [];
 
   for (const [itemId, quantity] of Object.entries(donations)) {
@@ -154,25 +149,20 @@ export function calculateChopperUpgrade(params: ChopperUpgradeParams): ChopperUp
       expGained,
       tier: config.tier,
     });
-
-    if (config.tier === 'avoid') {
-      warnings.push({
-        itemId,
-        message: config.reason || `Vật phẩm ${itemId} rất quý hiếm, không nên hiến tặng cho Jane!`,
-        severity: 'danger',
-      });
-    } else if (config.tier === 'caution') {
-      warnings.push({
-        itemId,
-        message: config.reason || `Vật phẩm ${itemId} cần cân nhắc trước khi nộp.`,
-        severity: 'warning',
-      });
-    }
   }
 
-  // Level advancement loop
-  let level = Math.max(1, Math.min(100, currentLevel));
-  let exp = Math.max(0, currentExp) + totalExpGained;
+  const validCurrentLevel = Math.max(1, Math.min(100, currentLevel));
+  const validCurrentExp = Math.max(0, currentExp);
+  const requiredExpForCurrentLevel = getChopperRequiredExp(validCurrentLevel);
+
+  // Check how much EXP is still needed to complete the current level
+  const totalExpProgress = validCurrentExp + totalExpGained;
+  const remainingExpToNextLevel = validCurrentLevel >= 100 ? 0 : Math.max(0, requiredExpForCurrentLevel - totalExpProgress);
+  const isLevelUpSatisfied = validCurrentLevel < 100 && totalExpProgress >= requiredExpForCurrentLevel;
+
+  // Level advancement simulation
+  let level = validCurrentLevel;
+  let exp = totalExpProgress;
   let levelsGained = 0;
 
   while (level < 100) {
@@ -192,23 +182,25 @@ export function calculateChopperUpgrade(params: ChopperUpgradeParams): ChopperUp
   }
 
   return {
-    currentLevel,
-    currentExp,
+    currentLevel: validCurrentLevel,
+    currentExp: validCurrentExp,
+    requiredExpForCurrentLevel,
     totalExpGained,
+    remainingExpToNextLevel,
+    isLevelUpSatisfied,
     newLevel: level,
     newExp: exp,
     requiredExpForNewLevel: getChopperRequiredExp(level),
     levelsGained,
     perkRollsAvailable: levelsGained,
     isMaxLevel,
-    warnings,
     donatedBreakdown,
   };
 }
 
 /**
- * Returns a recommended turn-in combo of cheap junk materials (Bolts, Bearings, Iron Plates, spare bike parts)
- * to maximize daily EXP without sacrificing rare mod materials.
+ * Returns a recommended combo of cheap and plentiful materials (Bolts, Bearings, Iron Plates, spare bike parts)
+ * to maximize daily EXP for quick reference.
  */
 export function getOptimalJunkCombo(acceptedItems: StructureCycleItem[] = DEFAULT_CHOPPER_ACCEPTED_ITEMS): Record<string, number> {
   const combo: Record<string, number> = {};
