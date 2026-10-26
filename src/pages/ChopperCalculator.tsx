@@ -15,7 +15,7 @@ import { EntityImage } from '../components/common/EntityImage';
 import { Field, NumberInput } from '../components/common/Field';
 import { Callout, PageHeader, ProgressBar, Stat, StatGrid } from '../components/common/Layout';
 
-export const ChopperCalculator: React.FC = () => {
+export const ChopperCalculator: React.FC<{ hideHeader?: boolean }> = ({ hideHeader = false }) => {
   const { db } = useGameData();
 
   // Find chopper structure configuration from locationStructures if loaded
@@ -97,19 +97,21 @@ export const ChopperCalculator: React.FC = () => {
 
   return (
     <div>
-      <PageHeader
-        title="Nâng cấp xe Chopper"
-        description="Tra cứu dữ liệu nguyên liệu nộp cho Jane tại Trạm xăng (Gas Station), tính toán lượng EXP và kiểm tra số lượng cần để lên cấp."
-        icon={<Bike />}
-        actions={
-          <Link to="/wiki/locations?select=gas_station">
-            <Button variant="secondary" size="sm">
-              <MapPin className="h-4 w-4" />
-              Xem Trạm xăng
-            </Button>
-          </Link>
-        }
-      />
+      {!hideHeader && (
+        <PageHeader
+          title="Nâng cấp xe Chopper"
+          description="Tra cứu dữ liệu nguyên liệu nộp cho Jane tại Trạm xăng (Gas Station), tính toán lượng EXP và kiểm tra số lượng cần để lên cấp."
+          icon={<Bike />}
+          actions={
+            <Link to="/wiki/locations?select=gas_station">
+              <Button variant="secondary" size="sm">
+                <MapPin className="h-4 w-4" />
+                Xem Trạm xăng
+              </Button>
+            </Link>
+          }
+        />
+      )}
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
         {/* LEFT COLUMN: Input & Jane's Daily Donations */}

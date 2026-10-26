@@ -1,4 +1,4 @@
-import { LucideIcon, Sword, Skull, Hammer, MapPin, Scroll, Calculator, Target, Building2, Layers, Settings, Wrench, Bike } from 'lucide-react';
+import { LucideIcon, Sword, Skull, Hammer, MapPin, Scroll, Calculator, Target, Building2, Layers, Settings, Wrench } from 'lucide-react';
 
 export interface NavItem {
   path: string;
@@ -30,8 +30,7 @@ export const NAV_SECTIONS: NavSection[] = [
     items: [
       { path: '/combat', label: 'Chiến đấu', shortLabel: 'Chiến đấu', icon: Calculator },
       { path: '/points', label: 'Điểm sự kiện', shortLabel: 'Điểm', icon: Target },
-      { path: '/construction', label: 'Công trình', shortLabel: 'Công trình', icon: Building2 },
-      { path: '/chopper', label: 'Nâng cấp Chopper', shortLabel: 'Xe máy', icon: Bike },
+      { path: '/construction', label: 'Công trình & Nâng cấp', shortLabel: 'Công trình', icon: Building2 },
       { path: '/planner', label: 'Kế hoạch chế tạo', shortLabel: 'Chế tạo', icon: Layers },
     ],
   },

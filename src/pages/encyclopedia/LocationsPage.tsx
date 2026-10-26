@@ -155,7 +155,7 @@ export const LocationsPage: React.FC = () => {
 
                           <div className="shrink-0 self-end sm:self-auto">
                             {isChopper ? (
-                              <Button size="sm" variant="primary" onClick={() => navigate('/chopper')}>
+                              <Button size="sm" variant="primary" onClick={() => navigate('/construction?tab=chopper')}>
                                 <Bike className="h-3.5 w-3.5" />
                                 Nâng cấp xe máy
                               </Button>

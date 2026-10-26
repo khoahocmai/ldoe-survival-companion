@@ -14,7 +14,6 @@ import { QuestsPage } from './pages/encyclopedia/QuestsPage';
 import { CombatCalculator } from './pages/CombatCalculator';
 import { PointCalculator } from './pages/PointCalculator';
 import { ConstructionCalculator } from './pages/ConstructionCalculator';
-import { ChopperCalculator } from './pages/ChopperCalculator';
 import { CraftingPlanner } from './pages/CraftingPlanner';
 import { Settings } from './pages/Settings';
 
@@ -67,7 +66,7 @@ const AppContent: React.FC = () => {
           <Route path="combat" element={<CombatCalculator />} />
           <Route path="points" element={<PointCalculator />} />
           <Route path="construction" element={<ConstructionCalculator />} />
-          <Route path="chopper" element={<ChopperCalculator />} />
+          <Route path="chopper" element={<Navigate to="/construction?tab=chopper" replace />} />
           <Route path="planner" element={<CraftingPlanner />} />
 
           <Route path="settings" element={<Settings />} />
