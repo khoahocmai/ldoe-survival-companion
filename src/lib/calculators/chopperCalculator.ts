@@ -16,11 +16,11 @@ export const DEFAULT_CHOPPER_ACCEPTED_ITEMS: StructureCycleItem[] = [
     reason: 'Dễ kiếm số lượng lớn từ tái chế bóng đèn, ổ đĩa và rương đồ.',
   },
   {
-    itemId: 'thick_leather',
+    itemId: 'leather',
     valuePerItem: 5,
     dailyLimit: 50,
     tier: 'caution',
-    reason: 'Tốn công sấy da thú; thường dùng may giáp SWAT/Tactical hoặc mod súng.',
+    reason: 'Chế biến từ da thú thô trên giá thuộc da; thường dùng may giáp và mod vũ khí.',
   },
   {
     itemId: 'iron_plate',

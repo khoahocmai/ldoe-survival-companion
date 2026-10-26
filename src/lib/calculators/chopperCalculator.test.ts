@@ -38,7 +38,7 @@ describe('chopperCalculator', () => {
       expect(partialResult.isLevelUpSatisfied).toBe(false);
       expect(partialResult.newLevel).toBe(42);
 
-      // When adding 50 bearings (+250), 15 iron plates (+300), 8 thick leather (+40) -> total 890 EXP -> Level 43!
+      // When adding 50 bearings (+250), 15 iron plates (+300), 8 leather (+40) -> total 890 EXP -> Level 43!
       const fullResult = calculateChopperUpgrade({
         currentLevel: 42,
         currentExp: 3610,
@@ -46,7 +46,7 @@ describe('chopperCalculator', () => {
           bolt: 100,
           ball_bearing: 50,
           iron_plate: 15,
-          thick_leather: 8,
+          leather: 8,
         },
         acceptedItems: DEFAULT_CHOPPER_ACCEPTED_ITEMS,
       });
