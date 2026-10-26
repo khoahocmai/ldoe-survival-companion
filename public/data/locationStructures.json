@@ -374,5 +374,59 @@
       ]
     },
     "notes": "Hạn mức nộp nguyên liệu tự động cập nhật lại mỗi 24 giờ. Hãy cất các tài nguyên quý như Đồng, Nhôm và Linh kiện động cơ về nhà!"
+  },
+  {
+    "id": "struct_blackport_pd_terminal_4",
+    "locationId": "blackport_pd",
+    "name": "Blackport PD Terminal #4",
+    "vietnameseName": "Băng chuyền đổi thẻ cảnh sát số 4 (Terminal #4)",
+    "type": "repair",
+    "frequency": "one_time",
+    "description": "Sửa chữa hệ thống máy tính và băng chuyền số 4 tại sảnh Sở cảnh sát Blackport để mở khóa thêm ô nhận thưởng thứ 4 (cho phép đổi 4 hòm thẻ cảnh sát cùng lúc).",
+    "stages": [
+      {
+        "id": "stage_pd_terminal_4",
+        "name": "Sửa chữa bo mạch và cơ cấu kéo Terminal #4",
+        "requirements": [
+          { "itemId": "bolt", "quantity": 40 },
+          { "itemId": "wire", "quantity": 20 },
+          { "itemId": "transistor", "quantity": 15 },
+          { "itemId": "wrench", "quantity": 2 },
+          { "itemId": "usb_drive", "quantity": 3 },
+          { "itemId": "aluminium_plate", "quantity": 5 }
+        ]
+      }
+    ],
+    "unlocks": [
+      "pd_crate_slot_4"
+    ],
+    "notes": "Tiến độ sửa chữa được lưu vĩnh viễn, không bị reset sau 72 giờ của Sở cảnh sát. Khi sửa xong sẽ nhận thêm 1 slot mở hòm thưởng."
+  },
+  {
+    "id": "struct_blackport_pd_terminal_5",
+    "locationId": "blackport_pd",
+    "name": "Blackport PD Terminal #5",
+    "vietnameseName": "Băng chuyền đổi thẻ cảnh sát số 5 (Terminal #5)",
+    "type": "repair",
+    "frequency": "one_time",
+    "description": "Sửa chữa hệ thống máy tính và băng chuyền số 5 tại sảnh Sở cảnh sát Blackport để mở khóa thêm ô nhận thưởng thứ 5 (cho phép đổi 5 hòm thẻ cảnh sát cùng lúc).",
+    "stages": [
+      {
+        "id": "stage_pd_terminal_5",
+        "name": "Sửa chữa hệ thống vi xử lý Terminal #5",
+        "requirements": [
+          { "itemId": "bolt", "quantity": 60 },
+          { "itemId": "wire", "quantity": 25 },
+          { "itemId": "transistor", "quantity": 30 },
+          { "itemId": "hi_tech_component", "quantity": 3 },
+          { "itemId": "wrench", "quantity": 3 },
+          { "itemId": "electronic_circuit", "quantity": 2 }
+        ]
+      }
+    ],
+    "unlocks": [
+      "pd_crate_slot_5"
+    ],
+    "notes": "Cần 2 Bảng mạch điện tử (Electronic Circuit) và 3 Linh kiện công nghệ cao (Hi-Tech Components). Sau khi sửa xong bạn có thể mở 5 hòm đồ cùng lúc."
   }
 ]

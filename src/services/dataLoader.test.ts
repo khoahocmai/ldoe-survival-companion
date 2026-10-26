@@ -60,5 +60,15 @@ describe('Task 3: DataLoader & StorageService Weapon Mods integration', () => {
     const portSewerPipes = db.locationStructures.find((s) => s.id === 'struct_port_sewer_pipes');
     expect(portSewerPipes, 'struct_port_sewer_pipes must exist in locationStructures').toBeDefined();
     expect(portSewerPipes?.frequency).toBe('one_time');
+
+    const pdTerminal4 = db.locationStructures.find((s) => s.id === 'struct_blackport_pd_terminal_4');
+    expect(pdTerminal4, 'struct_blackport_pd_terminal_4 must exist in locationStructures').toBeDefined();
+    expect(pdTerminal4?.locationId).toBe('blackport_pd');
+    expect(pdTerminal4?.stages[0].requirements.length).toBe(6);
+
+    const pdTerminal5 = db.locationStructures.find((s) => s.id === 'struct_blackport_pd_terminal_5');
+    expect(pdTerminal5, 'struct_blackport_pd_terminal_5 must exist in locationStructures').toBeDefined();
+    expect(pdTerminal5?.locationId).toBe('blackport_pd');
+    expect(pdTerminal5?.stages[0].requirements.length).toBe(6);
   });
 });

@@ -49,11 +49,13 @@ describe('Task 1: LocationStructure Frequency & Chopper Items', () => {
       'chopper_fork',
       'chopper_gas_tank',
       'chopper_magazine',
+      'transistor',
+      'usb_drive',
     ];
 
     const existingIds = new Set(itemsData.map((i: any) => i.id));
     for (const itemId of chopperItemIds) {
-      expect(existingIds.has(itemId), `Missing chopper item in items.json: ${itemId}`).toBe(true);
+      expect(existingIds.has(itemId), `Missing item in items.json: ${itemId}`).toBe(true);
     }
   });
 

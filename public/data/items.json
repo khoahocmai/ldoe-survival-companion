@@ -4159,5 +4159,25 @@
     "craftable": true,
     "order": 0,
     "description": "Tấm nhôm cán nguội từ thỏi nhôm trên bàn ép Workbench. Vật liệu quan trọng cho các bản mod súng cao cấp."
+  },
+  {
+    "id": "transistor",
+    "name": "Transistor",
+    "vietnameseName": "Bóng bán dẫn / Transistor",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Linh kiện điện tử 3 chân thiết yếu dùng để sửa chữa máy Terminal tại Sở cảnh sát Blackport PD, đài radio CB và nâng cấp máy móc."
+  },
+  {
+    "id": "usb_drive",
+    "name": "USB Drive",
+    "vietnameseName": "Ổ đĩa USB / Flash Drive",
+    "category": "component",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "description": "Ổ lưu trữ dữ liệu USB flash. Dùng để nạp dữ liệu sửa Terminal #4 tại Blackport PD hoặc phân rã trong Recycler để tìm Bảng mạch điện tử (Electronic Circuit)."
   }
 ]
