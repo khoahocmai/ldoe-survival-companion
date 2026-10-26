@@ -46,4 +46,19 @@ describe('Task 3: DataLoader & StorageService Weapon Mods integration', () => {
     expect(cleaverMods!.length).toBeGreaterThan(0);
     expect(cleaverMods!.every((m) => m.weaponId === 'cleaver')).toBe(true);
   });
+
+  it('loadGameData should load locationStructures with one_time and recurring frequency', async () => {
+    const db = await loadGameData(true);
+    expect(db.error).toBeNull();
+    expect(Array.isArray(db.locationStructures)).toBe(true);
+
+    const chopperUpgrade = db.locationStructures.find((s) => s.id === 'struct_gas_station_chopper');
+    expect(chopperUpgrade, 'struct_gas_station_chopper must exist in locationStructures').toBeDefined();
+    expect(chopperUpgrade?.frequency).toBe('recurring');
+    expect(chopperUpgrade?.cycleConfig?.acceptedItems.length).toBeGreaterThanOrEqual(10);
+
+    const portSewerPipes = db.locationStructures.find((s) => s.id === 'struct_port_sewer_pipes');
+    expect(portSewerPipes, 'struct_port_sewer_pipes must exist in locationStructures').toBeDefined();
+    expect(portSewerPipes?.frequency).toBe('one_time');
+  });
 });

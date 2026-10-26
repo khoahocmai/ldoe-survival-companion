@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { Building2, CheckCircle2, Layers } from 'lucide-react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Building2, CheckCircle2, Layers, Bike } from 'lucide-react';
 import { useGameData } from '../context/DataContext';
 import { calculateConstructionRequirements } from '../lib/calculators/constructionCalculator';
 import { Badge } from '../components/common/Badge';
@@ -11,16 +11,25 @@ import { ITEM_CATEGORY_LABEL } from '../lib/labels';
 
 export const ConstructionCalculator: React.FC = () => {
   const { db } = useGameData();
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const structures = db?.locationStructures ?? [];
+  const structures = useMemo(
+    () => (db?.locationStructures ?? []).filter((s) => s.stages && s.stages.length > 0),
+    [db]
+  );
   const [structureId, setStructureId] = useState('');
   const [stageIds, setStageIds] = useState<string[]>([]);
   const [available, setAvailable] = useState<Record<string, number>>({});
   const [includeCrafting, setIncludeCrafting] = useState(true);
 
-  // ?structure=... links (wiki, global search) pick the structure, even when this page is already open.
+  // If a recurring chopper structure was requested, seamlessly forward to chopper calculator
   const structureParam = searchParams.get('structure');
+  useEffect(() => {
+    if (structureParam === 'struct_gas_station_chopper') {
+      navigate('/chopper', { replace: true });
+    }
+  }, [structureParam, navigate]);
   useEffect(() => {
     setStructureId((current) => {
       if (structureParam && structures.some((s) => s.id === structureParam)) return structureParam;

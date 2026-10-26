@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Building2, ChevronRight, MapPin } from 'lucide-react';
+import { Bike, Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
 import { Location } from '../../types';
 import { Badge } from '../../components/common/Badge';
@@ -128,22 +128,46 @@ export const LocationsPage: React.FC = () => {
               {loc.notes && <Callout tone="warn">{loc.notes}</Callout>}
 
               {structures.length > 0 && (
-                <Section title="Công trình cần sửa">
+                <Section title={`Công trình & Cơ chế tại đây (${structures.length})`}>
                   <ul className="space-y-2">
-                    {structures.map((s) => (
-                      <li key={s.id} className="flex items-center justify-between gap-3 rounded-lg border border-line px-3 py-2.5">
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-1.5 text-sm font-medium">
-                            <Building2 className="h-4 w-4 shrink-0 text-muted" />
-                            <span className="truncate">{s.name}</span>
+                    {structures.map((s) => {
+                      const isRecurring = s.frequency === 'recurring' || Boolean(s.cycleConfig);
+                      const isChopper = s.id === 'struct_gas_station_chopper' || s.cycleConfig?.progressionType === 'vehicle_exp';
+
+                      return (
+                        <li key={s.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-lg border border-line p-3 bg-subtle/30">
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-1.5 text-sm font-medium">
+                              {isChopper ? (
+                                <Bike className="h-4 w-4 shrink-0 text-accent" />
+                              ) : (
+                                <Building2 className="h-4 w-4 shrink-0 text-muted" />
+                              )}
+                              <span className="truncate">{s.vietnameseName || s.name}</span>
+                              <Badge tone={isRecurring ? 'info' : 'ok'} size="sm">
+                                {isRecurring ? `Định kỳ · Reset ${s.cycleConfig?.resetHours ?? 24}h` : 'Vĩnh viễn · 1 lần'}
+                              </Badge>
+                            </div>
+                            <div className="mt-1 text-xs text-muted line-clamp-2">
+                              {s.description || (isRecurring ? 'Cơ chế nộp nguyên liệu định kỳ' : `${s.stages.length} giai đoạn hoàn thành`)}
+                            </div>
                           </div>
-                          <div className="mt-0.5 text-xs text-muted">{s.stages.length} giai đoạn</div>
-                        </div>
-                        <Button size="sm" variant="secondary" onClick={() => navigate(`/construction?structure=${s.id}`)}>
-                          Tính vật liệu
-                        </Button>
-                      </li>
-                    ))}
+
+                          <div className="shrink-0 self-end sm:self-auto">
+                            {isChopper ? (
+                              <Button size="sm" variant="primary" onClick={() => navigate('/chopper')}>
+                                <Bike className="h-3.5 w-3.5" />
+                                Nâng cấp xe máy
+                              </Button>
+                            ) : (
+                              <Button size="sm" variant="secondary" onClick={() => navigate(`/construction?structure=${s.id}`)}>
+                                Tính vật liệu
+                              </Button>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </Section>
               )}

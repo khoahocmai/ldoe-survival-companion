@@ -3896,16 +3896,6 @@
     "description": "Cát biển khai thác từ Mỏ cát trên đảo. Dùng trong lò luyện kính thủy tinh và trộn bê tông xây tường."
   },
   {
-    "id": "peat",
-    "name": "Peat",
-    "vietnameseName": "Than bùn",
-    "category": "resource_basic",
-    "stackSize": 20,
-    "craftable": false,
-    "order": 0,
-    "description": "Đất than bùn đào từ vùng Đầm than bùn (Wild Bogs). Dùng làm gạch chịu lửa, phân bón và chất đốt."
-  },
-  {
     "id": "sulfur",
     "name": "Sulfur",
     "vietnameseName": "Lưu huỳnh",
@@ -4121,13 +4111,53 @@
     "description": "Lựu đạn nổ mảnh sát thương diện rộng 200 damage. Vũ khí cực kỳ hiệu quả để dọn sạch các đợt sóng zombie ở Blackport PD."
   },
   {
-    "id": "fox_pelt",
-    "name": "Fox Pelt",
-    "vietnameseName": "Bộ lông cáo đỏ",
-    "category": "resource_basic",
+    "id": "chopper_fork",
+    "name": "Chopper Fork",
+    "vietnameseName": "Ghi-đông / Càng trước Chopper",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Càng trước và tay lái điều hướng của xe môtô Chopper, tìm thấy ở Bunker Alfa."
+  },
+  {
+    "id": "chopper_gas_tank",
+    "name": "Chopper Gas Tank",
+    "vietnameseName": "Bình xăng Chopper",
+    "category": "special",
+    "stackSize": 1,
+    "craftable": false,
+    "order": 0,
+    "description": "Bình chứa nhiên liệu đặc trưng của xe Chopper, phần thưởng giá trị từ hòm đỏ Bunker Alfa."
+  },
+  {
+    "id": "chopper_magazine",
+    "name": "Chopper Magazine",
+    "vietnameseName": "Tạp chí xe máy",
+    "category": "special",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Lông da cáo săn được từ vùng Rừng sồi phía Bắc. Dùng để may bộ quần áo lông thú Fur Set chống rét."
+    "description": "Tạp chí hướng dẫn kỹ thuật xe môtô. Nộp cho thợ máy Jane tại Gas Station để nhận ngay +1,000 EXP xe máy không giới hạn số lượng."
+  },
+  {
+    "id": "thick_leather",
+    "name": "Thick Leather",
+    "vietnameseName": "Da dày",
+    "category": "resource_processed",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0,
+    "description": "Da dày được xử lý trên giá sấy da từ Da thú dày (Thick Hide). Dùng để may áo giáp SWAT/Tactical và chế tạo mod vũ khí."
+  },
+  {
+    "id": "aluminium_plate",
+    "name": "Aluminium Plate",
+    "vietnameseName": "Nhôm tấm",
+    "category": "resource_processed",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0,
+    "description": "Tấm nhôm cán nguội từ thỏi nhôm trên bàn ép Workbench. Vật liệu quan trọng cho các bản mod súng cao cấp."
   }
 ]

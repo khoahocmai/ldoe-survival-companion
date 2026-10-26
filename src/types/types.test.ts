@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import itemsData from '../../public/data/items.json';
-import type { WeaponMod, WeaponModSlot, WeaponModStatBonus } from './index';
+import type { WeaponMod, WeaponModSlot, WeaponModStatBonus, LocationStructure, StructureFrequency } from './index';
 
 describe('Task 1: Weapon Mod Types & Components', () => {
   it('should have required mod crafting materials in items.json', () => {
@@ -39,5 +39,57 @@ describe('Task 1: Weapon Mod Types & Components', () => {
 
     expect(sampleMod.id).toBe('mod_cleaver_tactical_blade');
     expect(sampleMod.stats.damage).toBe(4);
+  });
+});
+
+describe('Task 1: LocationStructure Frequency & Chopper Items', () => {
+  it('should have required chopper parts in items.json', () => {
+    const chopperItemIds = [
+      'chopper_wheel',
+      'chopper_fork',
+      'chopper_gas_tank',
+      'chopper_magazine',
+    ];
+
+    const existingIds = new Set(itemsData.map((i: any) => i.id));
+    for (const itemId of chopperItemIds) {
+      expect(existingIds.has(itemId), `Missing chopper item in items.json: ${itemId}`).toBe(true);
+    }
+  });
+
+  it('should support LocationStructure frequency and cycleConfig typing', () => {
+    const freq: StructureFrequency = 'recurring';
+    const structure: LocationStructure = {
+      id: 'struct_gas_station_chopper',
+      locationId: 'gas_station',
+      name: "Jane's Chopper Workshop",
+      frequency: freq,
+      type: 'upgrade',
+      stages: [],
+      cycleConfig: {
+        resetHours: 24,
+        progressionType: 'vehicle_exp',
+        maxLevel: 100,
+        acceptedItems: [
+          {
+            itemId: 'bolt',
+            valuePerItem: 3,
+            dailyLimit: 100,
+            tier: 'recommended',
+          },
+        ],
+        perkGuide: [
+          {
+            name: 'Trunk Capacity',
+            tier: 'S',
+            description: 'Mở rộng cốp xe',
+          },
+        ],
+      },
+    };
+
+    expect(structure.frequency).toBe('recurring');
+    expect(structure.cycleConfig?.acceptedItems[0].itemId).toBe('bolt');
+    expect(structure.cycleConfig?.acceptedItems[0].valuePerItem).toBe(3);
   });
 });

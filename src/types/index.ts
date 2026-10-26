@@ -180,13 +180,40 @@ export interface LocationStructureStage {
   }>;
 }
 
+export type StructureFrequency = 'one_time' | 'recurring';
+
+export interface StructureCycleItem {
+  itemId: string;
+  valuePerItem: number;
+  dailyLimit?: number;
+  tier: 'recommended' | 'caution' | 'avoid';
+  reason?: string;
+}
+
+export interface StructureCyclePerk {
+  name: string;
+  tier: 'S' | 'A' | 'B' | 'C';
+  description: string;
+}
+
+export interface StructureCycleConfig {
+  resetHours: number;
+  progressionType: 'vehicle_exp' | 'reputation' | 'trade';
+  maxLevel?: number;
+  acceptedItems: StructureCycleItem[];
+  perkGuide?: StructureCyclePerk[];
+}
+
 export interface LocationStructure extends EntityMetadata {
   id: string;
   locationId: string;
   name: string;
-  type: 'repair' | 'construction' | 'unlock' | 'upgrade';
+  vietnameseName?: string;
+  type: 'repair' | 'construction' | 'unlock' | 'upgrade' | 'delivery';
+  frequency?: StructureFrequency;
   description?: string;
   stages: LocationStructureStage[];
+  cycleConfig?: StructureCycleConfig;
   prerequisiteIds?: string[];
   unlocks?: string[];
 }

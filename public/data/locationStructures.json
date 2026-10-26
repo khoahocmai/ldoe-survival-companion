@@ -4,6 +4,7 @@
     "locationId": "northern_watchtower",
     "name": "Northern Watchtower Generator Grid",
     "type": "unlock",
+    "frequency": "one_time",
     "description": "Lắp đặt và kích hoạt máy phát điện để mở rộng tầm phủ sóng bản đồ tới vùng Rừng sồi (Oak) và Đất tuyết.",
     "stages": [
       {
@@ -33,6 +34,7 @@
     "locationId": "crooked_creek_farm",
     "name": "Crooked Creek Farm Bridge Repair",
     "type": "repair",
+    "frequency": "one_time",
     "description": "Sửa chữa cây cầu gỗ bắc qua con suối để tiến vào trung tâm nông trại bỏ hoang.",
     "stages": [
       {
@@ -69,6 +71,7 @@
     "locationId": "bunker_alfa",
     "name": "Bunker Alfa Access Terminal",
     "type": "unlock",
+    "frequency": "one_time",
     "description": "Mở khóa thang máy dẫn xuống các tầng ngầm 2, 3 và 4 bằng mật mã vô tuyến (A-Code).",
     "stages": [
       {
@@ -89,6 +92,7 @@
     "locationId": "eastern_watchtower",
     "name": "Eastern Watchtower Radar Grid",
     "type": "repair",
+    "frequency": "one_time",
     "description": "Khôi phục hệ thống dây cáp điện, bảng điều khiển và máy biến áp để mở tầm quét bờ biển phía Đông tới Cảng (The Port) và Sở cảnh sát Blackport.",
     "stages": [
       {
@@ -126,6 +130,7 @@
     "locationId": "swamp_watchtower",
     "name": "Swamp Watchtower Substation",
     "type": "unlock",
+    "frequency": "one_time",
     "description": "Vận chuyển Máy phát điện (Electric Generator) bằng xe địa hình bánh xích ATV vượt qua bùn lún để cấp điện cho trạm phát sóng đầm lầy.",
     "stages": [
       {
@@ -153,6 +158,7 @@
     "locationId": "port",
     "name": "Port Sewer Drainage Pump & Lift",
     "type": "unlock",
+    "frequency": "one_time",
     "description": "Kích hoạt máy phát điện cho hệ thống thang máy và bơm thoát nước tại nhà máy Big Tuna để mở lối xuống cống ngầm Port Sewer.",
     "stages": [
       {
@@ -172,10 +178,49 @@
     "notes": "Cần 1 Máy phát điện nguyên chiếc để khởi động cửa cống ngầm."
   },
   {
+    "id": "struct_port_sewer_pipes",
+    "locationId": "port",
+    "name": "Port Sewer Drainage Pipe Repair",
+    "vietnameseName": "Sửa chữa ống thoát nước cống ngầm Port",
+    "type": "repair",
+    "frequency": "one_time",
+    "description": "Hàn vá và thay thế gioăng cao su cho các đoạn ống cống thoát nước ngập úng tại tầng ngầm Port Sewer.",
+    "stages": [
+      {
+        "id": "stage_sewer_pipes",
+        "name": "Hàn kín mối nối ống cống",
+        "requirements": [
+          {
+            "itemId": "rubber_parts",
+            "quantity": 10
+          },
+          {
+            "itemId": "duct_tape",
+            "quantity": 10
+          },
+          {
+            "itemId": "iron_plate",
+            "quantity": 5
+          },
+          {
+            "itemId": "wrench",
+            "quantity": 2
+          }
+        ]
+      }
+    ],
+    "unlocks": [
+      "port_sewer_upper_room",
+      "port_sewer_loot_chest"
+    ],
+    "notes": "Sau khi sửa ống thoát nước, mực nước bẩn rút đi giúp người chơi tiếp cận phòng chứa rương đồ bí mật an toàn."
+  },
+  {
     "id": "struct_transport_hub_bridge",
     "locationId": "transport_hub",
     "name": "Transport Hub Bridge Repair",
     "type": "repair",
+    "frequency": "one_time",
     "description": "Sửa chữa cây cầu vượt và cấp nhiên liệu cho xe nâng để tiếp cận kho hàng container tối mật.",
     "stages": [
       {
@@ -206,5 +251,128 @@
       "drone_upgrade_station"
     ],
     "notes": "Cần hoàn thiện Drone bay để điều khiển mở các cánh cổng từ xa."
+  },
+  {
+    "id": "struct_gas_station_chopper",
+    "locationId": "gas_station",
+    "name": "Jane's Chopper Workshop",
+    "vietnameseName": "Gara nâng cấp Chopper của Jane",
+    "type": "upgrade",
+    "frequency": "recurring",
+    "description": "Nộp các loại linh kiện xe máy hàng ngày cho nữ thợ máy Jane để tích lũy EXP nâng cấp xe Chopper (Cấp 1 - 100) và chọn kỹ năng đặc quyền.",
+    "stages": [],
+    "cycleConfig": {
+      "resetHours": 24,
+      "progressionType": "vehicle_exp",
+      "maxLevel": 100,
+      "acceptedItems": [
+        {
+          "itemId": "bolt",
+          "valuePerItem": 3,
+          "dailyLimit": 100,
+          "tier": "recommended",
+          "reason": "Rất dồi dào khi đi farm, Bunker Alfa và tái chế rác."
+        },
+        {
+          "itemId": "ball_bearing",
+          "valuePerItem": 5,
+          "dailyLimit": 50,
+          "tier": "recommended",
+          "reason": "Dễ kiếm số lượng lớn từ tái chế bóng đèn, ổ đĩa và rương đồ."
+        },
+        {
+          "itemId": "thick_leather",
+          "valuePerItem": 5,
+          "dailyLimit": 50,
+          "tier": "caution",
+          "reason": "Tốn công sấy da thú; nên ưu tiên may giáp SWAT/Tactical hoặc mod súng trước."
+        },
+        {
+          "itemId": "iron_plate",
+          "valuePerItem": 20,
+          "dailyLimit": 15,
+          "tier": "recommended",
+          "reason": "Dễ luyện từ quặng sắt thường, 15 tấm đổi được 300 EXP rất hời."
+        },
+        {
+          "itemId": "spring",
+          "valuePerItem": 20,
+          "dailyLimit": 10,
+          "tier": "avoid",
+          "reason": "Nguyên liệu mod vũ khí quý hiếm, không nên hiến cho thợ xe."
+        },
+        {
+          "itemId": "engine_part",
+          "valuePerItem": 50,
+          "dailyLimit": 10,
+          "tier": "avoid",
+          "reason": "Vô cùng quan trọng để đóng xe địa hình ATV, Bồn rửa axit và mod súng."
+        },
+        {
+          "itemId": "copper_bar",
+          "valuePerItem": 75,
+          "dailyLimit": 5,
+          "tier": "avoid",
+          "reason": "Nguyên liệu luyện Thép tấm (Steel Plate), cực kỳ tốn công khai thác tuyết."
+        },
+        {
+          "itemId": "aluminium_plate",
+          "valuePerItem": 100,
+          "dailyLimit": 3,
+          "tier": "avoid",
+          "reason": "Nguyên liệu thiết yếu để chế tạo mod súng cao cấp."
+        },
+        {
+          "itemId": "chopper_wheel",
+          "valuePerItem": 500,
+          "dailyLimit": 1,
+          "tier": "recommended",
+          "reason": "Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP."
+        },
+        {
+          "itemId": "chopper_fork",
+          "valuePerItem": 500,
+          "dailyLimit": 1,
+          "tier": "recommended",
+          "reason": "Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP."
+        },
+        {
+          "itemId": "chopper_gas_tank",
+          "valuePerItem": 500,
+          "dailyLimit": 1,
+          "tier": "recommended",
+          "reason": "Phụ tùng thừa sau khi đã ráp xong Chopper, nộp được tới +500 EXP."
+        },
+        {
+          "itemId": "chopper_magazine",
+          "valuePerItem": 1000,
+          "tier": "recommended",
+          "reason": "Tạp chí hướng dẫn cho ngay +1,000 EXP tức thì không giới hạn lượt nộp."
+        }
+      ],
+      "perkGuide": [
+        {
+          "name": "Trunk Capacity (Mở rộng cốp xe)",
+          "tier": "S",
+          "description": "Tăng thêm số ô chứa đồ trong cốp xe máy (tối đa 8 ô). Ưu tiên số 1 tuyệt đối!"
+        },
+        {
+          "name": "Fuel Economy (Tiết kiệm xăng)",
+          "tier": "A",
+          "description": "Giảm lượng xăng tiêu thụ khi di chuyển trên bản đồ thế giới."
+        },
+        {
+          "name": "Fuel Tank (Dung tích bình xăng)",
+          "tier": "B",
+          "description": "Tăng lượng xăng tối đa bình chứa trong xe, tiện lợi khi đi xa."
+        },
+        {
+          "name": "Impact Power (Sát thương đâm tông)",
+          "tier": "C",
+          "description": "Tăng sát thương khi đâm xe vào zombie (ít khi dùng vì tốn xăng và hại xe)."
+        }
+      ]
+    },
+    "notes": "Hạn mức nộp nguyên liệu tự động cập nhật lại mỗi 24 giờ. Hãy cất các tài nguyên quý như Đồng, Nhôm và Linh kiện động cơ về nhà!"
   }
 ]
