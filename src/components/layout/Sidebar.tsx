@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { ShieldAlert, X } from 'lucide-react';
 import { NAV_SECTIONS } from './navigation';
 import { IconButton } from '../common/Button';
+import { Tooltip } from '../common/Tooltip';
 
 interface SidebarProps {
   onCloseMobile?: () => void;
@@ -37,10 +38,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile, collapsed = fal
           <ul className="space-y-0.5">
             {section.items.map(({ path, label, icon: Icon }) => (
               <li key={path}>
+                <Tooltip label={collapsed ? label : undefined}>
                 <NavLink
                   to={path}
                   onClick={onCloseMobile}
-                  title={collapsed ? label : undefined}
                   aria-label={collapsed ? label : undefined}
                   className={({ isActive }) =>
                     `flex items-center rounded-lg text-sm transition-colors ${
@@ -55,6 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile, collapsed = fal
                     </>
                   )}
                 </NavLink>
+                </Tooltip>
               </li>
             ))}
           </ul>

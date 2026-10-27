@@ -6,8 +6,9 @@ import { calculateCombat, compareWeapons } from '../lib/calculators/combatCalcul
 import { Badge } from '../components/common/Badge';
 import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
-import { Checkbox, Field, NumberInput, Select } from '../components/common/Field';
-import { Callout, EmptyState, PageHeader, Section, Stat, StatGrid } from '../components/common/Layout';
+import { Checkbox, Field, NumberInput, Select, Slider } from '../components/common/Field';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../components/common/Table';
+import { Callout, EmptyState, FilterChips, PageHeader, Section, Stat, StatGrid } from '../components/common/Layout';
 
 export const CombatCalculator: React.FC = () => {
   const { db } = useGameData();
@@ -161,29 +162,13 @@ export const CombatCalculator: React.FC = () => {
                 </label>
                 <span className="num font-semibold text-accent">{durabilityPercent}%</span>
               </div>
-              <input
-                id="durability"
-                type="range"
-                min={1}
-                max={100}
-                value={durabilityPercent}
-                onChange={(e) => setDurabilityPercent(Number(e.target.value))}
-                className="w-full accent-[rgb(var(--accent-solid))]"
+              <Slider id="durability" label="Độ bền còn lại" min={1} max={100} value={durabilityPercent} onChange={setDurabilityPercent} />
+              <FilterChips
+                className="mt-1"
+                options={[25, 50, 75, 100].map((pct) => ({ id: String(pct), label: `${pct}%` }))}
+                value={String(durabilityPercent)}
+                onChange={(id) => setDurabilityPercent(Number(id))}
               />
-              <div className="mt-1 flex gap-1">
-                {[25, 50, 75, 100].map((pct) => (
-                  <button
-                    key={pct}
-                    type="button"
-                    onClick={() => setDurabilityPercent(pct)}
-                    className={`num flex-1 rounded-md py-1 text-xs ${
-                      durabilityPercent === pct ? 'bg-accent-soft font-medium text-accent' : 'bg-subtle text-muted hover:text-fg'
-                    }`}
-                  >
-                    {pct}%
-                  </button>
-                ))}
-              </div>
             </div>
 
             <Checkbox
@@ -268,32 +253,40 @@ export const CombatCalculator: React.FC = () => {
               </div>
               <Badge>{comparisons.length} vũ khí</Badge>
             </div>
-            <div className="mt-3 overflow-x-auto">
-              <table className="w-full min-w-[480px] text-left text-sm">
-                <thead>
-                  <tr className="border-y border-line text-xs text-muted">
-                    <th className="px-4 py-2 font-medium">Vũ khí</th>
-                    <th className="px-2 py-2 text-right font-medium">Dmg</th>
-                    <th className="px-2 py-2 text-right font-medium">Số đòn</th>
-                    <th className="px-2 py-2 text-right font-medium">Hạ được</th>
-                    <th className="px-2 py-2 text-right font-medium">Thời gian</th>
-                    <th className="px-4 py-2" />
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-line">
+            <div className="mt-3 border-t border-line">
+              <Table caption="So sánh vũ khí">
+                <Thead>
+                  <Th>Vũ khí</Th>
+                  <Th align="right">Dmg</Th>
+                  <Th align="right">Số đòn</Th>
+                  <Th align="right">Hạ được</Th>
+                  <Th align="right">Thời gian</Th>
+                  <Th>
+                    <span className="sr-only">Thao tác</span>
+                  </Th>
+                </Thead>
+                <Tbody>
                   {comparisons.map((c) => {
                     const current = c.weaponId === weaponId;
                     return (
-                      <tr key={c.weaponId} className={current ? 'bg-accent-soft/50' : 'hover:bg-subtle'}>
-                        <td className="px-4 py-2 font-medium">
+                      <Tr key={c.weaponId} highlight={current}>
+                        <Td className="font-medium">
                           {c.weaponName}
-                          {c.isFirearm && <span className="ml-1.5 text-xs font-normal text-faint">súng</span>}
-                        </td>
-                        <td className="num px-2 py-2 text-right">{c.damage}</td>
-                        <td className="num px-2 py-2 text-right font-semibold text-accent">{c.hitsToKill}</td>
-                        <td className="num px-2 py-2 text-right font-semibold text-ok">{c.enemiesKillable}</td>
-                        <td className="num px-2 py-2 text-right">{c.timeToKillSeconds}s</td>
-                        <td className="px-4 py-2 text-right">
+                          {c.isFirearm && <span className="ml-1.5 text-xs font-normal text-muted">súng</span>}
+                        </Td>
+                        <Td numeric align="right">
+                          {c.damage}
+                        </Td>
+                        <Td numeric align="right" className="font-semibold text-accent">
+                          {c.hitsToKill}
+                        </Td>
+                        <Td numeric align="right" className="font-semibold text-ok">
+                          {c.enemiesKillable}
+                        </Td>
+                        <Td numeric align="right">
+                          {c.timeToKillSeconds}s
+                        </Td>
+                        <Td align="right">
                           {current ? (
                             <span className="text-xs text-muted">Đang chọn</span>
                           ) : (
@@ -305,12 +298,12 @@ export const CombatCalculator: React.FC = () => {
                               Chọn
                             </button>
                           )}
-                        </td>
-                      </tr>
+                        </Td>
+                      </Tr>
                     );
                   })}
-                </tbody>
-              </table>
+                </Tbody>
+              </Table>
             </div>
           </Card>
         </div>

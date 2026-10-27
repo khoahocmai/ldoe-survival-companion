@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check } from 'lucide-react';
 import { Tone, toneStyles } from './Badge';
 
 interface PageHeaderProps {
@@ -151,6 +152,26 @@ export const FilterChips: React.FC<{
       );
     })}
   </div>
+);
+
+/** Pill that toggles one option on or off; use several side by side for a multi-select. */
+export const ToggleChip: React.FC<{ checked: boolean; onChange: (checked: boolean) => void; children: React.ReactNode }> = ({
+  checked,
+  onChange,
+  children,
+}) => (
+  <button
+    type="button"
+    role="checkbox"
+    aria-checked={checked}
+    onClick={() => onChange(!checked)}
+    className={`flex h-control-sm shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors ${
+      checked ? 'border-accent-solid bg-accent-soft text-accent' : 'border-line bg-surface text-muted hover:text-fg'
+    }`}
+  >
+    {checked && <Check className="h-3.5 w-3.5" />}
+    {children}
+  </button>
 );
 
 export const ProgressBar: React.FC<{ percent: number; tone?: Tone; className?: string }> = ({

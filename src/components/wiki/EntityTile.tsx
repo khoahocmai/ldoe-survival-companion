@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tone } from '../common/Badge';
 import { ImageFolder, useEntityImageSrc } from '../common/EntityImage';
+import { Tooltip } from '../common/Tooltip';
 
 interface EntityTileProps {
   folder: ImageFolder;
@@ -41,11 +42,11 @@ export const EntityTile: React.FC<EntityTileProps> = ({
   const src = useEntityImageSrc({ folder, id, image });
 
   return (
+    <Tooltip label={hint ? `${name} · ${hint}` : name}>
     <button
       type="button"
       onClick={onClick}
       aria-pressed={isSelected}
-      title={hint ? `${name} · ${hint}` : name}
       className={`relative aspect-square overflow-hidden rounded-lg border bg-subtle text-left transition-colors ${
         isSelected ? 'border-accent-solid ring-2 ring-accent-solid' : 'border-line hover:border-faint/60'
       }`}
@@ -67,5 +68,6 @@ export const EntityTile: React.FC<EntityTileProps> = ({
         <span className={src ? 'line-clamp-2' : 'line-clamp-4'}>{name}</span>
       </span>
     </button>
+    </Tooltip>
   );
 };

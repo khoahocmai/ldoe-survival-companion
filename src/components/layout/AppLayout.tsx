@@ -5,6 +5,7 @@ import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { MobileNav } from './MobileNav';
 import { GlobalSearchModal } from './GlobalSearchModal';
+import { Dialog } from '../common/Dialog';
 
 const SIDEBAR_KEY = 'ldoe_sidebar_collapsed';
 
@@ -54,14 +55,9 @@ export const AppLayout: React.FC = () => {
         <Sidebar collapsed={isCollapsed} />
       </div>
 
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-overlay flex lg:hidden">
-          <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
-          <div className="relative h-full animate-slide-in shadow-pop">
-            <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />
-          </div>
-        </div>
-      )}
+      <Dialog isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} variant="drawer-left" label="Menu">
+        <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />
+      </Dialog>
 
       <div className="flex h-full min-w-0 flex-1 flex-col">
         <Topbar

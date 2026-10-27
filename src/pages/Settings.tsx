@@ -21,6 +21,7 @@ import { Field, Textarea, TextInput } from '../components/common/Field';
 import { FormModal } from '../components/common/FormModal';
 import { Modal } from '../components/common/Modal';
 import { Callout, PageHeader, Section, Stat, StatGrid } from '../components/common/Layout';
+import { useToast } from '../components/common/Toast';
 
 const THEMES: Array<{ id: ThemeMode; label: string; icon: React.ReactNode }> = [
   { id: 'dark', label: 'Tối', icon: <Moon /> },
@@ -40,7 +41,6 @@ const download = (content: string, filename: string) => {
 
 const today = () => new Date().toISOString().slice(0, 10);
 
-type Notice = { tone: 'ok' | 'danger'; text: string };
 
 export const Settings: React.FC = () => {
   const { db, reload } = useGameData();
@@ -56,12 +56,9 @@ export const Settings: React.FC = () => {
   const [isImportOpen, setIsImportOpen] = useState(false);
   const [importMode, setImportMode] = useState<'merge' | 'replace'>('merge');
 
-  const [notice, setNotice] = useState<Notice | null>(null);
+  const toast = useToast();
 
-  const say = (text: string, tone: Notice['tone'] = 'ok') => {
-    setNotice({ tone, text });
-    window.setTimeout(() => setNotice(null), 4000);
-  };
+  const say = (text: string, tone: 'ok' | 'danger' = 'ok') => (tone === 'danger' ? toast.error(text) : toast.success(text));
 
   const refreshSources = () => setSources(storageService.getReferenceSources());
 
@@ -134,12 +131,6 @@ export const Settings: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader title="Cài đặt & dữ liệu" description="Giao diện, sao lưu dữ liệu và các nguồn tham khảo." icon={<SettingsIcon />} />
-
-      {notice && (
-        <div className="mb-4" role="status">
-          <Callout tone={notice.tone}>{notice.text}</Callout>
-        </div>
-      )}
 
       <div className="space-y-6">
         <Card>
@@ -225,6 +216,7 @@ export const Settings: React.FC = () => {
                       onClick={() => {
                         storageService.deleteReferenceSource(src.id);
                         refreshSources();
+                        say('Đã xóa nguồn tham khảo.');
                       }}
                     >
                       <Trash2 />
@@ -241,6 +233,7 @@ export const Settings: React.FC = () => {
                     onClick={() => {
                       INITIAL_REFERENCE_SOURCES.forEach((s) => storageService.saveReferenceSource(s));
                       refreshSources();
+                      say('Đã khôi phục nguồn mặc định.');
                     }}
                   >
                     Khôi phục mặc định

@@ -12,6 +12,7 @@ import { Card } from '../components/common/Card';
 import { IconButton } from '../components/common/Button';
 import { Field, NumberInput, Select } from '../components/common/Field';
 import { Callout, EmptyState, PageHeader, ProgressBar, Stat, StatGrid } from '../components/common/Layout';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../components/common/Table';
 import { Tabs } from '../components/common/Tabs';
 
 const DEFAULT_PLAN: MixedEnemyKillInput[] = [
@@ -246,44 +247,46 @@ export const PointCalculator: React.FC = () => {
               </Card>
 
               <Card padded={false}>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[480px] text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-line text-xs text-muted">
-                        <th className="px-4 py-2 font-medium">Quái</th>
-                        <th className="px-2 py-2 text-right font-medium">Điểm / con</th>
-                        <th className="px-2 py-2 text-center font-medium">Số lượng</th>
-                        <th className="px-2 py-2 text-right font-medium">Tổng</th>
-                        <th className="w-12 px-2 py-2" />
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-line">
-                      {mixedResult.items.map((row) => (
-                        <tr key={row.enemyId}>
-                          <td className="px-4 py-2.5 font-medium">
-                            {row.enemyName}
-                            {!row.isEligible && <span className="ml-2 text-xs font-normal text-faint">không cộng điểm</span>}
-                          </td>
-                          <td className="num px-2 py-2.5 text-right text-muted">+{row.pointsPerKill}</td>
-                          <td className="px-2 py-2.5">
-                            <NumberInput
-                              aria-label={`Số ${row.enemyName}`}
-                              value={row.killCount}
-                              onValueChange={(v) => setKillCount(row.enemyId, v)}
-                              className="mx-auto h-8 w-20 text-center"
-                            />
-                          </td>
-                          <td className="num px-2 py-2.5 text-right font-semibold text-accent">+{row.totalPoints}</td>
-                          <td className="px-2 py-2.5 text-right">
-                            <IconButton label="Bỏ khỏi kế hoạch" onClick={() => setPlan(plannedKills.filter((k) => k.enemyId !== row.enemyId))}>
-                              <Trash2 />
-                            </IconButton>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                <Table caption="Kế hoạch tiêu diệt">
+                  <Thead>
+                    <Th>Quái</Th>
+                    <Th align="right">Điểm / con</Th>
+                    <Th align="center">Số lượng</Th>
+                    <Th align="right">Tổng</Th>
+                    <Th className="w-12">
+                      <span className="sr-only">Thao tác</span>
+                    </Th>
+                  </Thead>
+                  <Tbody>
+                    {mixedResult.items.map((row) => (
+                      <Tr key={row.enemyId}>
+                        <Td className="font-medium">
+                          {row.enemyName}
+                          {!row.isEligible && <span className="ml-2 text-xs font-normal text-muted">không cộng điểm</span>}
+                        </Td>
+                        <Td numeric align="right" className="text-muted">
+                          +{row.pointsPerKill}
+                        </Td>
+                        <Td>
+                          <NumberInput
+                            aria-label={`Số ${row.enemyName}`}
+                            value={row.killCount}
+                            onValueChange={(v) => setKillCount(row.enemyId, v)}
+                            className="mx-auto h-control-sm w-20 text-center"
+                          />
+                        </Td>
+                        <Td numeric align="right" className="font-semibold text-accent">
+                          +{row.totalPoints}
+                        </Td>
+                        <Td align="right">
+                          <IconButton label="Bỏ khỏi kế hoạch" onClick={() => setPlan(plannedKills.filter((k) => k.enemyId !== row.enemyId))}>
+                            <Trash2 />
+                          </IconButton>
+                        </Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
                 <div className="flex items-center gap-2 border-t border-line px-4 py-3">
                   <Plus className="h-4 w-4 text-muted" />
                   <Select

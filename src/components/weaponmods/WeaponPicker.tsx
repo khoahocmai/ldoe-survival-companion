@@ -3,6 +3,7 @@ import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { Item } from '../../types';
 import { Badge } from '../common/Badge';
 import { IconButton } from '../common/Button';
+import { Tooltip } from '../common/Tooltip';
 import { EntityImage } from '../common/EntityImage';
 import { FilterChips } from '../common/Layout';
 import { SearchInput } from '../common/SearchInput';
@@ -71,10 +72,10 @@ export const WeaponRail: React.FC<WeaponPickerProps & { collapsed: boolean; onTo
           const count = modCounts.get(w.id) ?? 0;
           return (
             <li key={w.id}>
+              <Tooltip label={collapsed ? w.name : undefined}>
               <button
                 type="button"
                 onClick={() => onSelect(w.id)}
-                title={collapsed ? w.name : undefined}
                 aria-label={collapsed ? w.name : undefined}
                 aria-current={active ? 'true' : undefined}
                 className={`flex w-full items-center rounded-lg text-left transition-colors ${
@@ -92,6 +93,7 @@ export const WeaponRail: React.FC<WeaponPickerProps & { collapsed: boolean; onTo
                 )}
                 {!collapsed && (count > 0 ? <Badge tone={active ? 'accent' : 'neutral'}>{count}</Badge> : null)}
               </button>
+              </Tooltip>
             </li>
           );
         })}

@@ -27,7 +27,8 @@ import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { Checkbox, Field, NumberInput, Select } from '../components/common/Field';
 import { Modal } from '../components/common/Modal';
-import { EmptyState, PageHeader, ProgressBar, Stat, StatGrid, Callout } from '../components/common/Layout';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../components/common/Table';
+import { EmptyState, PageHeader, ProgressBar, Stat, StatGrid, Callout, ToggleChip } from '../components/common/Layout';
 import { EntityImage } from '../components/common/EntityImage';
 import { ITEM_CATEGORY_LABEL } from '../lib/labels';
 
@@ -463,18 +464,15 @@ export const ConstructionCalculator: React.FC = () => {
                   </div>
 
                   <div className="rounded-xl border border-line overflow-hidden">
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-left text-sm min-w-[560px]">
-                        <thead>
-                          <tr className="border-b border-line text-xs uppercase text-faint bg-subtle/50">
-                            <th className="px-4 py-2.5 font-medium">Vật phẩm</th>
-                            <th className="px-3 py-2.5 text-right font-medium">EXP / món</th>
-                            <th className="px-3 py-2.5 text-center font-medium">Hạn mức / ngày</th>
-                            <th className="px-3 py-2.5 font-medium">Gợi ý</th>
-                            <th className="px-4 py-2.5 font-medium">Lý do & Lưu ý</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-line">
+                    <Table>
+                        <Thead>
+                            <Th>Vật phẩm</Th>
+                            <Th align="right">EXP / món</Th>
+                            <Th align="center">Hạn mức / ngày</Th>
+                            <Th>Gợi ý</Th>
+                            <Th>Lý do & Lưu ý</Th>
+                          </Thead>
+                        <Tbody>
                           {acceptedItems.map((item) => {
                             const itemMeta = db.itemsMap.get(item.itemId);
                             const itemName = itemMeta?.vietnameseName || itemMeta?.name || item.itemId;
@@ -482,8 +480,8 @@ export const ConstructionCalculator: React.FC = () => {
                             const isAvoid = item.tier === 'avoid';
 
                             return (
-                              <tr key={item.itemId} className="hover:bg-subtle/30 transition-colors">
-                                <td className="px-4 py-3">
+                              <Tr key={item.itemId}>
+                                <Td>
                                   <div className="flex items-center gap-2.5">
                                     <div className="h-9 w-9 shrink-0 rounded-md border border-line bg-surface p-1">
                                       <EntityImage folder="items" id={item.itemId} alt={itemName} compact />
@@ -503,27 +501,26 @@ export const ConstructionCalculator: React.FC = () => {
                                       )}
                                     </div>
                                   </div>
-                                </td>
-                                <td className="num px-3 py-3 text-right font-bold text-accent">
+                                </Td>
+                                <Td align="right" numeric className="font-bold text-accent">
                                   +{item.valuePerItem} EXP
-                                </td>
-                                <td className="px-3 py-3 text-center text-xs text-muted">
+                                </Td>
+                                <Td align="center" className="text-xs text-muted">
                                   {item.dailyLimit ? `${item.dailyLimit}` : 'Không giới hạn'}
-                                </td>
-                                <td className="px-3 py-3">
+                                </Td>
+                                <Td>
                                   <Badge tone={isRec ? 'ok' : isAvoid ? 'neutral' : 'warn'} size="sm">
                                     {isRec ? 'Khuyên dùng' : isAvoid ? 'Giữ lại chế đồ' : 'Cân nhắc'}
                                   </Badge>
-                                </td>
-                                <td className="px-4 py-3 text-xs text-muted leading-relaxed">
+                                </Td>
+                                <Td className="text-xs text-muted leading-relaxed">
                                   {item.reason}
-                                </td>
-                              </tr>
+                                </Td>
+                              </Tr>
                             );
                           })}
-                        </tbody>
-                      </table>
-                    </div>
+                        </Tbody>
+                      </Table>
                   </div>
 
                   {/* Chopper Perks Guide */}
@@ -598,30 +595,27 @@ export const ConstructionCalculator: React.FC = () => {
                         </span>
                       </div>
 
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm min-w-[500px]">
-                          <thead>
-                            <tr className="border-b border-line text-xs uppercase text-faint bg-subtle/30">
-                              <th className="px-4 py-2.5 font-medium">Vật phẩm</th>
-                              <th className="px-3 py-2.5 text-right font-medium">Số lượng cần</th>
-                              <th className="px-4 py-2.5 font-medium">Cách kiếm / Chế tạo</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-line">
+                      <Table>
+                          <Thead>
+                              <Th>Vật phẩm</Th>
+                              <Th align="right">Số lượng cần</Th>
+                              <Th>Cách kiếm / Chế tạo</Th>
+                            </Thead>
+                          <Tbody>
                             {stage.requirements.length === 0 ? (
-                              <tr>
-                                <td colSpan={3} className="px-4 py-3 text-center text-xs text-muted">
+                              <Tr>
+                                <Td align="center" colSpan={3} className="text-xs text-muted">
                                   Không yêu cầu vật phẩm nộp vào (ví dụ: thao tác mở khóa hoặc nhập mã).
-                                </td>
-                              </tr>
+                                </Td>
+                              </Tr>
                             ) : (
                               stage.requirements.map((req) => {
                                 const item = db.itemsMap.get(req.itemId);
                                 const itemName = item?.vietnameseName || item?.name || req.itemId;
 
                                 return (
-                                  <tr key={req.itemId} className="hover:bg-subtle/30 transition-colors">
-                                    <td className="px-4 py-3">
+                                  <Tr key={req.itemId}>
+                                    <Td>
                                       <div className="flex items-center gap-2.5">
                                         <div className="h-9 w-9 shrink-0 rounded-md border border-line bg-surface p-1">
                                           <EntityImage folder="items" id={req.itemId} alt={itemName} compact />
@@ -642,11 +636,11 @@ export const ConstructionCalculator: React.FC = () => {
                                           )}
                                         </div>
                                       </div>
-                                    </td>
-                                    <td className="num px-3 py-3 text-right font-bold text-base text-fg">
+                                    </Td>
+                                    <Td align="right" numeric className="font-bold text-base text-fg">
                                       {req.quantity}
-                                    </td>
-                                    <td className="px-4 py-3 text-xs text-muted">
+                                    </Td>
+                                    <Td className="text-xs text-muted">
                                       {item?.craftable ? (
                                         <Link
                                           to={`/planner?item=${req.itemId}&qty=${req.quantity}`}
@@ -658,14 +652,13 @@ export const ConstructionCalculator: React.FC = () => {
                                       ) : (
                                         <span>Nhặt trong rương game / sự kiện</span>
                                       )}
-                                    </td>
-                                  </tr>
+                                    </Td>
+                                  </Tr>
                                 );
                               })
                             )}
-                          </tbody>
-                        </table>
-                      </div>
+                          </Tbody>
+                        </Table>
                     </div>
                   ))}
                 </div>
@@ -936,22 +929,9 @@ export const ConstructionCalculator: React.FC = () => {
 
               <div className="flex flex-wrap gap-2">
                 {structure?.stages.map((stage) => (
-                  <label
-                    key={stage.id}
-                    className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs cursor-pointer transition-colors ${
-                      stageIds.includes(stage.id)
-                        ? 'border-accent bg-accent/10 font-semibold text-fg'
-                        : 'border-line bg-surface text-muted hover:bg-subtle'
-                    }`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={stageIds.includes(stage.id)}
-                      onChange={() => toggleStage(stage.id)}
-                      className="accent-[rgb(var(--accent-solid))]"
-                    />
-                    <span>{stage.name}</span>
-                  </label>
+                  <ToggleChip key={stage.id} checked={stageIds.includes(stage.id)} onChange={() => toggleStage(stage.id)}>
+                    {stage.name}
+                  </ToggleChip>
                 ))}
               </div>
             </div>
@@ -1000,32 +980,29 @@ export const ConstructionCalculator: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="overflow-x-auto">
-                    <table className="w-full min-w-[500px] text-left text-sm">
-                      <thead>
-                        <tr className="border-y border-line text-xs text-muted bg-subtle/40">
-                          <th className="px-4 py-2 font-medium">Vật phẩm</th>
-                          <th className="px-2 py-2 text-right font-medium">Cần</th>
-                          <th className="px-2 py-2 text-center font-medium">Đang có</th>
-                          <th className="px-2 py-2 text-right font-medium">Thiếu</th>
-                          <th className="px-4 py-2 font-medium">Cách có</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-line">
+                  <Table>
+                      <Thead>
+                          <Th>Vật phẩm</Th>
+                          <Th align="right">Cần</Th>
+                          <Th align="center">Đang có</Th>
+                          <Th align="right">Thiếu</Th>
+                          <Th>Cách có</Th>
+                        </Thead>
+                      <Tbody>
                         {constructionResult.materials.map((mat) => (
-                          <tr key={mat.itemId} className="align-top hover:bg-subtle/20">
-                            <td className="px-4 py-2.5">
+                          <Tr key={mat.itemId} className="align-top">
+                            <Td>
                               <div className="font-medium text-fg">{mat.itemName}</div>
                               {mat.byStage.length > 1 && (
                                 <div className="text-2xs text-muted">
                                   {mat.byStage.map((s) => `${s.stageName}: ${s.quantity}`).join(' · ')}
                                 </div>
                               )}
-                            </td>
-                            <td className="num px-2 py-2.5 text-right font-semibold">
+                            </Td>
+                            <Td align="right" numeric className="font-semibold">
                               {mat.totalRequired}
-                            </td>
-                            <td className="px-2 py-2.5">
+                            </Td>
+                            <Td>
                               <NumberInput
                                 aria-label={`Số ${mat.itemName} đang có`}
                                 value={mat.availableInHand || undefined}
@@ -1038,15 +1015,15 @@ export const ConstructionCalculator: React.FC = () => {
                                 }
                                 className="mx-auto h-8 w-20 text-center text-xs"
                               />
-                            </td>
-                            <td className="num px-2 py-2.5 text-right font-semibold">
+                            </Td>
+                            <Td align="right" numeric className="font-semibold">
                               {mat.isSatisfied ? (
                                 <span className="text-ok">Đủ</span>
                               ) : (
                                 <span className="text-danger">{mat.missing}</span>
                               )}
-                            </td>
-                            <td className="px-4 py-2.5 text-xs text-muted">
+                            </Td>
+                            <Td className="text-xs text-muted">
                               {mat.isSatisfied ? (
                                 '—'
                               ) : mat.craftingPlan && mat.craftingPlan.intermediateSteps.length > 0 ? (
@@ -1060,12 +1037,11 @@ export const ConstructionCalculator: React.FC = () => {
                               ) : (
                                 'Nhặt trong game'
                               )}
-                            </td>
-                          </tr>
+                            </Td>
+                          </Tr>
                         ))}
-                      </tbody>
-                    </table>
-                  </div>
+                      </Tbody>
+                    </Table>
                 </Card>
 
                 {/* Raw Materials Breakdown if enabled */}
@@ -1077,15 +1053,12 @@ export const ConstructionCalculator: React.FC = () => {
                         Phân tích nguyên liệu thô cần gom
                       </h4>
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-left text-xs">
-                        <thead>
-                          <tr className="border-b border-line text-muted">
-                            <th className="pb-1.5 font-medium">Nguyên liệu thô</th>
-                            <th className="pb-1.5 text-right font-medium">Tổng cần</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-line">
+                    <Table scroll={false}>
+                        <Thead>
+                            <Th>Nguyên liệu thô</Th>
+                            <Th align="right">Tổng cần</Th>
+                          </Thead>
+                        <Tbody>
                           {(() => {
                             const rawTotals: Record<string, number> = {};
                             constructionResult.materials.forEach((mat) => {
@@ -1099,34 +1072,33 @@ export const ConstructionCalculator: React.FC = () => {
                             const entries = Object.entries(rawTotals);
                             if (entries.length === 0) {
                               return (
-                                <tr>
-                                  <td colSpan={2} className="py-2 text-center text-muted">
+                                <Tr>
+                                  <Td align="center" colSpan={2} className="text-muted">
                                     Không có vật phẩm nào cần chế tạo phức tạp.
-                                  </td>
-                                </tr>
+                                  </Td>
+                                </Tr>
                               );
                             }
 
                             return entries.map(([itemId, total]) => {
                               const item = db.itemsMap.get(itemId);
                               return (
-                                <tr key={itemId}>
-                                  <td className="py-1.5">
+                                <Tr key={itemId}>
+                                  <Td>
                                     <Link
                                       to={`/wiki/items?select=${itemId}`}
                                       className="text-accent hover:underline font-medium"
                                     >
                                       {item?.name ?? itemId}
                                     </Link>
-                                  </td>
-                                  <td className="num py-1.5 text-right font-semibold">{total}</td>
-                                </tr>
+                                  </Td>
+                                  <Td align="right" numeric className="font-semibold">{total}</Td>
+                                </Tr>
                               );
                             });
                           })()}
-                        </tbody>
-                      </table>
-                    </div>
+                        </Tbody>
+                      </Table>
                   </div>
                 )}
               </>

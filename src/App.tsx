@@ -4,6 +4,7 @@ import { AlertTriangle, ShieldAlert } from 'lucide-react';
 import { ThemeProvider } from './context/ThemeContext';
 import { DataProvider, useGameData } from './context/DataContext';
 import { AppLayout } from './components/layout/AppLayout';
+import { ToastProvider } from './components/common/Toast';
 import { Button } from './components/common/Button';
 import { ItemsPage } from './pages/encyclopedia/ItemsPage';
 import { WeaponModsPage } from './pages/encyclopedia/WeaponModsPage';
@@ -80,9 +81,11 @@ const AppContent: React.FC = () => {
 export default function App() {
   return (
     <ThemeProvider>
-      <DataProvider>
-        <AppContent />
-      </DataProvider>
+      <ToastProvider>
+        <DataProvider>
+          <AppContent />
+        </DataProvider>
+      </ToastProvider>
     </ThemeProvider>
   );
 }

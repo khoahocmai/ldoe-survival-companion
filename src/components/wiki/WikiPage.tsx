@@ -6,6 +6,7 @@ import { SearchInput } from '../common/SearchInput';
 import { Select } from '../common/Field';
 import { EmptyState, FilterChips, PageHeader } from '../common/Layout';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { useToast } from '../common/Toast';
 import { storageService } from '../../services/storageService';
 import { useGameData } from '../../context/DataContext';
 import { WikiOverrides } from '../../types';
@@ -82,6 +83,7 @@ export function WikiPage<T extends { id: string }>({
   children,
 }: WikiPageProps<T>) {
   const { reload } = useGameData();
+  const toast = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState('');
 
@@ -155,6 +157,7 @@ export function WikiPage<T extends { id: string }>({
     storageService.deleteOrHideEntity(overrideKey, active.id);
     await reload();
     close();
+    toast.success(`Đã ẩn ${noun}.`);
   };
 
   const detail = active ? renderDetail(active) : null;
@@ -307,6 +310,7 @@ export function WikiPage<T extends { id: string }>({
 /** Save helper shared by the edit forms: persist, refresh the merged database, then select the entity. */
 export function useSaveEntity(overrideKey: OverrideKey) {
   const { reload } = useGameData();
+  const toast = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
 
   return useCallback(
@@ -316,7 +320,8 @@ export function useSaveEntity(overrideKey: OverrideKey) {
       const next = new URLSearchParams(searchParams);
       next.set('select', entity.id);
       setSearchParams(next);
+      toast.success('Đã lưu thay đổi.');
     },
-    [overrideKey, reload, searchParams, setSearchParams]
+    [overrideKey, reload, searchParams, setSearchParams, toast]
   );
 }

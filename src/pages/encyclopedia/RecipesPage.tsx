@@ -7,6 +7,7 @@ import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { useToast } from '../../components/common/Toast';
 import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { RecipeEditModal } from '../../components/recipes/RecipeEditModal';
 import { storageService } from '../../services/storageService';
@@ -23,6 +24,7 @@ const workstationOf = (r: Recipe) => {
 
 export const RecipesPage: React.FC = () => {
   const { db, reload } = useGameData();
+  const toast = useToast();
   const navigate = useNavigate();
   const save = useSaveEntity('customRecipes');
   const [editing, setEditing] = useState<Partial<Recipe> | null>(null);
@@ -52,6 +54,7 @@ export const RecipesPage: React.FC = () => {
     storageService.revertCustomEntity('customRecipes', recipeId);
     await reload();
     setEditing(null);
+    toast.info('Đã khôi phục công thức gốc.');
   };
 
   return (
