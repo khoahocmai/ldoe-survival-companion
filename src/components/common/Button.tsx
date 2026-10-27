@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip } from './Tooltip';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'soft';
@@ -49,13 +50,14 @@ export const Button: React.FC<ButtonProps> = ({
 export const IconButton: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & { label: string; children: React.ReactNode }
 > = ({ label, children, className = '', type = 'button', ...props }) => (
-  <button
-    type={type}
-    aria-label={label}
-    title={label}
-    className={`inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
-    {...props}
-  >
-    {children}
-  </button>
+  <Tooltip label={label}>
+    <button
+      type={type}
+      aria-label={label}
+      className={`inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  </Tooltip>
 );
