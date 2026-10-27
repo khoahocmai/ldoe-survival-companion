@@ -47,7 +47,7 @@ export const WikiSplitLayout: React.FC<WikiSplitLayoutProps> = ({
       )}
 
       {isOpen && !isWide && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-overlay flex justify-end">
           <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={onClose} aria-hidden="true" />
           <div
             role="dialog"

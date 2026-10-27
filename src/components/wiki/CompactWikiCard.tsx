@@ -43,7 +43,7 @@ export const CompactWikiCard: React.FC<CompactWikiCardProps> = ({
     className={`flex min-h-[96px] flex-col justify-between gap-2 p-3 ${className}`}
   >
     <div className="min-w-0">
-      {eyebrow && <span className="mb-0.5 block truncate text-[11px] font-medium text-faint">{eyebrow}</span>}
+      {eyebrow && <span className="mb-0.5 block truncate text-2xs font-medium text-faint">{eyebrow}</span>}
       <h3 title={title} className={`truncate text-sm font-semibold ${isSelected ? 'text-accent' : ''}`}>
         {title}
       </h3>

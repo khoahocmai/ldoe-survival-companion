@@ -1,7 +1,7 @@
 import React from 'react';
 
 const control =
-  'w-full rounded-lg border border-line bg-surface px-3 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none disabled:opacity-60';
+  'w-full rounded-control border border-line bg-surface px-3 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none disabled:opacity-60';
 
 interface FieldProps {
   label: string;
@@ -21,7 +21,7 @@ export const Field: React.FC<FieldProps> = ({ label, hint, children, className =
 
 export const TextInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className = '', ...props }, ref) => (
-    <input ref={ref} type="text" className={`${control} h-9 ${className}`} {...props} />
+    <input ref={ref} type="text" className={`${control} h-control ${className}`} {...props} />
   )
 );
 TextInput.displayName = 'TextInput';
@@ -42,14 +42,14 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onValueChange, 
       const parsed = parseFloat(e.target.value);
       onValueChange(Number.isFinite(parsed) ? parsed : 0);
     }}
-    className={`${control} num h-9 ${className}`}
+    className={`${control} num h-control ${className}`}
     {...props}
   />
 );
 
 export const Select = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttributes<HTMLSelectElement>>(
   ({ className = '', children, ...props }, ref) => (
-    <select ref={ref} className={`${control} h-9 pr-8 ${className}`} {...props}>
+    <select ref={ref} className={`${control} h-control pr-8 ${className}`} {...props}>
       {children}
     </select>
   )

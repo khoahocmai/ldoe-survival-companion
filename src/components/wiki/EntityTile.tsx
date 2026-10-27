@@ -51,7 +51,7 @@ export const EntityTile: React.FC<EntityTileProps> = ({
       }`}
     >
       {tone && tone !== 'neutral' && (
-        <span aria-hidden="true" className={`absolute inset-x-0 top-0 z-10 h-1 ${TONE_BAR[tone]}`} />
+        <span aria-hidden="true" className={`absolute inset-x-0 top-0 z-raised h-1 ${TONE_BAR[tone]}`} />
       )}
       {src && (
         // The screenshots are wide blueprint cards; zooming in on the centre keeps the item and drops the frame and top title.

@@ -65,7 +65,7 @@ export const ModOption: React.FC<ModOptionProps> = ({ mod, selected, itemsMap, o
               {chips.map((chip) => (
                 <span
                   key={chip.key}
-                  className={`num inline-flex gap-1 rounded px-1.5 py-0.5 text-[11px] font-medium ${chipTone[chip.tone]}`}
+                  className={`num inline-flex gap-1 rounded px-1.5 py-0.5 text-2xs font-medium ${chipTone[chip.tone]}`}
                 >
                   <span className="font-normal opacity-80">{chip.label}</span>
                   {chip.text}
@@ -89,7 +89,7 @@ export const ModOption: React.FC<ModOptionProps> = ({ mod, selected, itemsMap, o
 
           {mod.materials.length > 0 && (
             <div>
-              <div className="mb-1 text-[11px] font-medium text-faint">Nguyên liệu</div>
+              <div className="mb-1 text-2xs font-medium text-faint">Nguyên liệu</div>
               <ul className="flex flex-wrap gap-1.5">
                 {mod.materials.map((mat) => (
                   <li key={mat.itemId} className="num rounded bg-subtle px-1.5 py-0.5 text-xs">

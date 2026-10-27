@@ -4,24 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f1012" />
     <title>LDoE Survival Companion</title>
     <script>
       (function() {
         try {
           var stored = localStorage.getItem('ldoe_theme_preference');
-          var isDark = true;
-          if (stored === 'light') {
-            isDark = false;
-          } else if (stored === 'system') {
-            // Older versions offered 'system'; it is now resolved once to the OS preference.
-            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          }
+          // Mirrors readStoredTheme(): a saved light/dark wins, otherwise follow the OS preference.
+          var isDark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
           if (isDark) {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');
             document.documentElement.classList.add('light');
           }
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', isDark ? '#0f1012' : '#f6f6f4');
         } catch (e) {}
       })();
     </script>

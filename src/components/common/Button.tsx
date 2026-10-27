@@ -12,13 +12,13 @@ const base =
   'inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap select-none transition-colors disabled:cursor-not-allowed disabled:opacity-50';
 
 const sizes = {
-  sm: 'h-8 px-3 text-xs rounded-md',
-  md: 'h-9 px-4 text-sm rounded-lg',
-  lg: 'h-11 px-5 text-sm rounded-lg',
+  sm: 'h-control-sm px-3 text-xs rounded-control',
+  md: 'h-control px-4 text-sm rounded-control',
+  lg: 'h-control-lg px-5 text-sm rounded-control',
 };
 
 const variants = {
-  primary: 'bg-accent-solid text-accent-fg hover:brightness-110 active:brightness-95',
+  primary: 'bg-accent-solid text-accent-fg hover:brightness-90 active:brightness-75',
   secondary: 'bg-surface text-fg border border-line hover:bg-subtle',
   soft: 'bg-accent-soft text-accent hover:brightness-95',
   ghost: 'text-muted hover:text-fg hover:bg-subtle',
@@ -53,7 +53,7 @@ export const IconButton: React.FC<
     type={type}
     aria-label={label}
     title={label}
-    className={`inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
+    className={`inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
     {...props}
   >
     {children}

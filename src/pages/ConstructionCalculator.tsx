@@ -496,7 +496,7 @@ export const ConstructionCalculator: React.FC = () => {
                                         {itemName}
                                       </Link>
                                       {itemMeta?.category && (
-                                        <span className="text-[11px] text-muted">
+                                        <span className="text-2xs text-muted">
                                           {ITEM_CATEGORY_LABEL[itemMeta.category as keyof typeof ITEM_CATEGORY_LABEL] ??
                                             itemMeta.category}
                                         </span>
@@ -634,7 +634,7 @@ export const ConstructionCalculator: React.FC = () => {
                                             {itemName}
                                           </Link>
                                           {item?.category && (
-                                            <span className="text-[11px] text-muted">
+                                            <span className="text-2xs text-muted">
                                               {ITEM_CATEGORY_LABEL[
                                                 item.category as keyof typeof ITEM_CATEGORY_LABEL
                                               ] ?? item.category}
@@ -879,7 +879,7 @@ export const ConstructionCalculator: React.FC = () => {
                               </Badge>
                             )}
                           </div>
-                          <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted">
+                          <div className="mt-0.5 flex items-center gap-1.5 text-2xs text-muted">
                             <span className="font-semibold text-accent">+{item.valuePerItem} EXP</span>
                             <span>·</span>
                             <span>{item.dailyLimit ? `Tối đa ${item.dailyLimit}` : 'Vô hạn'}</span>
@@ -1017,7 +1017,7 @@ export const ConstructionCalculator: React.FC = () => {
                             <td className="px-4 py-2.5">
                               <div className="font-medium text-fg">{mat.itemName}</div>
                               {mat.byStage.length > 1 && (
-                                <div className="text-[11px] text-muted">
+                                <div className="text-2xs text-muted">
                                   {mat.byStage.map((s) => `${s.stageName}: ${s.quantity}`).join(' · ')}
                                 </div>
                               )}

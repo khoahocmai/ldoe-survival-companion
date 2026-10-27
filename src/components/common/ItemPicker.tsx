@@ -99,7 +99,7 @@ export const ItemPicker: React.FC<ItemPickerProps> = ({ items, value, onChange, 
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-11 w-full items-center gap-3 rounded-lg border border-line bg-surface px-2 text-left transition-colors hover:border-faint/60 focus:border-accent-solid focus:outline-none"
+        className="flex h-control-lg w-full items-center gap-3 rounded-control border border-line bg-surface px-2 text-left transition-colors hover:border-faint/60 focus:border-accent-solid focus:outline-none"
       >
         {selected ? (
           <>
@@ -117,7 +117,7 @@ export const ItemPicker: React.FC<ItemPickerProps> = ({ items, value, onChange, 
 
       {open && (
         <div
-          className="absolute left-0 right-0 z-30 mt-1 animate-pop-in overflow-hidden rounded-xl border border-line bg-surface shadow-pop"
+          className="absolute left-0 right-0 z-dropdown mt-1 animate-pop-in overflow-hidden rounded-card border border-line bg-surface shadow-pop"
           onKeyDown={onKeyDown}
         >
           <div className="space-y-2 border-b border-line p-2.5">
@@ -129,7 +129,7 @@ export const ItemPicker: React.FC<ItemPickerProps> = ({ items, value, onChange, 
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Gõ tên vật phẩm..."
                 aria-label="Tìm vật phẩm"
-                className="h-9 w-full rounded-lg border border-line bg-bg pl-9 pr-3 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none"
+                className="h-control w-full rounded-control border border-line bg-bg pl-9 pr-3 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none"
               />
             </div>
             <FilterChips options={filterOptions} value={filter} onChange={setFilter} />

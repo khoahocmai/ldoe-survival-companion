@@ -222,7 +222,7 @@ export function WikiPage<T extends { id: string }>({
           {filter && (
             // Stays pinned while the grid scrolls underneath, so switching category never needs a trip back to the top.
             // The -4 offsets cancel <main>'s 1rem top padding, which sticky would otherwise leave as a gap above the strip.
-            <div className="sticky -top-4 z-20 -mx-1 -mt-4 bg-bg px-1 pb-2 pt-3">
+            <div className="sticky -top-4 z-sticky -mx-1 -mt-4 bg-bg px-1 pb-2 pt-3">
               <FilterChips options={filterOptions} value={filterId} onChange={setFilterId} wrap={isSm} />
             </div>
           )}

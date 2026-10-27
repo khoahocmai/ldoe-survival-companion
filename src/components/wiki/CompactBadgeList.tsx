@@ -33,7 +33,7 @@ export const CompactBadgeList: React.FC<CompactBadgeListProps> = ({ children, ma
       {overflowCount > 0 && (
         <span
           title={`${overflowCount} nhãn khác`}
-          className="num inline-flex shrink-0 select-none items-center rounded bg-subtle px-1.5 py-0.5 text-[11px] font-medium leading-none text-muted"
+          className="num inline-flex shrink-0 select-none items-center rounded bg-subtle px-1.5 py-0.5 text-2xs font-medium leading-none text-muted"
         >
           +{overflowCount}
         </span>

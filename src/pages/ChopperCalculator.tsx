@@ -220,7 +220,7 @@ export const ChopperCalculator: React.FC<{ hideHeader?: boolean }> = ({ hideHead
                           )}
                         </div>
 
-                        <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted">
+                        <div className="mt-0.5 flex items-center gap-1.5 text-2xs text-muted">
                           <span className="font-semibold text-accent">+{item.valuePerItem} EXP</span>
                           <span>·</span>
                           <span>

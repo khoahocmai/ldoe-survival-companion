@@ -37,12 +37,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4">
+    <div className="fixed inset-0 z-modal flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={onClose} aria-hidden="true" />
       <div
         role="dialog"
         aria-modal="true"
-        className={`relative z-10 flex max-h-[92vh] w-full animate-pop-in flex-col overflow-hidden rounded-t-2xl border border-line bg-surface shadow-pop sm:rounded-2xl ${widths[maxWidth]}`}
+        className={`relative z-raised flex max-h-[92vh] w-full animate-pop-in flex-col overflow-hidden rounded-t-dialog border border-line bg-surface shadow-pop sm:rounded-dialog ${widths[maxWidth]}`}
       >
         {title && (
           <div className="flex items-center justify-between gap-3 border-b border-line px-5 py-3.5">

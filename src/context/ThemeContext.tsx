@@ -16,17 +16,22 @@ const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 });
 
+/** Browser chrome colour per theme; keep in sync with `--bg` in index.css. */
+const THEME_COLOR: Record<ThemeMode, string> = { light: '#f6f6f4', dark: '#0f1012' };
+
+const osTheme = (): ThemeMode => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
 /**
- * Saved choice, falling back to dark. A value of 'system' written by an older version is
- * converted once to whatever the OS prefers, so nobody's look changes unexpectedly.
+ * Saved choice. With nothing saved (first visit) or the retired 'system' value from an older version,
+ * the OS preference decides; dark when it cannot be read.
  */
 export function readStoredTheme(): ThemeMode {
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
     if (stored === 'light' || stored === 'dark') return stored;
-    if (stored === 'system') return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return osTheme();
   } catch {
-    /* storage unavailable: use the default */
+    /* storage or matchMedia unavailable: use the default */
   }
   return 'dark';
 }
@@ -38,6 +43,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
     root.classList.toggle('light', theme === 'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[theme]);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
     } catch {

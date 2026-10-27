@@ -55,7 +55,7 @@ export const AppLayout: React.FC = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 flex lg:hidden">
+        <div className="fixed inset-0 z-overlay flex lg:hidden">
           <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
           <div className="relative h-full animate-slide-in shadow-pop">
             <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />

@@ -29,8 +29,36 @@ export default {
         warn: { DEFAULT: token('warn'), soft: token('warn-soft') },
         danger: { DEFAULT: token('danger'), soft: token('danger-soft') },
       },
+      // Type scale: 2xs (11) captions in dense UI, xs (12) labels, sm (14) body, base (16) titles, then lg/xl headings.
+      fontSize: {
+        '2xs': ['0.6875rem', { lineHeight: '1rem' }],
+      },
+      // Shared shape tokens so every control, card and dialog uses the same radius and height.
+      borderRadius: {
+        control: '0.5rem',
+        card: '0.75rem',
+        dialog: '1rem',
+      },
+      height: {
+        'control-sm': '2rem',
+        control: '2.25rem',
+        'control-lg': '2.75rem',
+      },
+      width: {
+        control: '2.25rem',
+      },
+      // Layering, lowest to highest. Keep new overlays on these names instead of raw numbers.
+      zIndex: {
+        raised: '10',
+        sticky: '20',
+        dropdown: '30',
+        nav: '30',
+        overlay: '40',
+        modal: '50',
+        toast: '60',
+      },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"Inter Variable"', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       boxShadow: {

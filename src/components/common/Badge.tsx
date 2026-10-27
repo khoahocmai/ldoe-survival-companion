@@ -20,7 +20,7 @@ export const toneStyles: Record<Tone, string> = {
 };
 
 const sizeStyles = {
-  sm: 'text-[11px] px-1.5 py-0.5 rounded',
+  sm: 'text-2xs px-1.5 py-0.5 rounded',
   md: 'text-xs px-2 py-1 rounded-md',
 };
 

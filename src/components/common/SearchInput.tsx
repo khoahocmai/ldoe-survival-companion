@@ -22,7 +22,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       aria-label={placeholder}
-      className="h-9 w-full rounded-lg border border-line bg-surface pl-9 pr-9 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+      className="h-control w-full rounded-control border border-line bg-surface pl-9 pr-9 text-sm placeholder:text-faint focus:border-accent-solid focus:outline-none [&::-webkit-search-cancel-button]:hidden"
     />
     {value && (
       <button
