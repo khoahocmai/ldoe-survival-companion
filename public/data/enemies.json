@@ -65,7 +65,6 @@
     "locations": [
       "pine_bushes",
       "pine_grove",
-      "pine_grove",
       "limestone_ridge",
       "bunker_alfa"
     ],
@@ -97,7 +96,6 @@
       }
     ],
     "locations": [
-      "pine_grove",
       "pine_grove",
       "limestone_cliffs",
       "bunker_alfa"
@@ -140,7 +138,6 @@
       }
     ],
     "locations": [
-      "pine_grove",
       "pine_grove",
       "limestone_grove",
       "bunker_alfa"
@@ -285,6 +282,11 @@
     ],
     "drops": [
       {
+        "itemId": "barn_key",
+        "chance": "100%",
+        "quantity": "1"
+      },
+      {
         "itemId": "bone",
         "chance": "100%",
         "quantity": "3"
@@ -294,8 +296,8 @@
       "crooked_creek_farm"
     ],
     "combatTips": [
-      "Kite boss chạy vòng quanh cọc rơm hoặc xe tải mà không cần mặc giáp đắt tiền.",
-      "Né sang một bên mỗi khi hắn gầm lên chuẩn bị phun dịch, rồi vung 2-3 nhát dao rựa Machete."
+      "Ở bản v1.52 (Good Old Farm Rework), The Ravager chắc chắn 100% rớt Barn Key để mở cửa nhà kho.",
+      "Kite boss chạy vòng quanh xe tải hoặc ụ rơm để né luồng phun axit ăn mòn độ bền giáp."
     ]
   },
   {
@@ -395,8 +397,7 @@
     "locations": [
       "bunker_alfa",
       "bunker_bravo",
-      "genesis_laboratory",
-      "peat_bog"
+      "genesis_laboratory"
     ],
     "combatTips": [
       "Khi máu hắn dưới 120 HP, dùng vũ khí dồn sát thương cực nhanh (Shotgun/AK-47) để kết liễu trước khi kịp kích hoạt vụ nổ."
@@ -425,10 +426,9 @@
       }
     ],
     "locations": [
-      "bunker_alfa",
-      "bunker_bravo",
-      "genesis_laboratory",
-      "peat_bog"
+      "infected_forest",
+      "quarantine_zone",
+      "wild_bogs"
     ],
     "combatTips": [
       "Luôn ưu tiên hạ gục Screamer đầu tiên trong phòng trước khi hắn kịp cất tiếng hú."
@@ -457,10 +457,9 @@
       }
     ],
     "locations": [
-      "bunker_alfa",
-      "bunker_bravo",
-      "genesis_laboratory",
-      "peat_bog"
+      "western_watchtower",
+      "wild_bogs",
+      "swamp_forest"
     ],
     "combatTips": [
       "Áp sát nhanh hoặc dùng súng trường kết liễu từ xa trước khi bị rỉa máu."
@@ -494,10 +493,9 @@
       }
     ],
     "locations": [
-      "bunker_alfa",
-      "bunker_bravo",
-      "genesis_laboratory",
-      "peat_bog"
+      "western_watchtower",
+      "wild_bogs",
+      "swamp_forest"
     ],
     "combatTips": [
       "Dùng súng bắn tỉa hoặc vũ khí tầm xa, tránh giáp lá cà để không bị ngấm khói độc thối rữa."
@@ -507,7 +505,7 @@
     "id": "turret",
     "name": "Automated Turret",
     "vietnameseName": "Súng máy tự động (Turret)",
-    "category": "human",
+    "category": "machine",
     "hp": 250,
     "damage": 15,
     "armor": 15,
@@ -542,7 +540,7 @@
     "id": "heavy_turret",
     "name": "Heavy Turret",
     "vietnameseName": "Súng máy hạng nặng (Heavy Turret)",
-    "category": "human",
+    "category": "machine",
     "hp": 500,
     "damage": 30,
     "armor": 30,
@@ -575,37 +573,42 @@
   },
   {
     "id": "colonel",
-    "name": "Colonel",
-    "vietnameseName": "Đại tá Colonel",
-    "category": "human",
+    "name": "The Colonel",
+    "vietnameseName": "Xác sống Đại tá (The Colonel)",
+    "category": "boss",
     "hp": 600,
     "damage": 40,
     "armor": 20,
-    "attackSpeed": 1.2,
-    "movementSpeed": "fast",
+    "attackSpeed": 1,
+    "movementSpeed": "slow",
     "dangerRating": 4,
-    "description": "Chỉ huy lực lượng vũ trang biến chất sống sót. Trang bị súng trường tự động và áo giáp chiến thuật hạng nặng.",
+    "description": "Zombie dị biến viền đỏ xuất hiện tại Rừng thông (Pine Woods) khi có nhiệm vụ Raider. Có khả năng hồi sinh các xác sống xung quanh.",
     "abilities": [
-      "Burst Fire",
-      "Tactical Roll"
+      "Resurrection (Hồi sinh các xác sống đã bị hạ gục xung quanh)"
     ],
     "drops": [
       {
-        "itemId": "first_aid_kit",
+        "itemId": "cloth",
         "chance": "80%",
-        "quantity": "2"
+        "quantity": "2-4"
       },
       {
-        "itemId": "red_coupon",
-        "chance": "50%",
-        "quantity": "2"
+        "itemId": "rope",
+        "chance": "60%",
+        "quantity": "1-2"
+      },
+      {
+        "itemId": "gold_watch",
+        "chance": "30%",
+        "quantity": "1"
       }
     ],
     "locations": [
-      "blackport_pd"
+      "pine_woods"
     ],
     "combatTips": [
-      "Mặc giáp SWAT hoặc Tactical để giảm thiểu loạt đạn nã dồn dập từ súng trường của hắn."
+      "Kite từ xa bằng súng trường hoặc cung tên.",
+      "Khi The Colonel xuất hiện trong zone, The Big One được đảm bảo sẽ không spawn."
     ]
   },
   {
@@ -625,6 +628,11 @@
       "Tunnel Charge (lao thẳng về phía mục tiêu hất văng mọi chướng ngại vật)"
     ],
     "drops": [
+      {
+        "itemId": "cac_card",
+        "chance": "100%",
+        "quantity": "1"
+      },
       {
         "itemId": "titanium_bar",
         "chance": "100%",
@@ -663,6 +671,11 @@
     ],
     "drops": [
       {
+        "itemId": "cac_card",
+        "chance": "100%",
+        "quantity": "1"
+      },
+      {
         "itemId": "drone_parts",
         "chance": "100%",
         "quantity": "3"
@@ -679,6 +692,153 @@
     "combatTips": [
       "Nhanh chóng bắn hạ những con gà tây trước để ngăn The Butcher hồi máu.",
       "Khi The Butcher tỏa khí độc, lập tức lùi xa và dùng vũ khí tầm xa tấn công."
+    ]
+  },
+  {
+    "id": "infected_bull",
+    "name": "Infected Bull",
+    "vietnameseName": "Bò mộng nhiễm dịch (Crooked Creek Farm)",
+    "category": "wildlife",
+    "hp": 800,
+    "damage": 45,
+    "armor": 15,
+    "attackSpeed": 1.1,
+    "movementSpeed": "fast",
+    "dangerRating": 4,
+    "description": "Bò đực đột biến hung hãn trong chuồng trại Farm (v1.52). Khi bị kích động, nó sẽ lao điên cuồng húc văng cả người chơi lẫn các zombie cản đường.",
+    "abilities": [
+      "Rampage Charge (Húc càn sát thương diện rộng lên mọi mục tiêu)"
+    ],
+    "drops": [
+      {
+        "itemId": "raw_meat",
+        "chance": "100%",
+        "quantity": "3"
+      },
+      {
+        "itemId": "raw_hide",
+        "chance": "100%",
+        "quantity": "2"
+      }
+    ],
+    "locations": [
+      "crooked_creek_farm"
+    ],
+    "combatTips": [
+      "Có thể dụ bò húc vào đám zombie đông để tiêu diệt chúng mà không tốn đạn."
+    ]
+  },
+  {
+    "id": "screech",
+    "name": "Screech",
+    "vietnameseName": "Quái vật Screech (Tháp canh phương Bắc)",
+    "category": "boss",
+    "hp": 1200,
+    "damage": 40,
+    "armor": 10,
+    "attackSpeed": 1.2,
+    "movementSpeed": "fast",
+    "dangerRating": 4,
+    "description": "Thủ lĩnh xác sống phục kích trên đỉnh Tháp canh phương Bắc. Khi người chơi kích hoạt máy phát điện, Screech sẽ nhảy xuống khóa cổng và tấn công.",
+    "abilities": [
+      "Deafening Roar (Tiếng thét gây choáng)",
+      "Leap Smash (Nhảy đập đất)"
+    ],
+    "drops": [
+      {
+        "itemId": "fur",
+        "chance": "100%",
+        "quantity": "4"
+      },
+      {
+        "itemId": "thick_leather",
+        "chance": "80%",
+        "quantity": "2"
+      }
+    ],
+    "locations": [
+      "northern_watchtower"
+    ],
+    "combatTips": [
+      "Mang theo súng trường M16 hoặc AK-47 dồn sát thương nhanh trước khi hắn kịp nhảy bổ vào bạn."
+    ]
+  },
+  {
+    "id": "alpha_irradiator",
+    "name": "Alpha Irradiator",
+    "vietnameseName": "Quái vật nhiễm xạ Alpha (Tháp canh Tây)",
+    "category": "boss",
+    "hp": 2500,
+    "damage": 55,
+    "armor": 40,
+    "attackSpeed": 1,
+    "movementSpeed": "normal",
+    "dangerRating": 5,
+    "description": "Đại boss phóng xạ tại Western Watchtower (v1.51+). Cơ thể phát ra nồng độ phóng xạ cực mạnh, bắt buộc phải mặc giáp Hazmat và dùng vũ khí xuyên giáp Genesis để đối đầu.",
+    "abilities": [
+      "Radiation Aura (Khí phóng xạ làm giảm máu tối đa)",
+      "Armor-Crushing Strike (Đòn đánh bẻ gãy giáp)"
+    ],
+    "drops": [
+      {
+        "itemId": "genome_points",
+        "chance": "100%",
+        "quantity": "5"
+      },
+      {
+        "itemId": "anti_radiation_pills",
+        "chance": "80%",
+        "quantity": "2"
+      }
+    ],
+    "locations": [
+      "western_watchtower"
+    ],
+    "combatTips": [
+      "Mặc trọn bộ đồ chống phóng xạ Hazmat Suit và uống thuốc AntiRad trước khi giao chiến.",
+      "Sử dụng súng Equalizer hoặc Neutralizer để xuyên thủng 40 điểm giáp của hắn."
+    ]
+  },
+  {
+    "id": "leviathan",
+    "name": "Leviathan",
+    "vietnameseName": "Thủy quái đầm lầy Leviathan (Chúa tể Bogs)",
+    "category": "boss",
+    "hp": 4000,
+    "damage": 80,
+    "armor": 50,
+    "attackSpeed": 0.8,
+    "movementSpeed": "slow",
+    "dangerRating": 5,
+    "description": "Đại boss tối thượng của vùng đầm lầy Boggy Region (v1.51+). Ẩn sâu trong sào huyệt đầm lầy ngập nước, có lượng máu khổng lồ và đòn đánh chấn động mặt đất.",
+    "abilities": [
+      "Bog Quake (Địa chấn bùn lầy làm chậm và choáng)",
+      "Venom Surge (Phun axit độc diện rộng)",
+      "Toxic Armor (Lớp da chống chịu sát thương vật lý)"
+    ],
+    "drops": [
+      {
+        "itemId": "genome_points",
+        "chance": "100%",
+        "quantity": "15"
+      },
+      {
+        "itemId": "alligator_skin",
+        "chance": "100%",
+        "quantity": "5"
+      },
+      {
+        "itemId": "carbon_composite",
+        "chance": "80%",
+        "quantity": "3"
+      }
+    ],
+    "locations": [
+      "leviathans_lair"
+    ],
+    "combatTips": [
+      "Cần xe ATV trang bị đầy đủ mô-đun để tiếp cận sào huyệt.",
+      "Bắt buộc dùng vũ khí Genesis cao cấp và tháp súng máy Portable Turret hỗ trợ hỏa lực."
     ]
   }
 ]

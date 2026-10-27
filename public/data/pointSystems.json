@@ -7,22 +7,22 @@
     "milestones": [
       {
         "id": "ms_common",
-        "name": "Hòm hàng phổ thông (Common Cargo)",
-        "points": 250
+        "name": "Hòm hàng phổ thông (Common Cargo - 0 đến 249 điểm)",
+        "points": 0
       },
       {
         "id": "ms_worthwhile",
-        "name": "Hòm hàng giá trị (Worthwhile Cargo)",
-        "points": 750
+        "name": "Hòm hàng giá trị (Worthwhile Cargo - từ 250 điểm)",
+        "points": 250
       },
       {
         "id": "ms_high_value",
-        "name": "Hòm hàng cao cấp (High-Value Cargo)",
-        "points": 1200
+        "name": "Hòm hàng cao cấp (High-Value Cargo - từ 750 điểm)",
+        "points": 750
       },
       {
         "id": "ms_extremely_valuable",
-        "name": "Hòm hàng cực phẩm (Extremely Valuable Cargo)",
+        "name": "Hòm cực phẩm (Extremely Valuable Cargo - 1,500 điểm)",
         "points": 1500
       }
     ]

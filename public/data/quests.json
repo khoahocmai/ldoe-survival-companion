@@ -1,199 +1,479 @@
 [
   {
-    "id": "quest_act1_ch1",
-    "title": "Act 1: First Shelter",
-    "vietnameseTitle": "Hồi 1: Nơi trú ẩn đầu tiên",
+    "id": "quest_sp_ch1",
+    "title": "Survivor's Path: New Beginning",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Khởi đầu mới (Chương 1)",
     "category": "survivors_path",
-    "chapter": "Chương 1",
-    "description": "Thức tỉnh trong thế giới tận thế đổ nát. Hãy nhanh chóng dựng căn nhà 3x3 và trang bị vũ khí đầu tiên để bảo vệ bản thân.",
+    "chapter": "Chương 1: New Beginning",
+    "description": "Thức tỉnh giữa thế giới tận thế. Thu thập tài nguyên ban đầu, dựng căn nhà gỗ đầu tiên và trang bị vũ khí cận chiến để tự vệ.",
     "objectives": [
       {
-        "id": "obj_gather_wood",
+        "id": "sp1_wood",
         "type": "collect_item",
-        "description": "Thu thập 15 Khúc gỗ thông (Pine Log)",
+        "description": "Thu thập 15 Gỗ thông (Pine Log)",
         "targetId": "pine_log",
         "quantity": 15
       },
       {
-        "id": "obj_craft_spear",
+        "id": "sp1_spear",
         "type": "craft_item",
-        "description": "Chế tạo 1 Ngọn giáo (Spear) để tự vệ",
+        "description": "Chế tạo 1 Ngọn giáo (Spear)",
         "targetId": "spear",
         "quantity": 1
       },
       {
-        "id": "obj_build_floor",
-        "type": "other",
-        "description": "Xây dựng 4 ô nền sàn gỗ cơ bản tại căn cứ",
-        "quantity": 4
-      }
-    ],
-    "rewards": [
-      { "itemId": "pine_log", "quantity": 20 },
-      { "itemId": "bandages", "quantity": 5 }
-    ],
-    "relatedItems": ["pine_log", "spear", "bandages"],
-    "instructions": "Chặt các cây thông xung quanh căn cứ bằng rìu hoặc nhặt các cành cây rơi rải rác dưới đất."
-  },
-  {
-    "id": "quest_act1_ch2",
-    "title": "Act 1: Gathering Resources",
-    "vietnameseTitle": "Hồi 1: Khai thác tài nguyên",
-    "category": "survivors_path",
-    "chapter": "Chương 2",
-    "description": "Rời khỏi căn cứ đến Bụi thông xanh để thu thập thêm tài nguyên, sợi dệt và thức ăn.",
-    "prerequisites": ["quest_act1_ch1"],
-    "objectives": [
-      {
-        "id": "obj_visit_pine_bushes",
-        "type": "visit_location",
-        "description": "Di chuyển đến khu vực Pine Bushes (Bụi thông xanh)",
-        "targetId": "pine_bushes"
-      },
-      {
-        "id": "obj_kill_roamers",
-        "type": "kill_enemy",
-        "description": "Tiêu diệt 5 Zombie lang thang (Roamer)",
-        "targetId": "roamer",
-        "quantity": 5
-      },
-      {
-        "id": "obj_gather_fiber",
-        "type": "collect_item",
-        "description": "Thu thập 20 Sợi thực vật (Plant Fiber)",
-        "targetId": "plant_fiber",
-        "quantity": 20
-      },
-      {
-        "id": "obj_craft_bandages",
+        "id": "sp1_box",
         "type": "craft_item",
-        "description": "Chế tạo 3 Băng gạc (Bandages) để dự phòng thương tích",
-        "targetId": "bandages",
-        "quantity": 3
-      }
-    ],
-    "rewards": [
-      { "itemId": "cloth", "quantity": 10 },
-      { "itemId": "duct_tape", "quantity": 5 }
-    ],
-    "relatedLocations": ["pine_bushes"],
-    "relatedEnemies": ["roamer"],
-    "relatedItems": ["plant_fiber", "bandages"],
-    "instructions": "Bấm nút Sneak (ngồi xổm) để tiếp cận zombie từ phía sau gây sát thương gấp 3 lần."
-  },
-  {
-    "id": "quest_act1_ch3",
-    "title": "Act 1: Industrial Foundation",
-    "vietnameseTitle": "Hồi 1: Nền tảng chế tạo công nghiệp",
-    "category": "survivors_path",
-    "chapter": "Chương 3",
-    "description": "Nâng cấp căn cứ bằng việc đặt các bàn chế biến: Bàn xẻ gỗ và Lò nung sắt.",
-    "prerequisites": ["quest_act1_ch2"],
-    "objectives": [
-      {
-        "id": "obj_craft_planks",
-        "type": "craft_item",
-        "description": "Sản xuất 10 Ván gỗ thông (Pine Plank)",
-        "targetId": "pine_plank",
-        "quantity": 10
-      },
-      {
-        "id": "obj_smelt_iron",
-        "type": "craft_item",
-        "description": "Nung chảy 10 Thỏi sắt (Iron Bar) từ quặng",
-        "targetId": "iron_bar",
-        "quantity": 10
-      },
-      {
-        "id": "obj_craft_cleaver",
-        "type": "craft_item",
-        "description": "Chế tạo 1 Dao chặt thịt (Cleaver)",
-        "targetId": "cleaver",
+        "description": "Chế tạo 1 Rương nhỏ (Small Box)",
+        "targetId": "small_box",
         "quantity": 1
       }
     ],
     "rewards": [
-      { "itemId": "iron_bar", "quantity": 10 },
-      { "itemId": "leather", "quantity": 5 },
-      { "itemId": "crowbar", "quantity": 1 }
+      {
+        "itemId": "pine_log",
+        "quantity": 20
+      },
+      {
+        "itemId": "bandages",
+        "quantity": 5
+      }
     ],
-    "relatedItems": ["pine_plank", "iron_bar", "cleaver", "crowbar"],
-    "instructions": "Đặt Bàn xẻ gỗ và Lò nung tại căn cứ, dùng than củi hoặc gỗ làm nhiên liệu đốt."
+    "instructions": "Nhặt cành cây và đá cuội xung quanh nhà để chế tạo rìu và cuốc khởi đầu."
   },
   {
-    "id": "quest_act1_ch4",
-    "title": "Act 1: Bunker Alfa Recon",
-    "vietnameseTitle": "Hồi 1: Thám hiểm Bunker Alfa",
+    "id": "quest_sp_ch2",
+    "title": "Survivor's Path: True Friend",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Người bạn trung thành (Chương 2)",
     "category": "survivors_path",
-    "chapter": "Chương 4",
-    "description": "Lắng nghe Radio để lấy mật mã cửa thang máy, mang theo súng đạn và mở khóa kho quân sự Alfa.",
-    "prerequisites": ["quest_act1_ch3"],
+    "chapter": "Chương 2: True Friend",
+    "description": "Khám phá thế giới bên ngoài, tìm kiếm chó con và xây dựng Chuồng chó (Dog Crate) tại căn cứ.",
+    "prerequisites": [
+      "quest_sp_ch1"
+    ],
     "objectives": [
       {
-        "id": "obj_reach_lobby",
+        "id": "sp2_dog_crate",
+        "type": "craft_item",
+        "description": "Lắp ráp Chuồng chó (Dog Crate) tại căn cứ",
+        "targetId": "dog_crate_design",
+        "quantity": 1
+      },
+      {
+        "id": "sp2_visit_pine",
         "type": "visit_location",
-        "description": "Tiến vào sảnh chính Bunker Alfa và nhập mật khẩu mở thang máy",
+        "description": "Khám phá khu vực Bụi thông xanh (Pine Bushes)",
+        "targetId": "pine_bushes"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "raw_meat",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
+    ],
+    "instructions": "Chó cưng giúp phát hiện nguy hiểm và mang lại nhiều chỉ số bổ trợ quý giá."
+  },
+  {
+    "id": "quest_sp_ch3",
+    "title": "Survivor's Path: Powershot",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Phát bắn uy lực (Chương 3)",
+    "category": "survivors_path",
+    "chapter": "Chương 3: Powershot",
+    "description": "Nâng cấp hỏa lực với vũ khí tầm xa và thu thập quặng sắt chuẩn bị cho thời kỳ công nghiệp.",
+    "prerequisites": [
+      "quest_sp_ch2"
+    ],
+    "objectives": [
+      {
+        "id": "sp3_craft_bow",
+        "type": "craft_item",
+        "description": "Chế tạo Cung tên (Bow) để tấn công tầm xa",
+        "targetId": "bow",
+        "quantity": 1
+      },
+      {
+        "id": "sp3_smelt_iron",
+        "type": "craft_item",
+        "description": "Nung Thỏi sắt (Iron Bar) tại lò nung",
+        "targetId": "iron_bar",
+        "quantity": 10
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "iron_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "leather",
+        "quantity": 8
+      }
+    ],
+    "instructions": "Dùng cung tên hạ gục Bloater và zombie từ khoảng cách an toàn mà không tốn giáp."
+  },
+  {
+    "id": "quest_sp_ch4",
+    "title": "Survivor's Path: Iron Warrior",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Chiến binh sắt đá (Chương 4)",
+    "category": "survivors_path",
+    "chapter": "Chương 4: Iron Warrior",
+    "description": "Tiến vào hầm ngầm quân sự Bunker Alfa, mở khóa thang máy và đối đầu với quái vật khổng lồ Frenzied Giant.",
+    "prerequisites": [
+      "quest_sp_ch3"
+    ],
+    "objectives": [
+      {
+        "id": "sp4_enter_alfa",
+        "type": "visit_location",
+        "description": "Tiến vào Bunker Alfa và mở thang máy",
         "targetId": "bunker_alfa"
       },
       {
-        "id": "obj_kill_fg",
+        "id": "sp4_kill_fg",
         "type": "kill_enemy",
-        "description": "Tiêu diệt 1 Khổng lồ điên cuồng (Frenzied Giant)",
+        "description": "Tiêu diệt 1 Frenzied Giant tại tầng hầm",
         "targetId": "frenzied_giant",
         "quantity": 1
       },
       {
-        "id": "obj_open_green_crate",
+        "id": "sp4_green_crate",
         "type": "interact",
-        "description": "Thu thập đủ 20 Vé xanh (Green Coupon) và mở Thùng hàng tiếp tế tại sảnh",
+        "description": "Thu thập 20 Vé xanh (Green Coupon) đổi hòm thưởng",
         "quantity": 20
       }
     ],
     "rewards": [
-      { "itemId": "glock_17", "quantity": 1 },
-      { "itemId": "tactical_body_armor", "quantity": 1 },
-      { "itemId": "red_coupon", "quantity": 5 }
+      {
+        "itemId": "glock_17",
+        "quantity": 1
+      },
+      {
+        "itemId": "tactical_body_armor",
+        "quantity": 1
+      },
+      {
+        "itemId": "red_coupon",
+        "quantity": 5
+      }
     ],
-    "relatedLocations": ["bunker_alfa"],
-    "relatedEnemies": ["frenzied_giant"],
-    "relatedItems": ["glock_17", "tactical_body_armor", "red_coupon", "green_coupon"],
-    "instructions": "Dùng phương pháp Wall-trick tại tầng 2 hoặc dùng súng bắn tỉa từ xa để tiêu diệt Frenzied Giant mà không bị one-shot."
+    "instructions": "Luyện tập kỹ thuật Wall-trick tại tầng 2 để tiết kiệm tối đa vũ khí súng đạn."
+  },
+  {
+    "id": "quest_sp_ch5",
+    "title": "Survivor's Path: North",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Tiến về phương Bắc (Chương 5)",
+    "category": "survivors_path",
+    "chapter": "Chương 5: North",
+    "description": "Chở Máy phát điện bằng xe máy Chopper mở Tháp canh phương Bắc, đánh bại Screech và khai thác Gỗ sồi (Oak).",
+    "prerequisites": [
+      "quest_sp_ch4"
+    ],
+    "objectives": [
+      {
+        "id": "sp5_watchtower",
+        "type": "repair_structure",
+        "description": "Kích hoạt Máy phát điện Tháp canh Bắc",
+        "targetId": "struct_northern_watchtower"
+      },
+      {
+        "id": "sp5_kill_screech",
+        "type": "kill_enemy",
+        "description": "Hạ gục quái vật Screech trên đỉnh tháp",
+        "targetId": "screech",
+        "quantity": 1
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "fur_jacket",
+        "quantity": 1
+      },
+      {
+        "itemId": "iron_pickaxe",
+        "quantity": 2
+      }
+    ],
+    "instructions": "Mặc đồ ấm và mang theo rìu sắt để chặt cây sồi tại Oak Bushes."
+  },
+  {
+    "id": "quest_sp_ch6",
+    "title": "Survivor's Path: Off to New Shores",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Bờ biển mới (Chương 6)",
+    "category": "survivors_path",
+    "chapter": "Chương 6: Off to New Shores",
+    "description": "Tiến về khu Cảng (The Port), dọn dẹp cống ngầm Port Sewer và bắt đầu đóng Thuyền máy (Motorboat).",
+    "prerequisites": [
+      "quest_sp_ch5"
+    ],
+    "objectives": [
+      {
+        "id": "sp6_port",
+        "type": "visit_location",
+        "description": "Thám hiểm khu vực Cảng (The Port)",
+        "targetId": "port"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "carbon_composite",
+        "quantity": 3
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 5
+      }
+    ],
+    "instructions": "Thuyền máy giúp người chơi vượt đại dương tiếp cận các hải đảo xa xôi."
+  },
+  {
+    "id": "quest_sp_ch7",
+    "title": "Survivor's Path: Islands",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Quần đảo ngoài khơi (Chương 7)",
+    "category": "survivors_path",
+    "chapter": "Chương 7: Islands",
+    "description": "Lái thuyền máy ra biển khơi, khai thác cát thạch anh tại Sand Quarry và khám phá Đảo chết Dead Island lấy Quặng titan.",
+    "prerequisites": [
+      "quest_sp_ch6"
+    ],
+    "objectives": [
+      {
+        "id": "sp7_island",
+        "type": "visit_location",
+        "description": "Cập bến đảo chết Dead Island",
+        "targetId": "dead_island"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "titanium_bar",
+        "quantity": 3
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 2
+      }
+    ],
+    "instructions": "Khai thác Titan để chuẩn bị trang bị tối tân và nâng cấp Khu định cư."
+  },
+  {
+    "id": "quest_sp_ch8",
+    "title": "Survivor's Path: Expeditions",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Những chuyến thám hiểm (Chương 8)",
+    "category": "survivors_path",
+    "chapter": "Chương 8: Expeditions",
+    "description": "Gặp gỡ liên minh những người sống sót tại The Settlement, tuyển dụng lính đánh thuê và thực hiện Thám hiểm (Expeditions).",
+    "prerequisites": [
+      "quest_sp_ch7"
+    ],
+    "objectives": [
+      {
+        "id": "sp8_settlement",
+        "type": "visit_location",
+        "description": "Tiến vào Khu định cư The Settlement",
+        "targetId": "settlement"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "electronic_circuit",
+        "quantity": 2
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      }
+    ],
+    "instructions": "Cử lính đánh thuê đi thám hiểm hàng ngày để thu thập tài nguyên định cư tự động."
+  },
+  {
+    "id": "quest_sp_ch9",
+    "title": "Survivor's Path: Settlement",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Xây dựng Khu định cư (Chương 9)",
+    "category": "survivors_path",
+    "chapter": "Chương 9: Settlement",
+    "description": "Mở rộng đại bản doanh Khu định cư với Trụ sở chính, Doanh trại quân đội, Xưởng xẻ gỗ và Lò luyện gang.",
+    "prerequisites": [
+      "quest_sp_ch8"
+    ],
+    "objectives": [
+      {
+        "id": "sp9_upgrade",
+        "type": "visit_location",
+        "description": "Kiểm tra hệ thống phân xưởng tại Settlement",
+        "targetId": "settlement"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "steel_plate",
+        "quantity": 5
+      },
+      {
+        "itemId": "aluminium_plate",
+        "quantity": 5
+      }
+    ],
+    "instructions": "Xây dựng các phòng ban chuyên môn để mở khóa sản xuất hàng loạt linh kiện cao cấp."
+  },
+  {
+    "id": "quest_sp_ch10",
+    "title": "Survivor's Path: Engineering Networks",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Mạng lưới kỹ thuật (Chương 10)",
+    "category": "survivors_path",
+    "chapter": "Chương 10: Engineering Networks",
+    "description": "Kết nối trạm điện biến áp, đường dây tải điện ngầm và ống cấp nước sạch cho toàn bộ Khu định cư.",
+    "prerequisites": [
+      "quest_sp_ch9"
+    ],
+    "objectives": [
+      {
+        "id": "sp10_network",
+        "type": "visit_location",
+        "description": "Hoàn thiện trạm điện biến áp Khu định cư",
+        "targetId": "settlement"
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "drone_battery",
+        "quantity": 2
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 5
+      }
+    ],
+    "instructions": "Hệ thống điện ổn định là điều kiện tiên quyết để vận hành các thiết bị tự động hóa."
+  },
+  {
+    "id": "quest_sp_ch11",
+    "title": "Survivor's Path: Air Support",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Chi viện đường không (Chương 11)",
+    "category": "survivors_path",
+    "chapter": "Chương 11: Air Support",
+    "description": "Hoàn tất chế tạo máy bay không người lái Drone, kích hoạt mở cánh cổng bến container Transport Hub và thu thập thẻ CAC Access Card.",
+    "prerequisites": [
+      "quest_sp_ch10"
+    ],
+    "objectives": [
+      {
+        "id": "sp11_drone_gate",
+        "type": "repair_structure",
+        "description": "Kích hoạt tín hiệu mở cổng Drone tại Transport Hub",
+        "targetId": "struct_transport_hub_bridge"
+      },
+      {
+        "id": "sp11_card",
+        "type": "collect_item",
+        "description": "Đoạt lấy Thẻ an ninh CAC Access Card từ trùm container",
+        "targetId": "cac_card",
+        "quantity": 1
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "drone_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "hydraulic_cylinder",
+        "quantity": 2
+      }
+    ],
+    "instructions": "Drone có thể nâng cấp các kỹ năng bổ trợ như quét mìn và ném bom."
+  },
+  {
+    "id": "quest_sp_ch12",
+    "title": "Survivor's Path: Boggy Expedition",
+    "vietnameseTitle": "Con Đường Sinh Tồn: Đại thám hiểm Đầm lầy (Chương 12)",
+    "category": "survivors_path",
+    "chapter": "Chương 12: Boggy Expedition",
+    "description": "Chinh phục vùng đầm lầy Bogs v1.51+, lái xe ATV vượt bùn lún, hạ gục Alpha Irradiator tại Western Watchtower và tiêu diệt Chúa tể Leviathan.",
+    "prerequisites": [
+      "quest_sp_ch11"
+    ],
+    "objectives": [
+      {
+        "id": "sp12_wt",
+        "type": "repair_structure",
+        "description": "Kích hoạt trạm phát điện Tháp canh phía Tây",
+        "targetId": "struct_western_watchtower"
+      },
+      {
+        "id": "sp12_alpha",
+        "type": "kill_enemy",
+        "description": "Tiêu diệt quái vật nhiễm xạ Alpha Irradiator",
+        "targetId": "alpha_irradiator",
+        "quantity": 1
+      },
+      {
+        "id": "sp12_leviathan",
+        "type": "kill_enemy",
+        "description": "Đánh bại Thủy quái Leviathan sào huyệt Bogs",
+        "targetId": "leviathan",
+        "quantity": 1
+      }
+    ],
+    "rewards": [
+      {
+        "itemId": "genome_points",
+        "quantity": 20
+      },
+      {
+        "itemId": "alligator_skin",
+        "quantity": 10
+      },
+      {
+        "itemId": "robodog",
+        "quantity": 1
+      }
+    ],
+    "instructions": "Trang bị đầy đủ súng xuyên giáp Genesis Corp và áo giáp Hazmat chống độc."
   },
   {
     "id": "quest_raider_assault",
     "title": "Raiders Task: Heavy Assault",
-    "vietnameseTitle": "Nhiệm vụ Raider: Đột kích hạng nặng",
+    "vietnameseTitle": "Nhiệm vụ Raider: Đột kích căn cứ (Đặc biệt)",
     "category": "raiders",
-    "description": "Các Raider yêu cầu bạn chứng minh bản lĩnh trước khi cung cấp tọa độ căn cứ người chơi khác để cướp bóc.",
+    "chapter": "Nhiệm vụ Raider",
+    "description": "Chứng minh bản lĩnh với hội thổ phỉ Raider bằng cách dọn dẹp các tầng hầm Alfa và tìm thuốc nổ C4.",
     "objectives": [
       {
         "id": "obj_r_clear_floor_2",
         "type": "visit_location",
-        "description": "Quét sạch toàn bộ kẻ địch tại Tầng 2 Bunker Alfa",
+        "description": "Quét sạch kẻ địch tại Tầng 2 Bunker Alfa",
         "targetId": "bunker_alfa"
       },
       {
         "id": "obj_r_kill_5_fg",
         "type": "kill_enemy",
-        "description": "Tiêu diệt 5 Frenzied Giant tại các tầng hầm",
+        "description": "Tiêu diệt 5 Frenzied Giant",
         "targetId": "frenzied_giant",
         "quantity": 5
       },
       {
         "id": "obj_r_find_c4",
         "type": "collect_item",
-        "description": "Tìm kiếm 1 Khối thuốc nổ C4 trong hòm đỏ",
+        "description": "Tìm kiếm 1 Khối thuốc nổ C4",
         "targetId": "c4_explosive",
         "quantity": 1
       }
     ],
     "rewards": [
-      { "itemId": "shotgun", "quantity": 1 },
-      { "itemId": "engine_part", "quantity": 2 }
+      {
+        "itemId": "shotgun",
+        "quantity": 1
+      },
+      {
+        "itemId": "engine_part",
+        "quantity": 2
+      }
     ],
-    "relatedLocations": ["bunker_alfa"],
-    "relatedEnemies": ["frenzied_giant"],
-    "relatedItems": ["c4_explosive", "shotgun", "engine_part"],
     "instructions": "Mở hòm đổi vé đỏ tại sảnh Bunker Alfa có tỷ lệ cao rơi ra C4."
   }
 ]

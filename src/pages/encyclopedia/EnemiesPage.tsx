@@ -18,6 +18,7 @@ const FILTERS = [
   { id: 'zombie', label: 'Zombie' },
   { id: 'boss', label: 'Boss' },
   { id: 'wildlife', label: 'Động vật' },
+  { id: 'machine', label: 'Cơ giới' },
 ];
 
 const newEnemy = (): Partial<Enemy> => ({

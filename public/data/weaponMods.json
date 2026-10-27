@@ -14,10 +14,22 @@
       "durability": 15
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 8 },
-      { "itemId": "factory_parts", "quantity": 4 },
-      { "itemId": "oil", "quantity": 2 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 4
+      },
+      {
+        "itemId": "oil",
+        "quantity": 2
+      }
     ],
     "obtainDescription": "Rương xanh Farm / Blackport PD",
     "description": "Bản mod lưỡi dao meta hàng đầu cho Cleaver, tăng mạnh sát thương và tốc độ vung dao."
@@ -35,9 +47,18 @@
       "durability": 20
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 8 },
-      { "itemId": "nails", "quantity": 12 },
-      { "itemId": "duct_tape", "quantity": 5 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 12
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
     ],
     "obtainDescription": "Rương nhà gỗ vùng vàng/đỏ",
     "description": "Gia tăng trọng lượng lưỡi dao tăng sát thương thuần nhưng làm chậm tốc độ chém một chút."
@@ -55,12 +76,23 @@
       "critDamage": 25,
       "durability": 25
     },
-    "activeSkill": "Chém xoáy (Whirlwind Slash)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "carbon_composite", "quantity": 2 },
-      { "itemId": "factory_parts", "quantity": 6 },
-      { "itemId": "hi_tech_component", "quantity": 1 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 2
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 1
+      }
     ],
     "obtainDescription": "Đổi thẻ tím PD / Sự kiện đặc biệt",
     "description": "Lưỡi thép cao cấp với kỹ năng chém xoáy gây sát thương diện rộng."
@@ -79,10 +111,22 @@
       "durability": 10
     },
     "materials": [
-      { "itemId": "leather", "quantity": 10 },
-      { "itemId": "rope", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 6 },
-      { "itemId": "bolt", "quantity": 10 }
+      {
+        "itemId": "leather",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Farm rương xanh / Alfa Hard Mode",
     "description": "Cặp đôi hoàn hảo cùng Tactical Blade để tạo nên Cleaver Meta tốc đánh cực cao."
@@ -99,9 +143,18 @@
       "durability": 25
     },
     "materials": [
-      { "itemId": "pine_plank", "quantity": 10 },
-      { "itemId": "rope", "quantity": 6 },
-      { "itemId": "nails", "quantity": 8 }
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 6
+      },
+      {
+        "itemId": "nails",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Bunker Alfa rương vàng",
     "description": "Gia cố độ bền giúp dao chặt thịt dùng được lâu hơn khi wall-trick."
@@ -120,9 +173,18 @@
       "durability": 15
     },
     "materials": [
-      { "itemId": "bone", "quantity": 12 },
-      { "itemId": "leather", "quantity": 6 },
-      { "itemId": "duct_tape", "quantity": 4 }
+      {
+        "itemId": "bone",
+        "quantity": 12
+      },
+      {
+        "itemId": "leather",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
     ],
     "obtainDescription": "Rương Farm / Bãi rác",
     "description": "Tay cầm bọc xương động vật tạo cảm giác đầm tay."
@@ -141,10 +203,22 @@
       "durability": 15
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 10 },
-      { "itemId": "factory_parts", "quantity": 5 },
-      { "itemId": "oil", "quantity": 3 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 5
+      },
+      {
+        "itemId": "oil",
+        "quantity": 3
+      }
     ],
     "obtainDescription": "Rương xanh Farm / Alfa Hard Mode",
     "description": "Lưỡi rựa có móc cắt kim loại giúp chém rách thịt mục tiêu."
@@ -162,12 +236,23 @@
       "critDamage": 30,
       "durability": 20
     },
-    "activeSkill": "Đâm thấu giáp (Deep Gouge)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 12 },
-      { "itemId": "carbon_composite", "quantity": 3 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "hi_tech_component", "quantity": 1 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 3
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 1
+      }
     ],
     "obtainDescription": "Thẻ tím PD / Rương Alfa 3 Floppy",
     "description": "Lưỡi thép răng cưa sắc bén với kỹ năng đâm xuyên giáp Frenzied Giant."
@@ -186,9 +271,18 @@
       "durability": 10
     },
     "materials": [
-      { "itemId": "bone", "quantity": 15 },
-      { "itemId": "rope", "quantity": 8 },
-      { "itemId": "iron_bar", "quantity": 6 }
+      {
+        "itemId": "bone",
+        "quantity": 15
+      },
+      {
+        "itemId": "rope",
+        "quantity": 8
+      },
+      {
+        "itemId": "iron_bar",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương vùng rừng đỏ",
     "description": "Gắn các mảnh xương sắc nhọn dọc sống dao."
@@ -207,9 +301,18 @@
       "durability": 12
     },
     "materials": [
-      { "itemId": "bone", "quantity": 10 },
-      { "itemId": "leather", "quantity": 12 },
-      { "itemId": "duct_tape", "quantity": 8 }
+      {
+        "itemId": "bone",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 12
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Rương xanh Farm",
     "description": "Bản mod tay cầm meta cho rựa, cân bằng tối ưu giữa sát thương và tốc độ."
@@ -226,9 +329,18 @@
       "durability": -5
     },
     "materials": [
-      { "itemId": "pine_plank", "quantity": 10 },
-      { "itemId": "rope", "quantity": 8 },
-      { "itemId": "nails", "quantity": 10 }
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Rương gỗ vùng sồi",
     "description": "Giảm trọng lượng tay cầm giúp vung rựa cực nhanh."
@@ -246,10 +358,22 @@
       "durability": 10
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "oil", "quantity": 4 },
-      { "itemId": "duct_tape", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "oil",
+        "quantity": 4
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Blackport PD / Bunker Alfa Floppy",
     "description": "Giảm đến 80% độ ồn phát ra, bản mod bắt buộc khi đi Raid căn cứ người chơi."
@@ -266,9 +390,18 @@
       "critChance": 8
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 10 },
-      { "itemId": "bolt", "quantity": 12 },
-      { "itemId": "spring", "quantity": 4 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 12
+      },
+      {
+        "itemId": "spring",
+        "quantity": 4
+      }
     ],
     "obtainDescription": "Bunker Alfa rương vàng",
     "description": "Điều hướng luồng khí thuốc súng giúp giảm giật đáng kể."
@@ -285,9 +418,18 @@
       "stability": -5
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 8 },
-      { "itemId": "spring", "quantity": 6 },
-      { "itemId": "bolt", "quantity": 10 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 8
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Rương tuần tra vùng đỏ",
     "description": "Tăng thêm độ bền cho súng thêm 30 lượt bắn."
@@ -304,10 +446,22 @@
       "critChance": 5
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 5 },
-      { "itemId": "factory_parts", "quantity": 6 },
-      { "itemId": "spring", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 8 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      },
+      {
+        "itemId": "spring",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Rương xanh PD / Floppy Alfa",
     "description": "Nâng dung lượng băng đạn và độ bền thêm 60 viên bắn liên tục."
@@ -325,10 +479,22 @@
       "range": 4
     },
     "materials": [
-      { "itemId": "lens", "quantity": 2 },
-      { "itemId": "hi_tech_component", "quantity": 1 },
-      { "itemId": "steel_bar", "quantity": 4 },
-      { "itemId": "factory_parts", "quantity": 5 }
+      {
+        "itemId": "lens",
+        "quantity": 2
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 4
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 5
+      }
     ],
     "obtainDescription": "Blackport PD đổi thẻ xanh",
     "description": "Kính ngắm chấm đỏ giúp tăng tỉ lệ chí mạng và cự ly bắn."
@@ -346,10 +512,22 @@
     },
     "activeSkill": "Ngắm bắn chuẩn xác (Precision Shot)",
     "materials": [
-      { "itemId": "lens", "quantity": 3 },
-      { "itemId": "carbon_composite", "quantity": 2 },
-      { "itemId": "hi_tech_component", "quantity": 3 },
-      { "itemId": "factory_parts", "quantity": 8 }
+      {
+        "itemId": "lens",
+        "quantity": 3
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 2
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 3
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Thẻ tím PD",
     "description": "Tia laser chỉ thị mục tiêu mang lại tỉ lệ bạo kích cực cao."
@@ -366,9 +544,18 @@
       "attackSpeed": 0.2
     },
     "materials": [
-      { "itemId": "rubber_parts", "quantity": 10 },
-      { "itemId": "duct_tape", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 6 }
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương vùng đá đỏ",
     "description": "Ốp cao su chống trượt giúp cầm chắc tay và phản xạ bắn nhanh hơn."
@@ -385,10 +572,22 @@
       "stability": 10
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "factory_parts", "quantity": 10 },
-      { "itemId": "oil", "quantity": 5 },
-      { "itemId": "duct_tape", "quantity": 12 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "oil",
+        "quantity": 5
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 12
+      }
     ],
     "obtainDescription": "Floppy Bunker Alfa / Thẻ xanh PD",
     "description": "Triệt tiêu tiếng nổ của súng M16 khi đi Raid hoặc farm đêm."
@@ -405,9 +604,18 @@
       "critChance": 6
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 12 },
-      { "itemId": "bolt", "quantity": 14 },
-      { "itemId": "spring", "quantity": 5 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 12
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 14
+      },
+      {
+        "itemId": "spring",
+        "quantity": 5
+      }
     ],
     "obtainDescription": "Rương đỏ Bunker Alfa",
     "description": "Giảm đáng kể độ giật liên thanh của súng M16."
@@ -425,10 +633,22 @@
       "attackSpeed": 0.5
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 10 },
-      { "itemId": "carbon_composite", "quantity": 3 },
-      { "itemId": "spring", "quantity": 10 },
-      { "itemId": "factory_parts", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 3
+      },
+      {
+        "itemId": "spring",
+        "quantity": 10
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Thẻ tím PD",
     "description": "Hộp đạn trống cỡ đại tăng mạnh độ bền và xả đạn như bão."
@@ -445,10 +665,22 @@
       "attackSpeed": 0.3
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "duct_tape", "quantity": 10 },
-      { "itemId": "spring", "quantity": 6 },
-      { "itemId": "bolt", "quantity": 8 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Thẻ xanh PD",
     "description": "Ghép đôi 2 băng đạn giúp thay đạn và tiếp tục nhả đạn nhanh hơn."
@@ -466,10 +698,22 @@
       "stability": 10
     },
     "materials": [
-      { "itemId": "lens", "quantity": 2 },
-      { "itemId": "hi_tech_component", "quantity": 1 },
-      { "itemId": "steel_bar", "quantity": 5 },
-      { "itemId": "factory_parts", "quantity": 6 }
+      {
+        "itemId": "lens",
+        "quantity": 2
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Thẻ xanh PD",
     "description": "Kính ngắm chấm phản xạ quang học tăng sát thương và chí mạng."
@@ -488,10 +732,22 @@
       "attackSpeed": -0.3
     },
     "materials": [
-      { "itemId": "lens", "quantity": 4 },
-      { "itemId": "hi_tech_component", "quantity": 2 },
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "factory_parts", "quantity": 6 }
+      {
+        "itemId": "lens",
+        "quantity": 4
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 2
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Floppy Disk Alfa",
     "description": "Ống phóng đại 4 lần hỗ trợ tiêu diệt mục tiêu ở khoảng cách an toàn."
@@ -508,10 +764,22 @@
       "attackSpeed": 0.2
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "rubber_parts", "quantity": 12 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Bunker Alfa tầng 3",
     "description": "Báng sợi tổng hợp giảm giật vượt trội khi xả nguyên băng."
@@ -529,9 +797,18 @@
       "durability": 20
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 10 },
-      { "itemId": "nails", "quantity": 12 },
-      { "itemId": "pine_plank", "quantity": 8 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "nails",
+        "quantity": 12
+      },
+      {
+        "itemId": "pine_plank",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Rương vùng đỏ",
     "description": "Báng gỗ đầm tăng độ chắc chắn."
@@ -548,9 +825,18 @@
       "critChance": 5
     },
     "materials": [
-      { "itemId": "rubber_parts", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 6 }
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương Bunker Alfa",
     "description": "Tay nắm dọc dưới ốp lót tay giúp giữ vững tâm ngắm."
@@ -568,10 +854,22 @@
       "stability": 15
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 10 },
-      { "itemId": "carbon_composite", "quantity": 2 },
-      { "itemId": "factory_parts", "quantity": 12 },
-      { "itemId": "oil", "quantity": 6 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 10
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 2
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      },
+      {
+        "itemId": "oil",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Thẻ tím PD / Sự kiện Season",
     "description": "Bản mod huyền thoại biến AK-47 thành vũ khí âm thầm mà uy lực tối thượng."
@@ -587,9 +885,18 @@
       "stability": 30
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 12 },
-      { "itemId": "bolt", "quantity": 12 },
-      { "itemId": "spring", "quantity": 6 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 12
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 12
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương vàng Alfa",
     "description": "Khắc phục nhược điểm giật nảy đặc trưng của AK-47."
@@ -607,10 +914,22 @@
       "stability": -15
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 12 },
-      { "itemId": "carbon_composite", "quantity": 4 },
-      { "itemId": "spring", "quantity": 12 },
-      { "itemId": "factory_parts", "quantity": 14 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 4
+      },
+      {
+        "itemId": "spring",
+        "quantity": 12
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 14
+      }
     ],
     "obtainDescription": "Thẻ tím PD",
     "description": "Gia tăng độ bền khủng khiếp, một khẩu AK mod đủ sức càn quét cả tầng Bunker."
@@ -627,10 +946,22 @@
       "attackSpeed": 0.2
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "spring", "quantity": 8 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "spring",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Thẻ xanh PD",
     "description": "Băng đạn tăng dung lượng giúp bắn được nhiều hơn."
@@ -649,10 +980,22 @@
       "stability": 15
     },
     "materials": [
-      { "itemId": "lens", "quantity": 3 },
-      { "itemId": "hi_tech_component", "quantity": 2 },
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "factory_parts", "quantity": 8 }
+      {
+        "itemId": "lens",
+        "quantity": 3
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 2
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Floppy Disk Alfa",
     "description": "Ống ngắm tăng tầm bắn vượt trội."
@@ -670,10 +1013,22 @@
       "stability": 10
     },
     "materials": [
-      { "itemId": "lens", "quantity": 2 },
-      { "itemId": "hi_tech_component", "quantity": 1 },
-      { "itemId": "steel_bar", "quantity": 5 },
-      { "itemId": "factory_parts", "quantity": 6 }
+      {
+        "itemId": "lens",
+        "quantity": 2
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 1
+      },
+      {
+        "itemId": "steel_bar",
+        "quantity": 5
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Thẻ xanh PD",
     "description": "Ngắm nhanh phản xạ tăng sát thương."
@@ -690,10 +1045,22 @@
       "attackSpeed": 0.2
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "rubber_parts", "quantity": 10 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 8 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Bunker Alfa rương đỏ",
     "description": "Giữ tâm AK ổn định hơn khi bắn sấy."
@@ -711,10 +1078,22 @@
     },
     "activeSkill": "Bắn lựu đạn (Launch Grenade)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 15 },
-      { "itemId": "carbon_composite", "quantity": 5 },
-      { "itemId": "hi_tech_component", "quantity": 4 },
-      { "itemId": "factory_parts", "quantity": 15 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 15
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 5
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 4
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 15
+      }
     ],
     "obtainDescription": "Đổi thẻ tím PD",
     "description": "Bản mod active skill đắt đỏ nhất: bắn ra quả lựu đạn nổ gây sát thương diện rộng uy lực."
@@ -732,10 +1111,22 @@
     },
     "activeSkill": "Đâm lưỡi lê (Bayonet Thrust)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "factory_parts", "quantity": 6 },
-      { "itemId": "duct_tape", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 6 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Thẻ xanh PD",
     "description": "Gắn lưỡi lê cận chiến cho phép đâm xuyên mục tiêu áp sát gần."
@@ -751,9 +1142,18 @@
       "stability": 20
     },
     "materials": [
-      { "itemId": "rubber_parts", "quantity": 10 },
-      { "itemId": "duct_tape", "quantity": 6 },
-      { "itemId": "bolt", "quantity": 6 }
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương vùng đỏ",
     "description": "Tay nắm êm ái tăng độ ổn định."
@@ -772,10 +1172,22 @@
       "stability": 15
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 8 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "oil", "quantity": 4 },
-      { "itemId": "bolt", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "oil",
+        "quantity": 4
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Bunker Alfa Hard Mode",
     "description": "Gom chùm đạn ghém tập trung hơn, tăng sát thương mạnh mẽ ở tầm bắn xa hơn."
@@ -792,9 +1204,18 @@
       "stability": 20
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 10 },
-      { "itemId": "bolt", "quantity": 8 },
-      { "itemId": "nails", "quantity": 12 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 10
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 12
+      }
     ],
     "obtainDescription": "Rương vàng Alfa",
     "description": "Tăng trọng lượng đầu nòng giúp đầm súng."
@@ -811,9 +1232,18 @@
       "stability": 15
     },
     "materials": [
-      { "itemId": "rubber_parts", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 8 },
-      { "itemId": "bolt", "quantity": 6 }
+      {
+        "itemId": "rubber_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "bolt",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương vùng đá đỏ",
     "description": "Cầm nắm chắc chắn hạn chế giật."
@@ -830,10 +1260,22 @@
     },
     "activeSkill": "Bắn tỏa diện rộng (Spread Shot)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 12 },
-      { "itemId": "carbon_composite", "quantity": 4 },
-      { "itemId": "hi_tech_component", "quantity": 3 },
-      { "itemId": "factory_parts", "quantity": 12 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 12
+      },
+      {
+        "itemId": "carbon_composite",
+        "quantity": 4
+      },
+      {
+        "itemId": "hi_tech_component",
+        "quantity": 3
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 12
+      }
     ],
     "obtainDescription": "Thẻ tím PD",
     "description": "Bản mod shotgun meta bá đạo nhất: kích hoạt bắn tỏa sát thương khổng lồ tiêu diệt toàn bộ zombie xung quanh."
@@ -851,10 +1293,22 @@
       "durability": 20
     },
     "materials": [
-      { "itemId": "steel_bar", "quantity": 6 },
-      { "itemId": "rubber_parts", "quantity": 10 },
-      { "itemId": "factory_parts", "quantity": 8 },
-      { "itemId": "spring", "quantity": 6 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 6
+      },
+      {
+        "itemId": "rubber_parts",
+        "quantity": 10
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 8
+      },
+      {
+        "itemId": "spring",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Bunker Alfa tầng 3",
     "description": "Tăng tốc độ lên đạn và độ bền bắn của súng săn."
@@ -871,9 +1325,18 @@
       "critChance": 8
     },
     "materials": [
-      { "itemId": "bone", "quantity": 10 },
-      { "itemId": "rope", "quantity": 6 },
-      { "itemId": "duct_tape", "quantity": 4 }
+      {
+        "itemId": "bone",
+        "quantity": 10
+      },
+      {
+        "itemId": "rope",
+        "quantity": 6
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 4
+      }
     ],
     "obtainDescription": "Rương vùng rừng vàng / đỏ",
     "description": "Bọc xương nhọn vào đầu giáo giúp tăng lực đâm và cơ hội chí mạng."
@@ -891,9 +1354,18 @@
       "durability": 15
     },
     "materials": [
-      { "itemId": "iron_bar", "quantity": 8 },
-      { "itemId": "nails", "quantity": 10 },
-      { "itemId": "duct_tape", "quantity": 5 }
+      {
+        "itemId": "iron_bar",
+        "quantity": 8
+      },
+      {
+        "itemId": "nails",
+        "quantity": 10
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 5
+      }
     ],
     "obtainDescription": "Rương Farm / Bunker Alfa",
     "description": "Mũi sắt nhọn gia công sắc bén giúp ngọn giáo trở thành vũ khí cận chiến lợi hại."
@@ -911,9 +1383,18 @@
       "durability": 20
     },
     "materials": [
-      { "itemId": "iron_plate", "quantity": 6 },
-      { "itemId": "nails", "quantity": 12 },
-      { "itemId": "rope", "quantity": 8 }
+      {
+        "itemId": "iron_plate",
+        "quantity": 6
+      },
+      {
+        "itemId": "nails",
+        "quantity": 12
+      },
+      {
+        "itemId": "rope",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Rương nhà gỗ vùng sồi",
     "description": "Đầu giáo sắt tấm nặng đâm cực mạnh nhưng làm giảm nhẹ tốc độ ra đòn."
@@ -930,12 +1411,23 @@
       "critChance": 15,
       "critDamage": 30
     },
-    "activeSkill": "Đâm xoáy xé rách (Tearing Thrust)",
     "materials": [
-      { "itemId": "steel_bar", "quantity": 4 },
-      { "itemId": "factory_parts", "quantity": 4 },
-      { "itemId": "duct_tape", "quantity": 8 },
-      { "itemId": "rope", "quantity": 10 }
+      {
+        "itemId": "steel_bar",
+        "quantity": 4
+      },
+      {
+        "itemId": "factory_parts",
+        "quantity": 4
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 8
+      },
+      {
+        "itemId": "rope",
+        "quantity": 10
+      }
     ],
     "obtainDescription": "Đổi thẻ tím PD / Rương Farm Floppy",
     "description": "Bản mod tím tối thượng cho Ngọn giáo: biến cây giáo bình dân thành cỗ máy xé thịt đáng sợ."
@@ -951,8 +1443,14 @@
       "attackSpeed": 0.08
     },
     "materials": [
-      { "itemId": "cloth", "quantity": 8 },
-      { "itemId": "rope", "quantity": 5 }
+      {
+        "itemId": "cloth",
+        "quantity": 8
+      },
+      {
+        "itemId": "rope",
+        "quantity": 5
+      }
     ],
     "obtainDescription": "Rương vùng rừng xanh/vàng",
     "description": "Quấn vải thô quanh thân giáo giúp chống trơn và vung đâm nhanh hơn."
@@ -969,9 +1467,18 @@
       "damage": 1
     },
     "materials": [
-      { "itemId": "pine_plank", "quantity": 10 },
-      { "itemId": "leather", "quantity": 6 },
-      { "itemId": "nails", "quantity": 8 }
+      {
+        "itemId": "pine_plank",
+        "quantity": 10
+      },
+      {
+        "itemId": "leather",
+        "quantity": 6
+      },
+      {
+        "itemId": "nails",
+        "quantity": 8
+      }
     ],
     "obtainDescription": "Bunker Alfa rương vàng",
     "description": "Gia cố độ cứng của cán giáo giúp tăng độ bền sử dụng."
@@ -990,9 +1497,18 @@
       "durability": 10
     },
     "materials": [
-      { "itemId": "bone", "quantity": 8 },
-      { "itemId": "duct_tape", "quantity": 6 },
-      { "itemId": "leather", "quantity": 6 }
+      {
+        "itemId": "bone",
+        "quantity": 8
+      },
+      {
+        "itemId": "duct_tape",
+        "quantity": 6
+      },
+      {
+        "itemId": "leather",
+        "quantity": 6
+      }
     ],
     "obtainDescription": "Rương Farm / Bãi rác",
     "description": "Tay cầm ốp xương meta tăng đều các chỉ số tấn công của ngọn giáo."

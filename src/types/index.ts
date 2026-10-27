@@ -75,7 +75,7 @@ export interface Enemy extends EntityMetadata {
   id: string;
   name: string;
   vietnameseName?: string;
-  category: 'zombie' | 'boss' | 'wildlife' | 'human';
+  category: 'zombie' | 'boss' | 'wildlife' | 'human' | 'machine';
   hp: number;
   damage: number;
   armor: number; // flat or percentage

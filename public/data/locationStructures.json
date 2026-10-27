@@ -24,10 +24,11 @@
     ],
     "unlocks": [
       "oak_bushes",
-      "oak_grove",
-      "snow_zone"
+      "wooded_foothills",
+      "quarantine_zone",
+      "frosty_backwoods"
     ],
-    "notes": "Máy phát điện phải được lắp ráp hoàn chỉnh tại căn cứ rồi chở bằng xe máy Chopper đến Tháp canh. Chuẩn bị súng đạn vì khi cắm điện sẽ có đàn zombie tràn ra bao vây!"
+    "notes": "Máy phát điện phải chở bằng Chopper đến Tháp canh. Khi cắm điện, boss Screech sẽ xuất hiện khóa cổng tháp."
   },
   {
     "id": "struct_farm_bridge",
@@ -39,23 +40,27 @@
     "stages": [
       {
         "id": "stage_bridge_framing",
-        "name": "Gia cố mặt cầu và cọc giằng",
+        "name": "Sửa chữa mặt cầu nông trại",
         "requirements": [
           {
             "itemId": "pine_plank",
-            "quantity": 100
+            "quantity": 40
           },
           {
             "itemId": "iron_bar",
-            "quantity": 10
+            "quantity": 20
+          },
+          {
+            "itemId": "limestone",
+            "quantity": 20
           },
           {
             "itemId": "rope",
-            "quantity": 10
+            "quantity": 20
           },
           {
-            "itemId": "nails",
-            "quantity": 10
+            "itemId": "scrap_metal",
+            "quantity": 40
           }
         ]
       }
@@ -97,23 +102,19 @@
     "stages": [
       {
         "id": "stage_repair_radar",
-        "name": "Sửa chữa hệ thống radar & mạng lưới điện",
+        "name": "Sửa chữa hệ thống dây dẫn & máy phát điện tại chỗ",
         "requirements": [
           {
             "itemId": "wire",
             "quantity": 10
           },
           {
-            "itemId": "bolt",
-            "quantity": 10
-          },
-          {
-            "itemId": "electronic_circuit",
-            "quantity": 2
-          },
-          {
             "itemId": "rubber_parts",
-            "quantity": 5
+            "quantity": 12
+          },
+          {
+            "itemId": "bolt",
+            "quantity": 15
           }
         ]
       }
@@ -126,12 +127,12 @@
     "notes": "Sau khi bật nguồn điện, còi báo động sẽ hú vang và thu hút một đàn zombie tới tấn công."
   },
   {
-    "id": "struct_swamp_watchtower",
-    "locationId": "swamp_watchtower",
-    "name": "Swamp Watchtower Substation",
+    "id": "struct_western_watchtower",
+    "locationId": "western_watchtower",
+    "name": "Western Watchtower ATV Substation",
     "type": "unlock",
     "frequency": "one_time",
-    "description": "Vận chuyển Máy phát điện (Electric Generator) bằng xe địa hình bánh xích ATV vượt qua bùn lún để cấp điện cho trạm phát sóng đầm lầy.",
+    "description": "Vận chuyển Máy phát điện bằng xe địa hình bánh xích ATV vượt qua bùn lún và hạ gục boss Alpha Irradiator để kích hoạt trạm phát sóng tháp Tây.",
     "stages": [
       {
         "id": "stage_install_swamp_gen",
@@ -149,9 +150,12 @@
       }
     ],
     "unlocks": [
-      "peat_bog"
+      "wild_bogs",
+      "swamp_forest",
+      "leviathans_lair"
     ],
-    "notes": "Bắt buộc phải có xe địa hình ATV mới có thể chở máy phát điện đến đây."
+    "notes": "Bắt buộc lái xe ATV, mặc giáp Hazmat chống phóng xạ và chuẩn bị vũ khí xuyên giáp.",
+    "vietnameseName": "Trạm biến áp Tháp canh phía Tây (Western Watchtower)"
   },
   {
     "id": "struct_port_sewer",
@@ -218,30 +222,26 @@
   {
     "id": "struct_transport_hub_bridge",
     "locationId": "transport_hub",
-    "name": "Transport Hub Bridge Repair",
+    "name": "Transport Hub Security Gate",
     "type": "repair",
     "frequency": "one_time",
-    "description": "Sửa chữa cây cầu vượt và cấp nhiên liệu cho xe nâng để tiếp cận kho hàng container tối mật.",
+    "description": "Điều khiển thiết bị Drone bay để mở khóa cổng an ninh điện tử dẫn sang khu vực kho bãi container Transport Hub.",
     "stages": [
       {
-        "id": "stage_repair_bridge",
-        "name": "Sửa chữa cầu vượt dẫn sang kho bãi",
+        "id": "stage_drone_gate_hack",
+        "name": "Kích hoạt tín hiệu mở cổng Drone",
         "requirements": [
           {
-            "itemId": "pine_plank",
-            "quantity": 20
-          },
-          {
-            "itemId": "iron_plate",
-            "quantity": 10
-          },
-          {
-            "itemId": "nails",
-            "quantity": 15
-          },
-          {
-            "itemId": "rope",
+            "itemId": "drone_parts",
             "quantity": 5
+          },
+          {
+            "itemId": "electronic_circuit",
+            "quantity": 2
+          },
+          {
+            "itemId": "hydraulic_cylinder",
+            "quantity": 1
           }
         ]
       }
@@ -388,12 +388,30 @@
         "id": "stage_pd_terminal_4",
         "name": "Sửa chữa bo mạch và cơ cấu kéo Terminal #4",
         "requirements": [
-          { "itemId": "bolt", "quantity": 40 },
-          { "itemId": "wire", "quantity": 20 },
-          { "itemId": "transistor", "quantity": 15 },
-          { "itemId": "wrench", "quantity": 2 },
-          { "itemId": "usb_drive", "quantity": 3 },
-          { "itemId": "aluminium_plate", "quantity": 5 }
+          {
+            "itemId": "bolt",
+            "quantity": 40
+          },
+          {
+            "itemId": "wire",
+            "quantity": 20
+          },
+          {
+            "itemId": "transistor",
+            "quantity": 15
+          },
+          {
+            "itemId": "wrench",
+            "quantity": 2
+          },
+          {
+            "itemId": "usb_drive",
+            "quantity": 3
+          },
+          {
+            "itemId": "aluminium_plate",
+            "quantity": 5
+          }
         ]
       }
     ],
@@ -415,12 +433,30 @@
         "id": "stage_pd_terminal_5",
         "name": "Sửa chữa hệ thống vi xử lý Terminal #5",
         "requirements": [
-          { "itemId": "bolt", "quantity": 60 },
-          { "itemId": "wire", "quantity": 25 },
-          { "itemId": "transistor", "quantity": 30 },
-          { "itemId": "hi_tech_component", "quantity": 3 },
-          { "itemId": "wrench", "quantity": 3 },
-          { "itemId": "electronic_circuit", "quantity": 2 }
+          {
+            "itemId": "bolt",
+            "quantity": 60
+          },
+          {
+            "itemId": "wire",
+            "quantity": 25
+          },
+          {
+            "itemId": "transistor",
+            "quantity": 30
+          },
+          {
+            "itemId": "hi_tech_component",
+            "quantity": 3
+          },
+          {
+            "itemId": "wrench",
+            "quantity": 3
+          },
+          {
+            "itemId": "electronic_circuit",
+            "quantity": 2
+          }
         ]
       }
     ],

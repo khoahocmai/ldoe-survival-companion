@@ -77,13 +77,14 @@
     "difficulty": "hard",
     "dangerLevel": 3,
     "energyCost": 22,
-    "description": "Vùng nguy hiểm bậc cao với nhiều quái vật đột biến và xác suất xuất hiện NPC sát thủ cầm súng tỉa VSS Vintorez hoặc The Big One.",
+    "description": "Vùng nguy hiểm bậc cao với nhiều quái vật đột biến và xác suất xuất hiện NPC sát thủ hoặc The Big One.",
     "enemies": [
       "fast_biter",
       "toxic_spitter",
       "floater_bloater",
       "toxic_abomination",
-      "the_big_one"
+      "the_big_one",
+      "colonel"
     ],
     "resources": [
       "pine_log",
@@ -205,34 +206,30 @@
     "notes": "Bắt buộc phải mang Rìu sắt (Iron Hatchet) mới chặt được thân cây sồi. Mặc quần áo giữ ấm cơ bản."
   },
   {
-    "id": "oak_grove",
-    "name": "Oak Grove",
-    "vietnameseName": "Rừng sồi đỏ nguyên sinh",
-    "difficulty": "hard",
+    "id": "wooded_foothills",
+    "name": "Wooded Foothills",
+    "vietnameseName": "Chân đồi gỗ sồi phương Bắc",
+    "difficulty": "medium",
     "dangerLevel": 3,
-    "energyCost": 28,
-    "description": "Vùng rừng sồi mật độ dày nhất (25-35 cây sồi mỗi lần quét bản đồ). Nơi săn bắt cáo lông đỏ quý hiếm để may đồ lông thú.",
+    "energyCost": 24,
+    "description": "Vùng chân đồi phía Bắc mở khóa sau Tháp canh phương Bắc (v1.30+). Mật độ cây sồi và thú hoang dã cao.",
     "enemies": [
-      "toxic_abomination",
+      "roamer",
+      "fast_biter",
       "toxic_spitter",
-      "floater_bloater",
-      "fast_biter"
+      "floater_bloater"
     ],
     "resources": [
       "oak_log",
-      "fox_pelt",
-      "fur",
-      "iron_ore",
-      "bauxite"
+      "pine_log",
+      "iron_ore"
     ],
     "loot": [
-      "red_coupon",
-      "yellow_coupon",
+      "cloth",
+      "rope",
       "nails",
-      "duct_tape",
       "leather"
-    ],
-    "notes": "Mang theo 3-4 cây Rìu sắt và súng để dọn nhanh quái vật trước khi đốn gỗ."
+    ]
   },
   {
     "id": "frosty_backwoods",
@@ -261,6 +258,29 @@
     "notes": "Bắt buộc phải mặc đầy đủ Bộ giáp lông thú (Fur Armor Set) hoặc nhóm lửa sưởi bằng gỗ để tránh bị chết cóng!"
   },
   {
+    "id": "quarantine_zone",
+    "name": "Quarantine Zone",
+    "vietnameseName": "Khu cách ly quân sự phương Bắc",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 28,
+    "description": "Khu vực kiểm dịch quân sự đóng băng phía Bắc. Chứa nhiều zombie nhiễm độc mạnh và hòm tiếp tế giá trị.",
+    "enemies": [
+      "toxic_abomination",
+      "fast_biter",
+      "screamer"
+    ],
+    "resources": [
+      "oak_log",
+      "copper_ore"
+    ],
+    "loot": [
+      "first_aid_kit",
+      "tactical_body_armor",
+      "red_coupon"
+    ]
+  },
+  {
     "id": "snowy_cliffs",
     "name": "Snowy Cliffs",
     "vietnameseName": "Vách đá tuyết đóng băng",
@@ -285,31 +305,6 @@
       "factory_parts"
     ],
     "notes": "Cần Giáp lông thú dày và rượu sưởi ấm. Mang nhiều Cuốc chim sắt (Iron Pickaxe) để đào quặng đồng."
-  },
-  {
-    "id": "peat_bog",
-    "name": "Wild Bogs",
-    "vietnameseName": "Đầm than bùn hoang dã (Peat Bog)",
-    "difficulty": "hard",
-    "dangerLevel": 4,
-    "energyCost": 32,
-    "description": "Vùng đầm lầy hiểm trở ngập bùn lún và khí độc mêtan. Nơi duy nhất khai thác Than bùn (Peat), quặng Lưu huỳnh (Sulfur) và quặng Chì (Lead).",
-    "enemies": [
-      "fetid_corpse",
-      "toxic_darter",
-      "exploder"
-    ],
-    "resources": [
-      "peat",
-      "sulfur",
-      "lead_ore"
-    ],
-    "loot": [
-      "anti_radiation_pills",
-      "carbon_composite",
-      "rubber_parts"
-    ],
-    "notes": "Bắt buộc phải lái xe ATV vượt bùn lún và đeo Mặt nạ phòng độc (Gas Mask / Protective Mask) để chống khí mêtan."
   },
   {
     "id": "bunker_alfa",
@@ -354,7 +349,7 @@
     "difficulty": "bunker",
     "dangerLevel": 5,
     "energyCost": 35,
-    "resetTimeHours": 60,
+    "resetTimeHours": 48,
     "description": "Căn cứ ngầm quân sự tối mật đã sụp đổ, bị nhiễm phóng xạ nặng nề. Là pháo đài endgame thử thách nhất để thu thập phụ tùng hoàn thiện xe địa hình bánh xích ATV.",
     "enemies": [
       "exploder",
@@ -423,7 +418,8 @@
       "floater_bloater",
       "toxic_abomination",
       "frenzied_giant",
-      "the_ravager"
+      "the_ravager",
+      "infected_bull"
     ],
     "resources": [
       "pine_log",
@@ -437,9 +433,10 @@
       "first_aid_kit",
       "glock_17",
       "shotgun",
-      "carbon_composite"
+      "carbon_composite",
+      "barn_key"
     ],
-    "notes": "Sau khi dọn sạch, hãy đặt Hòm xanh lên máy cưa để rạch hòm. Âm thanh cưa sẽ kích hoạt đàn zombie từ trong chuồng bò tràn ra!"
+    "notes": "Cập nhật v1.52 (Good Old Farm Rework): Tiêu diệt The Ravager để lấy chìa khóa Barn Key mở nhà kho. Máy cưa hòm xanh phát tiếng ồn liên tục gọi các đợt zombie và bò mộng nhiễm dịch tấn công."
   },
   {
     "id": "port",
@@ -448,7 +445,7 @@
     "difficulty": "hard",
     "dangerLevel": 4,
     "energyCost": 28,
-    "resetTimeHours": 48,
+    "resetTimeHours": 72,
     "description": "Khu cảng biển công nghiệp với cần cẩu hàng, khu giao hàng tăng danh tiếng (Deliveries), lối vào hệ thống cống ngầm (Port Sewer) và xưởng đóng Thuyền máy.",
     "enemies": [
       "roamer",
@@ -603,7 +600,7 @@
     "difficulty": "medium",
     "dangerLevel": 3,
     "energyCost": 20,
-    "resetTimeHours": 24,
+    "resetTimeHours": 48,
     "description": "Nhà máy sản xuất cũ với các phân xưởng máy móc han rỉ và tầng hầm ngập nước rò rỉ khí độc. Nguồn cung cấp linh kiện máy móc và phụ tùng nhà máy.",
     "enemies": [
       "roamer",
@@ -719,12 +716,12 @@
   },
   {
     "id": "cemetery",
-    "name": "Cemetery",
-    "vietnameseName": "Nghĩa trang u ám (Sự kiện đêm)",
+    "name": "Catrina's Cemetery",
+    "vietnameseName": "Nghĩa trang Catrina (Sự kiện Lễ hội)",
     "difficulty": "event",
     "dangerLevel": 4,
     "energyCost": 24,
-    "description": "Nghĩa địa hoang vắng phát sáng dưới ánh trăng u tối. Nơi người chơi có thể đào các ngôi mộ cổ tìm kiếm kho báu và đối đầu với linh hồn bóng tối.",
+    "description": "Địa điểm sự kiện mùa Ngày của người chết (Halloween / Día de los Muertos). Người chơi gặp gỡ La Catrina và dùng Bàn nghi lễ (Ritual Bench) chế tạo các loại bia mộ trang trí khu mộ để nhận trang phục và hòm thưởng độc quyền.",
     "enemies": [
       "screamer",
       "roamer",
@@ -738,7 +735,101 @@
       "electronic_circuit",
       "hi_tech_component"
     ],
-    "notes": "Sự kiện diễn ra vào ban đêm. Luôn mang theo xẻng đào và nguồn sáng. Đào mộ có thể kích hoạt bẫy hoặc đánh thức xác chết cổ đại."
+    "notes": "Sự kiện định kỳ theo mùa. Thu thập hoa cúc vạn thọ (Marigold), nến và sọ đường theo yêu cầu của La Catrina."
+  },
+  {
+    "id": "western_watchtower",
+    "name": "Western Watchtower",
+    "vietnameseName": "Tháp canh phía Tây (Boggy Watchtower)",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 30,
+    "description": "Tháp canh nằm sâu phía Tây bên kia đầm lầy (v1.51+). Nơi đồn trú của quái vật phóng xạ Alpha Irradiator, yêu cầu xe địa hình ATV để vượt bùn lún tiếp cận.",
+    "enemies": [
+      "alpha_irradiator",
+      "toxic_darter",
+      "fetid_corpse"
+    ],
+    "resources": [
+      "lead_ore",
+      "sulfur"
+    ],
+    "loot": [
+      "anti_radiation_pills",
+      "genome_points",
+      "carbon_composite"
+    ],
+    "notes": "Đòi hỏi xe ATV và bộ đồ chống phóng xạ Hazmat Suit."
+  },
+  {
+    "id": "wild_bogs",
+    "name": "Wild Bogs",
+    "vietnameseName": "Đầm than bùn hoang dã (Wild Bogs)",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 32,
+    "description": "Vùng đầm lầy hoang dã ngập bùn lún và nhiễm xạ nặng nề (v1.51+). Nơi khai thác Than bùn (Peat), quặng Lưu huỳnh (Sulfur) và quặng Chì (Lead).",
+    "enemies": [
+      "fetid_corpse",
+      "toxic_darter",
+      "screamer"
+    ],
+    "resources": [
+      "sulfur",
+      "lead_ore",
+      "corn"
+    ],
+    "loot": [
+      "anti_radiation_pills",
+      "carbon_composite",
+      "rubber_parts"
+    ],
+    "notes": "Bắt buộc lái xe ATV và mặc giáp Hazmat chống độc."
+  },
+  {
+    "id": "swamp_forest",
+    "name": "Swamp Forest",
+    "vietnameseName": "Rừng ngập mặn đầm lầy (Swamp Forest)",
+    "difficulty": "hard",
+    "dangerLevel": 4,
+    "energyCost": 32,
+    "description": "Khu rừng ngập nước với những cây tần bì khổng lồ. Nơi duy nhất khai thác Gỗ tần bì (Ash Log) bằng súng cưa Chainsaw và săn bắt cá sấu lấy da.",
+    "enemies": [
+      "fetid_corpse",
+      "toxic_darter"
+    ],
+    "resources": [
+      "ash_log",
+      "antimony",
+      "alligator_skin",
+      "corn"
+    ],
+    "loot": [
+      "carbon_composite",
+      "factory_parts",
+      "hi_tech_component"
+    ],
+    "notes": "Mang theo Chainsaw để đốn hạ cây Ash Wood."
+  },
+  {
+    "id": "leviathans_lair",
+    "name": "Leviathan's Lair",
+    "vietnameseName": "Sào huyệt thủy quái Leviathan",
+    "difficulty": "hard",
+    "dangerLevel": 5,
+    "energyCost": 36,
+    "description": "Hang ổ ngập nước sâu thẳm của bạo chúa đầm lầy Leviathan (v1.51+). Thách thức tối thượng cho người chơi xe ATV với phần thưởng chuỗi bộ gen Genome quý giá.",
+    "enemies": [
+      "leviathan"
+    ],
+    "resources": [],
+    "loot": [
+      "genome_points",
+      "carbon_composite",
+      "titanium_bar",
+      "hydraulic_cylinder"
+    ],
+    "notes": "Boss có lượng máu 4000 HP và giáp cực dày, bắt buộc dùng vũ khí Genesis xuyên giáp."
   },
   {
     "id": "sand_quarry",
@@ -800,7 +891,8 @@
       "fast_biter",
       "toxic_spitter",
       "floater_bloater",
-      "toxic_abomination"
+      "toxic_abomination",
+      "screech"
     ],
     "resources": [
       "pine_log",
@@ -811,7 +903,7 @@
       "electronic_circuit",
       "bolt"
     ],
-    "notes": "Phải lắp ráp Máy phát điện (Electric Generator) hoàn chỉnh ở nhà rồi chở bằng xe máy Chopper tới cắm vào trạm nguồn."
+    "notes": "Cần lắp ráp Máy phát điện chở bằng Chopper. Khi bật nguồn điện, boss Screech sẽ xuất hiện khóa cổng."
   },
   {
     "id": "eastern_watchtower",
@@ -836,27 +928,6 @@
       "bolt"
     ],
     "notes": "Cần dây điện, bóng đèn và ốc vít để khôi phục bảng điều khiển. Bật nguồn sẽ kích hoạt bầy quái xông ra tấn công tháp."
-  },
-  {
-    "id": "swamp_watchtower",
-    "name": "Swamp Watchtower",
-    "vietnameseName": "Tháp canh vùng đầm lầy",
-    "difficulty": "hard",
-    "dangerLevel": 4,
-    "energyCost": 30,
-    "description": "Tháp canh ngập bùn nằm sâu trong lưu vực đầm lầy phía Tây. Mở khóa vùng đất than bùn hoang dã và trạm khai thác khoáng sản.",
-    "enemies": [
-      "fetid_corpse",
-      "toxic_darter",
-      "toxic_abomination"
-    ],
-    "resources": [],
-    "loot": [
-      "engine_part",
-      "rubber_parts",
-      "factory_parts"
-    ],
-    "notes": "Cần sử dụng xe địa hình ATV để chở Máy phát điện (Electric Generator) vượt qua sình lầy để cấp nguồn cho tháp."
   },
   {
     "id": "airdrop",

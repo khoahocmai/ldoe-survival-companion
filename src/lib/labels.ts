@@ -61,6 +61,7 @@ export const ENEMY_CATEGORY_LABEL: Record<Enemy['category'], string> = {
   boss: 'Boss',
   wildlife: 'Động vật hoang dã',
   human: 'Con người',
+  machine: 'Hệ thống cơ giới / Súng máy',
 };
 
 export const MOVEMENT_LABEL: Record<NonNullable<Enemy['movementSpeed']>, string> = {

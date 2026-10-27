@@ -55,7 +55,7 @@ export const EntityTile: React.FC<EntityTileProps> = ({
       )}
       {src && (
         // The screenshots are wide blueprint cards; zooming in on the centre keeps the item and drops the frame and top title.
-        <img src={src} alt="" loading="lazy" className="absolute inset-0 h-full w-full scale-[1.85] object-cover" />
+        <img src={src} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-[1.85] object-cover" />
       )}
       <span
         className={`absolute font-medium leading-tight ${

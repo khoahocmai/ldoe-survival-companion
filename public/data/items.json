@@ -178,7 +178,7 @@
     "weaponStats": {
       "damage": 45,
       "attackSpeed": 0.7,
-      "durability": 40,
+      "durability": 45,
       "range": 1.4,
       "sneakMultiplier": 3,
       "isFirearm": false,
@@ -1659,7 +1659,7 @@
     "name": "Bear Trap",
     "vietnameseName": "Bẫy gấu",
     "description": "Bẫy kẹp kim loại đặt dưới đất giữ chân kẻ thù và gây sát thương mạnh khi dẫm phải.",
-    "category": "weapon_melee",
+    "category": "furniture",
     "rarity": "common",
     "stackSize": 5,
     "craftable": true,
@@ -1683,10 +1683,10 @@
     "name": "Land Mine",
     "vietnameseName": "Mìn bộ binh",
     "description": "Mìn nổ quân sự kích hoạt sau 3 giây đặt xuống. Gây lượng sát thương nổ diện rộng cực lớn lên bất kỳ ai bước qua.",
-    "category": "weapon_firearm",
+    "category": "furniture",
     "rarity": "epic",
     "stackSize": 5,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 400,
       "attackSpeed": 1,
@@ -1711,7 +1711,7 @@
     "category": "weapon_firearm",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 65,
       "attackSpeed": 0.6,
@@ -1736,7 +1736,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 16,
       "attackSpeed": 4,
@@ -1760,12 +1760,12 @@
     "category": "weapon_melee",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 45,
-      "attackSpeed": 1.2,
-      "durability": 85,
-      "dps": 54,
+      "attackSpeed": 0.8,
+      "durability": 90,
+      "dps": 36,
       "sneakMultiplier": 3,
       "isFirearm": false
     },
@@ -1809,7 +1809,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 95,
       "attackSpeed": 0.8,
@@ -1833,7 +1833,7 @@
     "category": "weapon_firearm",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 25,
       "attackSpeed": 3,
@@ -1858,7 +1858,7 @@
     "category": "weapon_firearm",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 20,
       "attackSpeed": 7.5,
@@ -1883,7 +1883,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 85,
       "attackSpeed": 1.2,
@@ -1908,7 +1908,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 120,
       "attackSpeed": 0.8,
@@ -1933,7 +1933,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 30,
       "attackSpeed": 2.5,
@@ -1958,7 +1958,7 @@
     "category": "weapon_firearm",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 55,
       "attackSpeed": 2,
@@ -1983,7 +1983,7 @@
     "category": "weapon_firearm",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 24,
       "attackSpeed": 8,
@@ -2008,7 +2008,7 @@
     "category": "weapon_firearm",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 60,
       "attackSpeed": 2.2,
@@ -2033,7 +2033,7 @@
     "category": "weapon_firearm",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 28,
       "attackSpeed": 6.5,
@@ -2058,7 +2058,7 @@
     "category": "weapon_firearm",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 45,
       "attackSpeed": 3.5,
@@ -2083,7 +2083,7 @@
     "category": "weapon_firearm",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 110,
       "attackSpeed": 1,
@@ -2160,7 +2160,7 @@
     "weaponStats": {
       "damage": 35,
       "attackSpeed": 1.3,
-      "durability": 80,
+      "durability": 70,
       "dps": 45.5,
       "sneakMultiplier": 3,
       "isFirearm": false
@@ -2550,7 +2550,7 @@
     "category": "armor_head",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 3,
       "durability": 150,
@@ -2569,7 +2569,7 @@
     "category": "armor_chest",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 6,
       "durability": 180,
@@ -2588,7 +2588,7 @@
     "category": "armor_legs",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 5,
       "durability": 180,
@@ -2607,7 +2607,7 @@
     "category": "armor_feet",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 3,
       "durability": 150,
@@ -2626,7 +2626,7 @@
     "category": "armor_head",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 5,
       "durability": 200,
@@ -2646,7 +2646,7 @@
     "category": "armor_chest",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 8,
       "durability": 240,
@@ -2666,7 +2666,7 @@
     "category": "armor_legs",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 7,
       "durability": 240,
@@ -2686,7 +2686,7 @@
     "category": "armor_feet",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 4,
       "durability": 200,
@@ -2706,7 +2706,7 @@
     "category": "armor_head",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 7,
       "durability": 150,
@@ -2726,7 +2726,7 @@
     "category": "armor_chest",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 10,
       "durability": 150,
@@ -2746,7 +2746,7 @@
     "category": "armor_legs",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 10,
       "durability": 150,
@@ -2766,7 +2766,7 @@
     "category": "armor_feet",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 5,
       "durability": 150,
@@ -2786,7 +2786,7 @@
     "category": "armor_head",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 12,
       "durability": 400,
@@ -2806,7 +2806,7 @@
     "category": "armor_chest",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 20,
       "durability": 400,
@@ -2826,7 +2826,7 @@
     "category": "armor_legs",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 14,
       "durability": 400,
@@ -2846,7 +2846,7 @@
     "category": "armor_feet",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "armorStats": {
       "armorValue": 6,
       "durability": 400,
@@ -3016,7 +3016,7 @@
     "stackSize": 10,
     "craftable": true,
     "consumableStats": {
-      "healHp": 60,
+      "healHp": 100,
       "buffEffect": "Thanh lọc phổi, chống độc và khôi phục nhịp thở",
       "durationSeconds": 180
     },
@@ -3052,7 +3052,7 @@
     "stackSize": 10,
     "craftable": true,
     "consumableStats": {
-      "healHp": 30,
+      "healHp": 50,
       "buffEffect": "Giảm 50 điểm phơi nhiễm phóng xạ và tăng kháng phóng xạ trong 3 phút",
       "durationSeconds": 180
     },
@@ -3090,7 +3090,7 @@
     "category": "tool",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 45,
       "attackSpeed": 1.4,
@@ -3113,7 +3113,7 @@
     "category": "tool",
     "rarity": "rare",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 15,
       "attackSpeed": 2.5,
@@ -3137,7 +3137,7 @@
     "category": "tool",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 22,
       "attackSpeed": 3,
@@ -3161,7 +3161,7 @@
     "category": "tool",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "weaponStats": {
       "damage": 30,
       "attackSpeed": 3.5,
@@ -3365,7 +3365,7 @@
     "category": "workstation",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/repair_workbench.png"
   },
@@ -3509,7 +3509,7 @@
     "category": "workstation",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/motorboat_design.png"
   },
@@ -3521,7 +3521,7 @@
     "category": "workstation",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/atv_design.png"
   },
@@ -3533,7 +3533,7 @@
     "category": "workstation",
     "rarity": "epic",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/atv_garage.png"
   },
@@ -3545,7 +3545,7 @@
     "category": "workstation",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/drone_docking_station_design.png"
   },
@@ -3557,7 +3557,7 @@
     "category": "workstation",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/drone_upgrade_workbench_design.png"
   },
@@ -3569,7 +3569,7 @@
     "category": "workstation",
     "rarity": "legendary",
     "stackSize": 1,
-    "craftable": true,
+    "craftable": false,
     "order": 0,
     "image": "images/items/workstations/mi24_helicopter_design.png"
   },
@@ -3829,7 +3829,7 @@
     "id": "oak_log",
     "name": "Oak Log",
     "vietnameseName": "Gỗ sồi",
-    "category": "resource_wood",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3839,7 +3839,7 @@
     "id": "copper_ore",
     "name": "Copper Ore",
     "vietnameseName": "Quặng đồng",
-    "category": "resource_metal",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3849,7 +3849,7 @@
     "id": "copper_bar",
     "name": "Copper Bar",
     "vietnameseName": "Phôi đồng",
-    "category": "resource_metal",
+    "category": "resource_processed",
     "stackSize": 20,
     "craftable": true,
     "order": 0,
@@ -3859,7 +3859,7 @@
     "id": "bauxite",
     "name": "Bauxite",
     "vietnameseName": "Quặng bô-xít nhôm",
-    "category": "resource_metal",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3869,7 +3869,7 @@
     "id": "titanium_ore",
     "name": "Titanium Ore",
     "vietnameseName": "Quặng titan",
-    "category": "resource_metal",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3879,7 +3879,7 @@
     "id": "titanium_bar",
     "name": "Titanium Bar",
     "vietnameseName": "Phôi titan",
-    "category": "resource_metal",
+    "category": "resource_processed",
     "stackSize": 20,
     "craftable": true,
     "order": 0,
@@ -3889,7 +3889,7 @@
     "id": "sand",
     "name": "Sand",
     "vietnameseName": "Cát biển",
-    "category": "resource_basic",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3899,7 +3899,7 @@
     "id": "sulfur",
     "name": "Sulfur",
     "vietnameseName": "Lưu huỳnh",
-    "category": "resource_basic",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -3909,7 +3909,7 @@
     "id": "lead_ore",
     "name": "Lead Ore",
     "vietnameseName": "Quặng chì",
-    "category": "resource_metal",
+    "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -4097,7 +4097,7 @@
     "id": "grenade",
     "name": "Grenade",
     "vietnameseName": "Lựu đạn nổ M67",
-    "category": "weapon_ranged",
+    "category": "weapon_firearm",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
@@ -4179,5 +4179,535 @@
     "craftable": false,
     "order": 0,
     "description": "Ổ lưu trữ dữ liệu USB flash. Dùng để nạp dữ liệu sửa Terminal #4 tại Blackport PD hoặc phân rã trong Recycler để tìm Bảng mạch điện tử (Electronic Circuit)."
+  },
+  {
+    "id": "barn_key",
+    "name": "Barn Key",
+    "vietnameseName": "Chìa khóa nhà kho Farm",
+    "description": "Chìa khóa mở cửa nhà kho chính tại Nông trại Crooked Creek. Rơi cố định 100% khi tiêu diệt boss The Ravager (cập nhật Farm v1.52).",
+    "category": "special",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "obtainLocations": [
+      "crooked_creek_farm"
+    ]
+  },
+  {
+    "id": "cac_card",
+    "name": "CAC Access Card",
+    "vietnameseName": "Thẻ an ninh Transport Hub",
+    "description": "Thẻ kiểm soát an ninh cần cẩu container tại bến Transport Hub. Rơi khi hạ gục một trong hai đại boss The Miner hoặc The Butcher.",
+    "category": "special",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "obtainLocations": [
+      "transport_hub"
+    ]
+  },
+  {
+    "id": "ash_log",
+    "name": "Ash Log",
+    "vietnameseName": "Khúc gỗ tần bì",
+    "description": "Loại gỗ siêu cứng mọc trong vùng đầm lầy Bogs (v1.51+). Bắt buộc phải dùng Cưa xích (Chainsaw) để đốn hạ.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "obtainLocations": [
+      "swamp_forest"
+    ]
+  },
+  {
+    "id": "ash_plank",
+    "name": "Ash Plank",
+    "vietnameseName": "Ván gỗ tần bì",
+    "description": "Ván gỗ xẻ từ thân cây tần bì, dùng để nâng cấp các cấu trúc nhà kho kiên cố và bàn chế tạo cao cấp.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true
+  },
+  {
+    "id": "antimony",
+    "name": "Antimony Ore",
+    "vietnameseName": "Quặng kim loại Antimon",
+    "description": "Quặng kim loại quý hiếm khai thác từ các vách đá đầm lầy ngập mặn Bogs.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "obtainLocations": [
+      "swamp_forest"
+    ]
+  },
+  {
+    "id": "corn",
+    "name": "Corn",
+    "vietnameseName": "Bắp ngô tươi",
+    "description": "Nông sản tươi giàu dinh dưỡng thu hoạch tại đầm lầy hoặc canh tác tại căn cứ, dùng để nấu ăn và chưng cất cồn sinh học.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "consumableStats": {
+      "hunger": 15,
+      "thirst": 5
+    },
+    "obtainLocations": [
+      "wild_bogs",
+      "swamp_forest"
+    ]
+  },
+  {
+    "id": "alligator_skin",
+    "name": "Alligator Skin",
+    "vietnameseName": "Da cá sấu đầm lầy",
+    "description": "Lớp da vảy cứng chống đạn của cá sấu đầm lầy, dùng để chế tác trang bị phòng hộ kháng axit cao cấp.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "obtainLocations": [
+      "swamp_forest",
+      "leviathans_lair"
+    ]
+  },
+  {
+    "id": "drone_battery",
+    "name": "Drone Battery",
+    "vietnameseName": "Pin năng lượng Drone & Robodog",
+    "description": "Khối pin năng lượng cao cấp dùng để vận hành Drone bay và cấp nguồn sạc cho chó máy Robodog.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false
+  },
+  {
+    "id": "robodog",
+    "name": "Robodog",
+    "vietnameseName": "Chó robot đồng hành",
+    "description": "Người bạn cơ giới tối tân hỗ trợ người chơi thồ các kiện hàng nặng vượt qua đầm lầy (v1.52). Sạc năng lượng bằng Pin Drone tại trạm sạc Docking Station.",
+    "category": "special",
+    "rarity": "legendary",
+    "stackSize": 1,
+    "craftable": false
+  },
+  {
+    "id": "robodog_docking_station",
+    "name": "Robodog Docking Station",
+    "vietnameseName": "Trạm sạc chó robot",
+    "description": "Trạm sạc tự động và bảo dưỡng chó máy Robodog lắp đặt tại căn cứ chính của người chơi.",
+    "category": "workstation",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false
+  },
+  {
+    "id": "genome_points",
+    "name": "Genome Sequence",
+    "vietnameseName": "Điểm chuỗi bộ gen Genesis",
+    "description": "Dữ liệu sinh học giải mã từ các đại boss đầm lầy (Leviathan / Alpha Irradiator), dùng để đổi bản thiết kế tối thượng tại Genesis Collection.",
+    "category": "special",
+    "rarity": "legendary",
+    "stackSize": 50,
+    "craftable": false
+  },
+  {
+    "id": "berry",
+    "name": "Red Berries",
+    "vietnameseName": "Quả mọng đỏ",
+    "description": "Fresh wild berries gathered from bushes. Restores 5 HP, 5 Hunger, 5 Thirst.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "northern_berry",
+    "name": "Northern Berries",
+    "vietnameseName": "Quả mọng phương Bắc",
+    "description": "Cold-resistant berries found only in snowy regions.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "empty_bottle",
+    "name": "Empty Bottle",
+    "vietnameseName": "Chai rỗng",
+    "description": "Empty plastic bottle used to collect clean water from rain catchers.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "steak",
+    "name": "Juicy Steak",
+    "vietnameseName": "Bít tết chín",
+    "description": "Well-cooked meat steak from campfire. Restores 35 HP and 35 Hunger.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "carrot_stew",
+    "name": "Carrot Stew",
+    "vietnameseName": "Súp cà rốt",
+    "description": "Nutritious hot stew prepared from fresh carrots. Restores 20 HP, 25 Hunger, 5 Thirst.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "berry_tea",
+    "name": "Berry Tea",
+    "vietnameseName": "Trà quả mọng",
+    "description": "Soothing berry tea brewed at a campfire. Restores 30 Thirst and 5 Hunger.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "raw_turkey",
+    "name": "Raw Turkey",
+    "vietnameseName": "Thịt gà tây sống",
+    "description": "Fresh poultry meat obtained by hunting wild turkeys.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "roasted_turkey",
+    "name": "Roasted Turkey",
+    "vietnameseName": "Gà tây nướng",
+    "description": "Whole roasted turkey prepared on campfire. Restores 100 HP and 80 Hunger.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "oak_plank",
+    "name": "Oak Plank",
+    "vietnameseName": "Ván gỗ sồi",
+    "description": "Refined Oak Log for crafting many things. Can be used as fuel or to upgrade walls to Level 3.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "stone_brick",
+    "name": "Stone Brick",
+    "vietnameseName": "Gạch đá",
+    "description": "Evenly cut stone brick produced on a stonecutter table. Required for Level 3 Stone Walls.",
+    "category": "resource_processed",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "aluminium_wire",
+    "name": "Aluminium Wire",
+    "vietnameseName": "Dây nhôm",
+    "description": "Flexible aluminium wire looted in bunkers. Melts into Aluminium Bars.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "lead_plate",
+    "name": "Lead Plate",
+    "vietnameseName": "Tấm chì",
+    "description": "Dense lead plate pressed from lead ore. Used to craft radiation shielding armor.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "rubber",
+    "name": "Rubber",
+    "vietnameseName": "Cao su đúc",
+    "description": "Dense cured rubber block formed in the pressing machine from rubber parts.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "peat",
+    "name": "Peat",
+    "vietnameseName": "Than bùn",
+    "description": "Dense organic peat harvested from swamp bogs with an ATV.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "fuel_briquette",
+    "name": "Fuel Briquette",
+    "vietnameseName": "Bánh than bùn ép",
+    "description": "Compressed peat briquette pressed in machine, burns for 10 minutes in furnaces.",
+    "category": "resource_processed",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "piece_of_wool",
+    "name": "Piece of Wool",
+    "vietnameseName": "Lông cừu / Lông len",
+    "description": "Thick warm wool harvested from animals in cold snowy regions.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "woolen_fabric",
+    "name": "Woolen Fabric",
+    "vietnameseName": "Vải len",
+    "description": "Warm woven woolen fabric used to craft heavy cold-weather protective gear.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "tanned_fur",
+    "name": "Tanned Fur",
+    "vietnameseName": "Lông thú thuộc",
+    "description": "Cured and treated fur processed on the Tanning Rack for fur armor sets.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "alcohol",
+    "name": "Alcohol",
+    "vietnameseName": "Cồn y tế",
+    "description": "Purified alcohol distilled from berries at the medical table.",
+    "category": "medical",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "strong_alcohol",
+    "name": "Strong Alcohol",
+    "vietnameseName": "Rượu mạnh",
+    "description": "High proof spirit used in cooking and heating up in extreme cold.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "seaweed",
+    "name": "Seaweed",
+    "vietnameseName": "Rong biển",
+    "description": "Marine algae gathered from coastal shores and port sewer basements.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "iodine",
+    "name": "Iodine",
+    "vietnameseName": "Cồn I-ốt",
+    "description": "Antiseptic medical iodine extracted from seaweed on the medical table.",
+    "category": "medical",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "carrot_seeds",
+    "name": "Carrot Seeds",
+    "vietnameseName": "Hạt giống cà rốt",
+    "description": "Seeds for growing fresh carrots in the garden bed.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "corn_seeds",
+    "name": "Corn Seeds",
+    "vietnameseName": "Hạt giống ngô",
+    "description": "Seeds gathered in swamp forests, grown in garden beds into corn.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "gunpowder",
+    "name": "Gunpowder",
+    "vietnameseName": "Thuốc súng",
+    "description": "Highly flammable compound made from sulfur and charcoal at the Chemistry Station.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "acid",
+    "name": "Acid",
+    "vietnameseName": "Axit tẩy rửa",
+    "description": "Powerful chemical solution made from sulfur and water. Used in Acid Bath.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "sprouts",
+    "name": "Sprouts",
+    "vietnameseName": "Mầm cây gia vị",
+    "description": "Aromatic plant sprouts grown in hydroponic systems.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "spice",
+    "name": "Spice",
+    "vietnameseName": "Gia vị",
+    "description": "Culinary seasoning produced from sprouts in the Hydroponic System.",
+    "category": "resource_processed",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "catfish",
+    "name": "Catfish",
+    "vietnameseName": "Cá trê",
+    "description": "Fresh river catfish caught at fishing spots.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "pike",
+    "name": "Pike",
+    "vietnameseName": "Cá chó",
+    "description": "Predatory river fish caught with a fishing rod.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "carp",
+    "name": "Carp",
+    "vietnameseName": "Cá chép",
+    "description": "Freshwater carp caught with fishing rod.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "edible_mushroom",
+    "name": "Edible Mushroom",
+    "vietnameseName": "Nấm ăn được",
+    "description": "Wild forest mushroom used in stove cooking.",
+    "category": "food",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0
+  },
+  {
+    "id": "catfish_with_vegetables",
+    "name": "Catfish with Vegetables",
+    "vietnameseName": "Cá trê xào rau củ",
+    "description": "Cooked dish granting buff: Increases chance to catch rare fish.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "pike_with_mushrooms",
+    "name": "Pike with Mushroom Sauce",
+    "vietnameseName": "Cá chó sốt nấm",
+    "description": "Cooked dish granting buff: Increases character running speed.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "stuffed_pike",
+    "name": "Stuffed Pike",
+    "vietnameseName": "Cá chó nhồi",
+    "description": "Cooked dish granting buff: Moving across the world map spends less energy.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
+  },
+  {
+    "id": "fish_mix",
+    "name": "Fish Mix",
+    "vietnameseName": "Hỗn hợp cá nướng",
+    "description": "Cooked dish granting buff: +10 armor rating for 10 minutes.",
+    "category": "food",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": true,
+    "order": 0
   }
 ]
