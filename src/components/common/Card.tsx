@@ -36,7 +36,7 @@ export const Card: React.FC<CardProps> = ({
             }
           : undefined
       }
-      className={`rounded-xl border bg-surface shadow-card transition-colors ${padded ? 'p-3.5' : ''} ${
+      className={`rounded-card border bg-surface shadow-card transition-colors ${padded ? 'p-3.5' : ''} ${
         selected ? 'border-accent-solid ring-1 ring-accent-solid' : 'border-line'
       } ${interactive ? 'cursor-pointer hover:border-faint/60' : ''} ${disabled ? 'opacity-60' : ''} ${className}`}
     >

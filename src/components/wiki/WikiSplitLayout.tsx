@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { Dialog } from '../common/Dialog';
 
 interface WikiSplitLayoutProps {
   listContent: React.ReactNode;
@@ -27,15 +28,6 @@ export const WikiSplitLayout: React.FC<WikiSplitLayoutProps> = ({
   const isOpen = Boolean(selectedId && detailContent);
   const isWide = useMediaQuery(WIDE_QUERY);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [isOpen, onClose]);
-
   return (
     <div className={`flex items-start gap-4 ${className}`}>
       <div className="min-w-0 flex-1">{listContent}</div>
@@ -46,19 +38,9 @@ export const WikiSplitLayout: React.FC<WikiSplitLayoutProps> = ({
         </aside>
       )}
 
-      {isOpen && !isWide && (
-        <div className="fixed inset-0 z-50 flex justify-end">
-          <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={onClose} aria-hidden="true" />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Chi tiết"
-            className="relative flex h-full w-full animate-slide-in flex-col bg-surface shadow-pop sm:max-w-lg"
-          >
-            {detailContent}
-          </div>
-        </div>
-      )}
+      <Dialog isOpen={isOpen && !isWide} onClose={onClose} variant="drawer-right" label="Chi tiết" className="sm:max-w-lg">
+        {detailContent}
+      </Dialog>
     </div>
   );
 };

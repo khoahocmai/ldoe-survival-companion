@@ -29,16 +29,60 @@ export default {
         warn: { DEFAULT: token('warn'), soft: token('warn-soft') },
         danger: { DEFAULT: token('danger'), soft: token('danger-soft') },
       },
+      // Touch screens get bigger hit areas: `coarse:h-11` applies only when the main pointer is a finger.
+      screens: {
+        coarse: { raw: '(pointer: coarse)' },
+      },
+      // Vertical padding of the scrolling page area; sticky toolbars cancel it with the same value.
+      spacing: {
+        'page-y': '1rem',
+      },
+      // Type scale: 2xs (11) captions in dense UI, xs (12) labels, sm (14) body, base (16) titles, then lg/xl headings.
+      fontSize: {
+        '2xs': ['0.6875rem', { lineHeight: '1rem' }],
+      },
+      // Shared shape tokens so every control, card and dialog uses the same radius and height.
+      borderRadius: {
+        control: '0.5rem',
+        card: '0.75rem',
+        dialog: '1rem',
+      },
+      height: {
+        'control-sm': '2rem',
+        control: '2.25rem',
+        'control-lg': '2.75rem',
+      },
+      width: {
+        control: '2.25rem',
+      },
+      // Layering, lowest to highest. Keep new overlays on these names instead of raw numbers.
+      zIndex: {
+        raised: '10',
+        sticky: '20',
+        dropdown: '30',
+        nav: '30',
+        overlay: '40',
+        modal: '50',
+        toast: '60',
+      },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"Inter Variable"', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       boxShadow: {
         card: '0 1px 2px rgb(0 0 0 / 0.04)',
         pop: '0 12px 32px -8px rgb(0 0 0 / 0.25)',
       },
+      minWidth: {
+        table: '30rem',
+      },
       keyframes: {
         'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+        'fade-out': { from: { opacity: '1' }, to: { opacity: '0' } },
+        'slide-in-left': { from: { transform: 'translateX(-16px)', opacity: '0' }, to: { transform: 'none', opacity: '1' } },
+        'slide-out': { from: { transform: 'none', opacity: '1' }, to: { transform: 'translateX(16px)', opacity: '0' } },
+        'slide-out-left': { from: { transform: 'none', opacity: '1' }, to: { transform: 'translateX(-16px)', opacity: '0' } },
+        'pop-out': { from: { transform: 'none', opacity: '1' }, to: { transform: 'scale(.97)', opacity: '0' } },
         'slide-in': { from: { transform: 'translateX(16px)', opacity: '0' }, to: { transform: 'none', opacity: '1' } },
         'pop-in': { from: { transform: 'scale(.97)', opacity: '0' }, to: { transform: 'none', opacity: '1' } },
       },
@@ -46,6 +90,11 @@ export default {
         'fade-in': 'fade-in .15s ease-out',
         'slide-in': 'slide-in .18s ease-out',
         'pop-in': 'pop-in .15s ease-out',
+        'fade-out': 'fade-out .15s ease-in forwards',
+        'slide-in-left': 'slide-in-left .18s ease-out',
+        'slide-out': 'slide-out .15s ease-in forwards',
+        'slide-out-left': 'slide-out-left .15s ease-in forwards',
+        'pop-out': 'pop-out .15s ease-in forwards',
       },
     },
   },

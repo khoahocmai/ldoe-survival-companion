@@ -8,6 +8,7 @@ import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { Card } from '../../components/common/Card';
 import { ConfirmDialog } from '../../components/common/ConfirmDialog';
+import { useToast } from '../../components/common/Toast';
 import { EmptyState, PageHeader } from '../../components/common/Layout';
 import { storageService } from '../../services/storageService';
 import { WEAPON_MOD_SLOT_LABEL, WEAPON_MOD_RARITY_TONE } from '../../lib/labels';
@@ -23,6 +24,7 @@ const RARITY_SCORE = { common: 1, rare: 2, extremely_rare: 3 } as const;
 
 export const WeaponModsPage: React.FC = () => {
   const { db, reload } = useGameData();
+  const toast = useToast();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const showRail = useMediaQuery('(min-width: 1280px)');
@@ -158,6 +160,7 @@ export const WeaponModsPage: React.FC = () => {
     storageService.saveEntity('customWeaponMods', entity);
     await reload();
     setEditingMod(null);
+    toast.success('Đã lưu bản độ.');
   };
 
   const deleteMod = async () => {
@@ -165,6 +168,7 @@ export const WeaponModsPage: React.FC = () => {
     storageService.deleteOrHideEntity('customWeaponMods', deletingModId);
     setEquipped((prev) => Object.fromEntries(Object.entries(prev).map(([slot, id]) => [slot, id === deletingModId ? null : id])));
     await reload();
+    toast.success('Đã xóa bản độ.');
   };
 
   if (!db) return null;

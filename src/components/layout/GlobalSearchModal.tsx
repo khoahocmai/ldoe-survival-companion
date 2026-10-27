@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { LucideIcon, Search, Sword, Skull, Hammer, MapPin, Scroll, Building2, Target, CornerDownLeft } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
 import { Badge, Tone } from '../common/Badge';
+import { Dialog } from '../common/Dialog';
 
 type ResultType = 'item' | 'enemy' | 'recipe' | 'location' | 'quest' | 'structure' | 'points';
 
@@ -167,21 +168,18 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({ isOpen, on
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-[12vh]">
-      <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={onClose} aria-hidden="true" />
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Tìm kiếm"
-        className="relative z-10 w-full max-w-xl animate-pop-in overflow-hidden rounded-2xl border border-line bg-surface shadow-pop"
-      >
+    <Dialog isOpen={isOpen} onClose={onClose} variant="top" label="Tìm kiếm" className="max-w-xl">
+      <div>
         <div className="flex items-center gap-3 border-b border-line px-4">
           <Search className="h-4 w-4 shrink-0 text-faint" />
           <input
-            autoFocus
+            data-autofocus
+            role="combobox"
+            aria-expanded={results.length > 0}
+            aria-controls="global-search-results"
+            aria-activedescendant={results[active] ? `global-search-${active}` : undefined}
+            aria-label="Tìm kiếm"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onInputKeyDown}
@@ -190,7 +188,7 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({ isOpen, on
           />
         </div>
 
-        <div ref={listRef} className="max-h-[50vh] overflow-y-auto p-2">
+        <div ref={listRef} id="global-search-results" role="listbox" aria-label="Kết quả" className="max-h-[50vh] overflow-y-auto p-2">
           {query.trim() === '' ? (
             <p className="py-10 text-center text-sm text-muted">Gõ để tìm trong toàn bộ bách khoa.</p>
           ) : results.length === 0 ? (
@@ -203,6 +201,10 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({ isOpen, on
                 <button
                   key={`${res.type}-${res.id}`}
                   type="button"
+                  id={`global-search-${index}`}
+                  role="option"
+                  aria-selected={index === active}
+                  tabIndex={-1}
                   data-index={index}
                   onClick={() => go(res)}
                   onMouseMove={() => setActive(index)}
@@ -223,6 +225,6 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({ isOpen, on
           )}
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };

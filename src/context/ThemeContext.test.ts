@@ -16,8 +16,16 @@ describe('readStoredTheme', () => {
     expect(readStoredTheme()).toBe('dark');
   });
 
-  it('defaults to dark when nothing is saved', () => {
+  it('follows the OS preference when nothing is saved', () => {
     stubEnv(null, false);
+    expect(readStoredTheme()).toBe('light');
+    stubEnv(null, true);
+    expect(readStoredTheme()).toBe('dark');
+  });
+
+  it('falls back to dark when the OS preference cannot be read', () => {
+    vi.stubGlobal('localStorage', { getItem: () => null });
+    vi.stubGlobal('window', {});
     expect(readStoredTheme()).toBe('dark');
   });
 
@@ -28,8 +36,10 @@ describe('readStoredTheme', () => {
     expect(readStoredTheme()).toBe('dark');
   });
 
-  it('ignores unknown values', () => {
+  it('ignores unknown values and uses the OS preference', () => {
     stubEnv('coffee', false);
+    expect(readStoredTheme()).toBe('light');
+    stubEnv('coffee', true);
     expect(readStoredTheme()).toBe('dark');
   });
 });

@@ -5,6 +5,7 @@ import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { MobileNav } from './MobileNav';
 import { GlobalSearchModal } from './GlobalSearchModal';
+import { Dialog } from '../common/Dialog';
 
 const SIDEBAR_KEY = 'ldoe_sidebar_collapsed';
 
@@ -50,18 +51,21 @@ export const AppLayout: React.FC = () => {
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-bg">
+      {/* An href="#..." would collide with the hash router, so this is a button that moves focus. */}
+      <button
+        type="button"
+        onClick={() => mainRef.current?.focus()}
+        className="sr-only z-toast rounded-control bg-accent-solid px-3 py-2 text-sm font-medium text-accent-fg focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
+      >
+        Bỏ qua điều hướng
+      </button>
       <div className="hidden h-full lg:block">
         <Sidebar collapsed={isCollapsed} />
       </div>
 
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-40 flex lg:hidden">
-          <div className="absolute inset-0 animate-fade-in bg-black/50" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
-          <div className="relative h-full animate-slide-in shadow-pop">
-            <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />
-          </div>
-        </div>
-      )}
+      <Dialog isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} variant="drawer-left" label="Menu">
+        <Sidebar onCloseMobile={() => setIsMenuOpen(false)} />
+      </Dialog>
 
       <div className="flex h-full min-w-0 flex-1 flex-col">
         <Topbar
@@ -70,7 +74,7 @@ export const AppLayout: React.FC = () => {
           isSidebarCollapsed={isCollapsed}
           onToggleSidebar={toggleSidebar}
         />
-        <main ref={mainRef} className="flex-1 overflow-y-auto px-3 py-4 pb-24 sm:px-4 lg:px-5 lg:py-4 lg:pb-5">
+        <main ref={mainRef} tabIndex={-1} className="flex-1 outline-none overflow-y-auto px-3 py-page-y pb-24 sm:px-4 lg:px-5 lg:pb-5">
           <div className="mx-auto max-w-[1400px]">
             <ErrorBoundary key={pathname}>
               <Outlet />

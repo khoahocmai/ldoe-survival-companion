@@ -27,6 +27,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   <Modal
     isOpen={isOpen}
     onClose={onCancel}
+    label={title}
     maxWidth="sm"
     footer={
       <>

@@ -7,9 +7,11 @@ import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
+import { useToast } from '../../components/common/Toast';
 import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { RecipeEditModal } from '../../components/recipes/RecipeEditModal';
 import { storageService } from '../../services/storageService';
+import { ITEM_CATEGORY_ICON } from '../../lib/categoryIcons';
 
 const HAND = 'hand';
 
@@ -23,6 +25,7 @@ const workstationOf = (r: Recipe) => {
 
 export const RecipesPage: React.FC = () => {
   const { db, reload } = useGameData();
+  const toast = useToast();
   const navigate = useNavigate();
   const save = useSaveEntity('customRecipes');
   const [editing, setEditing] = useState<Partial<Recipe> | null>(null);
@@ -52,6 +55,7 @@ export const RecipesPage: React.FC = () => {
     storageService.revertCustomEntity('customRecipes', recipeId);
     await reload();
     setEditing(null);
+    toast.info('Đã khôi phục công thức gốc.');
   };
 
   return (
@@ -106,6 +110,7 @@ export const RecipesPage: React.FC = () => {
             name={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
             hint={recipe.isCustom ? 'Đã tùy chỉnh' : output?.vietnameseName}
             image={recipe.image ?? output?.image}
+            icon={output ? ITEM_CATEGORY_ICON[output.category] : undefined}
             isSelected={isSelected}
             onClick={onSelect}
           />

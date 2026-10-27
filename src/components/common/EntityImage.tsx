@@ -63,7 +63,7 @@ export const EntityImage: React.FC<EntityImageProps> = ({ folder, id, alt, image
       <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-line bg-subtle/50 px-4 text-center text-faint">
         <ImageOff className="h-6 w-6" />
         <div className="text-xs font-medium text-muted">Chưa có ảnh</div>
-        <div className="max-w-full truncate text-[11px]" title={image ?? `public/images/${folder}/${id}.png`}>
+        <div className="max-w-full truncate text-2xs" title={image ?? `public/images/${folder}/${id}.png`}>
           Bấm ✎ Sửa để thêm ảnh
         </div>
       </div>

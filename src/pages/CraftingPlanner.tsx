@@ -10,7 +10,9 @@ import { Badge } from '../components/common/Badge';
 import { NumberInput } from '../components/common/Field';
 import { ItemPicker } from '../components/common/ItemPicker';
 import { Callout, EmptyState, PageHeader } from '../components/common/Layout';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../components/common/Table';
 import { Tabs } from '../components/common/Tabs';
+import { useToast } from '../components/common/Toast';
 import { RecipeEditModal } from '../components/recipes/RecipeEditModal';
 import { storageService } from '../services/storageService';
 
@@ -52,6 +54,7 @@ const TreeNode: React.FC<{ node: CraftingTreeNode; onEditRecipe?: (recipe: Recip
 
 export const CraftingPlanner: React.FC = () => {
   const { db, reload } = useGameData();
+  const toast = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const craftableItems = useMemo(
@@ -137,12 +140,14 @@ export const CraftingPlanner: React.FC = () => {
     storageService.saveEntity('customRecipes', updated);
     await reload();
     setEditingRecipe(null);
+    toast.success('Đã lưu công thức.');
   };
 
   const handleRevertRecipe = async (recipeId: string) => {
     storageService.revertCustomEntity('customRecipes', recipeId);
     await reload();
     setEditingRecipe(null);
+    toast.info('Đã khôi phục công thức gốc.');
   };
 
   return (
@@ -254,26 +259,28 @@ export const CraftingPlanner: React.FC = () => {
 
               {tab === 'materials' && (
                 <Card padded={false}>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left text-sm">
-                      <thead>
-                        <tr className="border-b border-line text-xs text-muted">
-                          <th className="px-4 py-2 font-medium">Nguyên liệu</th>
-                          {quantity > 1 && <th className="px-2 py-2 text-right font-medium">Mỗi cái</th>}
-                          <th className="px-4 py-2 text-right font-medium">Tổng cho ×{quantity}</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-line">
-                        {plan.totalRawMaterials.map((mat) => (
-                          <tr key={mat.itemId}>
-                            <td className="px-4 py-2.5 font-medium">{mat.itemName}</td>
-                            {quantity > 1 && <td className="num px-2 py-2.5 text-right text-muted">{perPiece.get(mat.itemId) ?? '—'}</td>}
-                            <td className="num px-4 py-2.5 text-right font-semibold text-accent">{mat.required}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  <Table caption="Nguyên liệu thô cần chuẩn bị" scroll={false}>
+                    <Thead>
+                      <Th>Nguyên liệu</Th>
+                      {quantity > 1 && <Th align="right">Mỗi cái</Th>}
+                      <Th align="right">Tổng cho ×{quantity}</Th>
+                    </Thead>
+                    <Tbody>
+                      {plan.totalRawMaterials.map((mat) => (
+                        <Tr key={mat.itemId}>
+                          <Td className="font-medium">{mat.itemName}</Td>
+                          {quantity > 1 && (
+                            <Td numeric align="right" className="text-muted">
+                              {perPiece.get(mat.itemId) ?? '—'}
+                            </Td>
+                          )}
+                          <Td numeric align="right" className="font-semibold text-accent">
+                            {mat.required}
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
                   {quantity > 1 && plan.totalRawMaterials.some((m) => m.required !== (perPiece.get(m.itemId) ?? 0) * quantity) && (
                     <p className="border-t border-line px-4 py-2.5 text-xs text-muted">
                       Tổng có thể thấp hơn "mỗi cái × số lượng" vì chế gộp một lần nên đỡ hao phần dư (ví dụ công thức ra 2 cái mỗi lượt).
