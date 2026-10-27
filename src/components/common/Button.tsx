@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../../lib/cn';
 import { Tooltip } from './Tooltip';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -38,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => (
   <button
     type={type}
-    className={`${base} ${sizes[size]} ${variants[variant]} ${block ? 'w-full' : ''} ${className}`}
+    className={cn(base, sizes[size], variants[variant], block && 'w-full', className)}
     {...props}
   >
     {icon && <span className="shrink-0 [&>svg]:h-4 [&>svg]:w-4">{icon}</span>}
@@ -54,7 +55,7 @@ export const IconButton: React.FC<
     <button
       type={type}
       aria-label={label}
-      className={`inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4 ${className}`}
+      className={cn('inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4', className)}
       {...props}
     >
       {children}

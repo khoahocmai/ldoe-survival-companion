@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../../lib/cn';
 import { controlClass } from './controlStyles';
 
 interface FieldProps {
@@ -19,7 +20,7 @@ export const Field: React.FC<FieldProps> = ({ label, hint, children, className =
 
 export const TextInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className = '', ...props }, ref) => (
-    <input ref={ref} type="text" className={`${controlClass} h-control ${className}`} {...props} />
+    <input ref={ref} type="text" className={cn(controlClass, 'h-control', className)} {...props} />
   )
 );
 TextInput.displayName = 'TextInput';
@@ -40,7 +41,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onValueChange, 
       const parsed = parseFloat(e.target.value);
       onValueChange(Number.isFinite(parsed) ? parsed : 0);
     }}
-    className={`${controlClass} num h-control ${className}`}
+    className={cn(controlClass, 'num h-control', className)}
     {...props}
   />
 );
@@ -48,7 +49,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onValueChange, 
 /** Native select with the same chevron on every OS (the arrow is drawn by `.select-control` in index.css). */
 export const Select = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttributes<HTMLSelectElement>>(
   ({ className = '', children, ...props }, ref) => (
-    <select ref={ref} className={`${controlClass} select-control h-control pr-9 ${className}`} {...props}>
+    <select ref={ref} className={cn(controlClass, 'select-control h-control pr-9', className)} {...props}>
       {children}
     </select>
   )
@@ -57,7 +58,7 @@ Select.displayName = 'Select';
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttributes<HTMLTextAreaElement>>(
   ({ className = '', rows = 3, ...props }, ref) => (
-    <textarea ref={ref} rows={rows} className={`${controlClass} py-2 ${className}`} {...props} />
+    <textarea ref={ref} rows={rows} className={cn(controlClass, 'py-2', className)} {...props} />
   )
 );
 Textarea.displayName = 'Textarea';
