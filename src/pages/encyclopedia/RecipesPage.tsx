@@ -11,6 +11,7 @@ import { useToast } from '../../components/common/Toast';
 import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { RecipeEditModal } from '../../components/recipes/RecipeEditModal';
 import { storageService } from '../../services/storageService';
+import { ITEM_CATEGORY_ICON } from '../../lib/categoryIcons';
 
 const HAND = 'hand';
 
@@ -109,6 +110,7 @@ export const RecipesPage: React.FC = () => {
             name={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
             hint={recipe.isCustom ? 'Đã tùy chỉnh' : output?.vietnameseName}
             image={recipe.image ?? output?.image}
+            icon={output ? ITEM_CATEGORY_ICON[output.category] : undefined}
             isSelected={isSelected}
             onClick={onSelect}
           />

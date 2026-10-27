@@ -192,7 +192,8 @@ export const CombatCalculator: React.FC = () => {
         <div className="space-y-4 lg:col-span-7">
           {result?.isValid ? (
             <Card className="space-y-4" selected>
-              <div className="flex items-start justify-between gap-3">
+              {/* role="status": screen readers hear the new outcome whenever an input changes it. */}
+              <div className="flex items-start justify-between gap-3" role="status">
                 <div>
                   <p className="eyebrow">Kết quả</p>
                   <h2 className="text-lg font-semibold">

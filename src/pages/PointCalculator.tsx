@@ -227,7 +227,7 @@ export const PointCalculator: React.FC = () => {
           {mode === 'mixed' && mixedResult && (
             <>
               <Card className="space-y-3" selected={mixedResult.isTargetReached}>
-                <div className="flex items-end justify-between gap-3">
+                <div className="flex items-end justify-between gap-3" role="status">
                   <div>
                     <p className="eyebrow">Dự kiến tích lũy</p>
                     <p className="num text-2xl font-semibold">

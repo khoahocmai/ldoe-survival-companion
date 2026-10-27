@@ -23,7 +23,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       aria-label={placeholder}
-      className={`${controlClass} h-control pl-9 pr-9 [&::-webkit-search-cancel-button]:hidden`}
+      className={`${controlClass} h-control coarse:h-11 pl-9 pr-9 [&::-webkit-search-cancel-button]:hidden`}
     />
     {value && (
       <button

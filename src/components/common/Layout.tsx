@@ -12,7 +12,7 @@ interface PageHeaderProps {
 /** Every page starts with this: short title, one line of context, primary actions on the right. */
 export const PageHeader: React.FC<PageHeaderProps> = ({ title, description, icon, actions }) => (
   <header className="mb-4 flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
-    <div className="flex min-w-0 flex-1 basis-[15rem] items-start gap-3">
+    <div className="flex min-w-0 flex-1 basis-[12rem] items-start gap-3">
       {icon && (
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent [&>svg]:h-5 [&>svg]:w-5">
           {icon}
@@ -142,7 +142,7 @@ export const FilterChips: React.FC<{
           type="button"
           aria-pressed={active}
           onClick={() => onChange(opt.id)}
-          className={`flex h-8 shrink-0 items-center gap-1.5 rounded-full px-3 text-xs font-medium transition-colors ${
+          className={`flex h-control-sm coarse:h-10 shrink-0 items-center gap-1.5 rounded-full px-3 text-xs font-medium transition-colors ${
             active ? 'bg-fg text-bg' : 'border border-line bg-surface text-muted hover:text-fg'
           }`}
         >
@@ -165,7 +165,7 @@ export const ToggleChip: React.FC<{ checked: boolean; onChange: (checked: boolea
     role="checkbox"
     aria-checked={checked}
     onClick={() => onChange(!checked)}
-    className={`flex h-control-sm shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors ${
+    className={`flex h-control-sm coarse:h-10 shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors ${
       checked ? 'border-accent-solid bg-accent-soft text-accent' : 'border-line bg-surface text-muted hover:text-fg'
     }`}
   >
@@ -200,6 +200,11 @@ export const ProgressBar: React.FC<{ percent: number; tone?: Tone; className?: s
     </div>
   );
 };
+
+/** Grey placeholder block shown while content is loading. */
+export const Skeleton: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <div aria-hidden="true" className={`animate-pulse rounded-md bg-subtle ${className}`} />
+);
 
 /** Inline notice: info, warning, or success message inside a page. */
 export const Callout: React.FC<{ tone?: Tone; icon?: React.ReactNode; children: React.ReactNode }> = ({

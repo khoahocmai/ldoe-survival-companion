@@ -144,8 +144,8 @@ export const ConstructionCalculator: React.FC = () => {
         icon={<Building2 />}
       />
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-        <div className="space-y-4 lg:col-span-4">
+      <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+        <div className="space-y-4 xl:col-span-4">
           <StructureSelector
             locations={locationsWithStructures}
             selectedLocationId={selectedLocationId}
@@ -157,7 +157,7 @@ export const ConstructionCalculator: React.FC = () => {
           />
         </div>
 
-        <div className="space-y-4 lg:col-span-8">
+        <div className="space-y-4 xl:col-span-8">
           {structure && (
             <Card className="space-y-4">
               <div className="flex flex-col justify-between gap-3 border-b border-line pb-4 sm:flex-row sm:items-center">

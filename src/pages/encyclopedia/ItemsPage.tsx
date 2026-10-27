@@ -12,6 +12,7 @@ import { FormModal, FormRow } from '../../components/common/FormModal';
 import { PropertyList, Section, Stat, StatGrid } from '../../components/common/Layout';
 import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
 import { ITEM_CATEGORY_LABEL, RARITY_LABEL, RARITY_TONE } from '../../lib/labels';
+import { ITEM_CATEGORY_ICON } from '../../lib/categoryIcons';
 import { ITEM_FILTERS, matchesItemFilter, sortItems } from '../../lib/itemFilters';
 
 const newItem = (): Partial<Item> => ({
@@ -84,6 +85,7 @@ export const ItemsPage: React.FC = () => {
             name={item.name}
             hint={item.vietnameseName}
             image={item.image}
+            icon={ITEM_CATEGORY_ICON[item.category]}
             tone={RARITY_TONE[item.rarity]}
             isSelected={isSelected}
             onClick={onSelect}
@@ -171,7 +173,7 @@ export const ItemsPage: React.FC = () => {
                         <li key={ing.itemId}>
                           <Link
                             to={`/wiki/items?select=${ing.itemId}`}
-                            className="num inline-flex rounded-md bg-subtle px-2 py-1 text-xs hover:text-accent"
+                            className="num inline-flex rounded-md bg-subtle px-2 py-1.5 text-xs hover:text-accent"
                           >
                             {ing.quantity}× {db.itemsMap.get(ing.itemId)?.name ?? ing.itemId}
                           </Link>

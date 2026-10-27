@@ -20,7 +20,7 @@ export const Field: React.FC<FieldProps> = ({ label, hint, children, className =
 
 export const TextInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className = '', ...props }, ref) => (
-    <input ref={ref} type="text" className={cn(controlClass, 'h-control', className)} {...props} />
+    <input ref={ref} type="text" className={cn(controlClass, 'h-control coarse:h-11', className)} {...props} />
   )
 );
 TextInput.displayName = 'TextInput';
@@ -41,7 +41,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onValueChange, 
       const parsed = parseFloat(e.target.value);
       onValueChange(Number.isFinite(parsed) ? parsed : 0);
     }}
-    className={cn(controlClass, 'num h-control', className)}
+    className={cn(controlClass, 'num h-control coarse:h-11', className)}
     {...props}
   />
 );
@@ -49,7 +49,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onValueChange, 
 /** Native select with the same chevron on every OS (the arrow is drawn by `.select-control` in index.css). */
 export const Select = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttributes<HTMLSelectElement>>(
   ({ className = '', children, ...props }, ref) => (
-    <select ref={ref} className={cn(controlClass, 'select-control h-control pr-9', className)} {...props}>
+    <select ref={ref} className={cn(controlClass, 'select-control h-control coarse:h-11 pr-9', className)} {...props}>
       {children}
     </select>
   )

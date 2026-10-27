@@ -14,9 +14,9 @@ const base =
   'inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap select-none transition-colors disabled:cursor-not-allowed disabled:opacity-50';
 
 const sizes = {
-  sm: 'h-control-sm px-3 text-xs rounded-control',
-  md: 'h-control px-4 text-sm rounded-control',
-  lg: 'h-control-lg px-5 text-sm rounded-control',
+  sm: 'h-control-sm coarse:h-10 px-3 text-xs rounded-control',
+  md: 'h-control coarse:h-11 px-4 text-sm rounded-control',
+  lg: 'h-control-lg coarse:h-12 px-5 text-sm rounded-control',
 };
 
 const variants = {
@@ -55,7 +55,7 @@ export const IconButton: React.FC<
     <button
       type={type}
       aria-label={label}
-      className={cn('inline-flex h-control w-control items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4', className)}
+      className={cn('inline-flex h-control w-control coarse:h-11 coarse:w-11 items-center justify-center rounded-control text-muted transition-colors hover:bg-subtle hover:text-fg [&>svg]:h-4 [&>svg]:w-4', className)}
       {...props}
     >
       {children}

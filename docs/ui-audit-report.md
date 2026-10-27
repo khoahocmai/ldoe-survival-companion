@@ -5,6 +5,35 @@ Date: 2026-10-27 · Branch: `feat/ldoe-survival-companion` · Scope: UI only (no
 Method: read the design tokens and every shared component, grepped the whole `src/` for consistency
 patterns, ran the app (desktop 1440, mobile 375, light + dark) and computed WCAG contrast on the tokens.
 
+## 0. Status after the standardisation pass
+
+All five steps of section 4 were implemented on `feat/ui-standardization`, one commit per step.
+
+| Finding | Status |
+|---------|--------|
+| A1, A2 contrast | Fixed (primary button 4.6:1 in light mode; `faint` >= 4.5:1 on surface, bg, subtle) |
+| A3 modal focus management | Fixed: one `Dialog` (portal, focus trap + restore, `aria-labelledby`, topmost-only Escape, exit animation) used by Modal, search, wiki drawer, mobile menu |
+| A4 focus ring on inputs | Fixed: shared `controlClass` (ring + border), slider and checkbox focus |
+| A5 `title=` tooltips | Mostly fixed: `Tooltip` (hover + keyboard) on IconButton, sidebar, weapon rail, tiles. Truncation `title`s and `Badge title` remain (progressive hints only) |
+| A6 skip link / live regions / feedback | Fixed: skip button, `role="status"` on combat and points results, toasts after save/hide/delete/import |
+| A7 clickable Card | Open: still a `div role="button"` |
+| C1 monolith | Fixed: `ConstructionCalculator` 1139 -> ~230 lines + 7 components |
+| C2 tables | Fixed with composable `Table/Thead/Th/Tr/Td` (not a data-driven DataTable) |
+| C3, C4, C8, C9 type, radius, height, z-index, backdrop | Fixed as tokens (`text-2xs`, `rounded-control/card/dialog`, `h-control*`, named z-scale); backdrop lives only in `Dialog`. `text-2xs` (11px) is still 11px |
+| C5, C6 raw controls, select | Fixed: `Slider`, `Switch`, `ToggleChip`, styled `Select`; `cn()` merges class overrides |
+| C7 theme | Fixed: follows the OS on first visit, `theme-color` meta |
+| P1 font | Fixed: Inter Variable self-hosted |
+| P2 dead code | Fixed: `ChopperCalculator.tsx`, `App.css`, unused svgs, empty folder removed |
+| P3 tile fallbacks | Fixed: category icon on tiles without a picture |
+| P4 tablet | Partly: construction page stacks below 1280px; wiki detail is still a drawer below 1280px |
+| P5 mobile | Fixed for hit areas (`coarse:` variants, 16px inputs) and the page header; weapon-mods page unchanged |
+| P6 toolbar | Partly: magic sticky offsets replaced by a `page-y` token; header + search + chips still take the same height |
+| P7 i18n | Not done (out of scope) |
+| P8 skeleton | Fixed for the initial load (`AppSkeleton`) |
+| P9 PWA | Manifest, icons and theme colour added; no service worker, so no offline mode yet |
+
+Still not verified: an automated axe/Lighthouse run and a screen-reader pass.
+
 ## 1. Overall verdict
 
 The foundation is **already modern and in good shape**: Tailwind + semantic CSS-variable tokens

@@ -29,6 +29,14 @@ export default {
         warn: { DEFAULT: token('warn'), soft: token('warn-soft') },
         danger: { DEFAULT: token('danger'), soft: token('danger-soft') },
       },
+      // Touch screens get bigger hit areas: `coarse:h-11` applies only when the main pointer is a finger.
+      screens: {
+        coarse: { raw: '(pointer: coarse)' },
+      },
+      // Vertical padding of the scrolling page area; sticky toolbars cancel it with the same value.
+      spacing: {
+        'page-y': '1rem',
+      },
       // Type scale: 2xs (11) captions in dense UI, xs (12) labels, sm (14) body, base (16) titles, then lg/xl headings.
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1rem' }],

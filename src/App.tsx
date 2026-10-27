@@ -1,11 +1,12 @@
 import React from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { AlertTriangle, ShieldAlert } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { ThemeProvider } from './context/ThemeContext';
 import { DataProvider, useGameData } from './context/DataContext';
 import { AppLayout } from './components/layout/AppLayout';
 import { ToastProvider } from './components/common/Toast';
 import { Button } from './components/common/Button';
+import { Skeleton } from './components/common/Layout';
 import { ItemsPage } from './pages/encyclopedia/ItemsPage';
 import { WeaponModsPage } from './pages/encyclopedia/WeaponModsPage';
 import { EnemiesPage } from './pages/encyclopedia/EnemiesPage';
@@ -30,16 +31,35 @@ const FullScreenMessage: React.FC<{ icon: React.ReactNode; title: string; childr
   </div>
 );
 
+/** Page-shaped placeholder shown while the game data loads, so the layout does not jump when it arrives. */
+const AppSkeleton: React.FC = () => (
+  <div role="status" aria-label="Đang tải dữ liệu..." className="flex h-screen w-screen bg-bg">
+    <div className="hidden w-52 shrink-0 space-y-3 border-r border-line bg-surface p-3 lg:block">
+      <Skeleton className="h-8 w-8 rounded-lg" />
+      {Array.from({ length: 9 }, (_, i) => (
+        <Skeleton key={i} className="h-7 w-full" />
+      ))}
+    </div>
+    <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex h-12 items-center border-b border-line bg-surface px-3">
+        <Skeleton className="h-8 w-full max-w-sm" />
+      </div>
+      <div className="space-y-4 p-4">
+        <Skeleton className="h-8 w-56" />
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(112px,1fr))] gap-2">
+          {Array.from({ length: 24 }, (_, i) => (
+            <Skeleton key={i} className="aspect-square rounded-lg" />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const AppContent: React.FC = () => {
   const { db, isLoading, error, reload } = useGameData();
 
-  if (isLoading) {
-    return (
-      <FullScreenMessage icon={<ShieldAlert className="animate-pulse" />} title="Đang tải dữ liệu...">
-        <p className="text-sm text-muted">Gộp dữ liệu gốc với chỉnh sửa của bạn.</p>
-      </FullScreenMessage>
-    );
-  }
+  if (isLoading) return <AppSkeleton />;
 
   if (error || !db) {
     return (

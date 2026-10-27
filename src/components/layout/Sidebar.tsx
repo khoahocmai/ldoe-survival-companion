@@ -45,7 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile, collapsed = fal
                   aria-label={collapsed ? label : undefined}
                   className={({ isActive }) =>
                     `flex items-center rounded-lg text-sm transition-colors ${
-                      collapsed ? 'h-9 justify-center' : 'gap-2.5 px-2.5 py-1.5'
+                      collapsed ? 'h-9 justify-center' : 'gap-2.5 px-2.5 py-1.5 coarse:py-2.5'
                     } ${isActive ? 'bg-subtle font-medium text-fg' : 'text-muted hover:bg-subtle/60 hover:text-fg'}`
                   }
                 >

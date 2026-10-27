@@ -28,7 +28,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onChange, className
           role="tab"
           aria-selected={isActive}
           onClick={() => onChange(tab.id)}
-          className={`flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors [&>svg]:h-4 [&>svg]:w-4 ${
+          className={`flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-1.5 coarse:py-2.5 text-sm font-medium transition-colors [&>svg]:h-4 [&>svg]:w-4 ${
             isActive ? 'bg-surface text-fg shadow-card' : 'text-muted hover:text-fg'
           }`}
         >

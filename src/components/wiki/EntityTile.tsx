@@ -1,4 +1,5 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { Tone } from '../common/Badge';
 import { ImageFolder, useEntityImageSrc } from '../common/EntityImage';
 import { Tooltip } from '../common/Tooltip';
@@ -10,6 +11,8 @@ interface EntityTileProps {
   /** Shown as a tooltip only, so the tile itself stays name + picture. */
   hint?: string;
   image?: string;
+  /** Shown above the name while there is no picture. */
+  icon?: LucideIcon;
   /** Colours a thin bar on the tile's top edge (rarity, danger...) so the grid can be scanned at a glance. */
   tone?: Tone;
   isSelected?: boolean;
@@ -35,6 +38,7 @@ export const EntityTile: React.FC<EntityTileProps> = ({
   name,
   hint,
   image,
+  icon: Icon,
   tone,
   isSelected = false,
   onClick,
@@ -62,10 +66,11 @@ export const EntityTile: React.FC<EntityTileProps> = ({
         className={`absolute font-medium leading-tight ${
           src
             ? 'inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-1.5 pb-1 pt-6 text-xs text-white'
-            : `inset-0 flex items-center justify-center p-2 text-center text-sm ${isSelected ? 'text-accent' : ''}`
+            : `inset-0 flex flex-col items-center justify-center gap-1.5 p-2 text-center text-sm ${isSelected ? 'text-accent' : ''}`
         }`}
       >
-        <span className={src ? 'line-clamp-2' : 'line-clamp-4'}>{name}</span>
+        {!src && Icon && <Icon aria-hidden="true" className="h-6 w-6 shrink-0 text-faint" />}
+        <span className={src ? 'line-clamp-2' : Icon ? 'line-clamp-3' : 'line-clamp-4'}>{name}</span>
       </span>
     </button>
     </Tooltip>
