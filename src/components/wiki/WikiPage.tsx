@@ -1,8 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Plus, SearchX } from 'lucide-react';
 import { Button } from '../common/Button';
 import { SearchInput } from '../common/SearchInput';
+import { Select } from '../common/Field';
 import { EmptyState, FilterChips, PageHeader } from '../common/Layout';
 import { ConfirmDialog } from '../common/ConfirmDialog';
 import { storageService } from '../../services/storageService';
@@ -18,6 +19,9 @@ type OverrideKey = keyof Omit<WikiOverrides, 'hiddenEntityIds'>;
 interface FilterConfig<T> {
   options: Array<{ id: string; label: string }>;
   matches: (entity: T, filterId: string) => boolean;
+  type?: 'chips' | 'select';
+  label?: string;
+  defaultId?: string;
 }
 
 export interface WikiDetailView {
@@ -80,11 +84,38 @@ export function WikiPage<T extends { id: string }>({
   const { reload } = useGameData();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState('');
-  const [filterId, setFilterId] = useState('all');
+
+  const initialFilterId = useMemo(() => {
+    if (filter?.defaultId) return filter.defaultId;
+    if (filter?.options.some((o) => o.id === 'all')) return 'all';
+    return filter?.options[0]?.id || 'all';
+  }, [filter]);
+
+  const [filterId, setFilterId] = useState(initialFilterId);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
+  // Sync if filter options or default changes
+  useEffect(() => {
+    if (filter && filter.options.length > 0 && !filter.options.some((o) => o.id === filterId)) {
+      setFilterId(filter.defaultId ?? filter.options[0].id);
+    }
+  }, [filter, filterId]);
 
   const selectId = searchParams.get('select');
   const selected = useMemo(() => entities.find((e) => e.id === selectId) ?? null, [entities, selectId]);
+
+  // Auto-switch filter when an entity is selected from external navigation (e.g. planner or link)
+  useEffect(() => {
+    if (selectId && filter && entities.length > 0) {
+      const selectedEntity = entities.find((e) => e.id === selectId);
+      if (selectedEntity && !filter.matches(selectedEntity, filterId)) {
+        const matchingOpt = filter.options.find((opt) => filter.matches(selectedEntity, opt.id));
+        if (matchingOpt) {
+          setFilterId(matchingOpt.id);
+        }
+      }
+    }
+  }, [selectId, filter, entities]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const visible = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -152,30 +183,69 @@ export function WikiPage<T extends { id: string }>({
         }
       />
 
-      <SearchInput value={search} onChange={setSearch} placeholder={searchPlaceholder} className={`sm:max-w-sm ${filter ? 'mb-4' : 'mb-2'}`} />
-      {filter && (
-        // Stays pinned while the grid scrolls underneath, so switching category never needs a trip back to the top.
-        // The -4 offsets cancel <main>'s 1rem top padding, which sticky would otherwise leave as a gap above the strip.
-        <div className="sticky -top-4 z-20 -mx-1 -mt-4 bg-bg px-1 pb-2 pt-3">
-          <FilterChips options={filterOptions} value={filterId} onChange={setFilterId} wrap={isSm} />
+      {filter?.type === 'select' ? (
+        <div className="mb-4 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+          <SearchInput
+            value={search}
+            onChange={setSearch}
+            placeholder={searchPlaceholder}
+            className="flex-1 sm:max-w-sm"
+          />
+          <div className="flex items-center gap-2">
+            {filter.label && (
+              <span className="text-xs font-medium text-muted shrink-0">
+                {filter.label}:
+              </span>
+            )}
+            <Select
+              aria-label={filter.label || 'Lọc'}
+              value={filterId}
+              onChange={(e) => setFilterId(e.target.value)}
+              className="min-w-[200px]"
+            >
+              {filterOptions.map((opt) => (
+                <option key={opt.id} value={opt.id}>
+                  {opt.label} ({opt.count})
+                </option>
+              ))}
+            </Select>
+          </div>
         </div>
+      ) : (
+        <>
+          <SearchInput
+            value={search}
+            onChange={setSearch}
+            placeholder={searchPlaceholder}
+            className={`sm:max-w-sm ${filter ? 'mb-4' : 'mb-2'}`}
+          />
+          {filter && (
+            // Stays pinned while the grid scrolls underneath, so switching category never needs a trip back to the top.
+            // The -4 offsets cancel <main>'s 1rem top padding, which sticky would otherwise leave as a gap above the strip.
+            <div className="sticky -top-4 z-20 -mx-1 -mt-4 bg-bg px-1 pb-2 pt-3">
+              <FilterChips options={filterOptions} value={filterId} onChange={setFilterId} wrap={isSm} />
+            </div>
+          )}
+        </>
       )}
 
       {visible.length === 0 ? (
         <EmptyState
           icon={<SearchX />}
           title={`Không có ${noun} nào phù hợp`}
-          description="Thử từ khóa khác hoặc bỏ bộ lọc đang chọn."
+          description="Thử từ khóa khác hoặc chọn bàn chế tác khác."
           action={
-            (search || filterId !== 'all') && (
+            (search || (filter?.options.some((o) => o.id === 'all') && filterId !== 'all')) && (
               <Button
                 variant="secondary"
                 onClick={() => {
                   setSearch('');
-                  setFilterId('all');
+                  if (filter?.options.some((o) => o.id === 'all')) {
+                    setFilterId('all');
+                  }
                 }}
               >
-                Xóa bộ lọc
+                Xóa tìm kiếm
               </Button>
             )
           }

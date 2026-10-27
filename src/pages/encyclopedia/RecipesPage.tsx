@@ -33,10 +33,8 @@ export const RecipesPage: React.FC = () => {
     const stations = Array.from(new Set((db?.recipes ?? []).map(workstationOf))).sort((a, b) =>
       a === HAND ? -1 : b === HAND ? 1 : a.localeCompare(b)
     );
-    return [
-      { id: 'all', label: 'Tất cả' },
-      ...stations.map((s) => ({ id: s, label: s === HAND ? 'Chế tạo tay' : s })),
-    ];
+    // Bỏ 'all' (Tất cả) để hiển thị dropdown gọn gàng theo từng bàn chế tác
+    return stations.map((s) => ({ id: s, label: s === HAND ? 'Chế tạo tay' : s }));
   }, [db?.recipes]);
 
   const sortedItems = useMemo(() => [...(db?.items ?? [])].sort((a, b) => a.name.localeCompare(b.name)), [db?.items]);
@@ -76,7 +74,13 @@ export const RecipesPage: React.FC = () => {
           .filter(Boolean)
           .join(' ')
       }
-      filter={{ options: filterOptions, matches: (r, id) => workstationOf(r) === id }}
+      filter={{
+        type: 'select',
+        label: 'Bàn chế tác',
+        defaultId: HAND,
+        options: filterOptions,
+        matches: (r, id) => workstationOf(r) === id,
+      }}
       onEdit={(recipe) => {
         setIsNew(!recipe);
         setEditing(
