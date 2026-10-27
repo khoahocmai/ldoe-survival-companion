@@ -1,16 +1,15 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Hammer, Layers, Plus, Sparkles, Trash2 } from 'lucide-react';
+import { Hammer, Layers, Pencil, RotateCcw, Sparkles } from 'lucide-react';
 import { useGameData } from '../../context/DataContext';
-import { Recipe, RecipeIngredient } from '../../types';
+import { Recipe } from '../../types';
 import { Badge } from '../../components/common/Badge';
-import { Button, IconButton } from '../../components/common/Button';
+import { Button } from '../../components/common/Button';
 import { EntityImage } from '../../components/common/EntityImage';
-import { Field, NumberInput, Select, TextInput } from '../../components/common/Field';
-import { FormModal, FormRow } from '../../components/common/FormModal';
 import { Callout, Section, Stat, StatGrid } from '../../components/common/Layout';
 import { EntityTile, WikiPage, useSaveEntity } from '../../components/wiki';
-import { RECIPE_CATEGORY_LABEL } from '../../lib/labels';
+import { RecipeEditModal } from '../../components/recipes/RecipeEditModal';
+import { storageService } from '../../services/storageService';
 
 const HAND = 'hand';
 
@@ -23,7 +22,7 @@ const workstationOf = (r: Recipe) => {
 };
 
 export const RecipesPage: React.FC = () => {
-  const { db } = useGameData();
+  const { db, reload } = useGameData();
   const navigate = useNavigate();
   const save = useSaveEntity('customRecipes');
   const [editing, setEditing] = useState<Partial<Recipe> | null>(null);
@@ -45,26 +44,15 @@ export const RecipesPage: React.FC = () => {
   if (!db) return null;
 
   const nameOf = (itemId: string) => db.itemsMap.get(itemId)?.name ?? itemId;
-  const patch = (changes: Partial<Recipe>) => setEditing((prev) => (prev ? { ...prev, ...changes } : prev));
 
-  const ingredients = editing?.ingredients ?? [];
-  const setIngredient = (index: number, changes: Partial<RecipeIngredient>) =>
-    patch({ ingredients: ingredients.map((ing, i) => (i === index ? { ...ing, ...changes } : ing)) });
-
-  const canSave = Boolean(editing?.outputItemId) && ingredients.length > 0 && ingredients.every((i) => i.itemId && i.quantity > 0);
-
-  const handleSave = async () => {
-    if (!editing || !canSave) return;
-    const entity = {
-      ...editing,
-      id: editing.id!,
-      outputItemId: editing.outputItemId!,
-      outputQuantity: editing.outputQuantity || 1,
-      ingredients,
-      workstation: editing.workstation?.trim() || undefined,
-      isCustom: true,
-    } as Recipe;
+  const handleSave = async (entity: Recipe) => {
     await save(entity);
+    setEditing(null);
+  };
+
+  const handleRevert = async (recipeId: string) => {
+    storageService.revertCustomEntity('customRecipes', recipeId);
+    await reload();
     setEditing(null);
   };
 
@@ -112,7 +100,7 @@ export const RecipesPage: React.FC = () => {
             folder="items"
             id={recipe.outputItemId}
             name={`${nameOf(recipe.outputItemId)}${recipe.outputQuantity > 1 ? ` ×${recipe.outputQuantity}` : ''}`}
-            hint={output?.vietnameseName}
+            hint={recipe.isCustom ? 'Đã tùy chỉnh' : output?.vietnameseName}
             image={recipe.image ?? output?.image}
             isSelected={isSelected}
             onClick={onSelect}
@@ -132,7 +120,7 @@ export const RecipesPage: React.FC = () => {
               </Badge>
               <Badge tone="accent">Ra ×{recipe.outputQuantity}</Badge>
               {recipe.levelRequired ? <Badge>Cấp {recipe.levelRequired}</Badge> : null}
-              {recipe.isCustom && <Badge tone="info">Tùy chỉnh</Badge>}
+              {recipe.isCustom && <Badge tone="warn">Đã tùy chỉnh</Badge>}
             </>
           ),
           body: (
@@ -164,7 +152,38 @@ export const RecipesPage: React.FC = () => {
                 </Section>
               )}
 
-              <Section title={`Nguyên liệu (${recipe.ingredients.length})`}>
+              <Section
+                title={`Nguyên liệu (${recipe.ingredients.length})`}
+                action={
+                  <div className="flex items-center gap-1.5">
+                    {recipe.isCustom && (
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        icon={<RotateCcw />}
+                        className="text-amber-500 hover:text-amber-600"
+                        onClick={() => handleRevert(recipe.id)}
+                      >
+                        Khôi phục gốc
+                      </Button>
+                    )}
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      icon={<Pencil />}
+                      onClick={() => {
+                        setIsNew(false);
+                        setEditing({
+                          ...recipe,
+                          ingredients: recipe.ingredients.map((i) => ({ ...i })),
+                        });
+                      }}
+                    >
+                      Sửa nguyên liệu
+                    </Button>
+                  </div>
+                }
+              >
                 <ul className="divide-y divide-line rounded-lg border border-line">
                   {recipe.ingredients.map((ing) => {
                     const item = db.itemsMap.get(ing.itemId);
@@ -194,106 +213,14 @@ export const RecipesPage: React.FC = () => {
         };
       }}
     >
-      <FormModal
+      <RecipeEditModal
         isOpen={Boolean(editing)}
-        title={isNew ? 'Thêm công thức' : 'Sửa công thức'}
         onClose={() => setEditing(null)}
+        recipe={editing}
+        isNew={isNew}
         onSave={handleSave}
-        saveDisabled={!canSave}
-        maxWidth="md"
-      >
-        {editing && (
-          <>
-            <Field label="Thành phẩm">
-              <Select value={editing.outputItemId ?? ''} onChange={(e) => patch({ outputItemId: e.target.value })}>
-                {sortedItems.map((i) => (
-                  <option key={i.id} value={i.id}>
-                    {i.name}
-                  </option>
-                ))}
-              </Select>
-            </Field>
-            <FormRow cols={3}>
-              <Field label="Số lượng ra">
-                <NumberInput min={1} value={editing.outputQuantity} onValueChange={(v) => patch({ outputQuantity: Math.max(1, v) })} />
-              </Field>
-              <Field label="Thời gian (giây)">
-                <NumberInput value={editing.craftTimeSeconds} onValueChange={(v) => patch({ craftTimeSeconds: v || undefined })} />
-              </Field>
-              <Field label="Loại">
-                <Select value={editing.category ?? 'crafting'} onChange={(e) => patch({ category: e.target.value as Recipe['category'] })}>
-                  {Object.entries(RECIPE_CATEGORY_LABEL).map(([value, label]) => (
-                    <option key={value} value={value}>
-                      {label}
-                    </option>
-                  ))}
-                </Select>
-              </Field>
-            </FormRow>
-            <Field label="Bàn chế tác" hint="Để trống nếu chế tạo tay">
-              <TextInput
-                list="workstation-options"
-                value={editing.workstation ?? ''}
-                onChange={(e) => patch({ workstation: e.target.value })}
-              />
-              <datalist id="workstation-options">
-                {filterOptions
-                  .filter((o) => o.id !== 'all' && o.id !== HAND)
-                  .map((o) => (
-                    <option key={o.id} value={o.id} />
-                  ))}
-              </datalist>
-            </Field>
-
-            <Section
-              title="Nguyên liệu"
-              action={
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  icon={<Plus />}
-                  onClick={() => patch({ ingredients: [...ingredients, { itemId: sortedItems[0]?.id ?? '', quantity: 1 }] })}
-                >
-                  Thêm
-                </Button>
-              }
-            >
-              <ul className="space-y-2">
-                {ingredients.map((ing, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Select
-                      aria-label="Nguyên liệu"
-                      value={ing.itemId}
-                      onChange={(e) => setIngredient(index, { itemId: e.target.value })}
-                      className="flex-1"
-                    >
-                      {sortedItems.map((i) => (
-                        <option key={i.id} value={i.id}>
-                          {i.name}
-                        </option>
-                      ))}
-                    </Select>
-                    <NumberInput
-                      aria-label="Số lượng"
-                      min={1}
-                      value={ing.quantity}
-                      onValueChange={(v) => setIngredient(index, { quantity: Math.max(1, v) })}
-                      className="w-20"
-                    />
-                    <IconButton
-                      label="Xóa nguyên liệu"
-                      disabled={ingredients.length <= 1}
-                      onClick={() => patch({ ingredients: ingredients.filter((_, i) => i !== index) })}
-                    >
-                      <Trash2 />
-                    </IconButton>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          </>
-        )}
-      </FormModal>
+        onRevert={handleRevert}
+      />
     </WikiPage>
   );
 };

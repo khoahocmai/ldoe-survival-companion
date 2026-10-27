@@ -71,4 +71,32 @@ describe('Task 3: DataLoader & StorageService Weapon Mods integration', () => {
     expect(pdTerminal5?.locationId).toBe('blackport_pd');
     expect(pdTerminal5?.stages[0].requirements.length).toBe(6);
   });
+
+  it('allows editing a recipe and reverting it back to canonical data', async () => {
+    // 1. Initial base recipe
+    let db = await loadGameData(true);
+    const originalRecipe = db.recipes.find((r) => r.id === 'recipe_oak_plank');
+    expect(originalRecipe).toBeDefined();
+    expect(originalRecipe?.ingredients[0].quantity).toBe(3);
+
+    // 2. Save override: change quantity from 3 to 2
+    storageService.saveEntity('customRecipes', {
+      ...originalRecipe!,
+      ingredients: [{ itemId: 'oak_log', quantity: 2 }],
+    });
+
+    clearDataCache();
+    db = await loadGameData(true);
+    const updatedRecipe = db.recipes.find((r) => r.id === 'recipe_oak_plank');
+    expect(updatedRecipe?.ingredients[0].quantity).toBe(2);
+    expect(updatedRecipe?.isCustom).toBe(true);
+
+    // 3. Revert override
+    storageService.revertCustomEntity('customRecipes', 'recipe_oak_plank');
+    clearDataCache();
+    db = await loadGameData(true);
+    const revertedRecipe = db.recipes.find((r) => r.id === 'recipe_oak_plank');
+    expect(revertedRecipe?.ingredients[0].quantity).toBe(3);
+    expect(revertedRecipe?.isCustom).toBeFalsy();
+  });
 });

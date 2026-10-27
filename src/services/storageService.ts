@@ -190,6 +190,25 @@ class StorageService {
     });
   }
 
+  // Revert a custom or edited entity back to base data
+  public revertCustomEntity(
+    entityType: keyof Omit<WikiOverrides, 'hiddenEntityIds'>,
+    id: string
+  ): void {
+    const data = this.load();
+    const list = (data.overrides[entityType] as any[]).filter((item) => item.id !== id);
+    const hiddenEntityIds = data.overrides.hiddenEntityIds.filter((item) => item !== id);
+
+    this.save({
+      ...data,
+      overrides: {
+        ...data.overrides,
+        [entityType]: list,
+        hiddenEntityIds,
+      },
+    });
+  }
+
   // Unhide entity
   public unhideEntity(id: string): void {
     const data = this.load();

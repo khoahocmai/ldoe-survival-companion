@@ -1,18 +1,22 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Layers, Minus, Plus, Sparkles } from 'lucide-react';
+import { Layers, Minus, Plus, Sparkles, Pencil } from 'lucide-react';
 import { useGameData } from '../context/DataContext';
 import { CraftingTreeNode, planCrafting } from '../lib/calculators/craftingPlanner';
+import { Recipe } from '../types';
 import { Button, IconButton } from '../components/common/Button';
 import { Card } from '../components/common/Card';
+import { Badge } from '../components/common/Badge';
 import { NumberInput } from '../components/common/Field';
 import { ItemPicker } from '../components/common/ItemPicker';
 import { Callout, EmptyState, PageHeader } from '../components/common/Layout';
 import { Tabs } from '../components/common/Tabs';
+import { RecipeEditModal } from '../components/recipes/RecipeEditModal';
+import { storageService } from '../services/storageService';
 
 type PlannerTab = 'materials' | 'steps' | 'tree';
 
-const TreeNode: React.FC<{ node: CraftingTreeNode }> = ({ node }) => (
+const TreeNode: React.FC<{ node: CraftingTreeNode; onEditRecipe?: (recipe: Recipe) => void }> = ({ node, onEditRecipe }) => (
   <li>
     <div className="flex flex-wrap items-center gap-x-2 gap-y-1 py-1 text-sm">
       <span className="font-medium">{node.itemName}</span>
@@ -22,11 +26,24 @@ const TreeNode: React.FC<{ node: CraftingTreeNode }> = ({ node }) => (
           chế {node.craftsNeeded} lần · {node.recipe?.workstation || 'chế tạo tay'}
         </span>
       )}
+      {node.recipe?.isCustom && (
+        <Badge tone="warn" size="sm">Tùy chỉnh</Badge>
+      )}
+      {node.recipe && onEditRecipe && (
+        <button
+          type="button"
+          onClick={() => onEditRecipe(node.recipe!)}
+          className="inline-flex items-center gap-1 text-xs text-accent hover:underline ml-1"
+          title="Sửa số lượng nguyên liệu"
+        >
+          <Pencil className="h-3 w-3" /> Sửa tỉ lệ
+        </button>
+      )}
     </div>
     {node.children.length > 0 && (
       <ul className="ml-2 border-l border-line pl-4">
         {node.children.map((child, i) => (
-          <TreeNode key={`${child.itemId}-${i}`} node={child} />
+          <TreeNode key={`${child.itemId}-${i}`} node={child} onEditRecipe={onEditRecipe} />
         ))}
       </ul>
     )}
@@ -34,7 +51,7 @@ const TreeNode: React.FC<{ node: CraftingTreeNode }> = ({ node }) => (
 );
 
 export const CraftingPlanner: React.FC = () => {
-  const { db } = useGameData();
+  const { db, reload } = useGameData();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const craftableItems = useMemo(
@@ -45,6 +62,7 @@ export const CraftingPlanner: React.FC = () => {
   const [targetItemId, setTargetItemId] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [tab, setTab] = useState<PlannerTab>('materials');
+  const [editingRecipe, setEditingRecipe] = useState<Recipe | null>(null);
 
   // Weapon-mod bench hands over a ready list of materials: ?materials=itemId:qty,...&title=...
   const materialsParam = searchParams.get('materials');
@@ -104,7 +122,8 @@ export const CraftingPlanner: React.FC = () => {
     [singlePlan]
   );
 
-  const buff = db?.recipesByOutputMap.get(targetItemId)?.[0]?.buffStats;
+  const primaryRecipe = db?.recipesByOutputMap.get(targetItemId)?.[0];
+  const buff = primaryRecipe?.buffStats;
 
   const tabs = plan
     ? [
@@ -113,6 +132,18 @@ export const CraftingPlanner: React.FC = () => {
         { id: 'tree', label: 'Cây công thức' },
       ]
     : [];
+
+  const handleSaveRecipe = async (updated: Recipe) => {
+    storageService.saveEntity('customRecipes', updated);
+    await reload();
+    setEditingRecipe(null);
+  };
+
+  const handleRevertRecipe = async (recipeId: string) => {
+    storageService.revertCustomEntity('customRecipes', recipeId);
+    await reload();
+    setEditingRecipe(null);
+  };
 
   return (
     <div>
@@ -177,6 +208,29 @@ export const CraftingPlanner: React.FC = () => {
               </div>
             </div>
 
+            {primaryRecipe && (
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line/60 pt-3">
+                <div className="flex items-center gap-2 text-xs text-muted">
+                  <span>
+                    Bàn: <strong>{primaryRecipe.workstation || 'Chế tạo tay'}</strong>
+                  </span>
+                  <span>·</span>
+                  <span>
+                    Ra: <strong>×{primaryRecipe.outputQuantity}</strong>
+                  </span>
+                  {primaryRecipe.isCustom && <Badge tone="warn" size="sm">Đã tùy chỉnh</Badge>}
+                </div>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  icon={<Pencil />}
+                  onClick={() => setEditingRecipe(primaryRecipe)}
+                >
+                  Sửa nguyên liệu công thức
+                </Button>
+              </div>
+            )}
+
             {buff && (
               <Callout tone="accent" icon={<Sparkles />}>
                 <strong>{buff.buffEffect || 'Tăng chỉ số'}</strong>
@@ -230,39 +284,56 @@ export const CraftingPlanner: React.FC = () => {
 
               {tab === 'steps' && (
                 <ol className="space-y-2">
-                  {plan.intermediateSteps.map((step, index) => (
-                    <li key={step.itemId}>
-                      <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <div className="flex items-start gap-3">
-                          <span className="num flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
-                            {index + 1}
-                          </span>
-                          <div>
-                            <h3 className="text-sm font-semibold">
-                              {step.itemName} <span className="num text-accent">×{step.totalOutputQuantity}</span>
-                            </h3>
-                            <p className="text-xs text-muted">
-                              {step.craftCount} lượt · {step.workstation || 'chế tạo tay'}
-                            </p>
+                  {plan.intermediateSteps.map((step, index) => {
+                    const stepRecipe = db?.recipesByOutputMap.get(step.itemId)?.[0];
+                    return (
+                      <li key={step.itemId}>
+                        <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                          <div className="flex items-start gap-3">
+                            <span className="num flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
+                              {index + 1}
+                            </span>
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <h3 className="text-sm font-semibold">
+                                  {step.itemName} <span className="num text-accent">×{step.totalOutputQuantity}</span>
+                                </h3>
+                                {stepRecipe?.isCustom && <Badge tone="warn" size="sm">Tùy chỉnh</Badge>}
+                              </div>
+                              <p className="text-xs text-muted">
+                                {step.craftCount} lượt · {step.workstation || 'chế tạo tay'}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                        <ul className="flex flex-wrap gap-1.5 sm:justify-end">
-                          {step.ingredients.map((ing) => (
-                            <li key={ing.itemId} className="num rounded-md bg-subtle px-2 py-1 text-xs">
-                              {ing.itemName} <span className="font-semibold text-accent">{ing.quantity * step.craftCount}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </Card>
-                    </li>
-                  ))}
+                          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                            <ul className="flex flex-wrap gap-1.5">
+                              {step.ingredients.map((ing) => (
+                                <li key={ing.itemId} className="num rounded-md bg-subtle px-2 py-1 text-xs">
+                                  {ing.itemName} <span className="font-semibold text-accent">{ing.quantity * step.craftCount}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            {stepRecipe && (
+                              <IconButton
+                                label={`Sửa công thức ${step.itemName}`}
+                                className="border border-line"
+                                onClick={() => setEditingRecipe(stepRecipe)}
+                              >
+                                <Pencil />
+                              </IconButton>
+                            )}
+                          </div>
+                        </Card>
+                      </li>
+                    );
+                  })}
                 </ol>
               )}
 
               {tab === 'tree' && (
                 <Card className="overflow-x-auto">
                   <ul>
-                    <TreeNode node={plan.tree} />
+                    <TreeNode node={plan.tree} onEditRecipe={(r) => setEditingRecipe(r)} />
                   </ul>
                 </Card>
               )}
@@ -270,6 +341,15 @@ export const CraftingPlanner: React.FC = () => {
           )}
         </>
       )}
+
+      <RecipeEditModal
+        isOpen={Boolean(editingRecipe)}
+        onClose={() => setEditingRecipe(null)}
+        recipe={editingRecipe}
+        isNew={false}
+        onSave={handleSaveRecipe}
+        onRevert={handleRevertRecipe}
+      />
     </div>
   );
 };

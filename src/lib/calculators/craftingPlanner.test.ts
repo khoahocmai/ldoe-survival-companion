@@ -179,4 +179,37 @@ describe('craftingPlanner', () => {
 
     expect(plan.hasCircularDependency).toBe(true);
   });
+
+  it('calculates updated requirements when recipe ingredients are dynamically modified (e.g. 3 logs to 2 logs)', () => {
+    // Original recipe: 3 pine logs -> 1 spear
+    const initialPlan = planCrafting({
+      targetItemId: 'spear',
+      quantity: 5,
+      inventory: {},
+      recipesByOutput: recipesByOutputMap,
+      itemsMap,
+    });
+    expect(initialPlan.totalRawMaterials.find((m) => m.itemId === 'pine_log')?.required).toBe(15);
+
+    // Modified recipe: 2 pine logs -> 1 spear
+    const modifiedRecipesByOutput = new Map(recipesByOutputMap);
+    modifiedRecipesByOutput.set('spear', [
+      {
+        id: 'r_spear',
+        outputItemId: 'spear',
+        outputQuantity: 1,
+        ingredients: [{ itemId: 'pine_log', quantity: 2 }],
+        isCustom: true,
+      },
+    ]);
+
+    const updatedPlan = planCrafting({
+      targetItemId: 'spear',
+      quantity: 5,
+      inventory: {},
+      recipesByOutput: modifiedRecipesByOutput,
+      itemsMap,
+    });
+    expect(updatedPlan.totalRawMaterials.find((m) => m.itemId === 'pine_log')?.required).toBe(10);
+  });
 });
