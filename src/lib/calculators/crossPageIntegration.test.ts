@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 describe('Task 6: Cross-Page Integration Helpers', () => {
   it('parses materials parameter correctly from URL format', () => {
-    const rawParam = 'steel_bar:5,duct_tape:8,oil:2';
+    const rawParam = 'steel_bar:5,duct_tape:8,gun_oil:2';
     const parsed = rawParam.split(',').map((part) => {
       const [itemId, qtyStr] = part.split(':');
       return {
@@ -14,7 +14,7 @@ describe('Task 6: Cross-Page Integration Helpers', () => {
     expect(parsed).toEqual([
       { itemId: 'steel_bar', quantity: 5 },
       { itemId: 'duct_tape', quantity: 8 },
-      { itemId: 'oil', quantity: 2 },
+      { itemId: 'gun_oil', quantity: 2 },
     ]);
   });
 

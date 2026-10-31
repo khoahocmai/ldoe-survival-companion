@@ -419,7 +419,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 43
+    "order": 43,
+    "image": "images/items/armor/swat_body_armor.png"
   },
   {
     "id": "pine_log",
@@ -507,14 +508,15 @@
     "order": 0
   },
   {
-    "id": "raw_hide",
-    "name": "Raw Hide",
+    "id": "animal_rawhide",
+    "name": "Animal Rawhide",
     "vietnameseName": "Da thú thô",
     "description": "Thu được khi săn hươu hoặc chó sói hoang dã.",
     "category": "resource_raw",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/animal_rawhide.png"
   },
   {
     "id": "leather",
@@ -535,18 +537,20 @@
     "category": "resource_raw",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/plant_fiber.png"
   },
   {
-    "id": "cloth",
-    "name": "Cloth",
+    "id": "piece_of_cloth",
+    "name": "Piece of Cloth",
     "vietnameseName": "Vải sợi",
     "description": "Dệt từ sợi thực vật trên Khung dệt hoặc nhặt từ xác zombie.",
     "category": "resource_processed",
     "rarity": "common",
     "stackSize": 20,
     "craftable": true,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/piece_of_cloth.png"
   },
   {
     "id": "thick_fabric",
@@ -568,7 +572,8 @@
     "rarity": "common",
     "stackSize": 20,
     "craftable": true,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/nails.png"
   },
   {
     "id": "duct_tape",
@@ -578,7 +583,8 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/duct_tape.png"
   },
   {
     "id": "rope",
@@ -592,21 +598,22 @@
     "order": 0
   },
   {
-    "id": "bolt",
-    "name": "Bolt",
-    "vietnameseName": "Bu-lông",
+    "id": "bolts",
+    "name": "Bolts",
+    "vietnameseName": "Bu-lông (Bolts)",
     "description": "Linh kiện cơ khí nhặt từ hòm loot và xác xe hơi, cần thiết để chế tạo máy móc.",
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/bolts.png"
   },
   {
     "id": "wrench",
     "name": "Wrench",
     "vietnameseName": "Cờ lê",
     "description": "Dụng cụ cơ khí kim loại để sửa chữa trạm phát điện và lắp ráp xe.",
-    "category": "tool",
+    "category": "component",
     "rarity": "rare",
     "stackSize": 10,
     "order": 0
@@ -619,7 +626,8 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/rubber_parts.png"
   },
   {
     "id": "ball_bearing",
@@ -629,27 +637,30 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/ball_bearing.png"
   },
   {
-    "id": "gasoline",
-    "name": "Gasoline",
-    "vietnameseName": "Bình xăng",
+    "id": "fuel_canister",
+    "name": "Fuel Canister",
+    "vietnameseName": "Can xăng (Fuel Canister)",
     "description": "Nhiên liệu chạy xe Chopper và máy phát điện.",
     "category": "resource_raw",
     "rarity": "rare",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/fuel_canister.png"
   },
   {
-    "id": "bone",
-    "name": "Bone",
-    "vietnameseName": "Xương thú / Xương quái",
+    "id": "big_bones",
+    "name": "Big Bones",
+    "vietnameseName": "Xương lớn (Big Bones)",
     "description": "Thu được từ xác quái vật lớn như Ravager hoặc thú săn, dùng làm vũ khí và mod.",
     "category": "resource_raw",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/big_bones.png"
   },
   {
     "id": "charcoal",
@@ -788,7 +799,8 @@
     "category": "component",
     "rarity": "rare",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/engine_part.png"
   },
   {
     "id": "electronic_circuit",
@@ -798,7 +810,8 @@
     "category": "component",
     "rarity": "epic",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/electronic_circuit.png"
   },
   {
     "id": "red_coupon",
@@ -838,7 +851,8 @@
     "category": "component",
     "rarity": "rare",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/factory_parts.png"
   },
   {
     "id": "carbon_composite",
@@ -848,7 +862,8 @@
     "category": "component",
     "rarity": "epic",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/carbon_composite.png"
   },
   {
     "id": "spring",
@@ -858,7 +873,8 @@
     "category": "component",
     "rarity": "common",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/spring.png"
   },
   {
     "id": "hi_tech_component",
@@ -871,14 +887,15 @@
     "order": 0
   },
   {
-    "id": "oil",
+    "id": "gun_oil",
     "name": "Gun Oil",
-    "vietnameseName": "Dầu bảo dưỡng súng",
+    "vietnameseName": "Dầu bảo dưỡng súng (Gun Oil)",
     "description": "Dầu bôi trơn chuyên dụng chống kẹt đạn và nâng cao độ bền các chi tiết súng.",
     "category": "component",
     "rarity": "rare",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/gun_oil.png"
   },
   {
     "id": "lens",
@@ -888,7 +905,8 @@
     "category": "component",
     "rarity": "rare",
     "stackSize": 20,
-    "order": 0
+    "order": 0,
+    "image": "images/items/components/lens.png"
   },
   {
     "id": "steel_plate",
@@ -1228,7 +1246,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 42
+    "order": 42,
+    "image": "images/items/armor/swat_helmet.png"
   },
   {
     "id": "swat_trousers",
@@ -1248,7 +1267,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 44
+    "order": 44,
+    "image": "images/items/armor/swat_trousers.png"
   },
   {
     "id": "swat_boots",
@@ -1268,7 +1288,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 45
+    "order": 45,
+    "image": "images/items/armor/swat_boots.png"
   },
   {
     "id": "fur_beanie",
@@ -1367,7 +1388,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 50
+    "order": 50,
+    "image": "images/items/armor/hazmat_helmet.png"
   },
   {
     "id": "hazmat_jacket",
@@ -1386,7 +1408,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 51
+    "order": 51,
+    "image": "images/items/armor/hazmat_jacket.png"
   },
   {
     "id": "hazmat_pants",
@@ -1405,7 +1428,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 52
+    "order": 52,
+    "image": "images/items/armor/hazmat_pants.png"
   },
   {
     "id": "hazmat_shoes",
@@ -1424,7 +1448,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 53
+    "order": 53,
+    "image": "images/items/armor/hazmat_shoes.png"
   },
   {
     "id": "kevlar_helmet",
@@ -1444,7 +1469,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 46
+    "order": 46,
+    "image": "images/items/armor/kevlar_helmet.png"
   },
   {
     "id": "kevlar_body_armor",
@@ -1464,7 +1490,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 47
+    "order": 47,
+    "image": "images/items/armor/kevlar_body_armor.png"
   },
   {
     "id": "kevlar_trousers",
@@ -1484,7 +1511,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 48
+    "order": 48,
+    "image": "images/items/armor/kevlar_trousers.png"
   },
   {
     "id": "kevlar_boots",
@@ -1504,7 +1532,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 49
+    "order": 49,
+    "image": "images/items/armor/kevlar_boots.png"
   },
   {
     "id": "shovel",
@@ -2122,7 +2151,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/minigun.png"
   },
   {
     "id": "milkor_mgl",
@@ -2170,7 +2200,8 @@
       "crooked_creek_farm",
       "blackport_pd"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/katana.png"
   },
   {
     "id": "fn_scar",
@@ -2194,7 +2225,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/fn_scar.png"
   },
   {
     "id": "colt_python",
@@ -2269,7 +2301,8 @@
       "pine_grove",
       "limestone_grove"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/baseball_bat.png"
   },
   {
     "id": "golf_club",
@@ -2338,7 +2371,8 @@
       "motel",
       "crooked_creek_farm"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/paddle.png"
   },
   {
     "id": "road_sign",
@@ -2361,7 +2395,8 @@
       "crooked_creek_farm",
       "limestone_cliffs"
     ],
-    "order": 0
+    "order": 0,
+    "image": "images/items/weapons/road_sign.png"
   },
   {
     "id": "basic_backpack",
@@ -2408,7 +2443,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 62
+    "order": 62,
+    "image": "images/items/armor/tactical_backpack.png"
   },
   {
     "id": "dog_saddle_bag",
@@ -2419,7 +2455,8 @@
     "rarity": "common",
     "stackSize": 1,
     "craftable": true,
-    "order": 30
+    "order": 30,
+    "image": "images/items/special/dog_saddle_bag.png"
   },
   {
     "id": "spiked_collar",
@@ -2430,7 +2467,8 @@
     "rarity": "common",
     "stackSize": 1,
     "craftable": true,
-    "order": 31
+    "order": 31,
+    "image": "images/items/special/spiked_collar.png"
   },
   {
     "id": "protective_coat",
@@ -2441,7 +2479,8 @@
     "rarity": "rare",
     "stackSize": 1,
     "craftable": true,
-    "order": 40
+    "order": 40,
+    "image": "images/items/special/protective_coat.png"
   },
   {
     "id": "reinforced_fur_beanie",
@@ -2540,7 +2579,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 41
+    "order": 41,
+    "image": "images/items/armor/protective_mask.png"
   },
   {
     "id": "anti_spore_mask",
@@ -2559,7 +2599,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 32
+    "order": 32,
+    "image": "images/items/armor/anti_spore_mask.png"
   },
   {
     "id": "anti_spore_jacket",
@@ -2578,7 +2619,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 33
+    "order": 33,
+    "image": "images/items/armor/anti_spore_jacket.png"
   },
   {
     "id": "anti_spore_pants",
@@ -2597,7 +2639,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 34
+    "order": 34,
+    "image": "images/items/armor/anti_spore_pants.png"
   },
   {
     "id": "anti_spore_boots",
@@ -2616,7 +2659,8 @@
     "obtainLocations": [
       "bunker_alfa"
     ],
-    "order": 35
+    "order": 35,
+    "image": "images/items/armor/anti_spore_boots.png"
   },
   {
     "id": "enhanced_anti_spore_mask",
@@ -2636,7 +2680,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 36
+    "order": 36,
+    "image": "images/items/armor/enhanced_anti_spore_mask.png"
   },
   {
     "id": "enhanced_anti_spore_jacket",
@@ -2656,7 +2701,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 37
+    "order": 37,
+    "image": "images/items/armor/enhanced_anti_spore_jacket.png"
   },
   {
     "id": "enhanced_anti_spore_pants",
@@ -2676,7 +2722,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 38
+    "order": 38,
+    "image": "images/items/armor/enhanced_anti_spore_pants.png"
   },
   {
     "id": "enhanced_anti_spore_boots",
@@ -2696,7 +2743,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 39
+    "order": 39,
+    "image": "images/items/armor/enhanced_anti_spore_boots.png"
   },
   {
     "id": "cbrn_combat_helmet",
@@ -2716,7 +2764,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 54
+    "order": 54,
+    "image": "images/items/armor/cbrn_combat_helmet.png"
   },
   {
     "id": "cbrn_combat_armor",
@@ -2736,7 +2785,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 55
+    "order": 55,
+    "image": "images/items/armor/cbrn_combat_armor.png"
   },
   {
     "id": "cbrn_combat_pants",
@@ -2756,7 +2806,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 56
+    "order": 56,
+    "image": "images/items/armor/cbrn_combat_pants.png"
   },
   {
     "id": "cbrn_combat_boots",
@@ -2776,7 +2827,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 57
+    "order": 57,
+    "image": "images/items/armor/cbrn_combat_boots.png"
   },
   {
     "id": "assault_helmet",
@@ -2796,7 +2848,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 58
+    "order": 58,
+    "image": "images/items/armor/assault_helmet.png"
   },
   {
     "id": "assault_body_armor",
@@ -2816,7 +2869,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 59
+    "order": 59,
+    "image": "images/items/armor/assault_body_armor.png"
   },
   {
     "id": "assault_trousers",
@@ -2836,7 +2890,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 60
+    "order": 60,
+    "image": "images/items/armor/assault_trousers.png"
   },
   {
     "id": "assault_boots",
@@ -2856,7 +2911,8 @@
       "bunker_alfa",
       "blackport_pd"
     ],
-    "order": 61
+    "order": 61,
+    "image": "images/items/armor/assault_boots.png"
   },
   {
     "id": "hatchet",
@@ -3856,14 +3912,15 @@
     "description": "Phôi đồng tinh luyện từ quặng đồng. Thành phần chính để tạo ra phôi thép và linh kiện điện tử cao cấp."
   },
   {
-    "id": "bauxite",
-    "name": "Bauxite",
-    "vietnameseName": "Quặng bô-xít nhôm",
+    "id": "aluminium_ore",
+    "name": "Aluminium Ore",
+    "vietnameseName": "Quặng nhôm (Aluminium Ore)",
     "category": "resource_raw",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Quặng chứa nhôm đào được khi khai thác quặng sắt ở vùng đỏ hoặc vùng sồi. Dùng để nung phôi nhôm."
+    "description": "Quặng chứa nhôm đào được khi khai thác quặng sắt ở vùng đỏ hoặc vùng sồi. Dùng để nung phôi nhôm.",
+    "image": "images/items/resources/aluminium_ore.png"
   },
   {
     "id": "titanium_ore",
@@ -3873,7 +3930,8 @@
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Khoáng sản kim loại siêu bền chỉ có tại Đảo chết (Dead Island). Dùng để tinh chế phôi titan siêu cứng."
+    "description": "Khoáng sản kim loại siêu bền chỉ có tại Đảo chết (Dead Island). Dùng để tinh chế phôi titan siêu cứng.",
+    "image": "images/items/resources/titanium_ore.png"
   },
   {
     "id": "titanium_bar",
@@ -3923,7 +3981,8 @@
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Vật liệu nhựa tổng hợp bền chắc dùng trong nhiều công thức chế tạo trang bị điện tử và vũ khí hiện đại."
+    "description": "Vật liệu nhựa tổng hợp bền chắc dùng trong nhiều công thức chế tạo trang bị điện tử và vũ khí hiện đại.",
+    "image": "images/items/components/plastic.png"
   },
   {
     "id": "scrap_metal",
@@ -3933,17 +3992,19 @@
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Các mảnh sắt vụn phế liệu nhặt từ bãi rác, xe hơi cũ hoặc nhà máy. Có thể nung thành phôi sắt."
+    "description": "Các mảnh sắt vụn phế liệu nhặt từ bãi rác, xe hơi cũ hoặc nhà máy. Có thể nung thành phôi sắt.",
+    "image": "images/items/resources/scrap_metal.png"
   },
   {
-    "id": "wire",
-    "name": "Wire",
-    "vietnameseName": "Cuộn dây điện",
+    "id": "wiring",
+    "name": "Wiring",
+    "vietnameseName": "Cuộn dây điện (Wiring)",
     "category": "component",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Dây đồng bọc cách điện dùng sửa chữa các tháp canh, máy phát điện và thiết bị điện tử."
+    "description": "Dây đồng bọc cách điện dùng sửa chữa các tháp canh, máy phát điện và thiết bị điện tử.",
+    "image": "images/items/components/wiring.png"
   },
   {
     "id": "atv_transmission",
@@ -3983,7 +4044,8 @@
     "stackSize": 1,
     "craftable": false,
     "order": 0,
-    "description": "Bình thép chứa khí nén áp suất cao kiếm được tại Bunker Bravo. Dùng để hoàn thiện khung gầm xe ATV."
+    "description": "Bình thép chứa khí nén áp suất cao kiếm được tại Bunker Bravo. Dùng để hoàn thiện khung gầm xe ATV.",
+    "image": "images/items/components/gas_cylinder.png"
   },
   {
     "id": "caps",
@@ -4061,27 +4123,30 @@
     "consumableStats": {
       "thirst": 50
     },
-    "description": "Nước lọc tinh khiết đóng chai nhựa, hồi phục 50 độ khát. Có thể hứng lại nước mưa bằng máy lọc nước."
+    "description": "Nước lọc tinh khiết đóng chai nhựa, hồi phục 50 độ khát. Có thể hứng lại nước mưa bằng máy lọc nước.",
+    "image": "images/items/resources/bottle_of_water.png"
   },
   {
-    "id": "gold_watch",
-    "name": "Gold Watch",
-    "vietnameseName": "Đồng hồ vàng",
+    "id": "expensive_watches",
+    "name": "Expensive Watches",
+    "vietnameseName": "Đồng hồ đắt tiền (Expensive Watches)",
     "category": "special",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Đồng hồ cơ mạ vàng nhặt từ các vali máy bay rơi hoặc xác zombie. Rất được lái buôn Joe ưa thích."
+    "description": "Đồng hồ cơ mạ vàng nhặt từ các vali máy bay rơi hoặc xác zombie. Rất được lái buôn Joe ưa thích.",
+    "image": "images/items/special/expensive_watches.png"
   },
   {
-    "id": "cell_phone",
-    "name": "Cell Phone",
-    "vietnameseName": "Điện thoại cũ",
+    "id": "mobile_phone",
+    "name": "Mobile Phone",
+    "vietnameseName": "Điện thoại di động (Mobile Phone)",
     "category": "special",
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Điện thoại di động hỏng. Có thể đem vào máy phân rã Recycler để lấy linh kiện điện tử, vàng và đồng bóng."
+    "description": "Điện thoại di động hỏng. Có thể đem vào máy phân rã Recycler để lấy linh kiện điện tử, vàng và đồng bóng.",
+    "image": "images/items/special/mobile_phone.png"
   },
   {
     "id": "chopper_wheel",
@@ -4108,7 +4173,8 @@
       "range": 6,
       "durability": 1
     },
-    "description": "Lựu đạn nổ mảnh sát thương diện rộng 200 damage. Vũ khí cực kỳ hiệu quả để dọn sạch các đợt sóng zombie ở Blackport PD."
+    "description": "Lựu đạn nổ mảnh sát thương diện rộng 200 damage. Vũ khí cực kỳ hiệu quả để dọn sạch các đợt sóng zombie ở Blackport PD.",
+    "image": "images/items/weapons/grenade.png"
   },
   {
     "id": "chopper_fork",
@@ -4158,7 +4224,8 @@
     "stackSize": 20,
     "craftable": true,
     "order": 0,
-    "description": "Tấm nhôm cán nguội từ thỏi nhôm trên bàn ép Workbench. Vật liệu quan trọng cho các bản mod súng cao cấp."
+    "description": "Tấm nhôm cán nguội từ thỏi nhôm trên bàn ép Workbench. Vật liệu quan trọng cho các bản mod súng cao cấp.",
+    "image": "images/items/resources/aluminium_plate.png"
   },
   {
     "id": "transistor",
@@ -4168,7 +4235,8 @@
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Linh kiện điện tử 3 chân thiết yếu dùng để sửa chữa máy Terminal tại Sở cảnh sát Blackport PD, đài radio CB và nâng cấp máy móc."
+    "description": "Linh kiện điện tử 3 chân thiết yếu dùng để sửa chữa máy Terminal tại Sở cảnh sát Blackport PD, đài radio CB và nâng cấp máy móc.",
+    "image": "images/items/components/transistor.png"
   },
   {
     "id": "usb_drive",
@@ -4178,7 +4246,8 @@
     "stackSize": 20,
     "craftable": false,
     "order": 0,
-    "description": "Ổ lưu trữ dữ liệu USB flash. Dùng để nạp dữ liệu sửa Terminal #4 tại Blackport PD hoặc phân rã trong Recycler để tìm Bảng mạch điện tử (Electronic Circuit)."
+    "description": "Ổ lưu trữ dữ liệu USB flash. Dùng để nạp dữ liệu sửa Terminal #4 tại Blackport PD hoặc phân rã trong Recycler để tìm Bảng mạch điện tử (Electronic Circuit).",
+    "image": "images/items/components/usb_drive.png"
   },
   {
     "id": "barn_key",
@@ -4345,7 +4414,8 @@
     "rarity": "common",
     "stackSize": 20,
     "craftable": false,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/empty_bottle.png"
   },
   {
     "id": "steak",
@@ -4455,7 +4525,8 @@
     "rarity": "rare",
     "stackSize": 20,
     "craftable": true,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/rubber.png"
   },
   {
     "id": "peat",
@@ -4543,7 +4614,8 @@
     "rarity": "common",
     "stackSize": 20,
     "craftable": false,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/seaweed.png"
   },
   {
     "id": "iodine",
@@ -4557,15 +4629,16 @@
     "order": 0
   },
   {
-    "id": "carrot_seeds",
-    "name": "Carrot Seeds",
-    "vietnameseName": "Hạt giống cà rốt",
+    "id": "seeds",
+    "name": "Seeds",
+    "vietnameseName": "Hạt giống (Seeds)",
     "description": "Seeds for growing fresh carrots in the garden bed.",
     "category": "resource_raw",
     "rarity": "common",
     "stackSize": 20,
     "craftable": false,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/seeds.png"
   },
   {
     "id": "corn_seeds",
@@ -4598,7 +4671,8 @@
     "rarity": "rare",
     "stackSize": 20,
     "craftable": true,
-    "order": 0
+    "order": 0,
+    "image": "images/items/resources/acid.png"
   },
   {
     "id": "sprouts",
@@ -4709,5 +4783,179 @@
     "stackSize": 20,
     "craftable": true,
     "order": 0
+  },
+  {
+    "id": "thick_hide",
+    "name": "Thick Hide",
+    "vietnameseName": "Da thú dày",
+    "description": "Da dày thô thu được từ các loài thú biến dị ở vùng đầm lầy hoặc vùng tuyết. Dùng để xử lý thành Da dày (Thick Leather) trên Giá sấy da.",
+    "category": "resource_raw",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/resources/thick_hide.png"
+  },
+  {
+    "id": "empty_canister",
+    "name": "Empty Canister",
+    "vietnameseName": "Can xăng rỗng",
+    "description": "Bình can rỗng dùng để hút xăng từ xe Chopper của căn cứ địch hoặc từ bồn chứa.",
+    "category": "resource_raw",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/resources/empty_canister.png"
+  },
+  {
+    "id": "hammer",
+    "name": "Hammer",
+    "vietnameseName": "Búa thợ",
+    "description": "Dụng cụ sửa chữa và gia công vũ khí, linh kiện không thể thiếu trong nhiều bản mod súng/cận chiến.",
+    "category": "tool",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/tools/hammer.png"
+  },
+  {
+    "id": "guitar",
+    "name": "Guitar",
+    "vietnameseName": "Đàn ghi-ta",
+    "description": "Vũ khí cận chiến giải trí độc đáo, gây sát thương vừa phải và tạo âm thanh vui nhộn khi đánh trúng.",
+    "category": "weapon_melee",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 25,
+      "attackSpeed": 1,
+      "durability": 60,
+      "range": 1.5,
+      "sneakMultiplier": 3,
+      "isFirearm": false,
+      "dps": 25
+    },
+    "order": 0,
+    "image": "images/items/weapons/guitar.png"
+  },
+  {
+    "id": "scythe",
+    "name": "Scythe",
+    "vietnameseName": "Lưỡi hái tử thần",
+    "description": "Vũ khí cận chiến sắc bén thu được từ Crooked Creek Farm, tầm đánh xa và sát thương cao.",
+    "category": "weapon_melee",
+    "rarity": "rare",
+    "stackSize": 1,
+    "craftable": false,
+    "weaponStats": {
+      "damage": 45,
+      "attackSpeed": 0.8,
+      "durability": 70,
+      "range": 1.8,
+      "sneakMultiplier": 3,
+      "isFirearm": false,
+      "dps": 36
+    },
+    "order": 0,
+    "image": "images/items/weapons/scythe.png"
+  },
+  {
+    "id": "adhesive",
+    "name": "Adhesive",
+    "vietnameseName": "Keo dán chuyên dụng",
+    "description": "Keo dán tổng hợp công nghiệp dùng để gắn kết kim loại, sợi composite và chế tạo các bản mod vũ khí cao cấp.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/adhesive.png"
+  },
+  {
+    "id": "batteries",
+    "name": "Batteries",
+    "vietnameseName": "Pin tiểu AA",
+    "description": "Pin tiểu đã qua sử dụng, có thể phân rã trong Recycler để lấy chì, đồng hoặc dùng trong thiết bị điện.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/batteries.png"
+  },
+  {
+    "id": "camera",
+    "name": "Camera",
+    "vietnameseName": "Máy ảnh",
+    "description": "Máy ảnh cũ hỏng nhặt được từ các khu vực nguy hiểm. Đem vào Recycler để thu hồi thấu kính (Lens), bảng mạch và linh kiện giá trị.",
+    "category": "special",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/special/camera.png"
+  },
+  {
+    "id": "cog",
+    "name": "Cog",
+    "vietnameseName": "Bánh răng",
+    "description": "Bánh răng cơ khí chịu lực cao thu được từ Bunker Bravo, dùng để lắp ráp xe ATV và các cỗ máy công nghiệp.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/cog.png"
+  },
+  {
+    "id": "heat_sensor",
+    "name": "Heat Sensor",
+    "vietnameseName": "Cảm biến nhiệt",
+    "description": "Linh kiện điện tử cao cấp dùng để chế tạo súng tháp canh (Turret) tự động nhận diện mục tiêu và mod vũ khí.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/heat_sensor.png"
+  },
+  {
+    "id": "light_bulb",
+    "name": "Light Bulb",
+    "vietnameseName": "Bóng đèn sợi đốt",
+    "description": "Bóng đèn cũ dùng để thắp sáng hoặc phân giải trong máy tái chế để lấy thủy tinh và linh kiện.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/light_bulb.png"
+  },
+  {
+    "id": "lock_and_key",
+    "name": "Lock",
+    "vietnameseName": "Ổ khóa và chìa",
+    "description": "Ổ khóa cơ khí dùng để gia cố hòm đồ bảo vệ tài sản hoặc nâng cấp cửa phòng trong căn cứ.",
+    "category": "component",
+    "rarity": "common",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/lock_and_key.png"
+  },
+  {
+    "id": "propeller",
+    "name": "Propeller",
+    "vietnameseName": "Chân vịt thuyền máy",
+    "description": "Cánh quạt chân vịt chịu nước mặn, phụ tùng tối quan trọng để hoàn thành Thuyền máy (Motorboat) vượt biển.",
+    "category": "component",
+    "rarity": "rare",
+    "stackSize": 20,
+    "craftable": false,
+    "order": 0,
+    "image": "images/items/components/propeller.png"
   }
 ]

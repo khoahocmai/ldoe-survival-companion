@@ -68,7 +68,7 @@ describe('itemFilters & item ordering', () => {
   it('should match backpacks in armor filter and exclude them from components', () => {
     const backpack = createMockItem({ id: 'basic_backpack', category: 'special' });
     const c4 = createMockItem({ id: 'c4_explosive', category: 'special' });
-    const bolt = createMockItem({ id: 'bolt', category: 'component' });
+    const bolt = createMockItem({ id: 'bolts', category: 'component' });
 
     expect(matchesItemFilter(backpack, 'armor')).toBe(true);
     expect(matchesItemFilter(backpack, 'components')).toBe(false);

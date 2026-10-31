@@ -2,7 +2,7 @@ import { StructureCycleItem } from '../../types';
 
 export const DEFAULT_CHOPPER_ACCEPTED_ITEMS: StructureCycleItem[] = [
   {
-    itemId: 'bolt',
+    itemId: 'bolts',
     valuePerItem: 3,
     dailyLimit: 100,
     tier: 'recommended',
