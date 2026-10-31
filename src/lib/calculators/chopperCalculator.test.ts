@@ -29,7 +29,7 @@ describe('chopperCalculator', () => {
       const partialResult = calculateChopperUpgrade({
         currentLevel: 42,
         currentExp: 3610,
-        donations: { bolt: 100 },
+        donations: { bolts: 100 },
         acceptedItems: DEFAULT_CHOPPER_ACCEPTED_ITEMS,
       });
 
@@ -43,7 +43,7 @@ describe('chopperCalculator', () => {
         currentLevel: 42,
         currentExp: 3610,
         donations: {
-          bolt: 100,
+          bolts: 100,
           ball_bearing: 50,
           iron_plate: 15,
           leather: 8,
@@ -124,7 +124,7 @@ describe('chopperCalculator', () => {
     it('returns only recommended items up to dailyLimit', () => {
       const combo = getOptimalJunkCombo(DEFAULT_CHOPPER_ACCEPTED_ITEMS);
 
-      expect(combo.bolt).toBe(100);
+      expect(combo.bolts).toBe(100);
       expect(combo.ball_bearing).toBe(50);
       expect(combo.iron_plate).toBe(15);
       expect(combo.copper_bar).toBeUndefined();

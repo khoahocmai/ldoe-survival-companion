@@ -9,7 +9,7 @@ describe('Task 1: Weapon Mod Types & Components', () => {
       'carbon_composite',
       'spring',
       'hi_tech_component',
-      'oil',
+      'gun_oil',
       'lens',
     ];
 
@@ -74,7 +74,7 @@ describe('Task 1: LocationStructure Frequency & Chopper Items', () => {
         maxLevel: 100,
         acceptedItems: [
           {
-            itemId: 'bolt',
+            itemId: 'bolts',
             valuePerItem: 3,
             dailyLimit: 100,
             tier: 'recommended',
@@ -91,7 +91,7 @@ describe('Task 1: LocationStructure Frequency & Chopper Items', () => {
     };
 
     expect(structure.frequency).toBe('recurring');
-    expect(structure.cycleConfig?.acceptedItems[0].itemId).toBe('bolt');
+    expect(structure.cycleConfig?.acceptedItems[0].itemId).toBe('bolts');
     expect(structure.cycleConfig?.acceptedItems[0].valuePerItem).toBe(3);
   });
 });

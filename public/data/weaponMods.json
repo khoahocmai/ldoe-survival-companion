@@ -27,7 +27,7 @@
         "quantity": 4
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 2
       }
     ],
@@ -124,7 +124,7 @@
         "quantity": 6
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       }
     ],
@@ -174,7 +174,7 @@
     },
     "materials": [
       {
-        "itemId": "bone",
+        "itemId": "big_bones",
         "quantity": 12
       },
       {
@@ -216,7 +216,7 @@
         "quantity": 5
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 3
       }
     ],
@@ -272,7 +272,7 @@
     },
     "materials": [
       {
-        "itemId": "bone",
+        "itemId": "big_bones",
         "quantity": 15
       },
       {
@@ -302,7 +302,7 @@
     },
     "materials": [
       {
-        "itemId": "bone",
+        "itemId": "big_bones",
         "quantity": 10
       },
       {
@@ -367,7 +367,7 @@
         "quantity": 8
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 4
       },
       {
@@ -395,7 +395,7 @@
         "quantity": 10
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 12
       },
       {
@@ -427,7 +427,7 @@
         "quantity": 6
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       }
     ],
@@ -553,7 +553,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 6
       }
     ],
@@ -581,7 +581,7 @@
         "quantity": 10
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 5
       },
       {
@@ -609,7 +609,7 @@
         "quantity": 12
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 14
       },
       {
@@ -678,7 +678,7 @@
         "quantity": 6
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 8
       }
     ],
@@ -777,7 +777,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       }
     ],
@@ -830,7 +830,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 8
       },
       {
@@ -867,7 +867,7 @@
         "quantity": 12
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 6
       }
     ],
@@ -890,7 +890,7 @@
         "quantity": 12
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 12
       },
       {
@@ -1058,7 +1058,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 8
       }
     ],
@@ -1124,7 +1124,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 6
       }
     ],
@@ -1151,7 +1151,7 @@
         "quantity": 6
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 6
       }
     ],
@@ -1181,11 +1181,11 @@
         "quantity": 8
       },
       {
-        "itemId": "oil",
+        "itemId": "gun_oil",
         "quantity": 4
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       }
     ],
@@ -1209,7 +1209,7 @@
         "quantity": 10
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 8
       },
       {
@@ -1241,7 +1241,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 6
       }
     ],
@@ -1326,7 +1326,7 @@
     },
     "materials": [
       {
-        "itemId": "bone",
+        "itemId": "big_bones",
         "quantity": 10
       },
       {
@@ -1444,7 +1444,7 @@
     },
     "materials": [
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 8
       },
       {
@@ -1498,7 +1498,7 @@
     },
     "materials": [
       {
-        "itemId": "bone",
+        "itemId": "big_bones",
         "quantity": 8
       },
       {

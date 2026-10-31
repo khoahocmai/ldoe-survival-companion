@@ -37,7 +37,7 @@
     ],
     "loot": [
       "rope",
-      "cloth",
+      "piece_of_cloth",
       "bandages"
     ],
     "notes": "Có thể dọn sạch chỉ bằng 1 cây Spear hoặc vài cú đánh Crowbar."
@@ -58,14 +58,14 @@
     ],
     "resources": [
       "pine_log",
-      "raw_hide",
+      "animal_rawhide",
       "plant_fiber",
       "limestone"
     ],
     "loot": [
       "duct_tape",
       "rope",
-      "cloth",
+      "piece_of_cloth",
       "green_coupon"
     ],
     "notes": "Nên mang theo ít nhất 1 vũ khí tốt như Cleaver hoặc Crowbar và 10 miếng băng gạc Bandages."
@@ -88,9 +88,9 @@
     ],
     "resources": [
       "pine_log",
-      "raw_hide",
+      "animal_rawhide",
       "iron_ore",
-      "bauxite"
+      "aluminium_ore"
     ],
     "loot": [
       "duct_tape",
@@ -119,7 +119,7 @@
     ],
     "loot": [
       "rope",
-      "cloth"
+      "piece_of_cloth"
     ],
     "notes": "Mang theo 2 chiếc cuốc đá Pickaxe để đào hết toàn bộ khoáng sản."
   },
@@ -144,7 +144,7 @@
     ],
     "loot": [
       "duct_tape",
-      "wire",
+      "wiring",
       "green_coupon",
       "yellow_coupon"
     ],
@@ -168,7 +168,7 @@
     "resources": [
       "iron_ore",
       "limestone",
-      "bauxite"
+      "aluminium_ore"
     ],
     "loot": [
       "nails",
@@ -200,8 +200,8 @@
     "loot": [
       "duct_tape",
       "yellow_coupon",
-      "cloth",
-      "raw_hide"
+      "piece_of_cloth",
+      "animal_rawhide"
     ],
     "notes": "Bắt buộc phải mang Rìu sắt (Iron Hatchet) mới chặt được thân cây sồi. Mặc quần áo giữ ấm cơ bản."
   },
@@ -225,7 +225,7 @@
       "iron_ore"
     ],
     "loot": [
-      "cloth",
+      "piece_of_cloth",
       "rope",
       "nails",
       "leather"
@@ -252,7 +252,7 @@
     "loot": [
       "aluminium_bar",
       "first_aid_kit",
-      "gasoline",
+      "fuel_canister",
       "tactical_boots"
     ],
     "notes": "Bắt buộc phải mặc đầy đủ Bộ giáp lông thú (Fur Armor Set) hoặc nhóm lửa sưởi bằng gỗ để tránh bị chết cóng!"
@@ -424,7 +424,7 @@
     "resources": [
       "pine_log",
       "limestone",
-      "raw_hide",
+      "animal_rawhide",
       "raw_meat"
     ],
     "loot": [
@@ -538,7 +538,7 @@
     ],
     "resources": [],
     "loot": [
-      "gasoline",
+      "fuel_canister",
       "caps",
       "engine_part",
       "rubber_parts",
@@ -567,7 +567,7 @@
     "loot": [
       "canned_food",
       "bottle_of_water",
-      "cloth",
+      "piece_of_cloth",
       "rope",
       "engine_part"
     ],
@@ -589,7 +589,7 @@
     "loot": [
       "electronic_circuit",
       "rubber_parts",
-      "bolt"
+      "bolts"
     ],
     "notes": "Đi lại giữa Căn cứ chính và Khu định cư hoàn toàn MIỄN PHÍ (0 năng lượng)."
   },
@@ -615,7 +615,7 @@
       "factory_parts",
       "electronic_circuit",
       "engine_part",
-      "bolt"
+      "bolts"
     ],
     "notes": "Cẩn thận khóa van khí độc trước khi bước vào kho hàng. Có người sống sót NPC bị kẹt cần giải cứu."
   },
@@ -634,7 +634,7 @@
       "toxic_spitter"
     ],
     "resources": [
-      "raw_hide",
+      "animal_rawhide",
       "raw_meat"
     ],
     "loot": [
@@ -683,8 +683,8 @@
       "pine_log"
     ],
     "loot": [
-      "bone",
-      "raw_hide",
+      "big_bones",
+      "animal_rawhide",
       "witch_head"
     ],
     "notes": "Không có rương đồ thông thường! Đem C4 đốt tổ kén và tiêu diệt Phù thủy lấy Đầu phù thủy (Witch's Head) về đốt xua đuổi bầy zombie phá nhà."
@@ -707,7 +707,7 @@
     "loot": [
       "iron_bar",
       "duct_tape",
-      "cloth",
+      "piece_of_cloth",
       "bandages",
       "first_aid_kit",
       "factory_parts"
@@ -730,7 +730,7 @@
     ],
     "resources": [],
     "loot": [
-      "bone",
+      "big_bones",
       "steel_bar",
       "electronic_circuit",
       "hi_tech_component"
@@ -901,7 +901,7 @@
     "loot": [
       "wrench",
       "electronic_circuit",
-      "bolt"
+      "bolts"
     ],
     "notes": "Cần lắp ráp Máy phát điện chở bằng Chopper. Khi bật nguồn điện, boss Screech sẽ xuất hiện khóa cổng."
   },
@@ -923,14 +923,14 @@
       "limestone"
     ],
     "loot": [
-      "wire",
+      "wiring",
       "electronic_circuit",
-      "bolt"
+      "bolts"
     ],
     "notes": "Cần dây điện, bóng đèn và ốc vít để khôi phục bảng điều khiển. Bật nguồn sẽ kích hoạt bầy quái xông ra tấn công tháp."
   },
   {
-    "id": "airdrop",
+    "id": "air_drop",
     "name": "Air Drop",
     "vietnameseName": "Hòm thính cứu trợ thả dù",
     "difficulty": "event",
@@ -950,7 +950,8 @@
       "tactical_body_armor",
       "canned_food"
     ],
-    "notes": "Rất dễ ăn và hữu ích cho người chơi mới. Đôi khi có 1 người sống sót NPC cầm súng ngắn chạy tới tranh giành hòm."
+    "notes": "Rất dễ ăn và hữu ích cho người chơi mới. Đôi khi có 1 người sống sót NPC cầm súng ngắn chạy tới tranh giành hòm.",
+    "image": "images/locations/air_drop.png"
   },
   {
     "id": "crashed_plane",
@@ -969,8 +970,8 @@
       "sneakers",
       "bottle_of_water",
       "canned_food",
-      "gold_watch",
-      "cell_phone"
+      "expensive_watches",
+      "mobile_phone"
     ],
     "notes": "Sự kiện khởi đầu xuất hiện từ 2 - 3 lần cho người chơi mới. Quái vật rất yếu và đồ đạc cực kỳ nhiều, hãy mang theo túi đồ trống!"
   },
@@ -1031,7 +1032,7 @@
     ],
     "resources": [],
     "loot": [
-      "gasoline",
+      "fuel_canister",
       "glock_17",
       "m16",
       "grenade",
@@ -1060,7 +1061,7 @@
       "engine_part",
       "steel_plate",
       "rubber_parts",
-      "gasoline",
+      "fuel_canister",
       "atv_tracks"
     ],
     "notes": "Cần nâng cấp xe Chopper lên cấp 40+ tại Trạm xăng mới có thể tham gia. Đem theo súng và đồ giải cứu máy móc."

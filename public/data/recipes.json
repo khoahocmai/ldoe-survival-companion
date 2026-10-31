@@ -194,7 +194,7 @@
     "levelRequired": 2,
     "ingredients": [
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 5
       }
     ]
@@ -253,7 +253,7 @@
         "quantity": 20
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 55
       },
       {
@@ -265,7 +265,7 @@
         "quantity": 40
       },
       {
-        "itemId": "gasoline",
+        "itemId": "fuel_canister",
         "quantity": 10
       },
       {
@@ -291,7 +291,7 @@
         "quantity": 2
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 1
       }
     ]
@@ -309,7 +309,7 @@
         "quantity": 3
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 3
       }
     ]
@@ -327,7 +327,7 @@
         "quantity": 3
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 3
       },
       {
@@ -349,7 +349,7 @@
         "quantity": 2
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 1
       },
       {
@@ -453,7 +453,7 @@
         "quantity": 5
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 5
       }
     ]
@@ -723,7 +723,7 @@
         "quantity": 20
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 15
       },
       {
@@ -745,7 +745,7 @@
         "quantity": 20
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 15
       },
       {
@@ -1053,7 +1053,7 @@
         "quantity": 5
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 3
       },
       {
@@ -1075,7 +1075,7 @@
         "quantity": 5
       },
       {
-        "itemId": "raw_hide",
+        "itemId": "animal_rawhide",
         "quantity": 1
       },
       {
@@ -1093,11 +1093,11 @@
     "levelRequired": 30,
     "ingredients": [
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 5
       },
       {
-        "itemId": "gasoline",
+        "itemId": "fuel_canister",
         "quantity": 2
       },
       {
@@ -1562,7 +1562,7 @@
         "quantity": 5
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 5
       }
     ]
@@ -1611,7 +1611,7 @@
         "quantity": 5
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 5
       }
     ]
@@ -1634,7 +1634,7 @@
         "quantity": 1
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 2
       }
     ]
@@ -1729,7 +1729,7 @@
         "quantity": 2
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 3
       },
       {
@@ -1915,7 +1915,7 @@
         "quantity": 2
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 3
       }
     ]
@@ -1999,7 +1999,7 @@
         "quantity": 15
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       },
       {
@@ -2099,7 +2099,7 @@
         "quantity": 10
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       },
       {
@@ -2129,7 +2129,7 @@
         "quantity": 10
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 10
       },
       {
@@ -2177,7 +2177,7 @@
         "quantity": 10
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 5
       },
       {
@@ -2203,7 +2203,7 @@
         "quantity": 10
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 10
       },
       {
@@ -2233,7 +2233,7 @@
         "quantity": 5
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 5
       }
     ]
@@ -2251,7 +2251,7 @@
         "quantity": 10
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 1
       },
       {
@@ -2327,7 +2327,7 @@
     "craftTimeSeconds": 0,
     "ingredients": [
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 5
       },
       {
@@ -2397,7 +2397,7 @@
         "quantity": 8
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 5
       }
     ]
@@ -2415,7 +2415,7 @@
         "quantity": 8
       },
       {
-        "itemId": "bolt",
+        "itemId": "bolts",
         "quantity": 5
       }
     ]
@@ -2433,7 +2433,7 @@
         "quantity": 5
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 2
       },
       {
@@ -2495,7 +2495,7 @@
         "quantity": 15
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 10
       },
       {
@@ -2601,7 +2601,7 @@
         "quantity": 5
       },
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 2
       }
     ]
@@ -2889,7 +2889,7 @@
     "levelRequired": 6,
     "ingredients": [
       {
-        "itemId": "bauxite",
+        "itemId": "aluminium_ore",
         "quantity": 4
       }
     ]
@@ -2998,7 +2998,7 @@
   },
   {
     "id": "recipe_cloth",
-    "outputItemId": "cloth",
+    "outputItemId": "piece_of_cloth",
     "outputQuantity": 1,
     "category": "processing",
     "workstation": "Sewing Table",
@@ -3021,7 +3021,7 @@
     "levelRequired": 18,
     "ingredients": [
       {
-        "itemId": "cloth",
+        "itemId": "piece_of_cloth",
         "quantity": 2
       }
     ]
@@ -3051,7 +3051,7 @@
     "levelRequired": 14,
     "ingredients": [
       {
-        "itemId": "raw_hide",
+        "itemId": "animal_rawhide",
         "quantity": 1
       }
     ]
@@ -3156,7 +3156,7 @@
     "levelRequired": 2,
     "ingredients": [
       {
-        "itemId": "carrot_seeds",
+        "itemId": "seeds",
         "quantity": 1
       }
     ]
@@ -3400,5 +3400,19 @@
       "buffEffect": "+10 armor rating",
       "durationSeconds": 600
     }
+  },
+  {
+    "id": "recipe_thick_leather",
+    "outputItemId": "thick_leather",
+    "outputQuantity": 1,
+    "category": "processing",
+    "workstation": "Tanning Rack",
+    "craftTimeSeconds": 360,
+    "ingredients": [
+      {
+        "itemId": "thick_hide",
+        "quantity": 1
+      }
+    ]
   }
 ]
